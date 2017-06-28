@@ -1,0 +1,17 @@
+Algoritmo: Determinar se é um triângulo com base nas medidas dos lados
+
+Requisitos:
+	Valor a
+	Valor b
+	Valor c
+
+Inicio
+	escreva("Digite as medidas dos lados do triangulo")
+	leia(a,b,c)
+	
+	se((|a-b|<c) e (c<a+b)) ou ((|a-c|<b) e (b<a+c)) ou ((|c-b|<a) e (a<c+b)) entao
+		escreva("É um triângulo")
+	senao
+		escreva("Não é um triângulo")
+	fimse
+Fim

@@ -1,0 +1,25 @@
+Algoritmo: Determinar qual o tipo de triângulo com base nas medidas dos lados do triângulo
+
+Requisitos:
+	Lado a
+	Lado b
+	Lado c
+
+Inicio
+
+	escreva("Digite a medidas dos lados do triangulo")
+	leia(a,b,c)
+
+	se((|a-b|<c) e (c<a+b)) ou ((|a-c|<b) e (b<a+c)) ou ((|c-b|<a) e (a<c+b)) entao
+		se (a=b) e (b=c) entao
+			escreva("Triângulo equilátero")
+		senao se ((a=b) e (a<>c)) ou ((a=c) e (a<>b)) ou ((b=c) e (b<>a)) entao
+			escreva("Triângulo isósceles")
+		senao
+			escreva("Triângulo escaleno")
+		fimse
+	senao
+		escreva("Não é um triângulo")
+	fimse
+	
+Fim
