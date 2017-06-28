@@ -1,0 +1,9 @@
+# depslib dependency file v1.0
+1492028555 source:/home/bcc/740951/aula_12-04/main.c
+	<stdio.h>
+	<stdlib.h>
+
+1492029342 source:/home/bcc/740951/aula_12-04/triangulo.c
+	<stdio.h>
+	<math.h>
+
