@@ -9,6 +9,13 @@ typedef struct {
     float saldo;
 } Conta;
 
+float get_saldo( Conta &conta ) {
+    return conta.saldo;
+}
+
+void set_saldo( Conta &conta ) {
+    conta.saldo;
+}
 int main() {
     Conta conta;
 
