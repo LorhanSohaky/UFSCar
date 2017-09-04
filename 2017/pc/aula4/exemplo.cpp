@@ -31,13 +31,13 @@ void Horario::printUniversal() {
 
 void Horario::printStandard() {
     std::cout << ( ( hora >= 0 && hora < 12 ) ? hora : ( hora % 12 ) ) << ":" << minuto << ":"
-              << segundo << '\n';
+              << segundo << " " << ( ( hora < 12 ) ? "AM" : "PM" ) << '\n';
 }
 
 int main() {
     Horario porDoSol( 10, 1, 0 );
 
-    porDoSol.setHorario( 18, 0, 0 );
+    porDoSol.setHorario( 12, 0, 0 );
 
     porDoSol.printStandard();
 
