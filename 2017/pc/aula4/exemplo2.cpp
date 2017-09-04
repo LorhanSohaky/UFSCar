@@ -15,25 +15,25 @@ class ArCondicionado {
     }
 
     void aumentaTemperatura() {
-        if( temperatura < 32 ) {
+        if( estado == true && temperatura < 32 ) {
             temperatura++;
         }
     }
 
     void diminuiTemperatura() {
-        if( temperatura > 16 ) {
+        if( estado == true && temperatura > 16 ) {
             temperatura--;
         }
     }
 
     void aumentaVelocidade() {
-        if( velocidade < 3 ) {
+        if( estado == true && velocidade < 3 ) {
             velocidade++;
         }
     }
 
     void diminuiVelocidade() {
-        if( velocidade > 1 ) {
+        if( estado == true && velocidade > 1 ) {
             velocidade--;
         }
     }
@@ -43,8 +43,8 @@ class ArCondicionado {
             std::cout << "Ar condicionado desligado" << '\n';
         } else {
             std::cout << "Ar condicionado ligado" << '\n';
-            std::cout << "Temperatura" << temperatura << '\n';
-            std::cout << "Velocidade" << velocidade << '\n';
+            std::cout << "Temperatura: " << temperatura << '\n';
+            std::cout << "Velocidade: " << velocidade << '\n';
         }
     }
 
@@ -55,5 +55,7 @@ class ArCondicionado {
 
 int main() {
     ArCondicionado ar( 1 );
+    ar.ligaDesliga();
+    ar.mostrar();
     return 0;
 }
