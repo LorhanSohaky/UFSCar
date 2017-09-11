@@ -1,5 +1,24 @@
 #include "SmartWatch.h"
 
+SmartWatch::SmartWatch( String marca,
+                        String modelo,
+                        int hora,
+                        int minuto,
+                        int segundo,
+                        int batimentosCardiaco,
+                        int nivelBateria,
+                        bool receberNotificacoes ) {
+    setMarca( marca );
+    setModelo( modelo );
+    setHora( hora );
+    setMinuto( minuto );
+    setSegundo( segundo );
+    this->passos = 0;
+    setBatimentosCardiaco( batimentosCardiaco );
+    setNivelBateria( nivelBateria );
+    setReceberNotificacoes( receberNotificacoes );
+}
+
 void SmartWatch::setMarca( const String marca ) {
     this->marca = marca;
 }

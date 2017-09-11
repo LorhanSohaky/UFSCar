@@ -1,3 +1,5 @@
+#include <string>
+
 class SmartWatch {
   private:
     String marca, modelo;
@@ -5,6 +7,14 @@ class SmartWatch {
     bool receberNotificacoes;
 
   public:
+    SmartWatch( String marca,
+                String modelo,
+                int hora = 0,
+                int minuto = 0,
+                int segundo = 0,
+                int batimentosCardiaco = 0,
+                int nivelBateria = 100,
+                bool receberNotificacoes = true );
     void setMarca( const String marca );
     void setModelo( const String modelo );
     void setHora( const int hora );
