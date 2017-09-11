@@ -1,13 +1,17 @@
 #include "SmartWatch.h"
+#include <iostream>
+#include <string>
 
-SmartWatch::SmartWatch( String marca,
-                        String modelo,
-                        int hora,
-                        int minuto,
-                        int segundo,
-                        int batimentosCardiaco,
-                        int nivelBateria,
-                        bool receberNotificacoes ) {
+using namespace std;
+
+SmartWatch::SmartWatch( const string marca,
+                        const string modelo,
+                        const int hora,
+                        const int minuto,
+                        const int segundo,
+                        const int batimentosCardiaco,
+                        const int nivelBateria,
+                        const bool receberNotificacoes ) {
     setMarca( marca );
     setModelo( modelo );
     setHora( hora );
@@ -19,11 +23,20 @@ SmartWatch::SmartWatch( String marca,
     setReceberNotificacoes( receberNotificacoes );
 }
 
-void SmartWatch::setMarca( const String marca ) {
+void printDados( void ) {
+    std::cout << "Marca: " << getMarca() << '\n';
+    std::cout << "Modelo: " << getModelo() << '\n';
+    std::cout << "Horário: " << getHora() << ":" << getMinuto() << ":" << getSegundo() << '\n';
+    std::cout << "Batimentos cardiacos: " << getBatimentosCardiaco() << '\n';
+    std::cout << "Nivel da bateria: " << getNivelBateria() << '\n';
+    std::cout << "Receber notificações:" << isReceberNotificacoes() << '\n';
+}
+
+void SmartWatch::setMarca( const string marca ) {
     this->marca = marca;
 }
 
-void SmartWatch::setModelo( const String modelo ) {
+void SmartWatch::setModelo( const string modelo ) {
     this->modelo = modelo;
 }
 void SmartWatch::setHora( const int hora ) {
@@ -73,37 +86,37 @@ void SmartWatch::zerarPassos( void ) {
     this->passos = 0;
 }
 
-String SmartWatch::getMarca( void ) {
+string SmartWatch::getMarca( void ) const {
     return marca;
 }
 
-String SmartWatch::getModelo( void ) {
+string SmartWatch::getModelo( void ) const {
     return modelo;
 }
-int SmartWatch::getHora( void ) {
+int SmartWatch::getHora( void ) const {
     return hora;
 }
 
-int SmartWatch::getMinuto( void ) {
+int SmartWatch::getMinuto( void ) const {
     return minuto;
 }
 
-int SmartWatch::getSegundo( void ) {
+int SmartWatch::getSegundo( void ) const {
     return segundo;
 }
 
-int SmartWatch::getPassos( void ) {
+int SmartWatch::getPassos( void ) const {
     return passos;
 }
 
-int SmartWatch::getBatimentosCardiaco( void ) {
+int SmartWatch::getBatimentosCardiaco( void ) const {
     return batimentosCardiaco;
 }
 
-bool SmartWatch::isReceberNotificacoes( void ) {
+bool SmartWatch::isReceberNotificacoes( void ) const {
     return receberNotificacoes;
 }
 
-int SmartWatch::getNivelBateria( void ) {
+int SmartWatch::getNivelBateria( void ) const {
     return nivelBateria;
 }
