@@ -1,22 +1,27 @@
 #include <string>
 
+using namespace std;
+
 class SmartWatch {
   private:
-    String marca, modelo;
+    string marca, modelo;
     int hora, minuto, segundo, passos, batimentosCardiaco, nivelBateria;
     bool receberNotificacoes;
 
   public:
-    SmartWatch( String marca,
-                String modelo,
-                int hora = 0,
-                int minuto = 0,
-                int segundo = 0,
-                int batimentosCardiaco = 0,
-                int nivelBateria = 100,
-                bool receberNotificacoes = true );
-    void setMarca( const String marca );
-    void setModelo( const String modelo );
+    SmartWatch( const string marca,
+                const string modelo,
+                const int hora = 0,
+                const int minuto = 0,
+                const int segundo = 0,
+                const int batimentosCardiaco = 0,
+                const int nivelBateria = 100,
+                const bool receberNotificacoes = true );
+
+    void printDados( void );
+
+    void setMarca( const string marca );
+    void setModelo( const string modelo );
     void setHora( const int hora );
     void setMinuto( const int minuto );
     void setSegundo( const int segundo );
@@ -27,8 +32,8 @@ class SmartWatch {
     void incrementaPassos( void );
     void zerarPassos( void );
 
-    String getMarca( void ) const;
-    String getModelo( void ) const;
+    string getMarca( void ) const;
+    string getModelo( void ) const;
     int getHora( void ) const;
     int getMinuto( void ) const;
     int getSegundo( void ) const;
