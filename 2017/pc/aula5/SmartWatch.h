@@ -5,27 +5,25 @@ class SmartWatch {
     bool receberNotificacoes;
 
   public:
-    void setMarca( String marca );
-    void setModelo( String modelo );
-    void setHora( int hora );
-    void setMinuto( int minuto );
-    void setSegundo( int segundo );
-    void setBatimentosCardiaco( int batimentosCardiaco );
-    void setReceberNotificacoes( int receberNotificacoes );
-    void setNivelBateria( int nivelBateria );
+    void setMarca( const String marca );
+    void setModelo( const String modelo );
+    void setHora( const int hora );
+    void setMinuto( const int minuto );
+    void setSegundo( const int segundo );
+    void setBatimentosCardiaco( const int batimentosCardiaco );
+    void setReceberNotificacoes( const bool receberNotificacoes );
+    void setNivelBateria( const int nivelBateria );
 
-    void incrementaPassos();
-    void zerarPassos();
+    void incrementaPassos( void );
+    void zerarPassos( void );
 
-    getMarca() : String;
-    getModelo() : String;
-    getHora() : Inteiro;
-    getMinuto() : Inteiro;
-    getSegundo() : Inteiro;
-
-    getPassos() : Inteiro;
-
-    getBatimentosCardiaco() : Inteiro;
-    isReceberNotificacoes : () : Booleano;
-    getNivelBateria() : Inteiro;
+    String getMarca( void ) const;
+    String getModelo( void ) const;
+    int getHora( void ) const;
+    int getMinuto( void ) const;
+    int getSegundo( void ) const;
+    int getPassos( void ) const;
+    int getBatimentosCardiaco( void ) const;
+    bool isReceberNotificacoes( void ) const;
+    int getNivelBateria( void ) const;
 };
