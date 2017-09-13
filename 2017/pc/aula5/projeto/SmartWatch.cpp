@@ -23,6 +23,10 @@ SmartWatch::SmartWatch( const string marca,
     setReceberNotificacoes( receberNotificacoes );
 }
 
+SmartWatch::~SmartWatch( void ) {
+    std::cout << "Destrutor da classe" << '\n';
+}
+
 void SmartWatch::printDados( void ) const {
     std::cout << "Marca: " << getMarca() << '\n';
     std::cout << "Modelo: " << getModelo() << '\n';
