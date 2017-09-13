@@ -18,7 +18,7 @@ class SmartWatch {
                 const int nivelBateria = 100,
                 const bool receberNotificacoes = true );
 
-    void printDados( void );
+    void printDados( void ) const;
 
     void setMarca( const string marca );
     void setModelo( const string modelo );
