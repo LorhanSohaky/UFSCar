@@ -33,6 +33,7 @@ void SmartWatch::printDados( void ) const {
     std::cout << "Horário: " << getHora() << ":" << getMinuto() << ":" << getSegundo() << '\n';
     std::cout << "Batimentos cardiacos: " << getBatimentosCardiaco() << '\n';
     std::cout << "Nivel da bateria: " << getNivelBateria() << '\n';
+    std::cout << "Passos: " << getPassos() << '\n';
     std::cout << "Receber notificações:" << isReceberNotificacoes() << '\n';
 }
 
