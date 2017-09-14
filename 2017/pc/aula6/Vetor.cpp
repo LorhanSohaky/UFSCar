@@ -24,12 +24,13 @@ Vetor::~Vetor( void ) {
     delete[] this->ponteiro;
 }
 
-int Vetor::getValor( const int posicao ) const {
+bool Vetor::getValor( const int posicao, int &val ) const {
     if( isPosicaoValida( posicao, this->tamanho ) ) {
-        return this->ponteiro[posicao];
+        val = this->ponteiro[posicao];
+        return true;
     }
 
-    return -1;
+    return false;
 }
 
 bool Vetor::setValor( const int posicao, const int valor ) {
@@ -45,7 +46,10 @@ void Vetor::print( void ) const {
     std::cout << "Tamanho:" << this->tamanho << '\n';
 
     for( int i = 0; i < this->tamanho; i++ ) {
-        std::cout << "p[" << i << "] = " << this->ponteiro[i] << '\n';
+        int val;
+        if( getValor( i, val ) ) {
+            std::cout << "p[" << i << "] = " << val << '\n';
+        }
     }
 
     std::cout << '\n';
