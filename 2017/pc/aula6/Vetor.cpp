@@ -1,8 +1,8 @@
 #include "Vetor.h"
 #include <iostream>
 
-bool isPosicaoValida( const int posicao, const int tamanho ) const {
-    return ( posicao > 0 && posicao < tamanho );
+bool isPosicaoValida( const int posicao, const int tamanho ) {
+    return ( posicao >= 0 && posicao < tamanho );
 }
 
 Vetor::Vetor( const int tamanho ) {
@@ -32,7 +32,7 @@ int Vetor::getValor( const int posicao ) const {
     return -1;
 }
 
-bool Vetor::setValor( const posicao, const int valor ) {
+bool Vetor::setValor( const int posicao, const int valor ) {
     if( isPosicaoValida( posicao, this->tamanho ) ) {
         this->ponteiro[posicao] = valor;
         return true;

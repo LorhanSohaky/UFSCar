@@ -1,6 +1,6 @@
 class Vetor {
   private:
-    const int tamanho;
+    int tamanho;
     int *ponteiro;
 
   public:
@@ -8,7 +8,7 @@ class Vetor {
     ~Vetor( void );
 
     int getValor( const int posicao ) const;
-    bool setValor( const posicao, const int valor );
+    bool setValor( const int posicao, const int valor );
 
     void print( void ) const;
 };
