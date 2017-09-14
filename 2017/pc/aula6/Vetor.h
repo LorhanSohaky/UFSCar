@@ -7,7 +7,7 @@ class Vetor {
     Vetor( const int tamanho = 10 );
     ~Vetor( void );
 
-    int getValor( const int posicao ) const;
+    bool getValor( const int posicao, int &local ) const;
     bool setValor( const int posicao, const int valor );
 
     void print( void ) const;
