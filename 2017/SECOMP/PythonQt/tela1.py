@@ -8,12 +8,14 @@
 
 from PyQt5 import QtCore, QtGui, QtWidgets
 
+
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
         MainWindow.resize(606, 416)
         MainWindow.setCursor(QtGui.QCursor(QtCore.Qt.ArrowCursor))
-        MainWindow.setLocale(QtCore.QLocale(QtCore.QLocale.Portuguese, QtCore.QLocale.Brazil))
+        MainWindow.setLocale(
+            QtCore.QLocale(QtCore.QLocale.Portuguese, QtCore.QLocale.Brazil))
         self.centralwidget = QtWidgets.QWidget(MainWindow)
         self.centralwidget.setObjectName("centralwidget")
         self.btnEnviar = QtWidgets.QPushButton(self.centralwidget)
@@ -37,5 +39,4 @@ class Ui_MainWindow(object):
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
         MainWindow.setWindowTitle(_translate("MainWindow", "Titulo da página"))
-        self.btnEnviar.setText(_translate("MainWindow", "PushButton"))
-
+        self.btnEnviar.setText(_translate("MainWindow", "Mudar Texto"))
