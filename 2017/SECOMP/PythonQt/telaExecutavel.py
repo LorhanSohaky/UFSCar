@@ -4,6 +4,8 @@ from tela1 import Ui_MainWindow
 
 
 class Tela(QMainWindow):
+    contador = 0
+
     def __init__(self):
         super(Tela, self).__init__()
         self.ui = Ui_MainWindow()
@@ -14,7 +16,11 @@ class Tela(QMainWindow):
         self.ui.btnEnviar.clicked.connect(self.lineeditAction)
 
     def lineeditAction(self):
-        self.ui.lnNome.setText("Hello World")
+        self.contador += 1
+        if self.contador % 2 == 0:
+            self.ui.lnNome.setText("Hello World")
+        else:
+            self.ui.lnNome.setText(str(self.contador))
 
 
 def main():
