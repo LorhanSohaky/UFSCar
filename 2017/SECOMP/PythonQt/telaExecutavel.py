@@ -8,6 +8,13 @@ class Tela(QMainWindow):
         super(Tela, self).__init__()
         self.ui = Ui_MainWindow()
         self.ui.setupUi(self)
+        self.connectSignal()
+
+    def connectSignal(self):
+        self.ui.btnEnviar.clicked.connect(self.lineeditAction)
+
+    def lineeditAction(self):
+        self.ui.lnNome.setText("Hello World")
 
 
 def main():
