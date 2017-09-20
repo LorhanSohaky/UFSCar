@@ -34,7 +34,7 @@ class form1(QMainWindow):
         else:
             showDialog(
                 "Error",
-                "Todos os campos devem ser preenchidos. Campos a serem preenchidos:\n"
+                "Todos os campos devem ser preenchidos. Campo(s) a ser(em) preenchido(s):\n"
                 + campos)
 
 
