@@ -4,6 +4,8 @@ from PyQt5.QtWidgets import QMainWindow, QApplication, QMessageBox
 from main_form import Ui_MainWindow
 from showDialog import showDialog
 
+import tela_form2
+
 
 class form1(QMainWindow):
     def __init__(self, parent=None):
@@ -32,6 +34,10 @@ class form1(QMainWindow):
         if (campos == ""):
             showDialog("Sucesso", "Deu tudo certo" + campos,
                        QMessageBox.Information)
+            self.form2 = tela_form2.form2(self.ui.nome.text(),
+                                          self.ui.idade.text(),
+                                          self.ui.cpf.text())
+            self.form2.show()
         else:
             showDialog(
                 "Error",
