@@ -1,10 +1,10 @@
 from PyQt5.QtWidgets import QMessageBox
 
 
-def showDialog(titulo, texto):
+def showDialog(titulo, texto, icone):
     msg = QMessageBox()
 
-    msg.setIcon(QMessageBox.Critical)
+    msg.setIcon(icone)
 
     msg.setText(texto)
     msg.setWindowTitle(titulo)
