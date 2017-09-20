@@ -22,9 +22,6 @@ class Ui_MainWindow(object):
         self.lnNome = QtWidgets.QLineEdit(self.centralwidget)
         self.lnNome.setGeometry(QtCore.QRect(150, 130, 113, 29))
         self.lnNome.setObjectName("lnNome")
-        self.label = QtWidgets.QLabel(self.centralwidget)
-        self.label.setGeometry(QtCore.QRect(190, 270, 56, 17))
-        self.label.setObjectName("label")
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QtWidgets.QMenuBar(MainWindow)
         self.menubar.setGeometry(QtCore.QRect(0, 0, 606, 23))
@@ -41,5 +38,4 @@ class Ui_MainWindow(object):
         _translate = QtCore.QCoreApplication.translate
         MainWindow.setWindowTitle(_translate("MainWindow", "Titulo da página"))
         self.btnEnviar.setText(_translate("MainWindow", "PushButton"))
-        self.label.setText(_translate("MainWindow", "TextLabel"))
 
