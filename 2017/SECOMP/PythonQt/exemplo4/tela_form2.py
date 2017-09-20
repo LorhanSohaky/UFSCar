@@ -7,10 +7,11 @@ from form2 import Ui_MainWindow
 
 class form2(QMainWindow):
     def __init__(self, nome, idade, cpf, parent=None):
+        super(form2, self).__init__()
         self.ui = Ui_MainWindow()
         self.ui.setupUi(self)
 
-        self.setAttribute(Qt.Wa_DeleteOnClose)
+        self.setAttribute(Qt.WA_DeleteOnClose)
 
         self.ui.nome.setText(nome)
         self.ui.idade.setText(cpf)
