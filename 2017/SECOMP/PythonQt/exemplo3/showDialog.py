@@ -7,6 +7,6 @@ def showDialog(titulo, texto):
     msg.setIcon(QMessageBox.Critical)
 
     msg.setText(texto)
-    msg.setTitle(titulo)
+    msg.setWindowTitle(titulo)
     msg.setStandardButtons(QMessageBox.Ok)
     msg.exec_()
