@@ -20,7 +20,7 @@ class Tela(QMainWindow):
         if self.contador % 2 == 0:
             self.ui.lnNome.setText("Hello World")
         else:
-            self.ui.lnNome.setText(str(self.contador))
+            self.ui.lnNome.setText("Impar: " + str(self.contador))
 
 
 def main():
