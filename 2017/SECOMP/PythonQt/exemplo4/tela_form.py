@@ -1,5 +1,5 @@
 import sys
-from PyQt5.QtWidgets import QMainWindow, QApplication
+from PyQt5.QtWidgets import QMainWindow, QApplication, QMessageBox
 
 from main_form import Ui_MainWindow
 from showDialog import showDialog
@@ -30,12 +30,13 @@ class form1(QMainWindow):
     def some_action(self):
         campos = self.validaCampos()
         if (campos == ""):
-            pass
+            showDialog("Sucesso", "Deu tudo certo" + campos,
+                       QMessageBox.Information)
         else:
             showDialog(
                 "Error",
                 "Todos os campos devem ser preenchidos. Campo(s) a ser(em) preenchido(s):\n"
-                + campos)
+                + campos, QMessageBox.Critical)
 
 
 def main():
