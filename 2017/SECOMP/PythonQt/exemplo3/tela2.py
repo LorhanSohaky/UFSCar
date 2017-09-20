@@ -1,3 +1,4 @@
+from showDialog import showDialog
 from labelClick import ClickableLabel
 import sys
 from PyQt5.QtWidgets import QApplication, QWidget
@@ -5,6 +6,7 @@ from PyQt5.QtWidgets import QApplication, QWidget
 
 def Click(pos):
     print(pos)
+    showDialog("Pos", str(pos))
 
 
 app = QApplication(sys.argv)
