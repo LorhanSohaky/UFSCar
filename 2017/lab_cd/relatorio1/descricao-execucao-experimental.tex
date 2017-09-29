@@ -1,39 +1,47 @@
-% Para facilitar a manutenção é sempre melhore criar um arquivo por capitulo, para exemplo isso não é necessário 
+% Para facilitar a manutenção é sempre melhore criar um arquivo por capitulo, para exemplo isso não é necessário
 
 %---------------------------------------------------------------------------------------
 \chapter{Descrição da execução do experimento}
-Utilizou-se o Quartus, na versão 13 SP1, para a criação virtual do circuito, uma FPGA Cyclone II - EP2C20F484C7.
-Analisando o problema proposta, chegou-se na expressão lógica
-$$ P + G + \simV$$
-com P representando \textit{porta aberta}, G \textit{gelo} e V \textit{vazamento de gás}
+Para a realização deste experimento, foram utilizados o programa Quartus 13.0 SP 1 e a placa \ac{fpga} Cyclone II - EP2C20F484C7.
+
+A partir do problema proposto, montou-se a seguinte expressão lógica
+$$ P + G + \sim V$$
+com P representando \textit{porta aberta}, G \textit{gelo} e V \textit{vazamento de gás}, após a
+montagem da expressão, foi elaborada a \autoref{table:tabelaVerdade2}. Com esta tabela e a expressão lógica,
+elaborousse o circuito, conforme a \autoref{fig:desenhoCircuito2}. Com tais informações, foi repassado o circuito
+para o Quartus, depois renomeou-se as entradas e saídas para que, por meio do arquivo tradutor, a placa
+\ac{fpga} reconhecesse os componentes.
+Para cobrir todos os casos de testes, foi realizada uma simulação, conforme a \autoref{fig:printSimulacao}.
+
+\begin{table}[h]
+	\centering
+	\caption{Tabela verdade da expressão lógica}\label{table:tabelaVerdade2}
+	\begin{tabular}{c|c|c|c}
+	%\hline
+		\textbf{P} & \textbf{G} & \textbf{V} & \textbf{P+G+($\sim$V)} \\
+		\hline
+		0 & 0 & 0 & 0\\\hline
+		0 & 0 & 1 & 1\\\hline
+		0 & 1 & 0 & 1\\\hline
+		0 & 1 & 1 & 1\\\hline
+		1 & 0 & 0 & 1\\\hline
+		1 & 0 & 1 & 1\\\hline
+		1 & 1 & 0 & 1\\\hline
+		1 & 1 & 1 & 1
+	\end{tabular}
+\end{table}
 
 \begin{figure}[htb]
     \centering
-	\includegraphics{img/desenhoCircuito}
-	\caption{\label{fig_logo}Desenho do circuito}
-	\legend{Imagem do circuito feito no Quartus}
+	\caption{\label{fig:desenhoCircuito2}Desenho do circuito}
+	\includegraphics{\ifspprefixo/LogoUFSCar.jpg}
 \end{figure}
 
-\begin{tabular}{c|c|c|c}
-%\hline
-\textbf{P} & \textbf{G} & \textbf{V} & \textbf{P+G+($\sim$V)} \\
-\hline
-0 & 0 & 0 & 0\\\hline
-0 & 0 & 1 & 1\\\hline
-0 & 1 & 0 & 1\\\hline
-0 & 1 & 1 & 1\\\hline
-1 & 0 & 0 & 1\\\hline
-1 & 0 & 1 & 1\\\hline
-1 & 1 & 0 & 1\\\hline
-1 & 1 & 1 & 1
-\end{tabular}
 
-
-
-Apresentar   o   detalhamento   da  execução  e   resultados   dos   passos   realizados 
-durante   o   experimento,   incluindo   tabelas   verdade,   esquemáticos,   e   código 
-(quando  houver). 
-Especificar  componentes,  sistemas  e  instrumentos  utilizados. 
+Apresentar   o   detalhamento   da  execução  e   resultados   dos   passos   realizados
+durante   o   experimento,   incluindo   tabelas   verdade,   esquemáticos,   e   código
+(quando  houver).
+Especificar  componentes,  sistemas  e  instrumentos  utilizados.
 Usar listas, figuras e quadros, descrevê-los e discuti-los.
 
 
