@@ -5,7 +5,7 @@
 \ProvidesClass{ufscar-sc}[08/09/2017 v1.0 Modelo da UFSCar Campus São Carlos baseado em abnTeX2]
 
 %
-% Repassa todos os parâmetros a classe ufscar, 
+% Repassa todos os parâmetros a classe ufscar,
 \DeclareOption*{%
   \PassOptionsToClass{\CurrentOption}{ufscar}%
 }
@@ -13,7 +13,7 @@
 \LoadClass{ufscar}
 \usepackage{graphicx}
 % ---
-% Pacotes básicos 
+% Pacotes básicos
 % ---
 \usepackage[T1]{fontenc}        % Selecao de codigos de fonte.
 \usepackage[utf8]{inputenc}
@@ -37,9 +37,9 @@
 
 \usepackage[alf]{abntex2cite}   % Citações padrão ABNT
 
-% --- 
+% ---
 % CONFIGURAÇÕES DE PACOTES
-% --- 
+% ---
 
 % ---
 % Configurações do pacote backref
@@ -76,4 +76,3 @@
 % Comandos de dados - disciplina
 \providecommand{\imprimirdisciplina}{}
 \newcommand{\disciplina}[1]{\renewcommand{\imprimirdisciplina}{#1}}
-
