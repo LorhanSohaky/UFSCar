@@ -9,7 +9,7 @@ A partir do problema proposto, montou-se a seguinte expressão lógica
 $$ P + G + \sim V$$
 com P representando \textit{se a porta estiver aberta}, G
 \textit{se nível de gelo do congelador estiver acima do permitido} e V
-\textit{se o nível de gás do motor não estiver adequado}, após a
+\textit{se o nível de gás do motor estiver adequado}, após a
 montagem da expressão, foi elaborada a \autoref{table:tabelaVerdade2}. Com esta tabela e a expressão lógica,
 elaborou-se o circuito, conforme a \autoref{fig:desenhoCircuito2}. Com tais informações, foi repassado o circuito
 para o Quartus, depois renomeou-se as entradas e saídas para que, por meio do arquivo tradutor, a placa
@@ -21,7 +21,7 @@ Para cobrir todos os casos de testes, foi realizada uma simulação, conforme a 
 	\caption{Tabela verdade da expressão lógica}\label{table:tabelaVerdade2}
 	\begin{tabular}{c|c|c|c}
 	%\hline
-		\textbf{P} & \textbf{G} & \textbf{V} & \textbf{P+G+($\sim$V)} \\
+		\textbf{P} & \textbf{G} & \textbf{$\sim$V} & \textbf{P+G+($\sim$V)} \\
 		\hline
 		0 & 0 & 0 & 0\\\hline
 		0 & 0 & 1 & 1\\\hline
@@ -68,7 +68,3 @@ Por fim, o circuito virtual foi compilado, conforme \autoref{fig:printCompilacao
 %(quando  houver).
 %Especificar  componentes,  sistemas  e  instrumentos  utilizados.
 %Usar listas, figuras e quadros, descrevê-los e discuti-los.
-
-
-
-%---------------------------------------------------------------------------------------
