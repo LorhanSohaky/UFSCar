@@ -30,10 +30,11 @@
 	elaborou-se o circuito, conforme a \autoref{fig:desenhoCircuito1}. Com tais informações, foi repassado o circuito
 	para o Quartus, depois renomeou-se as entradas e saídas para que, por meio do arquivo tradutor, a placa
 	\ac{fpga} reconhecesse os componentes, conforme \autoref{fig:printCircuito1}.
+	Para cobrir todos os casos de testes, foi realizada uma simulação, conforme a \autoref{fig:printSimulacoes}.
 
 	\begin{table}[h]
 		\centering
-		\caption{Tabela verdade da expressão lógica}\label{table:tabelaVerdade1}
+		\caption{Tabela verdade da expressão lógica do cenário 1}\label{table:tabelaVerdade1}
 		\begin{tabular}{c|c|c|c|c}
 		%\hline
 			\textbf{P} & \textbf{F} & \textbf{C} & \textbf{O} & \textbf{P.(F+C+O)+(F.C.O)} \\
@@ -60,14 +61,14 @@
 
 	\begin{figure}[H]
 		\centering
-		\caption{\label{fig:desenhoCircuito1}Desenho do circuito}
+		\caption{\label{fig:desenhoCircuito1}Desenho do circuito do cenário 1}
 		\includegraphics[width=1\textwidth]{img/cenario1/desenhoCircuito}
 	\end{figure}
 
 	\begin{figure}[H]
 		\centering
-		\caption{\label{fig:printCircuito1}Imagem do circuito no Quartus}
-		\includegraphics[width=1\textwidth]{img/cenario1/desenhoCircuito}
+		\caption{\label{fig:printCircuito1}Imagem do circuito no Quartus do cenário 1}
+		\includegraphics[width=1\textwidth]{img/cenario1/printCircuito}
 	\end{figure}
 
 	\begin{figure}[H]
@@ -99,7 +100,7 @@
 
 	\begin{table}[h]
 		\centering
-		\caption{Tabela verdade da expressão lógica}\label{table:tabelaVerdade2}
+		\caption{Tabela verdade da expressão lógica do cenário 2}\label{table:tabelaVerdade2}
 		\begin{tabular}{c|c|c|c}
 		%\hline
 			\textbf{P} & \textbf{G} & \textbf{$\sim$V} & \textbf{P+G+($\sim$V)} \\
@@ -117,14 +118,14 @@
 
 	\begin{figure}[H]
 	    \centering
-		\caption{\label{fig:desenhoCircuito2}Desenho do circuito}
+		\caption{\label{fig:desenhoCircuito2}Desenho do circuito do cenário 2}
 		\includegraphics{img/cenario2/desenhoCircuito}
 	\end{figure}
 
 
 	\begin{figure}[H]
 	    \centering
-		\caption{\label{fig:printCircuito2}Imagem do circuinto no programa Quartus}
+		\caption{\label{fig:printCircuito2}Imagem do circuinto no programa Quartus do cenário 2}
 		\includegraphics[width=1\textwidth]{img/cenario2/printCircuito}
 	\end{figure}
 
@@ -139,7 +140,7 @@
 
 	\begin{figure}[H]
 	    \centering
-		\caption{\label{fig:printCompilacao2}Resultado da compilação do circuito}
+		\caption{\label{fig:printCompilacao2}Resultado da compilação do circuito do cenário 2}
 		\includegraphics[width=1\textwidth]{img/cenario2/printCompilacao}
 	\end{figure}
 
