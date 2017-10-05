@@ -1,0 +1,24 @@
+% ---
+% inserir lista de abreviaturas e siglas
+% ---
+
+% Utilizando acronym para tratar a apresentação de siglas e abntex para fazer a lista
+% \item para abntex
+% \acrodef para acronym
+% o padrão da classe acronym é somente listas as siglas em uso, já o abntex vai listar todas definidas.
+
+% a lista deve ser definida em ordem alfabética pois o abntex não ordena automaticamente
+
+\newcommand{\sigla}[3]{\item[#2] #3
+\acrodef{#1}[#2]{#3}\index{#2}}
+
+\begin{siglas}
+  \sigla{abnt}{ABNT}{Associação Brasileira de Normas Técnicas}
+  \sigla{abntex}{abnTeX}{ABsurdas Normas para TeX}
+  \sigla{faq}{FAQ}{\emph{Frequently asked questions} - Perguntas frequentes}
+  \sigla{ifsp}{IFSP}{Instituto Federal de Educação, Ciência e Tecnologia de São Paulo}
+\end{siglas}
+
+
+
+% ---
