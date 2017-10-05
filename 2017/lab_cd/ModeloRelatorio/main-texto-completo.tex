@@ -14,14 +14,18 @@
     brazil           % o último idioma é o principal do documento
     ]{ufscar-sc}
 
+\usepackage{graphicx} % Imagem com subimagens
+\usepackage{subcaption} % Imagem com subimagens
+\usepackage{float} % Forçar posicionamento das imagens
+
 % ---
-% Pacotes básicos 
+% Pacotes básicos
 % ---
-\usepackage{lmodern}            % Usa a fonte Latin Modern          
+\usepackage{lmodern}            % Usa a fonte Latin Modern
 \usepackage[T1]{fontenc}        % Selecao de codigos de fonte.
 \usepackage[utf8]{inputenc}     % Codificacao do documento (conversão automática dos acentos)
 % ---
-        
+
 % ---
 % Pacotes adicionais, usados apenas no âmbito do Modelo Canônico do abnteX2
 % ---
@@ -30,9 +34,9 @@
 
 % ---
 
-% --- 
+% ---
 % CONFIGURAÇÕES DE PACOTES ADICIONAIS UTEIS
-% --- 
+% ---
 \usepackage{pdfpages}			% para incluir arquivos pdf no documento
 %\usepackage[final,obeyFinal]{todonotes}			% para não imprimir pendencias na versão final
 
@@ -94,11 +98,11 @@ as normas ABNT apresentado à comunidade de usuários \LaTeX.}
 \makeatletter
 \hypersetup{
         %pagebackref=true,
-        pdftitle={\@title}, 
+        pdftitle={\@title},
         pdfauthor={\@author},
         pdfsubject={\imprimirpreambulo},
         pdfcreator={LaTeX with abnTeX2},
-        pdfkeywords={abnt}{latex}{abntex}{abntex2}{trabalho acadêmico}, 
+        pdfkeywords={abnt}{latex}{abntex}{abntex2}{trabalho acadêmico},
         colorlinks=true,            % false: boxed links; true: colored links
         linkcolor=blue,             % color of internal links
         citecolor=blue,             % color of links to bibliography
@@ -107,11 +111,11 @@ as normas ABNT apresentado à comunidade de usuários \LaTeX.}
         bookmarksdepth=4
 }
 \makeatother
-% --- 
+% ---
 
-% --- 
-% Espaçamentos entre linhas e parágrafos 
-% --- 
+% ---
+% Espaçamentos entre linhas e parágrafos
+% ---
 
 % O tamanho do parágrafo é dado por:
 \setlength{\parindent}{1.3cm}
@@ -132,7 +136,7 @@ as normas ABNT apresentado à comunidade de usuários \LaTeX.}
 \begin{document}
 
 % Retira espaço extra obsoleto entre as frases.
-\frenchspacing 
+\frenchspacing
 
 \newpage
 
@@ -233,7 +237,7 @@ as normas ABNT apresentado à comunidade de usuários \LaTeX.}
 
 
 %---------------------------------------------------------------------
-% INDICE REMISSIVO - Quando necessário 
+% INDICE REMISSIVO - Quando necessário
 % As palavras indexadas devem ser definidas com \index{} no texto
 %---------------------------------------------------------------------
 \phantompart
