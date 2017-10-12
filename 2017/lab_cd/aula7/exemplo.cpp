@@ -45,9 +45,29 @@ class Fracao {
     }
 
     Fracao operator*( const Fracao &b ) const {
-        Fracao resultado( this->getNum() * b.getNum(), this->getDen() * b.getDen() );
+        return Fracao( this->getNum() * b.getNum(), this->getDen() * b.getDen() );
+    }
 
-        return resultado;
+    Fracao operator+( const Fracao &b ) const {
+        if( this->getDen() == b.getDen() ) {
+            return Fracao( this->getNum() + b.getNum(), this->getDen() );
+        } else {
+            return Fracao( this->getNum() * b.getDen() + b.getNum() * this->getDen(),
+                           this->getDen() * b.getDen() );
+        }
+    }
+
+    Fracao operator-( const Fracao &b ) const {
+        if( this->getDen() == b.getDen() ) {
+            return Fracao( this->getNum() - b.getNum(), this->getDen() );
+        } else {
+            return Fracao( this->getNum() * b.getDen() + b.getNum() * this->getDen(),
+                           this->getDen() * b.getDen() );
+        }
+    }
+
+    Fracao operator/( const Fracao &b ) const {
+        return Fracao( this->getNum() * b.getDen(), this->getDen() * b.getNum() );
     }
 };
 
