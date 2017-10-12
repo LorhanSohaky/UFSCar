@@ -6,7 +6,7 @@ class Fracao {
     int den;
 
   public:
-    void imprimir( void ) {
+    void imprimir( void ) const {
         std::cout << getNum() << "/" << getDen() << '\n';
     }
 
@@ -43,13 +43,13 @@ class Fracao {
         imprimir();
         std::cout << '\n';
     }
+
+    Fracao operator*( const Fracao &b ) const {
+        Fracao resultado( this->getNum() * b.getNum(), this->getDen() * b.getDen() );
+
+        return resultado;
+    }
 };
-
-Fracao operator*( const Fracao &a, const Fracao &b ) {
-    Fracao resultado( a.getNum() * b.getNum(), a.getDen() * b.getDen() );
-
-    return resultado;
-}
 
 int main( void ) {
     Fracao a( 1, 2 );
