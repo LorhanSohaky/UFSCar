@@ -5,9 +5,11 @@ class Fracao {
     int num;
     int den;
 
+    friend std::ostream &operator<<( std::ostream &saida, const Fracao &a );
+
   public:
     void imprimir( void ) const {
-        std::cout << getNum() << "/" << getDen() << '\n';
+        std::cout << *this << '\n';
     }
 
     void setNum( const int num ) {
@@ -103,16 +105,18 @@ Fracao operator/( const int &a, const Fracao &b ) {
     return Fracao( a * b.getDen(), b.getNum() );
 }
 
+std::ostream &operator<<( std::ostream &saida, const Fracao &a ) {
+    saida << a.num << "/" << a.den;
+    return saida;
+}
+
 int main( void ) {
     Fracao a( 1, 2 );
     Fracao b( 2, 4 );
 
-    a.imprimir();
-    b.imprimir();
+    std::cout << "A:" << a << '\n';
 
     Fracao resultado = a * b;
-
-    resultado.imprimir();
 
     return 0;
 }
