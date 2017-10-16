@@ -1,0 +1,21 @@
+% ---
+% inserir lista de abreviaturas e siglas
+% ---
+
+% Utilizando acronym para tratar a apresentação de siglas e abntex para fazer a lista
+% \item para abntex
+% \acrodef para acronym
+% o padrão da classe acronym é somente listas as siglas em uso, já o abntex vai listar todas definidas.
+
+% a lista deve ser definida em ordem alfabética pois o abntex não ordena automaticamente
+
+\newcommand{\sigla}[3]{\item[#2] #3
+\acrodef{#1}[#2]{#3}\index{#2}}
+
+\begin{siglas}
+  \sigla{fpga}{FPGA}{\emph{Field Programmable Gate Array} - Arranjo de Portas Programáveis em Campo}
+\end{siglas}
+
+
+
+% ---

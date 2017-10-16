@@ -23,12 +23,17 @@ SmartWatch::SmartWatch( const string marca,
     setReceberNotificacoes( receberNotificacoes );
 }
 
-void SmartWatch::printDados( void ) {
+SmartWatch::~SmartWatch( void ) {
+    std::cout << "Destrutor da classe" << '\n';
+}
+
+void SmartWatch::printDados( void ) const {
     std::cout << "Marca: " << getMarca() << '\n';
     std::cout << "Modelo: " << getModelo() << '\n';
     std::cout << "Horário: " << getHora() << ":" << getMinuto() << ":" << getSegundo() << '\n';
     std::cout << "Batimentos cardiacos: " << getBatimentosCardiaco() << '\n';
     std::cout << "Nivel da bateria: " << getNivelBateria() << '\n';
+    std::cout << "Passos: " << getPassos() << '\n';
     std::cout << "Receber notificações:" << isReceberNotificacoes() << '\n';
 }
 
