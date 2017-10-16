@@ -3,7 +3,7 @@ $comment
 		vcd file Etapa2.msim.vcd -direction
 $end
 $date
-	Mon Oct 16 13:09:26 2017
+	Mon Oct 16 15:07:18 2017
 $end
 $version
 	ModelSim Version 10.1d
@@ -39,12 +39,12 @@ $enddefinitions $end
 #0
 $dumpvars
 b0 !
-1(
+0(
 0'
 0&
-1%
-1$
-1#
+0%
+0$
+0#
 1"
 0)
 x*
@@ -64,10 +64,10 @@ b1 !
 14
 0*
 11
-0#
-0$
-0%
-0(
+1(
+1%
+1$
+1#
 #20000
 b11 !
 b10 !
@@ -81,10 +81,10 @@ b11 !
 12
 01
 1)
-1#
-1$
-1%
-1(
+0(
+0%
+0$
+0#
 #40000
 b1 !
 b0 !

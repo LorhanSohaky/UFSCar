@@ -290,9 +290,9 @@ TRANSITION_LIST("Etapa2_vlg_vec_tst|HEX0[5]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL 1 FOR 10.0;
-		LEVEL 0 FOR 20.0;
-		LEVEL 1 FOR 970.0;
+		LEVEL 0 FOR 10.0;
+		LEVEL 1 FOR 20.0;
+		LEVEL 0 FOR 970.0;
 	}
 }
 
@@ -301,9 +301,9 @@ TRANSITION_LIST("Etapa2_vlg_vec_tst|HEX0[4]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL 1 FOR 10.0;
-		LEVEL 0 FOR 20.0;
-		LEVEL 1 FOR 970.0;
+		LEVEL 0 FOR 10.0;
+		LEVEL 1 FOR 20.0;
+		LEVEL 0 FOR 970.0;
 	}
 }
 
@@ -312,9 +312,9 @@ TRANSITION_LIST("Etapa2_vlg_vec_tst|HEX0[3]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL 1 FOR 10.0;
-		LEVEL 0 FOR 20.0;
-		LEVEL 1 FOR 970.0;
+		LEVEL 0 FOR 10.0;
+		LEVEL 1 FOR 20.0;
+		LEVEL 0 FOR 970.0;
 	}
 }
 
@@ -341,9 +341,9 @@ TRANSITION_LIST("Etapa2_vlg_vec_tst|HEX0[0]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL 1 FOR 10.0;
-		LEVEL 0 FOR 20.0;
-		LEVEL 1 FOR 970.0;
+		LEVEL 0 FOR 10.0;
+		LEVEL 1 FOR 20.0;
+		LEVEL 0 FOR 970.0;
 	}
 }
 
