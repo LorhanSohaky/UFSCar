@@ -88,6 +88,22 @@ class Fracao {
     Fracao operator/( const int &a ) const {
         return Fracao( this->getNum(), a * this->getDen() );
     }
+
+    bool operator>( const Fracao &b ) const {
+        return ( (float)this->num / this->den > (float)b.num / b.den );
+    }
+
+    bool operator==( const Fracao &b ) const {
+        return ( (float)this->num / this->den == (float)b.num / b.den );
+    }
+
+    bool operator<( const Fracao &b ) const {
+        return ( (float)this->num / this->den < (float)b.num / b.den );
+    }
+
+    bool operator!=( const Fracao &b ) const {
+        return ( !( *this == b ) );
+    }
 };
 
 Fracao operator*( const int &b, const Fracao &a ) {
@@ -125,9 +141,15 @@ std::ostream &operator<<( std::ostream &saida, const Fracao &a ) {
 
 int main( void ) {
     Fracao a( 1, 2 );
-    Fracao b( 2, 4 );
+    Fracao b( 1, 4 );
 
     std::cout << "A:" << a << '\n';
+
+    if( b > a ) {
+        std::cout << "B>A" << '\n';
+    } else {
+        std::cout << "B<=A" << '\n';
+    }
 
     Fracao resultado = a * b;
 
