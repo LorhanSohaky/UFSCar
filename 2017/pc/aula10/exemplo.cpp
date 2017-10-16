@@ -108,8 +108,9 @@ Fracao operator/( const int &a, const Fracao &b ) {
 
 std::istream &operator>>( std::istream &entrada, Fracao &a ) {
     int numerador, denominador;
+    char barra;
 
-    entrada >> numerador >> denominador;
+    entrada >> numerador >> barra >> denominador;
 
     a.setNum( numerador );
     a.setDen( denominador );
