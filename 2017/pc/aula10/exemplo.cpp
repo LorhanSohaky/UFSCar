@@ -6,6 +6,7 @@ class Fracao {
     int den;
 
     friend std::ostream &operator<<( std::ostream &saida, const Fracao &a );
+    friend std::istream &operator>>( std::istream &entrada, Fracao &a );
 
   public:
     void imprimir( void ) const {
@@ -21,7 +22,7 @@ class Fracao {
             this->den = den;
         } else {
             std::cout << "Erro denominador" << '\n';
-            this->den = 0;
+            this->den = 1;
         }
     }
 
@@ -105,6 +106,17 @@ Fracao operator/( const int &a, const Fracao &b ) {
     return Fracao( a * b.getDen(), b.getNum() );
 }
 
+std::istream &operator>>( std::istream &entrada, Fracao &a ) {
+    int numerador, denominador;
+
+    entrada >> numerador >> denominador;
+
+    a.setNum( numerador );
+    a.setDen( denominador );
+
+    return entrada;
+}
+
 std::ostream &operator<<( std::ostream &saida, const Fracao &a ) {
     saida << a.num << "/" << a.den;
     return saida;
@@ -117,6 +129,9 @@ int main( void ) {
     std::cout << "A:" << a << '\n';
 
     Fracao resultado = a * b;
+
+    std::cin >> b;
+    std::cout << b << '\n';
 
     return 0;
 }
