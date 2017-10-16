@@ -1,0 +1,96 @@
+$comment
+	File created using the following command:
+		vcd file Etapa1.msim.vcd -direction
+$end
+$date
+	Mon Oct 16 14:44:41 2017
+$end
+$version
+	ModelSim Version 10.1d
+$end
+$timescale
+	1ps
+$end
+$scope module Etapa1_vlg_vec_tst $end
+$var reg 4 ! SW [4:1] $end
+$var wire 1 " HEX0 [0] $end
+$var wire 1 # sampler $end
+$scope module i1 $end
+$var wire 1 $ gnd $end
+$var wire 1 % vcc $end
+$var wire 1 & unknown $end
+$var tri1 1 ' devclrn $end
+$var tri1 1 ( devpor $end
+$var tri1 1 ) devoe $end
+$var wire 1 * inst9~0_combout $end
+$var wire 1 + SW~combout [4] $end
+$var wire 1 , SW~combout [3] $end
+$var wire 1 - SW~combout [2] $end
+$var wire 1 . SW~combout [1] $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+#0
+$dumpvars
+b0 !
+0"
+x#
+0$
+1%
+x&
+1'
+1(
+1)
+1*
+z.
+0-
+0,
+0+
+$end
+#10000
+b1 !
+0#
+#20000
+b11 !
+b10 !
+1-
+1#
+#30000
+b11 !
+0#
+#40000
+b111 !
+b101 !
+b100 !
+0-
+1,
+1#
+#50000
+b101 !
+0#
+#60000
+b111 !
+b110 !
+1-
+1#
+#70000
+b111 !
+0#
+#80000
+b1111 !
+b1011 !
+b1001 !
+b1000 !
+0-
+0,
+1+
+1#
+#90000
+b1001 !
+0#
+#100000
+b1 !
+b0 !
+0+
+1#
+#1000000
