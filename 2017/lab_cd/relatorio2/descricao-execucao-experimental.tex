@@ -8,13 +8,13 @@ Cyclone II - EP2C20F484C7.
 
 	\section{ETAPA 1 – Display de 7 segmentos}
 		Para representar um número de 4 \textit{bits} na placa, utilizou-se 4 \textit{switch}, cada um
-		representando um bit do número. Como um segmento do \textit{display} poderia ser acendido
+		representando um bit do número. Como um segmento do \textit{display} pode ser acendido
 		em mais de um número,
 		motou-se uma expressão lógica para cada segmento do \textit{display}.
 
 		\begin{table}[h]
 			\centering
-			\caption{Tabela verdade utilizada para chegar na expressão de cada um dos segmentos}
+			\caption{Tabela verdade utilizada para chegar na expressão de cada um dos segmentos.}
 			\label{table:tabelaVerdade1}
 			\begin{tabular}{c|c|c|c|c}
 		%\hline
@@ -48,8 +48,7 @@ Cyclone II - EP2C20F484C7.
 		para o segmento 6 montou-se a expressão
 		$$A'.B'.C'+A'.B.C.D$$.
 
-		Com tais expressões, montamos o circuito conforme o \autoref{apendice:CircuitoEtapa1}.
-
+		Com tais expressões, montou-se o circuito conforme o \autoref{apendice:CircuitoEtapa1}.
 		Depois foram realizadas simulações e execução do circuito na placa \ac{fpga}.
 
 	\section{ETAPA 2 – Meio-somador 1 bit}
@@ -57,11 +56,17 @@ Cyclone II - EP2C20F484C7.
 		A operação aritmética mais simples é a soma de dois dígitos binários. Um circuito combinacional
 		que implementa a adição de dois bits é chamado de meio-somador (half adder ou HAD).
 		A \autoref{fig:meioSomador} ilustra um esquema de entradas e saída de um meio-somador.
-		Um meio-somador de 1 bit deve respeitar a tabela-verdade
+		Um meio-somador de 1 bit deve respeitar a \autoref{table:tabelaMeioSomador}.
+
+		\begin{figure}[H]
+			\centering
+			\caption{\label{fig:meioSomador}Ilustração de um meio somador.}
+			\includegraphics[width=1\textwidth]{img/meioSomador}
+		\end{figure}
 
 		\begin{table}[h]
 			\centering
-			\caption{Tabela verdade de um meio somador}
+			\caption{Tabela verdade de um meio somador.}
 			\label{table:tabelaMeioSomador}
 			\begin{tabular}{c|c|c|c}
 		%\hline
@@ -73,12 +78,6 @@ Cyclone II - EP2C20F484C7.
 				1 & 1 & 0 & 1\\
 			\end{tabular}
 		\end{table}
-
-		\begin{figure}[H]
-			\centering
-			\caption{\label{fig:meioSomador}Ilustração do meio somador.}
-			\includegraphics[width=1\textwidth]{img/meioSomador}
-		\end{figure}
 
 		O circuito deve guardar o \textit{CarryOut} ( o “vai um”) da soma, representando sua existência
 		ou ausência através de um LED, ligando-o quando houver o carry, e mantendo-o desligado quando
