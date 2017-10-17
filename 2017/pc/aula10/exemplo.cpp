@@ -8,6 +8,11 @@ class Fracao {
     friend std::ostream &operator<<( std::ostream &saida, const Fracao &a );
     friend std::istream &operator>>( std::istream &entrada, Fracao &a );
 
+    friend Fracao operator*( const int &b, const Fracao &a );
+    friend Fracao operator+( const int &a, const Fracao &b );
+    friend Fracao operator-( const int &a, const Fracao &b );
+    friend Fracao operator/( const int &a, const Fracao &b );
+
   public:
     void imprimir( void ) const {
         std::cout << *this << '\n';
@@ -62,61 +67,68 @@ class Fracao {
     }
 
     Fracao operator+( const int &a ) const {
-        return Fracao( this->getNum() + a * this->getDen(), this->getDen() );
+        return Fracao( this->num + a * this->den, this->den );
     }
 
     Fracao operator-( const Fracao &b ) const {
-        if( this->getDen() == b.getDen() ) {
-            return Fracao( this->getNum() - b.num, this->getDen() );
+        if( this->den == b.den ) {
+            return Fracao( this->num + b.num, this->den );
         } else {
-            return Fracao( this->getNum() * b.getDen() - b.getNum() * this->getDen(),
-                           this->getDen() * b.getDen() );
+            return Fracao( this->num * b.den - b.num * this->den, this->den * b.den );
         }
     }
 
     Fracao operator-( const int &a ) const {
-        return Fracao( this->getNum() - a * this->getDen(), this->getDen() );
+        return Fracao( this->num - a * this->den, this->den );
     }
 
     Fracao operator/( const Fracao &b ) const {
-        return Fracao( this->getNum() * b.getDen(), this->getDen() * b.getNum() );
+        return Fracao( this->num * b.den, this->den * b.num );
     }
 
     Fracao operator/( const int &a ) const {
-        return Fracao( this->getNum(), a * this->getDen() );
+        return Fracao( this->num, a * this->den );
     }
 
     bool operator>( const Fracao &b ) const {
         return ( (float)this->num / this->den > (float)b.num / b.den );
     }
 
-    bool operator==( const Fracao &b ) const {
-        return ( (float)this->num / this->den == (float)b.num / b.den );
-    }
-
     bool operator<( const Fracao &b ) const {
         return ( (float)this->num / this->den < (float)b.num / b.den );
+    }
+
+    bool operator==( const Fracao &b ) const {
+        return ( (float)this->num / this->den == (float)b.num / b.den );
     }
 
     bool operator!=( const Fracao &b ) const {
         return ( !( *this == b ) );
     }
+
+    bool operator>=( const Fracao &b ) const {
+        return ( *this > b || *this == b );
+    }
+
+    bool operator<=( const Fracao &b ) const {
+        return ( *this < b || *this == b );
+    }
 };
 
 Fracao operator*( const int &b, const Fracao &a ) {
-    return Fracao( a.getNum() * b, a.getDen() );
+    return Fracao( a.num * b, a.den );
 }
 
 Fracao operator+( const int &a, const Fracao &b ) {
-    return Fracao( a * b.getDen() + b.getNum(), b.getDen() );
+    return Fracao( a * b.den + b.num, b.den );
 }
 
 Fracao operator-( const int &a, const Fracao &b ) {
-    return Fracao( a * b.getDen() - b.getNum(), b.getDen() );
+    return Fracao( a * b.den - b.num, b.den );
 }
 
 Fracao operator/( const int &a, const Fracao &b ) {
-    return Fracao( a * b.getDen(), b.getNum() );
+    return Fracao( a * b.den, b.num );
 }
 
 std::istream &operator>>( std::istream &entrada, Fracao &a ) { // Leitura num / den
