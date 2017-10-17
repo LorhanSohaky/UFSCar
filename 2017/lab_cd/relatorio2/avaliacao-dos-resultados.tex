@@ -1,9 +1,15 @@
 \chapter{Avaliação dos resultados do experimento}
 	\section{ETAPA 1 – Display de 7 segmentos}
 
-		Verificou-se, para todos os casos de entrada, que o valor previsto pela tabela-verdade
+		Verificou-se, para todos os casos de entrada, que o valor previsto pela \autoref{table:tabelaVerdade1}
 		como saída era válido, demonstrando sucesso na implementação do experimento. Isso pode
 		ser visualizado tanto pela simulação, como na execução na placa.
+
+		\begin{figure}[H]
+		    \centering
+			\caption{\label{fig:etapa1Simulacao}Resultado da simulação da etapa 1.}
+			\includegraphics[width=1\textwidth]{img/etapa1/SimulacaoSegmentos7}
+		\end{figure}
 
 		\begin{figure}[H]
 			\centering
@@ -76,12 +82,6 @@
 			\caption{Teste do circuito rodando na placa, no intervalo de 6-9.}\label{fig:etapa1Teste2}
 		\end{figure}
 
-		\begin{figure}[H]
-		    \centering
-			\caption{\label{fig:etapa1Simulacao}Resultado da simulação da etapa 1.}
-			\includegraphics[width=1\textwidth]{img/etapa1/SimulacaoSegmentos7}
-		\end{figure}
-
 
 	\section{ETAPA 2 – Meio-somador 1 bit}
 		Na etapa 2, o experimento demonstrou os resultados esperados, de acordo com a
@@ -128,13 +128,7 @@
 			\caption{Teste do circuito rodando na placa.}\label{fig:etapa2Teste}
 		\end{figure}
 
-		Nota: Este diagrama esquemático, diferente do anterior, já foi feito
-		utilizando exclusivamente portas NAND, não sendo necessária qualquer metodologia de conversão.
-		O circuito utilizado, o TTL 7449, apenas substitui aqui o circuito criado para a implementação
-		da etapa anterior, respeitando as expressões do item 2.1. É só um circuito já conhecido que
-		cumpre a mesma função que o que foi criado para aquela etapa do experimento.
-
-		\footnote{Para mais detalhes sobre o TTL 7449 acesse o \autoref{anexo:datasheet-7449}.}
+		Veja o circuito no \autoref{apendice:CircuitoEtapa2}.
 	\section{ETAPA 3 – Meio-somador 4 bits}
 
 
