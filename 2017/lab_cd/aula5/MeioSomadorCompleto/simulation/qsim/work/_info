@@ -1,0 +1,85 @@
+m255
+K3
+13
+cModel Technology
+Z0 dC:\altera\13.0sp1\MeioSomador4BitsCompleto\simulation\qsim
+vMeioSomador4Bits
+Z1 !s100 <3]KG5nbHQcQo5AK9onh<3
+Z2 I02e_>Tm4??i:z`<_e3FdM1
+Z3 VGjK3JzfT1P@jZ<aA@eG@h2
+Z4 dC:\altera\13.0sp1\MeioSomador4BitsCompleto\simulation\qsim
+Z5 w1508366945
+Z6 8MeioSomador4Bits.vo
+Z7 FMeioSomador4Bits.vo
+L0 31
+Z8 OV;L;10.1d;51
+r1
+31
+Z9 !s90 -work|work|MeioSomador4Bits.vo|
+Z10 o-work work -O0
+Z11 n@meio@somador4@bits
+!i10b 1
+!s85 0
+Z12 !s108 1508366946.658000
+Z13 !s107 MeioSomador4Bits.vo|
+!s101 -O0
+vMeioSomador4Bits_vlg_check_tst
+!i10b 1
+Z14 !s100 kJfeH`2F4>JRkNGg8QT3l0
+Z15 IP?Kh12`lUAoAG3XQ479bm1
+Z16 VBHk34@G7]bR>WoRhjL^ZG3
+R4
+Z17 w1508366943
+Z18 8MeioSomador4Bits.vt
+Z19 FMeioSomador4Bits.vt
+L0 57
+R8
+r1
+!s85 0
+31
+Z20 !s108 1508366946.924000
+Z21 !s107 MeioSomador4Bits.vt|
+Z22 !s90 -work|work|MeioSomador4Bits.vt|
+!s101 -O0
+R10
+Z23 n@meio@somador4@bits_vlg_check_tst
+vMeioSomador4Bits_vlg_sample_tst
+!i10b 1
+Z24 !s100 KX[JRIz8R<BTb^<RPmV_o2
+Z25 II[^NIMUS5ba=_HBfcFUOd2
+Z26 V3__`lmPg1AjLFQ<:^Ac901
+R4
+R17
+R18
+R19
+L0 29
+R8
+r1
+!s85 0
+31
+R20
+R21
+R22
+!s101 -O0
+R10
+Z27 n@meio@somador4@bits_vlg_sample_tst
+vMeioSomador4Bits_vlg_vec_tst
+!i10b 1
+Z28 !s100 S6=h:zP2Lf]58[M`_DJVW3
+Z29 Ik5QSk^J25^BDagY^1KFdT3
+Z30 V4YfV86^PkUXzc;[]i^QdH0
+R4
+R17
+R18
+R19
+Z31 L0 232
+R8
+r1
+!s85 0
+31
+R20
+R21
+R22
+!s101 -O0
+R10
+Z32 n@meio@somador4@bits_vlg_vec_tst
