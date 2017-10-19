@@ -30,3 +30,12 @@ void Fracao::setDenominador( const int denominador ) {
 int Fracao::getDenominador( void ) const {
     return this->denominador;
 }
+
+Fracao Fracao::operator+( Fracao &b ) {
+    if( this->denominador == b.denominador ) {
+        return Fracao( this->numerador + b.numerador, this->denominador );
+    } else {
+        return Fracao( this->numerador * b.denominador + b.numerador * this->denominador,
+                       this->denominador * b.denominador );
+    }
+}

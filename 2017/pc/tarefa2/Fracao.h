@@ -1,5 +1,5 @@
 /*
-TODO	Operações aritméticas, comparaçõ, entrada e saída
+TODO	Operações aritméticas, comparações, entrada e saída
                 Operações entre frações e inteiros
 */
 
@@ -20,6 +20,8 @@ class Fracao {
 
     void setDenominador( const int denominador );
     int getDenominador( void ) const;
+
+    Fracao operator+( Fracao &b );
 };
 
 #endif
