@@ -9,5 +9,8 @@ int main( int argc, char const *argv[] ) {
 
     std::cout << c << '\n';
 
+    std::cin >> c;
+    std::cout << c << '\n';
+
     return 0;
 }
