@@ -113,6 +113,11 @@ class Fracao {
     bool operator<=( const Fracao &b ) const {
         return ( *this < b || *this == b );
     }
+
+    Fracao &operator++( void ) {
+        this->num += this->den;
+        return *this;
+    }
 };
 
 const Fracao operator*( const int &b, const Fracao &a ) {
