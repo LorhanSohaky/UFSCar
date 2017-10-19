@@ -55,3 +55,19 @@ std::istream &operator>>( std::istream &entrada, Fracao &fracao ) {
 
     return entrada;
 }
+
+const Fracao operator*( const int &b, const Fracao &a ) {
+    return Fracao( a.numerador * b, a.denominador );
+}
+
+const Fracao operator+( const int &a, const Fracao &b ) {
+    return Fracao( a * b.denominador + b.numerador, b.denominador );
+}
+
+const Fracao operator-( const int &a, const Fracao &b ) {
+    return Fracao( a * b.denominador - b.numerador, b.denominador );
+}
+
+const Fracao operator/( const int &a, const Fracao &b ) {
+    return Fracao( a * b.denominador, b.numerador );
+}
