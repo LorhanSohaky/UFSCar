@@ -43,3 +43,15 @@ std::ostream &operator<<( std::ostream &saida, const Fracao &fracao ) {
     saida << fracao.numerador << "/" << fracao.denominador;
     return saida;
 }
+
+std::istream &operator>>( std::istream &entrada, Fracao &fracao ) {
+    int numerador, denominador;
+    char barra;
+
+    std::cin >> numerador >> barra >> denominador;
+
+    fracao.setNumerador( numerador );
+    fracao.setDenominador( denominador );
+
+    return entrada;
+}

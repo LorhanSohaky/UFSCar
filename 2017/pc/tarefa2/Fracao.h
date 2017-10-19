@@ -26,6 +26,7 @@ class Fracao {
     Fracao operator+( Fracao &b );
 
     friend std::ostream &operator<<( std::ostream &saida, const Fracao &fracao );
+    friend std::istream &operator>>( std::istream &entrada, Fracao &fracao );
 };
 
 #endif
