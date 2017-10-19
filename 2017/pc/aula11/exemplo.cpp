@@ -118,6 +118,13 @@ class Fracao {
         this->num += this->den;
         return *this;
     }
+
+    Fracao operator++( int ) {
+        Fracao antes = *this;
+
+        this->num += this->den;
+        return antes;
+    }
 };
 
 const Fracao operator*( const int &b, const Fracao &a ) {
