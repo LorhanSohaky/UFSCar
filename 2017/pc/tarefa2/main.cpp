@@ -7,7 +7,7 @@ int main( int argc, char const *argv[] ) {
 
     Fracao c = a + b;
 
-    std::cout << c.getNumerador() << "/" << c.getDenominador() << '\n';
+    std::cout << c << '\n';
 
     return 0;
 }
