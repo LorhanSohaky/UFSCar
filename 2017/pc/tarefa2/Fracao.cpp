@@ -1,5 +1,4 @@
 #include "Fracao.h"
-#include <iostream>
 
 Fracao::Fracao( const int numerador, const int denominador ) {
     setNumerador( numerador );
@@ -38,4 +37,9 @@ Fracao Fracao::operator+( Fracao &b ) {
         return Fracao( this->numerador * b.denominador + b.numerador * this->denominador,
                        this->denominador * b.denominador );
     }
+}
+
+std::ostream &operator<<( std::ostream &saida, const Fracao &fracao ) {
+    saida << fracao.numerador << "/" << fracao.denominador;
+    return saida;
 }

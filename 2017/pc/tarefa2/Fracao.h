@@ -1,10 +1,12 @@
 /*
-TODO	Operações aritméticas, comparações, entrada e saída
+TODO	Operações aritméticas, comparações, entrada
                 Operações entre frações e inteiros
 */
 
 #ifndef FRACAO_H
 #define FRACAO_H
+
+#include <iostream>
 
 class Fracao {
   private:
@@ -22,6 +24,8 @@ class Fracao {
     int getDenominador( void ) const;
 
     Fracao operator+( Fracao &b );
+
+    friend std::ostream &operator<<( std::ostream &saida, const Fracao &fracao );
 };
 
 #endif
