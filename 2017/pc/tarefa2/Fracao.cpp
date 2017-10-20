@@ -110,7 +110,12 @@ Fracao Fracao::operator*( const int &b ) const {
 }
 
 Fracao Fracao::operator/( const int &a ) const {
-    return Fracao( this->numerador, a * this->denominador );
+    if( a != 0 ) {
+        return Fracao( this->numerador, a * this->denominador );
+    } else {
+        std::cout << "Operação inválida!" << '\n';
+        return *this;
+    }
 }
 
 Fracao operator+( const int &a, const Fracao &b ) {
@@ -126,5 +131,10 @@ Fracao operator*( const int &b, const Fracao &a ) {
 }
 
 Fracao operator/( const int &a, const Fracao &b ) {
-    return Fracao( a * b.denominador, b.numerador );
+    if( a != 0 ) {
+        return Fracao( a * b.denominador, b.numerador );
+    } else {
+        std::cout << "Operação inválida!" << '\n';
+        return b;
+    }
 }
