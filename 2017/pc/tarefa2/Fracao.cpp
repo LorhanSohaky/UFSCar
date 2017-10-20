@@ -47,6 +47,30 @@ std::istream &operator>>( std::istream &entrada, Fracao &fracao ) {
     return entrada;
 }
 
+bool Fracao::operator>( const Fracao &b ) const {
+    return ( (float)this->numerador / this->denominador > (float)b.numerador / b.denominador );
+}
+
+bool Fracao::operator<( const Fracao &b ) const {
+    return ( (float)this->numerador / this->denominador < (float)b.numerador / b.denominador );
+}
+
+bool Fracao::operator==( const Fracao &b ) const {
+    return ( (float)this->numerador / this->denominador == (float)b.numerador / b.denominador );
+}
+
+bool Fracao::operator!=( const Fracao &b ) const {
+    return ( !( *this == b ) );
+}
+
+bool Fracao::operator>=( const Fracao &b ) const {
+    return ( *this > b || *this == b );
+}
+
+bool Fracao::operator<=( const Fracao &b ) const {
+    return ( *this < b || *this == b );
+}
+
 Fracao Fracao::operator+( const Fracao &b ) const {
     if( this->denominador == b.denominador ) {
         return Fracao( this->numerador + b.numerador, this->denominador );

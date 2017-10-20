@@ -1,5 +1,5 @@
 /*
-TODO	Operações aritméticas, comparações, entrada
+TODO	 comparações
                 Operações entre frações e inteiros
 */
 
@@ -40,6 +40,13 @@ class Fracao {
 
     friend std::ostream &operator<<( std::ostream &saida, const Fracao &fracao );
     friend std::istream &operator>>( std::istream &entrada, Fracao &fracao );
+
+    bool operator>( const Fracao &b ) const;
+    bool operator<( const Fracao &b ) const;
+    bool operator==( const Fracao &b ) const;
+    bool operator!=( const Fracao &b ) const;
+    bool operator>=( const Fracao &b ) const;
+    bool operator<=( const Fracao &b ) const;
 };
 
 #endif
