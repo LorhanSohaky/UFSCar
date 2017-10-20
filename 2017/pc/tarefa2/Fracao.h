@@ -23,6 +23,19 @@ class Fracao {
     void setDenominador( const int denominador );
     int getDenominador( void ) const;
 
+    friend std::ostream &operator<<( std::ostream &saida, const Fracao &fracao );
+    friend std::istream &operator>>( std::istream &entrada, Fracao &fracao );
+
+    Fracao &operator++( void );
+    Fracao operator++( int );
+
+    bool operator>( const Fracao &b ) const;
+    bool operator<( const Fracao &b ) const;
+    bool operator==( const Fracao &b ) const;
+    bool operator!=( const Fracao &b ) const;
+    bool operator>=( const Fracao &b ) const;
+    bool operator<=( const Fracao &b ) const;
+
     Fracao operator+( const Fracao &b ) const;
     Fracao operator-( const Fracao &b ) const;
     Fracao operator*( const Fracao &b ) const;
@@ -37,16 +50,6 @@ class Fracao {
     friend Fracao operator+( const int &a, const Fracao &b );
     friend Fracao operator-( const int &a, const Fracao &b );
     friend Fracao operator/( const int &a, const Fracao &b );
-
-    friend std::ostream &operator<<( std::ostream &saida, const Fracao &fracao );
-    friend std::istream &operator>>( std::istream &entrada, Fracao &fracao );
-
-    bool operator>( const Fracao &b ) const;
-    bool operator<( const Fracao &b ) const;
-    bool operator==( const Fracao &b ) const;
-    bool operator!=( const Fracao &b ) const;
-    bool operator>=( const Fracao &b ) const;
-    bool operator<=( const Fracao &b ) const;
 };
 
 #endif
