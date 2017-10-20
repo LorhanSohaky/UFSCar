@@ -3,6 +3,7 @@
 
 void operacoesAritmeticas( void );
 void operacoesIncrementoEDecremento( void );
+void operacoesComparacao( void );
 
 int main( int argc, char const *argv[] ) {
     std::cout << "OPERAÇÕES ARITMETICAS" << '\n';
@@ -10,6 +11,9 @@ int main( int argc, char const *argv[] ) {
 
     std::cout << "OPERAÇÕES INCREMENTO E DECREMENTO" << '\n';
     operacoesIncrementoEDecremento();
+
+    std::cout << "OPERAÇÕES DE COMPARAÇÃO" << '\n';
+    operacoesComparacao();
 
     return 0;
 }
@@ -133,4 +137,16 @@ void operacoesIncrementoEDecremento( void ) {
     std::cout << "++(" << e << "*" << a << ")=" << ++( e * a ) << '\n';
 
     std::cout << '\n';
+}
+
+void operacoesComparacao( void ) {
+    Fracao a( 1, 2 );
+    Fracao b( 1, 3 );
+
+    std::cout << a << "<" << b << "=" << ( a < b ) << '\n';
+    std::cout << a << "<=" << b << "=" << ( a <= b ) << '\n';
+    std::cout << a << ">" << b << "=" << ( a > b ) << '\n';
+    std::cout << a << ">=" << b << "=" << ( a >= b ) << '\n';
+    std::cout << a << "==" << b << "=" << ( a == b ) << '\n';
+    std::cout << a << "!=" << b << "=" << ( a != b ) << '\n';
 }
