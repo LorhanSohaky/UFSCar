@@ -1,8 +1,3 @@
-/*
-TODO	 comparações
-                Operações entre frações e inteiros
-*/
-
 #ifndef FRACAO_H
 #define FRACAO_H
 
