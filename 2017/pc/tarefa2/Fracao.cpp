@@ -82,6 +82,26 @@ bool Fracao::operator<=( const Fracao &b ) const {
     return ( *this < b || *this == b );
 }
 
+bool Fracao::operator<( const int &a ) const {
+    return ( (float)this->numerador / this->denominador < a );
+}
+
+bool Fracao::operator==( const int &a ) const {
+    return ( (float)this->numerador / this->denominador == a );
+}
+
+bool Fracao::operator!=( const int &a ) const {
+    return ( !( *this == a ) );
+}
+
+bool Fracao::operator>=( const int &a ) const {
+    return ( *this > a || *this == a );
+}
+
+bool Fracao::operator<=( const int &a ) const {
+    return ( *this < a || *this == a );
+}
+
 Fracao Fracao::operator+( const Fracao &b ) const {
     if( this->denominador == b.denominador ) {
         return Fracao( this->numerador + b.numerador, this->denominador );

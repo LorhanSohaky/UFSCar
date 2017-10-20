@@ -36,6 +36,12 @@ class Fracao {
     bool operator>=( const Fracao &b ) const;
     bool operator<=( const Fracao &b ) const;
 
+    bool operator<( const int &a ) const;
+    bool operator==( const int &a ) const;
+    bool operator!=( const int &a ) const;
+    bool operator>=( const int &a ) const;
+    bool operator<=( const int &a ) const;
+
     Fracao operator+( const Fracao &b ) const;
     Fracao operator-( const Fracao &b ) const;
     Fracao operator*( const Fracao &b ) const;
