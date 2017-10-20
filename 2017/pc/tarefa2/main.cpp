@@ -159,4 +159,13 @@ void operacoesComparacao( void ) {
     std::cout << b << ">=" << c << "=" << ( b >= c ) << '\n';
     std::cout << b << "==" << c << "=" << ( b == c ) << '\n';
     std::cout << b << "!=" << c << "=" << ( b != c ) << '\n';
+
+    std::cout << '\n';
+
+    std::cout << c << "<" << b << "=" << ( c < b ) << '\n';
+    std::cout << c << "<=" << b << "=" << ( c <= b ) << '\n';
+    std::cout << c << ">" << b << "=" << ( c > b ) << '\n';
+    std::cout << c << ">=" << b << "=" << ( c >= b ) << '\n';
+    std::cout << c << "==" << b << "=" << ( c == b ) << '\n';
+    std::cout << c << "!=" << b << "=" << ( c != b ) << '\n';
 }
