@@ -6,7 +6,6 @@ Fracao::Fracao( const int numerador, const int denominador ) {
 }
 
 Fracao::~Fracao( void ) {
-    std::cout << "Destrutor:" << this->numerador << "/" << this->denominador << '\n';
 }
 
 void Fracao::setNumerador( const int numerador ) {
