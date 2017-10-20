@@ -141,7 +141,8 @@ void operacoesIncrementoEDecremento( void ) {
 
 void operacoesComparacao( void ) {
     Fracao a( 1, 2 );
-    Fracao b( 1, 3 );
+    Fracao b( 2, 2 );
+    int c = 1;
 
     std::cout << a << "<" << b << "=" << ( a < b ) << '\n';
     std::cout << a << "<=" << b << "=" << ( a <= b ) << '\n';
@@ -149,4 +150,13 @@ void operacoesComparacao( void ) {
     std::cout << a << ">=" << b << "=" << ( a >= b ) << '\n';
     std::cout << a << "==" << b << "=" << ( a == b ) << '\n';
     std::cout << a << "!=" << b << "=" << ( a != b ) << '\n';
+
+    std::cout << '\n';
+
+    std::cout << b << "<" << c << "=" << ( b < c ) << '\n';
+    std::cout << b << "<=" << c << "=" << ( b <= c ) << '\n';
+    std::cout << b << ">" << c << "=" << ( b > c ) << '\n';
+    std::cout << b << ">=" << c << "=" << ( b >= c ) << '\n';
+    std::cout << b << "==" << c << "=" << ( b == c ) << '\n';
+    std::cout << b << "!=" << c << "=" << ( b != c ) << '\n';
 }
