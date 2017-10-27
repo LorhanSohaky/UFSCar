@@ -1,9 +1,11 @@
 import React from 'react';
 import Note from './Note';
 
-const Board=()=>(
+const Board=({notes})=>(
 	<div id="columns">
-		<Note/>
+		{notes.map((note)=>{
+			return <Note note={note}/>
+		})}
 	</div>
 )
 
