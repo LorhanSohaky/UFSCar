@@ -1,10 +1,10 @@
 import React from 'react';
 import Note from './Note';
 
-const Board=({notes})=>(
+const Board=({notes,handleUpdate})=>(
 	<div id="columns">
-		{notes.map((note)=>{
-			return <Note note={note}/>
+		{notes.map((note,index)=>{
+			return <Note note={note} id={index} handleUpdate={handleUpdate}/>
 		})}
 	</div>
 )

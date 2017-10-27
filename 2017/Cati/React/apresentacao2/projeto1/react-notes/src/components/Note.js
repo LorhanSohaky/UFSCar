@@ -1,4 +1,6 @@
 import React from 'react';
+import Button from './Button';
+import TextArea from './TextArea';
 
 class Note extends React.Component{
 
@@ -10,6 +12,9 @@ class Note extends React.Component{
 		}
 
 		this.handleClick=this.handleClick.bind(this);
+		this.handleBlur=this.handleBlur.bind(this);
+		this.updateParent=this.updateParent.bind(this);
+		this.handleChange=this.handleChange.bind(this);
 	}
 
 	handleClick(event){
@@ -18,17 +23,49 @@ class Note extends React.Component{
 		this.setState({
 			edit:edit
 		});
+
+	}
+
+	handleBlur(event){
+		this.setState({
+			edit:null
+		});
+
+	}
+
+	handleChange(event){
+		const field=event.target.id;
+
+		this.updateParent({
+				...this.props.note,[field]:event.target.value
+		});
+	}
+
+	updateParent(changes){
+
+		this.props.handleUpdate(changes,this.props.id);
 	}
 
 	render(){
 		 return(
 			<div class="pin">
-				<button class="btn check-btn"><i class="material-icons">check_circle</i></button>
-				<p id="title">{this.props.note.title}</p>
-				<p id="text">{this.props.note.text}</p>
+				<Button text={<i class="material-icons">check_circle</i>} type="check-btn"/>
+				{
+					this.state.edit=== "title" ?
+						<TextArea id={"title"} value={this.props.note.title} handleChange={this.handleChange}/>
+						:
+						<p id="title" onClick={this.handleClick}>{this.props.note.title}</p>
+				}
+
+				{
+					this.state.edit=== "text" ?
+						<TextArea id={"text"} value={this.props.note.text} handleChange={this.handleChange}/>
+						:
+						<p id="text" onClick={this.handleClick}>{this.props.note.text}</p>
+				}
 				<div class="actions">
-					<button class="btn action-btn"><i class="material-icons">archive</i></button>
-					<button class="btn action-btn"><i class="material-icons">delete</i></button>
+					<Button text={<i class="material-icons">archive</i>} type="action-btn"/>
+					<Button text={<i class="material-icons">delete</i>} type="action-btn"/>
 				</div>
 			</div>
 		)

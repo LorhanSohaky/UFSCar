@@ -15,6 +15,7 @@ class App extends Component {
 
 		this.add=this.add.bind(this);
 		this.remove=this.remove.bind(this);
+		this.handleUpdate=this.handleUpdate.bind(this);
 	}
 
 	add(){
@@ -42,6 +43,18 @@ class App extends Component {
 		})
 	}
 
+	handleUpdate(state,id){
+
+		let notes=this.state.notes;
+
+		notes[id] = state;
+
+		this.setState({
+			notes
+		});
+
+	}
+
 	render() {
       return (
         <div id="wrapper">
@@ -49,7 +62,7 @@ class App extends Component {
 				add={this.add}
 				remove={this.remove}
 			/>
-            <Board notes={this.state.notes}/>
+            <Board handleUpdate={this.handleUpdate} notes={this.state.notes}/>
         </div>
       );
     }
