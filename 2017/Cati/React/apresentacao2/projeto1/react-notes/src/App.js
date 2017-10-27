@@ -14,6 +14,7 @@ class App extends Component {
 		};
 
 		this.add=this.add.bind(this);
+		this.remove=this.remove.bind(this);
 	}
 
 	add(){
@@ -30,11 +31,23 @@ class App extends Component {
 		})
 	}
 
+	remove(){
+
+		let notes=this.state.notes;
+
+		notes.pop();
+
+		this.setState({
+			notes:notes
+		})
+	}
+
 	render() {
       return (
         <div id="wrapper">
   			<ActionBar
 				add={this.add}
+				remove={this.remove}
 			/>
             <Board notes={this.state.notes}/>
         </div>
