@@ -1,14 +1,13 @@
 import React from 'react';
+import ShowArchived from './ShowArchived';
+import Button from './Button'
 
 const ActionBar=()=>(
 	<div class="row">
-		<button class="btn"><i class="material-icons">add</i></button>
-		<button class="btn btn-success"><i class="material-icons">archive</i></button>
-		<button class="btn btn-danger"><i class="material-icons">delete</i></button>
-		<div class="checkbox-container">
-			  <input type="checkbox" />
-			  <span>Exibir Arquivados</span>
-		</div>
+		<Button text={<i class="material-icons">add</i>}/>
+		<Button text={<i class="material-icons">archive</i>} type="btn-success"/>
+		<Button text={<i class="material-icons">delete</i>} type="btn-danger"/>
+		<ShowArchived/>
 	</div>
 )
 
