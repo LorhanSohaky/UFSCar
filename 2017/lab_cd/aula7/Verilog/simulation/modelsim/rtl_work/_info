@@ -2,4 +2,145 @@ m255
 K3
 13
 cModel Technology
-dC:\altera\13.0sp1\aula7\Verilog\simulation\modelsim
+Z0 dC:\altera\13.0sp1\aula7\Verilog\simulation\modelsim
+vdecodificacao
+In4O<F>WH>E?1>3=6OmaKK2
+VbL]V1L7m[B9:G4BCN4_nE3
+Z1 dC:\altera\13.0sp1\aula7\Verilog\simulation\modelsim
+Z2 w1510597655
+Z3 8C:/altera/13.0sp1/aula7/Verilog/projeto.v
+Z4 FC:/altera/13.0sp1/aula7/Verilog/projeto.v
+L0 48
+Z5 OV;L;10.1d;51
+r1
+31
+Z6 !s108 1510600438.895000
+Z7 !s107 C:/altera/13.0sp1/aula7/Verilog/projeto.v|
+Z8 !s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/altera/13.0sp1/aula7/Verilog|C:/altera/13.0sp1/aula7/Verilog/projeto.v|
+Z9 o-vlog01compat -work work -O0
+Z10 !s92 -vlog01compat -work work +incdir+C:/altera/13.0sp1/aula7/Verilog -O0
+!i10b 1
+!s100 1U1G:QZbWDzI^]RaWPImd2
+!s85 0
+!s101 -O0
+vdecodificador_TB
+!i10b 1
+!s100 zJ=>lCLmDQ@KFdb]kWMhg1
+IB7l2oT]mY6UQ`3S:zO:[[0
+VeblcOl6IOf^>kAmgHN1mP2
+R1
+w1510600277
+8C:/altera/13.0sp1/aula7/Verilog/decodificador_TB.v
+FC:/altera/13.0sp1/aula7/Verilog/decodificador_TB.v
+L0 1
+R5
+r1
+!s85 0
+31
+!s108 1510600439.893000
+!s107 C:/altera/13.0sp1/aula7/Verilog/decodificador_TB.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/altera/13.0sp1/aula7/Verilog|C:/altera/13.0sp1/aula7/Verilog/decodificador_TB.v|
+!s101 -O0
+R9
+R10
+ndecodificador_@t@b
+vmeio_somador2
+IKhOn:gfIOoNQa]^GJIVKm2
+VKj=<Oid@4:6bJdY^BX=n51
+R1
+R2
+R3
+R4
+L0 1
+R5
+r1
+31
+R6
+R7
+R8
+R9
+R10
+!i10b 1
+!s100 aAcaRmzA5]n[jRl;HCgGE1
+!s85 0
+!s101 -O0
+vmeio_somador3
+ILkIJngc?6;LabbXa6=1jT1
+Vb`Q`DFZB0IlGFNz;1BThD0
+R1
+R2
+R3
+R4
+L0 10
+R5
+r1
+31
+R6
+R7
+R8
+R9
+R10
+!i10b 1
+!s100 10ZdNQe:AlVY5PNGQA1gV3
+!s85 0
+!s101 -O0
+vprojeto
+IkNmIAmD`QB9W5bjk^P99M3
+V]VHV9G_Pl_j0lUMNLX1kJ3
+R1
+R2
+R3
+R4
+L0 62
+R5
+r1
+31
+R6
+R7
+R8
+R9
+R10
+!i10b 1
+!s100 C6>E8LZUzPhbO9fUdTCcG1
+!s85 0
+!s101 -O0
+vsepara
+IQF`eag3WZ>::9gjLFL4UB3
+Vzo6O2bDAfDJ<gQZ0NA>jm1
+R1
+R2
+R3
+R4
+L0 36
+R5
+r1
+31
+R6
+R7
+R8
+R9
+R10
+!i10b 1
+!s100 n=3DA;CR3h;h1j6fl1Vg40
+!s85 0
+!s101 -O0
+vsomador_4_bits
+IdcG6Hjg_>3@]Ni>dVYg>>2
+V[:;VZ3^mV^b79mFL`9<Ug1
+R1
+R2
+R3
+R4
+L0 23
+R5
+r1
+31
+R6
+R7
+R8
+R9
+R10
+!i10b 1
+!s100 m152PkOm6efz1DJ5cVImg0
+!s85 0
+!s101 -O0

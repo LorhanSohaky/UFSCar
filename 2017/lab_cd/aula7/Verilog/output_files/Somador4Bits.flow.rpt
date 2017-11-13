@@ -1,5 +1,5 @@
 Flow report for Somador4Bits
-Mon Nov 13 09:41:34 2017
+Mon Nov 13 17:06:45 2017
 Quartus II 64-Bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
 
 
@@ -40,7 +40,7 @@ applicable agreement for further details.
 +--------------------------------------------------------------------------------------+
 ; Flow Summary                                                                         ;
 +------------------------------------+-------------------------------------------------+
-; Flow Status                        ; Successful - Mon Nov 13 09:41:34 2017           ;
+; Flow Status                        ; Successful - Mon Nov 13 17:06:45 2017           ;
 ; Quartus II 64-Bit Version          ; 13.0.1 Build 232 06/12/2013 SP 1 SJ Web Edition ;
 ; Revision Name                      ; Somador4Bits                                    ;
 ; Top-level Entity Name              ; projeto                                         ;
@@ -64,42 +64,48 @@ applicable agreement for further details.
 +-------------------+---------------------+
 ; Option            ; Setting             ;
 +-------------------+---------------------+
-; Start date & time ; 11/13/2017 09:41:25 ;
+; Start date & time ; 11/13/2017 17:06:22 ;
 ; Main task         ; Compilation         ;
 ; Revision Name     ; Somador4Bits        ;
 +-------------------+---------------------+
 
 
-+------------------------------------------------------------------------------------------------------------------------+
-; Flow Non-Default Global Settings                                                                                       ;
-+--------------------------------------+--------------------------------+---------------+-------------+------------------+
-; Assignment Name                      ; Value                          ; Default Value ; Entity Name ; Section Id       ;
-+--------------------------------------+--------------------------------+---------------+-------------+------------------+
-; COMPILER_SIGNATURE_ID                ; 17629519237415.151057328504428 ; --            ; --          ; --               ;
-; EDA_DESIGN_INSTANCE_NAME             ; NA                             ; --            ; --          ; meio_somador2_TB ;
-; EDA_DESIGN_INSTANCE_NAME             ; NA                             ; --            ; --          ; meio_somador3_TB ;
-; EDA_DESIGN_INSTANCE_NAME             ; NA                             ; --            ; --          ; Somador4Bits_TB  ;
-; EDA_NATIVELINK_SIMULATION_TEST_BENCH ; Somador4Bits_TB                ; --            ; --          ; eda_simulation   ;
-; EDA_OUTPUT_DATA_FORMAT               ; Vhdl                           ; --            ; --          ; eda_simulation   ;
-; EDA_SIMULATION_TOOL                  ; ModelSim-Altera (VHDL)         ; <None>        ; --          ; --               ;
-; EDA_TEST_BENCH_ENABLE_STATUS         ; TEST_BENCH_MODE                ; --            ; --          ; eda_simulation   ;
-; EDA_TEST_BENCH_FILE                  ; meio_somador2_TB.v             ; --            ; --          ; meio_somador2_TB ;
-; EDA_TEST_BENCH_FILE                  ; meio_somador3_TB.v             ; --            ; --          ; meio_somador3_TB ;
-; EDA_TEST_BENCH_FILE                  ; Somador4Bits_TB.v              ; --            ; --          ; Somador4Bits_TB  ;
-; EDA_TEST_BENCH_MODULE_NAME           ; meio_somador2_TB               ; --            ; --          ; meio_somador2_TB ;
-; EDA_TEST_BENCH_MODULE_NAME           ; meio_somador3_TB               ; --            ; --          ; meio_somador3_TB ;
-; EDA_TEST_BENCH_MODULE_NAME           ; Somador4Bits_TB                ; --            ; --          ; Somador4Bits_TB  ;
-; EDA_TEST_BENCH_NAME                  ; meio_somador2_TB               ; --            ; --          ; eda_simulation   ;
-; EDA_TEST_BENCH_NAME                  ; meio_somador3_TB               ; --            ; --          ; eda_simulation   ;
-; EDA_TEST_BENCH_NAME                  ; Somador4Bits_TB                ; --            ; --          ; eda_simulation   ;
-; MAX_CORE_JUNCTION_TEMP               ; 85                             ; --            ; --          ; --               ;
-; MIN_CORE_JUNCTION_TEMP               ; 0                              ; --            ; --          ; --               ;
-; PARTITION_COLOR                      ; 16764057                       ; --            ; projeto     ; Top              ;
-; PARTITION_FITTER_PRESERVATION_LEVEL  ; PLACEMENT_AND_ROUTING          ; --            ; projeto     ; Top              ;
-; PARTITION_NETLIST_TYPE               ; SOURCE                         ; --            ; projeto     ; Top              ;
-; PROJECT_OUTPUT_DIRECTORY             ; output_files                   ; --            ; --          ; --               ;
-; TOP_LEVEL_ENTITY                     ; projeto                        ; Somador4Bits  ; --          ; --               ;
-+--------------------------------------+--------------------------------+---------------+-------------+------------------+
++---------------------------------------------------------------------------------------------------------------------------------+
+; Flow Non-Default Global Settings                                                                                                ;
++--------------------------------------+---------------------------------------+---------------+-------------+--------------------+
+; Assignment Name                      ; Value                                 ; Default Value ; Entity Name ; Section Id         ;
++--------------------------------------+---------------------------------------+---------------+-------------+--------------------+
+; COMPILER_SIGNATURE_ID                ; 963361450667.151059998204124          ; --            ; --          ; --                 ;
+; EDA_DESIGN_INSTANCE_NAME             ; NA                                    ; --            ; --          ; meio_somador2_TB   ;
+; EDA_DESIGN_INSTANCE_NAME             ; NA                                    ; --            ; --          ; meio_somador3_TB   ;
+; EDA_DESIGN_INSTANCE_NAME             ; NA                                    ; --            ; --          ; Somador4Bits_TB    ;
+; EDA_DESIGN_INSTANCE_NAME             ; NA                                    ; --            ; --          ; decodificacador_TB ;
+; EDA_NATIVELINK_SIMULATION_TEST_BENCH ; decodificacador_TB                    ; --            ; --          ; eda_simulation     ;
+; EDA_OUTPUT_DATA_FORMAT               ; Vhdl                                  ; --            ; --          ; eda_simulation     ;
+; EDA_SIMULATION_TOOL                  ; ModelSim-Altera (VHDL)                ; <None>        ; --          ; --                 ;
+; EDA_TEST_BENCH_ENABLE_STATUS         ; TEST_BENCH_MODE                       ; --            ; --          ; eda_simulation     ;
+; EDA_TEST_BENCH_FILE                  ; meio_somador2_TB.v                    ; --            ; --          ; meio_somador2_TB   ;
+; EDA_TEST_BENCH_FILE                  ; meio_somador3_TB.v                    ; --            ; --          ; meio_somador3_TB   ;
+; EDA_TEST_BENCH_FILE                  ; Somador4Bits_TB.v                     ; --            ; --          ; Somador4Bits_TB    ;
+; EDA_TEST_BENCH_FILE                  ; decodificador_TB.v                    ; --            ; --          ; decodificacador_TB ;
+; EDA_TEST_BENCH_MODULE_NAME           ; meio_somador2_TB                      ; --            ; --          ; meio_somador2_TB   ;
+; EDA_TEST_BENCH_MODULE_NAME           ; meio_somador3_TB                      ; --            ; --          ; meio_somador3_TB   ;
+; EDA_TEST_BENCH_MODULE_NAME           ; Somador4Bits_TB                       ; --            ; --          ; Somador4Bits_TB    ;
+; EDA_TEST_BENCH_MODULE_NAME           ; decodificacador_TB                    ; --            ; --          ; decodificacador_TB ;
+; EDA_TEST_BENCH_NAME                  ; meio_somador2_TB                      ; --            ; --          ; eda_simulation     ;
+; EDA_TEST_BENCH_NAME                  ; meio_somador3_TB                      ; --            ; --          ; eda_simulation     ;
+; EDA_TEST_BENCH_NAME                  ; Somador4Bits_TB                       ; --            ; --          ; eda_simulation     ;
+; EDA_TEST_BENCH_NAME                  ; decodificacador_TB                    ; --            ; --          ; eda_simulation     ;
+; MAX_CORE_JUNCTION_TEMP               ; 85                                    ; --            ; --          ; --                 ;
+; MIN_CORE_JUNCTION_TEMP               ; 0                                     ; --            ; --          ; --                 ;
+; PARTITION_COLOR                      ; 16764057                              ; --            ; projeto     ; Top                ;
+; PARTITION_FITTER_PRESERVATION_LEVEL  ; PLACEMENT_AND_ROUTING                 ; --            ; projeto     ; Top                ;
+; PARTITION_NETLIST_TYPE               ; SOURCE                                ; --            ; projeto     ; Top                ;
+; POWER_BOARD_THERMAL_MODEL            ; None (CONSERVATIVE)                   ; --            ; --          ; --                 ;
+; POWER_PRESET_COOLING_SOLUTION        ; 23 MM HEAT SINK WITH 200 LFPM AIRFLOW ; --            ; --          ; --                 ;
+; PROJECT_OUTPUT_DIRECTORY             ; output_files                          ; --            ; --          ; --                 ;
+; TOP_LEVEL_ENTITY                     ; projeto                               ; Somador4Bits  ; --          ; --                 ;
++--------------------------------------+---------------------------------------+---------------+-------------+--------------------+
 
 
 +-------------------------------------------------------------------------------------------------------------------------------+
@@ -107,12 +113,12 @@ applicable agreement for further details.
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
 ; Module Name               ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Analysis & Synthesis      ; 00:00:01     ; 1.0                     ; 458 MB              ; 00:00:01                           ;
-; Fitter                    ; 00:00:02     ; 1.0                     ; 633 MB              ; 00:00:03                           ;
-; Assembler                 ; 00:00:01     ; 1.0                     ; 417 MB              ; 00:00:01                           ;
-; TimeQuest Timing Analyzer ; 00:00:01     ; 1.0                     ; 399 MB              ; 00:00:01                           ;
-; EDA Netlist Writer        ; 00:00:00     ; 1.0                     ; 383 MB              ; 00:00:00                           ;
-; Total                     ; 00:00:05     ; --                      ; --                  ; 00:00:06                           ;
+; Analysis & Synthesis      ; 00:00:04     ; 1.0                     ; 481 MB              ; 00:00:03                           ;
+; Fitter                    ; 00:00:08     ; 1.0                     ; 728 MB              ; 00:00:06                           ;
+; Assembler                 ; 00:00:03     ; 1.0                     ; 434 MB              ; 00:00:03                           ;
+; TimeQuest Timing Analyzer ; 00:00:02     ; 1.0                     ; 428 MB              ; 00:00:02                           ;
+; EDA Netlist Writer        ; 00:00:01     ; 1.0                     ; 400 MB              ; 00:00:01                           ;
+; Total                     ; 00:00:18     ; --                      ; --                  ; 00:00:15                           ;
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
 
 
@@ -121,11 +127,11 @@ applicable agreement for further details.
 +---------------------------+------------------+-----------+------------+----------------+
 ; Module Name               ; Machine Hostname ; OS Name   ; OS Version ; Processor type ;
 +---------------------------+------------------+-----------+------------+----------------+
-; Analysis & Synthesis      ; l5m8             ; Windows 7 ; 6.2        ; x86_64         ;
-; Fitter                    ; l5m8             ; Windows 7 ; 6.2        ; x86_64         ;
-; Assembler                 ; l5m8             ; Windows 7 ; 6.2        ; x86_64         ;
-; TimeQuest Timing Analyzer ; l5m8             ; Windows 7 ; 6.2        ; x86_64         ;
-; EDA Netlist Writer        ; l5m8             ; Windows 7 ; 6.2        ; x86_64         ;
+; Analysis & Synthesis      ; DESKTOP-4R8U9HV  ; Windows 7 ; 6.2        ; x86_64         ;
+; Fitter                    ; DESKTOP-4R8U9HV  ; Windows 7 ; 6.2        ; x86_64         ;
+; Assembler                 ; DESKTOP-4R8U9HV  ; Windows 7 ; 6.2        ; x86_64         ;
+; TimeQuest Timing Analyzer ; DESKTOP-4R8U9HV  ; Windows 7 ; 6.2        ; x86_64         ;
+; EDA Netlist Writer        ; DESKTOP-4R8U9HV  ; Windows 7 ; 6.2        ; x86_64         ;
 +---------------------------+------------------+-----------+------------+----------------+
 
 

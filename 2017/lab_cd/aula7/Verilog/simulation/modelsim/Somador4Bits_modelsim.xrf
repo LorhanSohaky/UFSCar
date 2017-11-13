@@ -3,6 +3,7 @@ source_file = 1, C:/altera/13.0sp1/aula7/Verilog/meio_somador2_TB.v
 source_file = 1, C:/altera/13.0sp1/aula7/Verilog/Somador4Bits_TB.v
 source_file = 1, C:/altera/13.0sp1/aula7/Verilog/meio_somador3_TB.v
 source_file = 1, C:/altera/13.0sp1/aula7/Verilog/projeto.v
+source_file = 1, C:/altera/13.0sp1/aula7/Verilog/decodificador_TB.v
 source_file = 1, C:/altera/13.0sp1/aula7/Verilog/db/Somador4Bits.cbx.xml
 design_name = projeto
 instance = comp, \soma|s3|o\, soma|s3|o, projeto, 1
