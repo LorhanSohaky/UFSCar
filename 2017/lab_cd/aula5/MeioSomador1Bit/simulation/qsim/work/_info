@@ -1,0 +1,85 @@
+m255
+K3
+13
+cModel Technology
+Z0 dC:\altera\13.0sp1\aula5\MeioSomador1Bit\simulation\qsim
+vEtapa2
+Z1 I6``i84f^iOjBnOcXB9WVV1
+Z2 VQMcW]?Nm?PcK8anZ3iTc01
+Z3 dC:\altera\13.0sp1\aula5\MeioSomador1Bit\simulation\qsim
+Z4 w1508173630
+Z5 8Etapa2.vo
+Z6 FEtapa2.vo
+L0 31
+Z7 OV;L;10.1d;51
+r1
+31
+Z8 !s90 -work|work|Etapa2.vo|
+Z9 o-work work -O0
+Z10 n@etapa2
+!i10b 1
+Z11 !s100 ]6BCQ<FBc;S;>H]2agiGD3
+!s85 0
+Z12 !s108 1508173635.331000
+Z13 !s107 Etapa2.vo|
+!s101 -O0
+vEtapa2_vlg_check_tst
+!i10b 1
+Z14 !s100 VfKI;<2L]mXVL07Xn5JL^2
+Z15 IWjL2EI[HLT<;`hH1ZE?6d2
+Z16 Vc?OE0i1SiTWGE<eMOoCLL2
+R3
+Z17 w1508173629
+Z18 8Etapa2.vt
+Z19 FEtapa2.vt
+L0 57
+R7
+r1
+!s85 0
+31
+Z20 !s108 1508173635.800000
+Z21 !s107 Etapa2.vt|
+Z22 !s90 -work|work|Etapa2.vt|
+!s101 -O0
+R9
+Z23 n@etapa2_vlg_check_tst
+vEtapa2_vlg_sample_tst
+!i10b 1
+Z24 !s100 kBOolVYSLDhXHczBnFoR71
+Z25 I5zO8N<ah_:2;KFnZQCJiB3
+Z26 VD8?;eN:m^Ebn?Q1dghD;;1
+R3
+R17
+R18
+R19
+L0 29
+R7
+r1
+!s85 0
+31
+R20
+R21
+R22
+!s101 -O0
+R9
+Z27 n@etapa2_vlg_sample_tst
+vEtapa2_vlg_vec_tst
+!i10b 1
+Z28 !s100 I[mCGiNNH7:WaMJ;RUI5O3
+Z29 IhPc@BFN[b`i;BI;8XnUDT2
+Z30 VoYQ3caV6I^1Gdna8D339Y2
+R3
+R17
+R18
+R19
+Z31 L0 257
+R7
+r1
+!s85 0
+31
+R20
+R21
+R22
+!s101 -O0
+R9
+Z32 n@etapa2_vlg_vec_tst

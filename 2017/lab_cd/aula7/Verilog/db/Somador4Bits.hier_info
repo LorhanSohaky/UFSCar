@@ -1,0 +1,103 @@
+|Somador4Bits
+a1 => a1.IN1
+a2 => a2.IN1
+b1 => b1.IN1
+b2 => b2.IN1
+c1 => c1.IN1
+c2 => c2.IN1
+d1 => d1.IN1
+d2 => d2.IN1
+soma1 <= meio_somador2:s1.port2
+soma2 <= meio_somador3:s2.port3
+soma3 <= meio_somador3:s3.port3
+soma4 <= meio_somador3:s4.port3
+cout <= meio_somador3:s4.port4
+
+
+|Somador4Bits|meio_somador2:s1
+a => soma.IN0
+a => Mult0.IN0
+b => soma.IN1
+b => Mult0.IN1
+soma <= soma.DB_MAX_OUTPUT_PORT_TYPE
+cout <= Mult0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Somador4Bits|meio_somador3:s2
+a => a.IN1
+b => b.IN1
+c => c.IN1
+soma <= meio_somador2:m2.port2
+cout <= o.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Somador4Bits|meio_somador3:s2|meio_somador2:m1
+a => soma.IN0
+a => Mult0.IN0
+b => soma.IN1
+b => Mult0.IN1
+soma <= soma.DB_MAX_OUTPUT_PORT_TYPE
+cout <= Mult0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Somador4Bits|meio_somador3:s2|meio_somador2:m2
+a => soma.IN0
+a => Mult0.IN0
+b => soma.IN1
+b => Mult0.IN1
+soma <= soma.DB_MAX_OUTPUT_PORT_TYPE
+cout <= Mult0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Somador4Bits|meio_somador3:s3
+a => a.IN1
+b => b.IN1
+c => c.IN1
+soma <= meio_somador2:m2.port2
+cout <= o.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Somador4Bits|meio_somador3:s3|meio_somador2:m1
+a => soma.IN0
+a => Mult0.IN0
+b => soma.IN1
+b => Mult0.IN1
+soma <= soma.DB_MAX_OUTPUT_PORT_TYPE
+cout <= Mult0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Somador4Bits|meio_somador3:s3|meio_somador2:m2
+a => soma.IN0
+a => Mult0.IN0
+b => soma.IN1
+b => Mult0.IN1
+soma <= soma.DB_MAX_OUTPUT_PORT_TYPE
+cout <= Mult0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Somador4Bits|meio_somador3:s4
+a => a.IN1
+b => b.IN1
+c => c.IN1
+soma <= meio_somador2:m2.port2
+cout <= o.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Somador4Bits|meio_somador3:s4|meio_somador2:m1
+a => soma.IN0
+a => Mult0.IN0
+b => soma.IN1
+b => Mult0.IN1
+soma <= soma.DB_MAX_OUTPUT_PORT_TYPE
+cout <= Mult0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Somador4Bits|meio_somador3:s4|meio_somador2:m2
+a => soma.IN0
+a => Mult0.IN0
+b => soma.IN1
+b => Mult0.IN1
+soma <= soma.DB_MAX_OUTPUT_PORT_TYPE
+cout <= Mult0.DB_MAX_OUTPUT_PORT_TYPE
+
+

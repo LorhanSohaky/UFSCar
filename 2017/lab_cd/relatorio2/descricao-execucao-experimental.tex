@@ -8,31 +8,87 @@ Cyclone II - EP2C20F484C7.
 
 	\section{ETAPA 1 – Display de 7 segmentos}
 		Para representar um número de 4 \textit{bits} na placa, utilizou-se 4 \textit{switch}, cada um
-		representando um bit do número. Como um segmento do \textit{display} poderia ser acendido
+		representando um bit do número. Como um segmento do \textit{display} pode ser acendido
 		em mais de um número,
 		motou-se uma expressão lógica para cada segmento do \textit{display}.
 
-		Para o display 0 montou-se a expressão
-		$$D’.C’.A’ + A.C.B + A.C.D’ + D’.B$$,
-		para o display 1 montou-se a expressão
-		$$D’.C+D’.A’.B’+A.B.C$$,
-		para o display 2 montou-se a expressão
-		$$C.D’+A.C’.D’+B’.C’.D’+A.B.C$$,
-		para o display 3 montou-se a expressão
-		$$C’.D’.A+C’.D’.B+A’.B.D’+A.B.C.D+A.B’C.D’$$,
-		para o display 4 montou-se a expressão
-		$$A’.C’.D’+A.B.C.D+A.B’.C.D’$$,
-		para o display 5 montou-se a expressão
-		$$A’.B’.D’+A’.C.D’+A.B.C+A.C.D’$$,
-		para o display 6 montou-se a expressão
-		$$C.D’+B.C’.D’$$.
+		\begin{table}[h]
+			\centering
+			\caption{Tabela verdade utilizada para chegar na expressão de cada um dos segmentos.}
+			\label{table:tabelaVerdade1}
+			\begin{tabular}{c|c|c|c|c}
+		%\hline
+				\textbf{A (SW[4])} & \textbf{B (SW[3])} & \textbf{C (SW[2])} & \textbf{D (SW[1])} & \textbf{Saída em base decimal} \\
+				\hline
+				0 & 0 & 0 & 0 & 0\\
+				0 & 0 & 0 & 1 & 1\\
+				0 & 0 & 1 & 0 & 2\\
+				0 & 0 & 1 & 1 & 3\\
+				0 & 1 & 0 & 0 & 4\\
+				0 & 1 & 0 & 1 & 5\\
+				0 & 1 & 1 & 0 & 6\\
+				0 & 1 & 1 & 1 & 7\\
+				1 & 0 & 0 & 0 & 8\\
+				1 & 0 & 0 & 1 & 9\\
+			\end{tabular}
+		\end{table}
 
-		Com tais expressões, montamos o circuito conforme o \autoref{apendice:CircuitoEtapa1}.
+		Para o segmento 0 montou-se a expressão
+		$$\overline{A}.\overline{B}.\overline{C}.D+\overline{A}.B.\overline{C}.\overline{D}$$
+		para o segmento 1 montou-se a expressão
+		$$\overline{A}.B.\overline{C}.D+\overline{A}.B.C.\overline{D}$$
+		para o segmento 2 montou-se a expressão
+		$$\overline{A}.\overline{B}.C.\overline{D}$$
+		para o segmento 3 montou-se a expressão
+		$$\overline{A}.B.\overline{C}.\overline{D}+\overline{A}.\overline{B}.\overline{C}.D+\overline{A}.B.C.D$$
+		para o segmento 4 montou-se a expressão
+		$$\overline{A}.D+\overline{A}.B.\overline{C}+\overline{B}.\overline{C}.D$$
+		para o segmento 5 montou-se a expressão
+		$$\overline{A}.\overline{B}.D+\overline{A}.C.D+\overline{A}.\overline{B}.C$$
+		para o segmento 6 montou-se a expressão
+		$$\overline{A}.\overline{B}.\overline{C}+\overline{A}.B.C.D$$.
+
+		Com tais expressões, montou-se o circuito conforme o \autoref{apendice:CircuitoEtapa1}.
+		Depois foram realizadas simulações e execução do circuito na placa \ac{fpga}.
 
 	\section{ETAPA 2 – Meio-somador 1 bit}
-		
-	\section{ETAPA 3 – Meio-somador 4 bits}
 
+		A operação aritmética mais simples é a soma de dois dígitos binários. Um circuito combinacional
+		que implementa a adição de dois bits é chamado de meio-somador (half adder ou HAD).
+		A \autoref{fig:meioSomador} ilustra um esquema de entradas e saída de um meio-somador.
+		Um meio-somador de 1 bit deve respeitar a \autoref{table:tabelaMeioSomador}.
+
+		\begin{figure}[H]
+			\centering
+			\caption{\label{fig:meioSomador}Ilustração de um meio somador.}
+			\includegraphics[width=1\textwidth]{img/meioSomador}
+		\end{figure}
+
+		\begin{table}[h]
+			\centering
+			\caption{Tabela verdade de um meio somador.}
+			\label{table:tabelaMeioSomador}
+			\begin{tabular}{c|c|c|c}
+		%\hline
+				\textbf{A} & \textbf{B} & \textbf{S (soma)} & \textbf{CarryOut} \\
+				\hline
+				0 & 0 & 0 & 0\\
+				0 & 1 & 1 & 0\\
+				1 & 0 & 1 & 0\\
+				1 & 1 & 0 & 1\\
+			\end{tabular}
+		\end{table}
+
+		O circuito deve guardar o \textit{CarryOut} ( o “vai um”) da soma, representando sua existência
+		ou ausência através de um LED, ligando-o quando houver o carry, e mantendo-o desligado quando
+		o carry não ocorrer.
+
+		A representação esquemática do circuito pode ser encontrada no \autoref{apendice:CircuitoEtapa2}.
+
+	\section{ETAPA 3 – Meio-somador 4 bits}
+		Foi montato o somador completo, ou seja,levando em consideração o "vai um",
+		 depois fez-se os testes.
+		Por fim, dividiu-se o resultado em dois display conforme o \autoref{apendice:CircuitoEtapa3}.
 
 
 
