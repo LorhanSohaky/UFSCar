@@ -1,5 +1,5 @@
 Analysis & Synthesis report for Somador4Bits
-Fri Nov 10 17:31:25 2017
+Mon Nov 13 09:41:26 2017
 Quartus II 64-Bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
 
 
@@ -14,8 +14,9 @@ Quartus II 64-Bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edit
   6. Analysis & Synthesis Resource Usage Summary
   7. Analysis & Synthesis Resource Utilization by Entity
   8. General Register Statistics
-  9. Elapsed Time Per Partition
- 10. Analysis & Synthesis Messages
+  9. Port Connectivity Checks: "decodificacao:dec2"
+ 10. Elapsed Time Per Partition
+ 11. Analysis & Synthesis Messages
 
 
 
@@ -41,16 +42,16 @@ applicable agreement for further details.
 +--------------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                         ;
 +------------------------------------+-------------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Fri Nov 10 17:31:25 2017           ;
+; Analysis & Synthesis Status        ; Successful - Mon Nov 13 09:41:26 2017           ;
 ; Quartus II 64-Bit Version          ; 13.0.1 Build 232 06/12/2013 SP 1 SJ Web Edition ;
 ; Revision Name                      ; Somador4Bits                                    ;
-; Top-level Entity Name              ; Somador4Bits                                    ;
+; Top-level Entity Name              ; projeto                                         ;
 ; Family                             ; Cyclone II                                      ;
-; Total logic elements               ; 7                                               ;
-;     Total combinational functions  ; 7                                               ;
+; Total logic elements               ; 27                                              ;
+;     Total combinational functions  ; 27                                              ;
 ;     Dedicated logic registers      ; 0                                               ;
 ; Total registers                    ; 0                                               ;
-; Total pins                         ; 13                                              ;
+; Total pins                         ; 22                                              ;
 ; Total virtual pins                 ; 0                                               ;
 ; Total memory bits                  ; 0                                               ;
 ; Embedded Multiplier 9-bit elements ; 0                                               ;
@@ -64,7 +65,7 @@ applicable agreement for further details.
 ; Option                                                                     ; Setting            ; Default Value      ;
 +----------------------------------------------------------------------------+--------------------+--------------------+
 ; Device                                                                     ; EP2C20F484C7       ;                    ;
-; Top-level entity name                                                      ; Somador4Bits       ; Somador4Bits       ;
+; Top-level entity name                                                      ; projeto            ; Somador4Bits       ;
 ; Family name                                                                ; Cyclone II         ; Cyclone IV GX      ;
 ; Use smart compilation                                                      ; Off                ; Off                ;
 ; Enable parallel Assembler and TimeQuest Timing Analyzer during compilation ; On                 ; On                 ;
@@ -149,64 +150,67 @@ Parallel compilation was disabled, but you have multiple processors available. E
 +----------------------------+--------+
 ; Processors                 ; Number ;
 +----------------------------+--------+
-; Number detected on machine ; 4      ;
+; Number detected on machine ; 8      ;
 ; Maximum allowed            ; 1      ;
 +----------------------------+--------+
 
 
-+----------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Source Files Read                                                                                                 ;
-+----------------------------------+-----------------+------------------------+------------------------------------------------+---------+
-; File Name with User-Entered Path ; Used in Netlist ; File Type              ; File Name with Absolute Path                   ; Library ;
-+----------------------------------+-----------------+------------------------+------------------------------------------------+---------+
-; Somador4Bits.v                   ; yes             ; User Verilog HDL File  ; C:/altera/13.0sp1/aula7/Verilog/Somador4Bits.v ;         ;
-+----------------------------------+-----------------+------------------------+------------------------------------------------+---------+
++-----------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                            ;
++----------------------------------+-----------------+------------------------+-------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type              ; File Name with Absolute Path              ; Library ;
++----------------------------------+-----------------+------------------------+-------------------------------------------+---------+
+; projeto.v                        ; yes             ; User Verilog HDL File  ; C:/altera/13.0sp1/aula7/Verilog/projeto.v ;         ;
++----------------------------------+-----------------+------------------------+-------------------------------------------+---------+
 
 
-+-----------------------------------------------------+
-; Analysis & Synthesis Resource Usage Summary         ;
-+---------------------------------------------+-------+
-; Resource                                    ; Usage ;
-+---------------------------------------------+-------+
-; Estimated Total logic elements              ; 7     ;
-;                                             ;       ;
-; Total combinational functions               ; 7     ;
-; Logic element usage by number of LUT inputs ;       ;
-;     -- 4 input functions                    ; 2     ;
-;     -- 3 input functions                    ; 4     ;
-;     -- <=2 input functions                  ; 1     ;
-;                                             ;       ;
-; Logic elements by mode                      ;       ;
-;     -- normal mode                          ; 7     ;
-;     -- arithmetic mode                      ; 0     ;
-;                                             ;       ;
-; Total registers                             ; 0     ;
-;     -- Dedicated logic registers            ; 0     ;
-;     -- I/O registers                        ; 0     ;
-;                                             ;       ;
-; I/O pins                                    ; 13    ;
-; Embedded Multiplier 9-bit elements          ; 0     ;
-; Maximum fan-out node                        ; a1    ;
-; Maximum fan-out                             ; 3     ;
-; Total fan-out                               ; 27    ;
-; Average fan-out                             ; 1.35  ;
-+---------------------------------------------+-------+
++----------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary                                                              ;
++---------------------------------------------+------------------------------------------------------------+
+; Resource                                    ; Usage                                                      ;
++---------------------------------------------+------------------------------------------------------------+
+; Estimated Total logic elements              ; 27                                                         ;
+;                                             ;                                                            ;
+; Total combinational functions               ; 27                                                         ;
+; Logic element usage by number of LUT inputs ;                                                            ;
+;     -- 4 input functions                    ; 20                                                         ;
+;     -- 3 input functions                    ; 4                                                          ;
+;     -- <=2 input functions                  ; 3                                                          ;
+;                                             ;                                                            ;
+; Logic elements by mode                      ;                                                            ;
+;     -- normal mode                          ; 27                                                         ;
+;     -- arithmetic mode                      ; 0                                                          ;
+;                                             ;                                                            ;
+; Total registers                             ; 0                                                          ;
+;     -- Dedicated logic registers            ; 0                                                          ;
+;     -- I/O registers                        ; 0                                                          ;
+;                                             ;                                                            ;
+; I/O pins                                    ; 22                                                         ;
+; Embedded Multiplier 9-bit elements          ; 0                                                          ;
+; Maximum fan-out node                        ; somador_4_bits:soma|meio_somador3:s2|meio_somador2:m2|soma ;
+; Maximum fan-out                             ; 8                                                          ;
+; Total fan-out                               ; 109                                                        ;
+; Average fan-out                             ; 2.22                                                       ;
++---------------------------------------------+------------------------------------------------------------+
 
 
-+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                     ;
-+----------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+-------------------------------------------------+--------------+
-; Compilation Hierarchy Node ; LC Combinationals ; LC Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                             ; Library Name ;
-+----------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+-------------------------------------------------+--------------+
-; |Somador4Bits              ; 7 (0)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 13   ; 0            ; |Somador4Bits                                   ; work         ;
-;    |meio_somador2:s1|      ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Somador4Bits|meio_somador2:s1                  ; work         ;
-;    |meio_somador3:s2|      ; 2 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Somador4Bits|meio_somador3:s2                  ; work         ;
-;       |meio_somador2:m2|   ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Somador4Bits|meio_somador3:s2|meio_somador2:m2 ; work         ;
-;    |meio_somador3:s3|      ; 2 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Somador4Bits|meio_somador3:s3                  ; work         ;
-;       |meio_somador2:m2|   ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Somador4Bits|meio_somador3:s3|meio_somador2:m2 ; work         ;
-;    |meio_somador3:s4|      ; 2 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Somador4Bits|meio_somador3:s4                  ; work         ;
-;       |meio_somador2:m2|   ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Somador4Bits|meio_somador3:s4|meio_somador2:m2 ; work         ;
-+----------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+-------------------------------------------------+--------------+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                     ;
++-----------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+----------------------------------------------------------------+--------------+
+; Compilation Hierarchy Node  ; LC Combinationals ; LC Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                                            ; Library Name ;
++-----------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+----------------------------------------------------------------+--------------+
+; |projeto                    ; 27 (0)            ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 22   ; 0            ; |projeto                                                       ; work         ;
+;    |decodificacao:dec1|     ; 13 (13)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |projeto|decodificacao:dec1                                    ; work         ;
+;    |separa:s|               ; 7 (7)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |projeto|separa:s                                              ; work         ;
+;    |somador_4_bits:soma|    ; 7 (0)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |projeto|somador_4_bits:soma                                   ; work         ;
+;       |meio_somador2:s1|    ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |projeto|somador_4_bits:soma|meio_somador2:s1                  ; work         ;
+;       |meio_somador3:s2|    ; 2 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |projeto|somador_4_bits:soma|meio_somador3:s2                  ; work         ;
+;          |meio_somador2:m2| ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |projeto|somador_4_bits:soma|meio_somador3:s2|meio_somador2:m2 ; work         ;
+;       |meio_somador3:s3|    ; 2 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |projeto|somador_4_bits:soma|meio_somador3:s3                  ; work         ;
+;          |meio_somador2:m2| ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |projeto|somador_4_bits:soma|meio_somador3:s3|meio_somador2:m2 ; work         ;
+;       |meio_somador3:s4|    ; 2 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |projeto|somador_4_bits:soma|meio_somador3:s4                  ; work         ;
+;          |meio_somador2:m2| ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |projeto|somador_4_bits:soma|meio_somador3:s4|meio_somador2:m2 ; work         ;
++-----------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+----------------------------------------------------------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
 
@@ -225,6 +229,20 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +----------------------------------------------+-------+
 
 
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "decodificacao:dec2"                                                                                                                                                                ;
++-------+-------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port  ; Type  ; Severity ; Details                                                                                                                                                                            ;
++-------+-------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; A     ; Input ; Warning  ; Input port expression (32 bits) is wider than the input port (1 bits) it drives.  The 31 most-significant bit(s) in the expression will be dangling if they have no other fanouts. ;
+; A[-1] ; Input ; Info     ; Stuck at GND                                                                                                                                                                       ;
+; B     ; Input ; Warning  ; Input port expression (32 bits) is wider than the input port (1 bits) it drives.  The 31 most-significant bit(s) in the expression will be dangling if they have no other fanouts. ;
+; B[-1] ; Input ; Info     ; Stuck at GND                                                                                                                                                                       ;
+; C     ; Input ; Warning  ; Input port expression (32 bits) is wider than the input port (1 bits) it drives.  The 31 most-significant bit(s) in the expression will be dangling if they have no other fanouts. ;
+; C[-1] ; Input ; Info     ; Stuck at GND                                                                                                                                                                       ;
++-------+-------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+
 +-------------------------------+
 ; Elapsed Time Per Partition    ;
 +----------------+--------------+
@@ -240,29 +258,40 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 Info: *******************************************************************
 Info: Running Quartus II 64-Bit Analysis & Synthesis
     Info: Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
-    Info: Processing started: Fri Nov 10 17:31:23 2017
+    Info: Processing started: Mon Nov 13 09:41:25 2017
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off Somador4Bits -c Somador4Bits
 Warning (20028): Parallel compilation is not licensed and has been disabled
-Info (12021): Found 6 design units, including 6 entities, in source file somador4bits.v
+Info (12021): Found 6 design units, including 6 entities, in source file projeto.v
     Info (12023): Found entity 1: meio_somador2
     Info (12023): Found entity 2: meio_somador3
-    Info (12023): Found entity 3: Somador4Bits
+    Info (12023): Found entity 3: somador_4_bits
     Info (12023): Found entity 4: separa
     Info (12023): Found entity 5: decodificacao
     Info (12023): Found entity 6: projeto
-Info (12127): Elaborating entity "Somador4Bits" for the top level hierarchy
-Info (12128): Elaborating entity "meio_somador2" for hierarchy "meio_somador2:s1"
-Info (12128): Elaborating entity "meio_somador3" for hierarchy "meio_somador3:s2"
+Info (12127): Elaborating entity "projeto" for the top level hierarchy
+Warning (10036): Verilog HDL or VHDL warning at projeto.v(65): object "z5" assigned a value but never read
+Warning (10036): Verilog HDL or VHDL warning at projeto.v(65): object "z6" assigned a value but never read
+Warning (10036): Verilog HDL or VHDL warning at projeto.v(65): object "z7" assigned a value but never read
+Info (12128): Elaborating entity "somador_4_bits" for hierarchy "somador_4_bits:soma"
+Info (12128): Elaborating entity "meio_somador2" for hierarchy "somador_4_bits:soma|meio_somador2:s1"
+Info (12128): Elaborating entity "meio_somador3" for hierarchy "somador_4_bits:soma|meio_somador3:s2"
+Info (12128): Elaborating entity "separa" for hierarchy "separa:s"
+Info (12128): Elaborating entity "decodificacao" for hierarchy "decodificacao:dec1"
+Warning (12241): 1 hierarchies have connectivity warnings - see the Connectivity Checks report folder
+Warning (13024): Output pins are stuck at VCC or GND
+    Warning (13410): Pin "HEX1[1]" is stuck at GND
+    Warning (13410): Pin "HEX1[2]" is stuck at GND
+    Warning (13410): Pin "HEX1[6]" is stuck at VCC
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Info (21057): Implemented 20 device resources after synthesis - the final resource count might be different
+Info (21057): Implemented 49 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 8 input pins
-    Info (21059): Implemented 5 output pins
-    Info (21061): Implemented 7 logic cells
-Info: Quartus II 64-Bit Analysis & Synthesis was successful. 0 errors, 1 warning
+    Info (21059): Implemented 14 output pins
+    Info (21061): Implemented 27 logic cells
+Info: Quartus II 64-Bit Analysis & Synthesis was successful. 0 errors, 9 warnings
     Info: Peak virtual memory: 468 megabytes
-    Info: Processing ended: Fri Nov 10 17:31:25 2017
-    Info: Elapsed time: 00:00:02
-    Info: Total CPU time (on all processors): 00:00:02
+    Info: Processing ended: Mon Nov 13 09:41:26 2017
+    Info: Elapsed time: 00:00:01
+    Info: Total CPU time (on all processors): 00:00:01
 
 

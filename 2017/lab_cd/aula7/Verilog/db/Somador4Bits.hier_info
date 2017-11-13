@@ -1,4 +1,29 @@
-|Somador4Bits
+|projeto
+SW[0] => SW[0].IN1
+SW[1] => SW[1].IN1
+SW[2] => SW[2].IN1
+SW[3] => SW[3].IN1
+SW[4] => SW[4].IN1
+SW[5] => SW[5].IN1
+SW[6] => SW[6].IN1
+SW[7] => SW[7].IN1
+HEX0[0] <= decodificacao:dec1.port4
+HEX0[1] <= decodificacao:dec1.port5
+HEX0[2] <= decodificacao:dec1.port6
+HEX0[3] <= decodificacao:dec1.port7
+HEX0[4] <= decodificacao:dec1.port8
+HEX0[5] <= decodificacao:dec1.port9
+HEX0[6] <= decodificacao:dec1.port10
+HEX1[0] <= decodificacao:dec2.port4
+HEX1[1] <= decodificacao:dec2.port5
+HEX1[2] <= decodificacao:dec2.port6
+HEX1[3] <= decodificacao:dec2.port7
+HEX1[4] <= decodificacao:dec2.port8
+HEX1[5] <= decodificacao:dec2.port9
+HEX1[6] <= decodificacao:dec2.port10
+
+
+|projeto|somador_4_bits:soma
 a1 => a1.IN1
 a2 => a2.IN1
 b1 => b1.IN1
@@ -14,7 +39,7 @@ soma4 <= meio_somador3:s4.port3
 cout <= meio_somador3:s4.port4
 
 
-|Somador4Bits|meio_somador2:s1
+|projeto|somador_4_bits:soma|meio_somador2:s1
 a => soma.IN0
 a => Mult0.IN0
 b => soma.IN1
@@ -23,7 +48,7 @@ soma <= soma.DB_MAX_OUTPUT_PORT_TYPE
 cout <= Mult0.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|Somador4Bits|meio_somador3:s2
+|projeto|somador_4_bits:soma|meio_somador3:s2
 a => a.IN1
 b => b.IN1
 c => c.IN1
@@ -31,7 +56,7 @@ soma <= meio_somador2:m2.port2
 cout <= o.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|Somador4Bits|meio_somador3:s2|meio_somador2:m1
+|projeto|somador_4_bits:soma|meio_somador3:s2|meio_somador2:m1
 a => soma.IN0
 a => Mult0.IN0
 b => soma.IN1
@@ -40,7 +65,7 @@ soma <= soma.DB_MAX_OUTPUT_PORT_TYPE
 cout <= Mult0.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|Somador4Bits|meio_somador3:s2|meio_somador2:m2
+|projeto|somador_4_bits:soma|meio_somador3:s2|meio_somador2:m2
 a => soma.IN0
 a => Mult0.IN0
 b => soma.IN1
@@ -49,7 +74,7 @@ soma <= soma.DB_MAX_OUTPUT_PORT_TYPE
 cout <= Mult0.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|Somador4Bits|meio_somador3:s3
+|projeto|somador_4_bits:soma|meio_somador3:s3
 a => a.IN1
 b => b.IN1
 c => c.IN1
@@ -57,7 +82,7 @@ soma <= meio_somador2:m2.port2
 cout <= o.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|Somador4Bits|meio_somador3:s3|meio_somador2:m1
+|projeto|somador_4_bits:soma|meio_somador3:s3|meio_somador2:m1
 a => soma.IN0
 a => Mult0.IN0
 b => soma.IN1
@@ -66,7 +91,7 @@ soma <= soma.DB_MAX_OUTPUT_PORT_TYPE
 cout <= Mult0.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|Somador4Bits|meio_somador3:s3|meio_somador2:m2
+|projeto|somador_4_bits:soma|meio_somador3:s3|meio_somador2:m2
 a => soma.IN0
 a => Mult0.IN0
 b => soma.IN1
@@ -75,7 +100,7 @@ soma <= soma.DB_MAX_OUTPUT_PORT_TYPE
 cout <= Mult0.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|Somador4Bits|meio_somador3:s4
+|projeto|somador_4_bits:soma|meio_somador3:s4
 a => a.IN1
 b => b.IN1
 c => c.IN1
@@ -83,7 +108,7 @@ soma <= meio_somador2:m2.port2
 cout <= o.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|Somador4Bits|meio_somador3:s4|meio_somador2:m1
+|projeto|somador_4_bits:soma|meio_somador3:s4|meio_somador2:m1
 a => soma.IN0
 a => Mult0.IN0
 b => soma.IN1
@@ -92,12 +117,113 @@ soma <= soma.DB_MAX_OUTPUT_PORT_TYPE
 cout <= Mult0.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|Somador4Bits|meio_somador3:s4|meio_somador2:m2
+|projeto|somador_4_bits:soma|meio_somador3:s4|meio_somador2:m2
 a => soma.IN0
 a => Mult0.IN0
 b => soma.IN1
 b => Mult0.IN1
 soma <= soma.DB_MAX_OUTPUT_PORT_TYPE
 cout <= Mult0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|projeto|separa:s
+A => z1.IN0
+A => z0.IN0
+A => z1.IN0
+A => z1.IN0
+A => z2.IN0
+B => z1.IN1
+B => z0.IN0
+B => z1.IN1
+B => z1.IN1
+C => z1.IN1
+C => z2.IN1
+C => z2.IN1
+C => z0.IN1
+C => z1.IN1
+C => z3.IN1
+D => z1.IN1
+D => z2.IN1
+D => z3.IN1
+D => z4.IN1
+D => z0.IN1
+D => z1.IN1
+D => z1.IN1
+D => z3.IN1
+E => z0.IN1
+E => z0.IN1
+E => z3.IN1
+E => z4.IN1
+z0 <= z0.DB_MAX_OUTPUT_PORT_TYPE
+z1 <= z1.DB_MAX_OUTPUT_PORT_TYPE
+z2 <= z2.DB_MAX_OUTPUT_PORT_TYPE
+z3 <= z3.DB_MAX_OUTPUT_PORT_TYPE
+z4 <= z4.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|projeto|decodificacao:dec1
+A => h0.IN0
+A => h0.IN0
+A => h4.IN0
+A => h5.IN0
+B => h0.IN1
+B => h0.IN1
+B => h4.IN0
+C => h1.IN1
+C => h2.IN1
+C => h5.IN1
+C => h0.IN1
+C => h0.IN1
+C => h4.IN1
+D => h0.IN1
+D => h1.IN1
+D => h3.IN1
+D => h4.IN1
+D => h4.IN1
+D => h5.IN1
+D => h5.IN1
+D => h0.IN1
+D => h1.IN1
+D => h2.IN1
+h0 <= h0.DB_MAX_OUTPUT_PORT_TYPE
+h1 <= h1.DB_MAX_OUTPUT_PORT_TYPE
+h2 <= h2.DB_MAX_OUTPUT_PORT_TYPE
+h3 <= h3.DB_MAX_OUTPUT_PORT_TYPE
+h4 <= h4.DB_MAX_OUTPUT_PORT_TYPE
+h5 <= h5.DB_MAX_OUTPUT_PORT_TYPE
+h6 <= h6.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|projeto|decodificacao:dec2
+A => h0.IN0
+A => h0.IN0
+A => h4.IN0
+A => h5.IN0
+B => h0.IN1
+B => h0.IN1
+B => h4.IN0
+C => h1.IN1
+C => h2.IN1
+C => h5.IN1
+C => h0.IN1
+C => h0.IN1
+C => h4.IN1
+D => h0.IN1
+D => h1.IN1
+D => h3.IN1
+D => h4.IN1
+D => h4.IN1
+D => h5.IN1
+D => h5.IN1
+D => h0.IN1
+D => h1.IN1
+D => h2.IN1
+h0 <= h0.DB_MAX_OUTPUT_PORT_TYPE
+h1 <= h1.DB_MAX_OUTPUT_PORT_TYPE
+h2 <= h2.DB_MAX_OUTPUT_PORT_TYPE
+h3 <= h3.DB_MAX_OUTPUT_PORT_TYPE
+h4 <= h4.DB_MAX_OUTPUT_PORT_TYPE
+h5 <= h5.DB_MAX_OUTPUT_PORT_TYPE
+h6 <= h6.DB_MAX_OUTPUT_PORT_TYPE
 
 
