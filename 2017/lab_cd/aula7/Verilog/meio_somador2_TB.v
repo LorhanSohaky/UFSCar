@@ -1,22 +1,20 @@
 module meio_somador2_TB;
-	reg a1, a2;
+	
+	integer a1, a2;
 	wire soma, cout;
 
-	meio_somador2 s( a1, a2, soma, cout);
+	meio_somador2 s( a1[0], a2[0], soma, cout);
 
 	initial
 	begin
-		a1 = 1'b0;a2 = 1'b0; #1
-		$display("A = %x, B = %x, S = %x, Cout = %x", a1, a2, soma, cout);
-		
-		a1 = 1'b0; a2 = 1'b1; #1
-		$display("A = %x, B = %x, S = %x, Cout = %x", a1, a2, soma, cout);
-		
-		a1 = 1'b1;a2 = 1'b0; #1
-		$display("A = %x, B = %x, S = %x, Cout = %x", a1, a2, soma, cout);
-		
-		a1 = 1'b1; a2 = 1'b1; #1
-		$display("A = %x, B = %x, S = %x, Cout = %x", a1, a2, soma, cout);
-		
+		$display("\tMEIO SOMADOR\n");
+		$display("A | B | Soma | Cout");
+		$display("-------------------");
+		for( a1 = 0; a1 < 2; a1 = a1+1) begin
+			for( a2 = 0; a2 < 2; a2 = a2+1) begin
+				#1
+				$display("%x | %x |  %x   |  %x", a1[0], a2[0], soma, cout);
+			end
+		end
 	end
 endmodule

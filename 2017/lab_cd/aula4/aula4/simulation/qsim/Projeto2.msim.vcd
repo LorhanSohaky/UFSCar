@@ -1,0 +1,70 @@
+$comment
+	File created using the following command:
+		vcd file Projeto2.msim.vcd -direction
+$end
+$date
+	Sat Oct 07 16:03:19 2017
+$end
+$version
+	ModelSim Version 10.1d
+$end
+$timescale
+	1ps
+$end
+$scope module Projeto2_vlg_vec_tst $end
+$var reg 4 ! SW [4:1] $end
+$var wire 1 " LEDG [1] $end
+$var wire 1 # sampler $end
+$scope module i1 $end
+$var wire 1 $ gnd $end
+$var wire 1 % vcc $end
+$var wire 1 & unknown $end
+$var tri1 1 ' devclrn $end
+$var tri1 1 ( devpor $end
+$var tri1 1 ) devoe $end
+$var wire 1 * inst~combout $end
+$var wire 1 + SW~combout [4] $end
+$var wire 1 , SW~combout [3] $end
+$var wire 1 - SW~combout [2] $end
+$var wire 1 . SW~combout [1] $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+#0
+$dumpvars
+bx1x1 !
+0"
+x#
+0$
+1%
+x&
+1'
+1(
+1)
+1*
+1.
+z-
+1,
+z+
+$end
+#30000
+bx1x0 !
+bx0x0 !
+0.
+0,
+0#
+0*
+1"
+#60000
+bx1x0 !
+1,
+1#
+1*
+0"
+#70000
+bx0x0 !
+0,
+0#
+0*
+1"
+#1000000
