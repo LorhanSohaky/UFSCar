@@ -45,7 +45,7 @@ class Animal {
         std::cout << "Move para a direção " << dir << '\n';
     }
 
-    void emitirSom() const {
+    virtual void emitirSom() const {
         std::cout << "Emitir algum som." << '\n';
     }
 
@@ -145,11 +145,17 @@ class Gato : public Animal {
 };
 
 int main() {
+    Animal *ptr;
+
     Animal a1( "Ednal", 1, 2 );
     a1.desenhar();
     a1.emitirSom();
 
     Gato g1( "Uau", 2, 2, 3 );
     g1.desenhar();
+
+    ptr = &g1;
+    ptr->emitirSom();
+    ptr->desenhar();
     return 0;
 }
