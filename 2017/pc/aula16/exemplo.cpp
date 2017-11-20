@@ -48,9 +48,8 @@ class Animal {
         std::cout << "Move para a direção " << dir << '\n';
     }
 
-    virtual void emitirSom() const {
-        std::cout << "Emitir algum som." << '\n';
-    }
+    virtual void
+    emitirSom() const = 0; // Métoo virual puro, ou seja, não existe implementação na base
 
     void desenhar() const {
         std::cout << "Desenha algo na posição " << x << " , " << y << '\n';
@@ -125,6 +124,7 @@ class Gato : public Animal {
     }
 
     Gato( string nome, int x, int y, int qtdVidas ) : Animal( nome, x, y ) {
+        setQtdVidas( qtdVidas );
     }
 
     ~Gato() {
@@ -158,9 +158,9 @@ class Gato : public Animal {
 int main() {
     Animal *ptr;
 
-    Animal a1( "Ednal", 1, 2 );
-    a1.desenhar();
-    a1.emitirSom();
+    Cachorro c1( "Ednal", 1, 2, 1 );
+    c1.desenhar();
+    c1.emitirSom();
 
     Gato *g1 = new Gato( "Uau", 2, 2, 3 );
     g1->desenhar();
@@ -168,6 +168,7 @@ int main() {
     ptr = g1;
     ptr->emitirSom();
     ptr->desenhar();
+    ( (Gato *)ptr )->morrer();
     std::cout << "ponteiro" << '\n';
     delete ptr;
     return 0;
