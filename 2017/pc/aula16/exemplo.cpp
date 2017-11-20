@@ -27,6 +27,9 @@ class Animal {
         setNome( nome );
     }
 
+    virtual ~Animal() {
+    }
+
     void mover( char dir ) {
         switch( dir ) {
             case 's':
@@ -102,6 +105,10 @@ class Cachorro : public Animal {
         std::cout << "O------" << '\n';
         std::cout << "/\\   /\\" << '\n';
     }
+
+    ~Cachorro() {
+        std::cout << "Destrutor de cachorro" << '\n';
+    }
 };
 
 class Gato : public Animal {
@@ -118,6 +125,10 @@ class Gato : public Animal {
     }
 
     Gato( string nome, int x, int y, int qtdVidas ) : Animal( nome, x, y ) {
+    }
+
+    ~Gato() {
+        std::cout << "Destrutor Gato" << '\n';
     }
 
     int getQtdVidas() const {
@@ -151,11 +162,13 @@ int main() {
     a1.desenhar();
     a1.emitirSom();
 
-    Gato g1( "Uau", 2, 2, 3 );
-    g1.desenhar();
+    Gato *g1 = new Gato( "Uau", 2, 2, 3 );
+    g1->desenhar();
 
-    ptr = &g1;
+    ptr = g1;
     ptr->emitirSom();
     ptr->desenhar();
+    std::cout << "ponteiro" << '\n';
+    delete ptr;
     return 0;
 }
