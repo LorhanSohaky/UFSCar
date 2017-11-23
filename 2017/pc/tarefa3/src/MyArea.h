@@ -1,7 +1,7 @@
 #ifndef MYAREA_H
 #define MYAREA_H
 
-#include "Figura.h"
+#include "figuras/Figura.h"
 #include <gtkmm.h>
 #include <vector>
 

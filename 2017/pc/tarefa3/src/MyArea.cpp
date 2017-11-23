@@ -1,9 +1,9 @@
 #include "MyArea.h"
-#include "Arco.h"
-#include "Circulo.h"
-#include "Elipse.h"
-#include "Quadrado.h"
-#include "Retangulo.h"
+#include "figuras/Arco.h"
+#include "figuras/Circulo.h"
+#include "figuras/Elipse.h"
+#include "figuras/Quadrado.h"
+#include "figuras/Retangulo.h"
 #include <cstdlib>
 #include <ctime>
 #include <iostream>
