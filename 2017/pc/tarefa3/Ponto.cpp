@@ -9,10 +9,10 @@ void Ponto::setPosition( const int x, const int y ) {
     this->y = y;
 }
 
-int Ponto::getX( void ) {
+int Ponto::getX( void ) const {
     return x;
 }
 
-int Ponto::getY( void ) {
+int Ponto::getY( void ) const {
     return y;
 }

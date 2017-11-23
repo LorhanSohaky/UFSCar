@@ -9,7 +9,7 @@ class Quadrado : public Figura {
 
   public:
     Quadrado( const int x, const int y, const int lado = 2 );
-    virtual void draw( const Cairo::RefPtr<Cairo::Context> &cr );
+    virtual void draw( const Cairo::RefPtr<Cairo::Context> &cr ) const;
 };
 
 #endif

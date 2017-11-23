@@ -22,7 +22,7 @@ class MyArea : public DrawingArea {
     bool on_draw( const Cairo::RefPtr<Cairo::Context> &cr ) override;
     void addFigura( Figura *figura );
 
-    Ponto randPosition();
+    Ponto randPosition() const;
 };
 
 #endif

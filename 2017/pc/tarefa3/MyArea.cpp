@@ -37,7 +37,7 @@ MyArea::~MyArea() {
     }
 }
 
-Ponto MyArea::randPosition() {
+Ponto MyArea::randPosition() const {
     Gtk::Allocation allocation = get_allocation();
     const int width = allocation.get_width();
     const int height = allocation.get_height();

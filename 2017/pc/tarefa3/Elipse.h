@@ -9,7 +9,7 @@ class Elipse : public Figura {
 
   public:
     Elipse( const int x, const int y, const int raio = 1 );
-    virtual void draw( const Cairo::RefPtr<Cairo::Context> &cr );
+    virtual void draw( const Cairo::RefPtr<Cairo::Context> &cr ) const;
 };
 
 #endif

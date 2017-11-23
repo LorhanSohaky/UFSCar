@@ -9,7 +9,7 @@ class Arco : public Figura {
 
   public:
     Arco( const int x, const int y, const int raio = 10 );
-    virtual void draw( const Cairo::RefPtr<Cairo::Context> &cr );
+    virtual void draw( const Cairo::RefPtr<Cairo::Context> &cr ) const;
 };
 
 #endif

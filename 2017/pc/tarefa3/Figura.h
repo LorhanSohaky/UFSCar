@@ -14,7 +14,7 @@ class Figura {
     Figura( const int x = 0, const int y = 0 );
     void setPosition( const int x = 0, const int y = 0 );
     void setPosition( Ponto p );
-    virtual void draw( const Cairo::RefPtr<Cairo::Context> &cr ) = 0;
+    virtual void draw( const Cairo::RefPtr<Cairo::Context> &cr ) const = 0;
 
     virtual ~Figura( void );
 };
