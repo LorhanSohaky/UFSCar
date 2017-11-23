@@ -10,7 +10,7 @@ Main: MyWindow
 MyWindow: MyArea
 	g++ -Wall -c MyWindow.cpp `pkg-config gtkmm-3.0 --cflags --libs` -o obj/MyWindow.o
 
-MyArea:Figura Circulo
+MyArea:Figura Circulo Retangulo
 	g++ -Wall -c MyArea.cpp `pkg-config gtkmm-3.0 --cflags --libs` -o obj/MyArea.o
 
 Figura:Ponto
@@ -21,3 +21,6 @@ Ponto:
 
 Circulo:
 	g++ -Wall -c Circulo.cpp `pkg-config gtkmm-3.0 --cflags --libs` -o obj/Circulo.o
+
+Retangulo:
+	g++ -Wall -c Retangulo.cpp `pkg-config gtkmm-3.0 --cflags --libs` -o obj/Retangulo.o
