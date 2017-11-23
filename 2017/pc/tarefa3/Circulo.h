@@ -1,6 +1,7 @@
 #ifndef CIRCULO_H
 #define CIRCULO_H
 #include "Figura.h"
+#include <gtkmm.h>
 
 class Circulo : public Figura {
   private:
