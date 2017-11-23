@@ -10,7 +10,7 @@ Main: MyWindow
 MyWindow: MyArea
 	g++ -Wall -c MyWindow.cpp `pkg-config gtkmm-3.0 --cflags --libs` -o obj/MyWindow.o
 
-MyArea:Figura Circulo Retangulo Quadrado Elipse
+MyArea:Figura Circulo Retangulo Quadrado Elipse Arco
 	g++ -Wall -c MyArea.cpp `pkg-config gtkmm-3.0 --cflags --libs` -o obj/MyArea.o
 
 Figura:Ponto
@@ -30,3 +30,6 @@ Quadrado:
 
 Elipse:
 	g++ -Wall -c Elipse.cpp `pkg-config gtkmm-3.0 --cflags --libs` -o obj/Elipse.o
+
+Arco:
+	g++ -Wall -c Arco.cpp `pkg-config gtkmm-3.0 --cflags --libs` -o obj/Arco.o
