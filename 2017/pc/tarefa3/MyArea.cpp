@@ -1,5 +1,9 @@
 #include "MyArea.h"
+#include "Arco.h"
 #include "Circulo.h"
+#include "Elipse.h"
+#include "Quadrado.h"
+#include "Retangulo.h"
 #include <cstdlib>
 #include <ctime>
 #include <iostream>
@@ -64,12 +68,25 @@ bool MyArea::on_draw( const Cairo::RefPtr<Cairo::Context> &cr ) {
 bool MyArea::on_button_press_event( GdkEventButton *event ) {
     cout << "Clicou" << '\n';
     if( ( event->type == GDK_BUTTON_PRESS ) && ( event->button == 1 ) ) {
-        tipoFigura = 0; // 5 é qtd de tipos de figuras
+        tipoFigura = rand() % 5; // 5 é qtd de tipos de figuras
         switch( tipoFigura ) {
             case 0:
-                Circulo *c = new Circulo( event->x, event->y, 2 );
-                addFigura( c );
+                addFigura( new Circulo( event->x, event->y, 2 ) );
                 break;
+            case 1:
+                addFigura( new Elipse( event->x, event->y, 2 ) );
+                break;
+            case 2:
+                addFigura( new Quadrado( event->x, event->y, 2 ) );
+                break;
+            case 3:
+                addFigura( new Retangulo( event->x, event->y, 1, 2 ) );
+                break;
+            case 4:
+                addFigura( new Arco( event->x, event->y, 4 ) );
+                break;
+            default:
+                cout << "Erro" << '\n';
         }
         queue_draw();
     }
