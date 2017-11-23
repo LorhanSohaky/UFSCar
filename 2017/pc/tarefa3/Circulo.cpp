@@ -10,6 +10,6 @@ Circulo::Circulo( const int x, const int y, const int raio ) : Figura( x, y ) {
 
 void Circulo::draw( const Cairo::RefPtr<Cairo::Context> &cr ) {
     cr->arc( ponto.getX(), ponto.getY(), raio * 20.0, 0.0, 2.0 * M_PI );
-    cr->set_source_rgba( 0.0, 0.0, 0.8, 0.6 );
+    cr->set_source_rgba( 51, 0, 204, 0.6 );
     cr->fill_preserve();
 }
