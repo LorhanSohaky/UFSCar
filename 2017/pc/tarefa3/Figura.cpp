@@ -1,14 +1,16 @@
 #include "Figura.h"
 
-Figura::Figura( const int x, const int y ) {
-    setPosition( x, y );
+Figura::Figura( const int x, const int y ) : ponto( x, y ) {
 }
 
 void Figura::setPosition( const int x, const int y ) {
-    if( x >= 0 ) {
-        this->x = x;
+    if( x >= 0 && y >= 0 ) {
+        ponto.setPosition( x, y );
+    } else {
+        ponto.setPosition( 0, 0 );
     }
-    if( y >= 0 ) {
-        this->y = y;
-    }
+}
+
+void Figura::setPosition( const Ponto p ) {
+    ponto = p;
 }
