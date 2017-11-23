@@ -3,6 +3,8 @@
 Figura::Figura( const int x, const int y ) : ponto( x, y ) {
 }
 
+Figura::~Figura( void ){};
+
 void Figura::setPosition( const int x, const int y ) {
     if( x >= 0 && y >= 0 ) {
         ponto.setPosition( x, y );
