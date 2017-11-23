@@ -15,12 +15,12 @@ class MyArea : public DrawingArea {
   private:
     bool tempo;
     int tipoFigura;
-    vector<Figura> figuras;
+    vector<Figura *> figuras;
 
     bool on_timeout();
     bool on_button_press_event( GdkEventButton *event );
     bool on_draw( const Cairo::RefPtr<Cairo::Context> &cr ) override;
-    void addFigura( const Figura &figura );
+    void addFigura( Figura *figura );
 
     Ponto randPosition();
 };

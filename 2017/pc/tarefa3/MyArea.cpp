@@ -28,6 +28,9 @@ bool MyArea::on_timeout() {
 }
 
 MyArea::~MyArea() {
+    for( Figura *figura : figuras ) {
+        delete figura;
+    }
 }
 
 Ponto MyArea::randPosition() {
@@ -42,14 +45,14 @@ Ponto MyArea::randPosition() {
 }
 
 bool MyArea::on_draw( const Cairo::RefPtr<Cairo::Context> &cr ) {
-    for( vector<Figura>::iterator it = figuras.begin(); it != figuras.end(); it++ ) {
+    for( vector<Figura *>::iterator it = figuras.begin(); it != figuras.end(); it++ ) {
         if( tempo ) {
-            it->setPosition( randPosition() );
+            ( *it )->setPosition( randPosition() );
         }
 
         cr->save();
 
-        it->draw( cr );
+        ( *it )->draw( cr );
 
         cr->stroke();
         cr->restore();
@@ -64,7 +67,7 @@ bool MyArea::on_button_press_event( GdkEventButton *event ) {
         tipoFigura = 0; // 5 é qtd de tipos de figuras
         switch( tipoFigura ) {
             case 0:
-                Circulo c( event->x, event->y, 20 );
+                Circulo *c = new Circulo( event->x, event->y, 2 );
                 addFigura( c );
                 break;
         }
@@ -73,6 +76,6 @@ bool MyArea::on_button_press_event( GdkEventButton *event ) {
     return true;
 }
 
-void MyArea::addFigura( const Figura &figura ) {
+void MyArea::addFigura( Figura *figura ) {
     figuras.push_back( figura );
 }
