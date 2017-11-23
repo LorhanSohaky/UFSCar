@@ -32,6 +32,7 @@ bool MyArea::on_timeout() {
 }
 
 MyArea::~MyArea() {
+    cout << "Chamando destrutor" << '\n';
     for( Figura *figura : figuras ) {
         delete figura;
     }
