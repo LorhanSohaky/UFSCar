@@ -10,7 +10,7 @@ using namespace std;
 class MyArea : public DrawingArea {
   public:
     MyArea();
-    virtual ~MyArea();
+    ~MyArea();
 
   private:
     bool tempo;

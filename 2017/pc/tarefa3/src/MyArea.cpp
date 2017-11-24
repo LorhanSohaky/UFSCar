@@ -12,7 +12,6 @@ using namespace Gtk;
 using namespace std;
 
 MyArea::MyArea() {
-    tipoFigura = 0;
     tempo = false;
 
     srand( time( NULL ) );
@@ -66,10 +65,14 @@ bool MyArea::on_draw( const Cairo::RefPtr<Cairo::Context> &cr ) {
     return true;
 }
 
+int sortearTipoFigura( const int quantidadeDeTipo ) {
+    return rand() % quantidadeDeTipo;
+}
+
 bool MyArea::on_button_press_event( GdkEventButton *event ) {
     cout << "Clicou" << '\n';
     if( ( event->type == GDK_BUTTON_PRESS ) && ( event->button == 1 ) ) {
-        tipoFigura = rand() % 5; // 5 é qtd de tipos de figuras
+        tipoFigura = sortearTipoFigura( 5 ); // 5 é qtd de tipos de figuras
         switch( tipoFigura ) {
             case 0:
                 addFigura( new Circulo( event->x, event->y, 2 ) );
