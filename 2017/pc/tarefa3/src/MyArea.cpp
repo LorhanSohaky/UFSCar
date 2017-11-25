@@ -13,13 +13,12 @@ using namespace std;
 
 MyArea::MyArea() {
     tempo = false;
+    int timeOutValue = 1000; // 1000 in ms (1.0 sec)
 
     srand( time( NULL ) );
+    sigc::slot<bool> mySlot = sigc::mem_fun( *this, &MyArea::on_timeout );
 
     add_events( Gdk::BUTTON_PRESS_MASK );
-
-    int timeOutValue = 1000; // 1000 in ms (1.0 sec)
-    sigc::slot<bool> mySlot = sigc::mem_fun( *this, &MyArea::on_timeout );
     Glib::signal_timeout().connect( mySlot, timeOutValue );
 }
 
