@@ -2,7 +2,7 @@
 #define PONTO_H
 
 class Ponto {
-  private:
+  protected:
     int x, y;
 
   public:

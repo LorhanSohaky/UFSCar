@@ -12,7 +12,7 @@ Retangulo::Retangulo( const int x, const int y, const int lado1, const int lado2
 }
 
 void Retangulo::draw( const Cairo::RefPtr<Cairo::Context> &cr ) const {
-    cr->rectangle( ponto.getX() - ( lado1 / 2 ), ponto.getY() - ( lado2 / 2 ), lado1, lado2 );
+    cr->rectangle( this->getX() - ( lado1 / 2 ), this->getY() - ( lado2 / 2 ), lado1, lado2 );
     cr->set_source_rgba( 204, 255, 102, 0.6 );
     cr->fill_preserve();
 }

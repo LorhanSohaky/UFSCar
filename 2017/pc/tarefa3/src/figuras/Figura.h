@@ -6,10 +6,7 @@
 
 using namespace Gtk;
 
-class Figura {
-  protected:
-    Ponto ponto;
-
+class Figura : public Ponto {
   public:
     Figura( const int x = 0, const int y = 0 );
     void setPosition( const int x = 0, const int y = 0 );
