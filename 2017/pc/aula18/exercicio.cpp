@@ -50,9 +50,9 @@ template <class T> int Lista<T>::getTamanho() const {
     return tamanho;
 }
 
-template <class T> ostream &operator<<( ostream &saida, Lista<T> &lista ) {
-    for( int i = 0; i < lista.getTamanho(); i++ ) {
-        saida << lista.getValue( i ) << "\t";
+template <class T> ostream &operator<<( ostream &saida, const Lista<T> &lista ) {
+    for( int i = 0; i < lista.tamanho; i++ ) {
+        saida << lista.lista[i] << "\t";
     }
     return saida;
 }
