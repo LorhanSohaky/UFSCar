@@ -1,0 +1,66 @@
+m255
+K3
+13
+cModel Technology
+Z0 dC:\altera\13.0sp1\aula9\simulation\modelsim
+vinicial
+I>5c6B3e`D06dE1hPQ8@kg3
+V7UdJgem[CJa8EbXW5__5M1
+Z1 dC:\altera\13.0sp1\aula9\simulation\modelsim
+Z2 w1511984456
+Z3 8C:/altera/13.0sp1/aula9/maquina.v
+Z4 FC:/altera/13.0sp1/aula9/maquina.v
+L0 1
+Z5 OV;L;10.1d;51
+r1
+31
+Z6 !s108 1511985130.080000
+Z7 !s107 C:/altera/13.0sp1/aula9/maquina.v|
+Z8 !s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/altera/13.0sp1/aula9|C:/altera/13.0sp1/aula9/maquina.v|
+Z9 o-vlog01compat -work work -O0
+Z10 !s92 -vlog01compat -work work +incdir+C:/altera/13.0sp1/aula9 -O0
+!i10b 1
+!s100 H[Vo>niKn]`8ie`W3TJA>0
+!s85 0
+!s101 -O0
+vmaquina
+Ifgd>6<3=95:B_2hU<:i]U3
+Ve`lGAYHV:W>]DKXSUb_4G0
+R1
+R2
+R3
+R4
+L0 55
+R5
+r1
+31
+R6
+R7
+R8
+R9
+R10
+!i10b 1
+!s100 j]2a72PMCXO=A[Q?HC9_E3
+!s85 0
+!s101 -O0
+vmaquina_TB
+!i10b 1
+!s100 X=k6LGC1;_L`B3G:K1]z=1
+I3kV:z6;JZ]f<Y`2K]J`?71
+VgedBmR9Qb2MH==PWPnMfJ3
+R1
+w1511985103
+8C:/altera/13.0sp1/aula9/maquina_TB.v
+FC:/altera/13.0sp1/aula9/maquina_TB.v
+L0 1
+R5
+r1
+!s85 0
+31
+!s108 1511985130.361000
+!s107 C:/altera/13.0sp1/aula9/maquina_TB.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/altera/13.0sp1/aula9|C:/altera/13.0sp1/aula9/maquina_TB.v|
+!s101 -O0
+R9
+R10
+nmaquina_@t@b

@@ -1,0 +1,49 @@
+|maquina
+SW[0] => SW[0].IN1
+SW[1] => SW[1].IN1
+SW[2] => SW[2].IN1
+SW[3] => SW[3].IN1
+SW[4] => SW[4].IN1
+LEDG[0] <= inicial:a.port5
+LEDR[0] <= inicial:a.port6
+HEX0[0] <= inicial:a.port7
+HEX0[1] <= inicial:a.port7
+HEX0[2] <= inicial:a.port7
+HEX0[3] <= inicial:a.port7
+HEX0[4] <= inicial:a.port7
+HEX0[5] <= inicial:a.port7
+HEX0[6] <= inicial:a.port7
+
+
+|maquina|inicial:a
+botao => always0.IN0
+botao => always0.IN0
+botao => always0.IN0
+aberto => always0.IN1
+aberto => always0.IN1
+aberto => always0.IN1
+fechado => always0.IN1
+fechado => always0.IN1
+fechado => always0.IN1
+fechado => always0.IN1
+motor => always0.IN1
+motor => always0.IN1
+motor => always0.IN1
+motor => always0.IN1
+sentido => always0.IN1
+sentido => always0.IN1
+sentido => always0.IN1
+sentido => always0.IN1
+sentido => always0.IN1
+sentido => always0.IN1
+ledVerde <= Mult0.DB_MAX_OUTPUT_PORT_TYPE
+ledVermelho <= Mult1.DB_MAX_OUTPUT_PORT_TYPE
+display[0] <= <GND>
+display[1] <= Mult2.DB_MAX_OUTPUT_PORT_TYPE
+display[2] <= Mult3.DB_MAX_OUTPUT_PORT_TYPE
+display[3] <= estado[0].DB_MAX_OUTPUT_PORT_TYPE
+display[4] <= <GND>
+display[5] <= <GND>
+display[6] <= estado[0].DB_MAX_OUTPUT_PORT_TYPE
+
+
