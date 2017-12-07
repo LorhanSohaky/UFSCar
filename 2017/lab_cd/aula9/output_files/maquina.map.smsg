@@ -1,0 +1,2 @@
+Info (10281): Verilog HDL Declaration information at maquina.v(2): object "fechado" differs only in case from object "Fechado" in the same scope
+Info (10281): Verilog HDL Declaration information at maquina.v(2): object "aberto" differs only in case from object "Aberto" in the same scope

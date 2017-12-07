@@ -16,7 +16,7 @@
 -- PROGRAM "Quartus II 64-Bit"
 -- VERSION "Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition"
 
--- DATE "11/29/2017 17:55:29"
+-- DATE "12/07/2017 16:56:53"
 
 -- 
 -- Device: Altera EP2C20F484C7 Package FBGA484
@@ -36,25 +36,27 @@ ENTITY 	maquina IS
 	SW : IN std_logic_vector(4 DOWNTO 0);
 	LEDG : OUT std_logic_vector(0 DOWNTO 0);
 	LEDR : OUT std_logic_vector(0 DOWNTO 0);
-	HEX0 : OUT std_logic_vector(6 DOWNTO 0)
+	HEX0 : OUT std_logic_vector(6 DOWNTO 0);
+	CLK : IN std_logic
 	);
 END maquina;
 
 -- Design Ports Information
--- LEDG[0]	=>  Location: PIN_N1,	 I/O Standard: 3.3-V LVTTL,	 Current Strength: 24mA
--- LEDR[0]	=>  Location: PIN_M5,	 I/O Standard: 3.3-V LVTTL,	 Current Strength: 24mA
--- HEX0[0]	=>  Location: PIN_V11,	 I/O Standard: 3.3-V LVTTL,	 Current Strength: 24mA
--- HEX0[1]	=>  Location: PIN_N4,	 I/O Standard: 3.3-V LVTTL,	 Current Strength: 24mA
--- HEX0[2]	=>  Location: PIN_P3,	 I/O Standard: 3.3-V LVTTL,	 Current Strength: 24mA
--- HEX0[3]	=>  Location: PIN_J2,	 I/O Standard: 3.3-V LVTTL,	 Current Strength: 24mA
--- HEX0[4]	=>  Location: PIN_J19,	 I/O Standard: 3.3-V LVTTL,	 Current Strength: 24mA
--- HEX0[5]	=>  Location: PIN_G12,	 I/O Standard: 3.3-V LVTTL,	 Current Strength: 24mA
--- HEX0[6]	=>  Location: PIN_J1,	 I/O Standard: 3.3-V LVTTL,	 Current Strength: 24mA
--- SW[4]	=>  Location: PIN_N6,	 I/O Standard: 3.3-V LVTTL,	 Current Strength: Default
--- SW[3]	=>  Location: PIN_M6,	 I/O Standard: 3.3-V LVTTL,	 Current Strength: Default
--- SW[1]	=>  Location: PIN_P2,	 I/O Standard: 3.3-V LVTTL,	 Current Strength: Default
--- SW[2]	=>  Location: PIN_P1,	 I/O Standard: 3.3-V LVTTL,	 Current Strength: Default
--- SW[0]	=>  Location: PIN_N2,	 I/O Standard: 3.3-V LVTTL,	 Current Strength: Default
+-- LEDG[0]	=>  Location: PIN_U22,	 I/O Standard: 3.3-V LVTTL,	 Current Strength: 24mA
+-- LEDR[0]	=>  Location: PIN_R20,	 I/O Standard: 3.3-V LVTTL,	 Current Strength: 24mA
+-- HEX0[0]	=>  Location: PIN_J2,	 I/O Standard: 3.3-V LVTTL,	 Current Strength: 24mA
+-- HEX0[1]	=>  Location: PIN_J1,	 I/O Standard: 3.3-V LVTTL,	 Current Strength: 24mA
+-- HEX0[2]	=>  Location: PIN_H2,	 I/O Standard: 3.3-V LVTTL,	 Current Strength: 24mA
+-- HEX0[3]	=>  Location: PIN_H1,	 I/O Standard: 3.3-V LVTTL,	 Current Strength: 24mA
+-- HEX0[4]	=>  Location: PIN_F2,	 I/O Standard: 3.3-V LVTTL,	 Current Strength: 24mA
+-- HEX0[5]	=>  Location: PIN_F1,	 I/O Standard: 3.3-V LVTTL,	 Current Strength: 24mA
+-- HEX0[6]	=>  Location: PIN_E2,	 I/O Standard: 3.3-V LVTTL,	 Current Strength: 24mA
+-- CLK	=>  Location: PIN_L1,	 I/O Standard: 3.3-V LVTTL,	 Current Strength: Default
+-- SW[1]	=>  Location: PIN_L21,	 I/O Standard: 3.3-V LVTTL,	 Current Strength: Default
+-- SW[4]	=>  Location: PIN_W12,	 I/O Standard: 3.3-V LVTTL,	 Current Strength: Default
+-- SW[0]	=>  Location: PIN_L22,	 I/O Standard: 3.3-V LVTTL,	 Current Strength: Default
+-- SW[2]	=>  Location: PIN_M22,	 I/O Standard: 3.3-V LVTTL,	 Current Strength: Default
+-- SW[3]	=>  Location: PIN_V12,	 I/O Standard: 3.3-V LVTTL,	 Current Strength: Default
 
 
 ARCHITECTURE structure OF maquina IS
@@ -71,25 +73,38 @@ SIGNAL ww_SW : std_logic_vector(4 DOWNTO 0);
 SIGNAL ww_LEDG : std_logic_vector(0 DOWNTO 0);
 SIGNAL ww_LEDR : std_logic_vector(0 DOWNTO 0);
 SIGNAL ww_HEX0 : std_logic_vector(6 DOWNTO 0);
-SIGNAL \a|Mux0~4clkctrl_INCLK_bus\ : std_logic_vector(3 DOWNTO 0);
-SIGNAL \a|always0~0_combout\ : std_logic;
-SIGNAL \a|Mux0~0_combout\ : std_logic;
-SIGNAL \a|Mux1~0_combout\ : std_logic;
-SIGNAL \a|Mux0~1_combout\ : std_logic;
-SIGNAL \a|Mux0~2_combout\ : std_logic;
-SIGNAL \a|Mux0~3_combout\ : std_logic;
-SIGNAL \a|estado[0]~0_combout\ : std_logic;
-SIGNAL \a|Mux0~4_combout\ : std_logic;
-SIGNAL \a|Mux0~4clkctrl_outclk\ : std_logic;
-SIGNAL \a|Mux2~0_combout\ : std_logic;
-SIGNAL \a|Mux2~1_combout\ : std_logic;
-SIGNAL \a|Mult0~0_combout\ : std_logic;
-SIGNAL \a|Mult1~0_combout\ : std_logic;
-SIGNAL \a|Mult2~0_combout\ : std_logic;
-SIGNAL \a|estado\ : std_logic_vector(1 DOWNTO 0);
+SIGNAL ww_CLK : std_logic;
+SIGNAL \CLK~clkctrl_INCLK_bus\ : std_logic_vector(3 DOWNTO 0);
+SIGNAL \a|Selector0~2_combout\ : std_logic;
+SIGNAL \a|Selector3~2_combout\ : std_logic;
+SIGNAL \a|Selector2~0_combout\ : std_logic;
+SIGNAL \a|Selector3~4_combout\ : std_logic;
+SIGNAL \CLK~combout\ : std_logic;
+SIGNAL \CLK~clkctrl_outclk\ : std_logic;
+SIGNAL \a|Selector0~4_combout\ : std_logic;
+SIGNAL \a|Selector2~1_combout\ : std_logic;
+SIGNAL \a|estado.Aberto~regout\ : std_logic;
+SIGNAL \a|Selector0~3_combout\ : std_logic;
+SIGNAL \a|Selector1~0_combout\ : std_logic;
+SIGNAL \a|estado.Fechado~0_combout\ : std_logic;
+SIGNAL \a|estado.Fechado~regout\ : std_logic;
+SIGNAL \a|Selector0~0_combout\ : std_logic;
+SIGNAL \a|Selector0~1_combout\ : std_logic;
+SIGNAL \a|Selector0~7_combout\ : std_logic;
+SIGNAL \a|Selector3~3_combout\ : std_logic;
+SIGNAL \a|estado.Abrindo~regout\ : std_logic;
+SIGNAL \a|Selector0~5_combout\ : std_logic;
+SIGNAL \a|Selector0~6_combout\ : std_logic;
+SIGNAL \a|Selector1~1_combout\ : std_logic;
+SIGNAL \a|estado.Fechando~regout\ : std_logic;
+SIGNAL \a|tmpLedVerde~regout\ : std_logic;
+SIGNAL \a|tmpLedVermelho~regout\ : std_logic;
+SIGNAL \a|tmpDisplay[1]~1_combout\ : std_logic;
+SIGNAL \a|tmpDisplay[2]~2_combout\ : std_logic;
+SIGNAL \a|tmpDisplay~0_combout\ : std_logic;
+SIGNAL \a|tmpDisplay[6]~3_combout\ : std_logic;
 SIGNAL \SW~combout\ : std_logic_vector(4 DOWNTO 0);
-SIGNAL \a|ALT_INV_estado\ : std_logic_vector(0 DOWNTO 0);
-SIGNAL \a|ALT_INV_Mult2~0_combout\ : std_logic;
+SIGNAL \a|tmpDisplay\ : std_logic_vector(6 DOWNTO 0);
 
 BEGIN
 
@@ -97,173 +112,80 @@ ww_SW <= SW;
 LEDG <= ww_LEDG;
 LEDR <= ww_LEDR;
 HEX0 <= ww_HEX0;
+ww_CLK <= CLK;
 ww_devoe <= devoe;
 ww_devclrn <= devclrn;
 ww_devpor <= devpor;
 
-\a|Mux0~4clkctrl_INCLK_bus\ <= (gnd & gnd & gnd & \a|Mux0~4_combout\);
-\a|ALT_INV_estado\(0) <= NOT \a|estado\(0);
-\a|ALT_INV_Mult2~0_combout\ <= NOT \a|Mult2~0_combout\;
+\CLK~clkctrl_INCLK_bus\ <= (gnd & gnd & gnd & \CLK~combout\);
 
--- Location: LCCOMB_X1_Y12_N6
-\a|always0~0\ : cycloneii_lcell_comb
+-- Location: LCCOMB_X27_Y14_N16
+\a|Selector0~2\ : cycloneii_lcell_comb
 -- Equation(s):
--- \a|always0~0_combout\ = (!\SW~combout\(2) & \SW~combout\(1))
+-- \a|Selector0~2_combout\ = (\SW~combout\(1) & (!\SW~combout\(2) & (\SW~combout\(3) & \SW~combout\(0))))
 
 -- pragma translate_off
 GENERIC MAP (
-	lut_mask => "0101000001010000",
+	lut_mask => "0010000000000000",
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
-	dataa => \SW~combout\(2),
-	datac => \SW~combout\(1),
-	combout => \a|always0~0_combout\);
-
--- Location: LCCOMB_X1_Y12_N12
-\a|Mux0~0\ : cycloneii_lcell_comb
--- Equation(s):
--- \a|Mux0~0_combout\ = (\a|estado\(1) & (\SW~combout\(0) & ((\a|estado\(0)) # (!\SW~combout\(4))))) # (!\a|estado\(1) & (\SW~combout\(4) & (!\a|estado\(0) & !\SW~combout\(0))))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "1100010000000010",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	dataa => \SW~combout\(4),
-	datab => \a|estado\(1),
-	datac => \a|estado\(0),
+	dataa => \SW~combout\(1),
+	datab => \SW~combout\(2),
+	datac => \SW~combout\(3),
 	datad => \SW~combout\(0),
-	combout => \a|Mux0~0_combout\);
+	combout => \a|Selector0~2_combout\);
 
--- Location: PIN_P1,	 I/O Standard: 3.3-V LVTTL,	 Current Strength: Default
-\SW[2]~I\ : cycloneii_io
--- pragma translate_off
-GENERIC MAP (
-	input_async_reset => "none",
-	input_power_up => "low",
-	input_register_mode => "none",
-	input_sync_reset => "none",
-	oe_async_reset => "none",
-	oe_power_up => "low",
-	oe_register_mode => "none",
-	oe_sync_reset => "none",
-	operation_mode => "input",
-	output_async_reset => "none",
-	output_power_up => "low",
-	output_register_mode => "none",
-	output_sync_reset => "none")
--- pragma translate_on
-PORT MAP (
-	devclrn => ww_devclrn,
-	devpor => ww_devpor,
-	devoe => ww_devoe,
-	oe => GND,
-	padio => ww_SW(2),
-	combout => \SW~combout\(2));
-
--- Location: LCCOMB_X1_Y12_N4
-\a|Mux1~0\ : cycloneii_lcell_comb
+-- Location: LCCOMB_X27_Y14_N12
+\a|Selector3~2\ : cycloneii_lcell_comb
 -- Equation(s):
--- \a|Mux1~0_combout\ = \a|estado\(0) $ (\a|estado\(1))
+-- \a|Selector3~2_combout\ = (\a|Selector0~4_combout\ & (!\SW~combout\(4) & \a|estado.Fechando~regout\))
 
 -- pragma translate_off
 GENERIC MAP (
-	lut_mask => "0000111111110000",
+	lut_mask => "0000110000000000",
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
-	datac => \a|estado\(0),
-	datad => \a|estado\(1),
-	combout => \a|Mux1~0_combout\);
+	datab => \a|Selector0~4_combout\,
+	datac => \SW~combout\(4),
+	datad => \a|estado.Fechando~regout\,
+	combout => \a|Selector3~2_combout\);
 
--- Location: LCCOMB_X1_Y12_N22
-\a|estado[1]\ : cycloneii_lcell_comb
+-- Location: LCCOMB_X27_Y14_N24
+\a|Selector2~0\ : cycloneii_lcell_comb
 -- Equation(s):
--- \a|estado\(1) = (GLOBAL(\a|Mux0~4clkctrl_outclk\) & ((\a|Mux1~0_combout\))) # (!GLOBAL(\a|Mux0~4clkctrl_outclk\) & (\a|estado\(1)))
+-- \a|Selector2~0_combout\ = (\a|Selector0~4_combout\ & (\SW~combout\(4) & \a|estado.Fechando~regout\))
 
 -- pragma translate_off
 GENERIC MAP (
-	lut_mask => "1111000011001100",
+	lut_mask => "1100000000000000",
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
-	datab => \a|estado\(1),
-	datac => \a|Mux1~0_combout\,
-	datad => \a|Mux0~4clkctrl_outclk\,
-	combout => \a|estado\(1));
+	datab => \a|Selector0~4_combout\,
+	datac => \SW~combout\(4),
+	datad => \a|estado.Fechando~regout\,
+	combout => \a|Selector2~0_combout\);
 
--- Location: PIN_N2,	 I/O Standard: 3.3-V LVTTL,	 Current Strength: Default
-\SW[0]~I\ : cycloneii_io
--- pragma translate_off
-GENERIC MAP (
-	input_async_reset => "none",
-	input_power_up => "low",
-	input_register_mode => "none",
-	input_sync_reset => "none",
-	oe_async_reset => "none",
-	oe_power_up => "low",
-	oe_register_mode => "none",
-	oe_sync_reset => "none",
-	operation_mode => "input",
-	output_async_reset => "none",
-	output_power_up => "low",
-	output_register_mode => "none",
-	output_sync_reset => "none")
--- pragma translate_on
-PORT MAP (
-	devclrn => ww_devclrn,
-	devpor => ww_devpor,
-	devoe => ww_devoe,
-	oe => GND,
-	padio => ww_SW(0),
-	combout => \SW~combout\(0));
-
--- Location: LCCOMB_X1_Y12_N26
-\a|Mux0~1\ : cycloneii_lcell_comb
+-- Location: LCCOMB_X27_Y14_N20
+\a|Selector3~4\ : cycloneii_lcell_comb
 -- Equation(s):
--- \a|Mux0~1_combout\ = (\a|estado\(1) & (!\SW~combout\(4) & (!\a|estado\(0) & \SW~combout\(0)))) # (!\a|estado\(1) & (((\a|estado\(0)))))
+-- \a|Selector3~4_combout\ = (\a|Selector3~2_combout\) # ((\a|Selector0~2_combout\ & (\a|estado.Aberto~regout\ & !\SW~combout\(4))))
 
 -- pragma translate_off
 GENERIC MAP (
-	lut_mask => "0011010000110000",
+	lut_mask => "1111111100001000",
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
-	dataa => \SW~combout\(4),
-	datab => \a|estado\(1),
-	datac => \a|estado\(0),
-	datad => \SW~combout\(0),
-	combout => \a|Mux0~1_combout\);
+	dataa => \a|Selector0~2_combout\,
+	datab => \a|estado.Aberto~regout\,
+	datac => \SW~combout\(4),
+	datad => \a|Selector3~2_combout\,
+	combout => \a|Selector3~4_combout\);
 
--- Location: PIN_M6,	 I/O Standard: 3.3-V LVTTL,	 Current Strength: Default
-\SW[3]~I\ : cycloneii_io
--- pragma translate_off
-GENERIC MAP (
-	input_async_reset => "none",
-	input_power_up => "low",
-	input_register_mode => "none",
-	input_sync_reset => "none",
-	oe_async_reset => "none",
-	oe_power_up => "low",
-	oe_register_mode => "none",
-	oe_sync_reset => "none",
-	operation_mode => "input",
-	output_async_reset => "none",
-	output_power_up => "low",
-	output_register_mode => "none",
-	output_sync_reset => "none")
--- pragma translate_on
-PORT MAP (
-	devclrn => ww_devclrn,
-	devpor => ww_devpor,
-	devoe => ww_devoe,
-	oe => GND,
-	padio => ww_SW(3),
-	combout => \SW~combout\(3));
-
--- Location: PIN_P2,	 I/O Standard: 3.3-V LVTTL,	 Current Strength: Default
+-- Location: PIN_L21,	 I/O Standard: 3.3-V LVTTL,	 Current Strength: Default
 \SW[1]~I\ : cycloneii_io
 -- pragma translate_off
 GENERIC MAP (
@@ -289,87 +211,72 @@ PORT MAP (
 	padio => ww_SW(1),
 	combout => \SW~combout\(1));
 
--- Location: LCCOMB_X1_Y12_N24
-\a|Mux0~2\ : cycloneii_lcell_comb
--- Equation(s):
--- \a|Mux0~2_combout\ = (\SW~combout\(1) & (\SW~combout\(2) $ (\SW~combout\(0))))
-
+-- Location: PIN_L1,	 I/O Standard: 3.3-V LVTTL,	 Current Strength: Default
+\CLK~I\ : cycloneii_io
 -- pragma translate_off
 GENERIC MAP (
-	lut_mask => "0101000010100000",
-	sum_lutc_input => "datac")
+	input_async_reset => "none",
+	input_power_up => "low",
+	input_register_mode => "none",
+	input_sync_reset => "none",
+	oe_async_reset => "none",
+	oe_power_up => "low",
+	oe_register_mode => "none",
+	oe_sync_reset => "none",
+	operation_mode => "input",
+	output_async_reset => "none",
+	output_power_up => "low",
+	output_register_mode => "none",
+	output_sync_reset => "none")
 -- pragma translate_on
 PORT MAP (
-	dataa => \SW~combout\(2),
-	datac => \SW~combout\(1),
-	datad => \SW~combout\(0),
-	combout => \a|Mux0~2_combout\);
+	devclrn => ww_devclrn,
+	devpor => ww_devpor,
+	devoe => ww_devoe,
+	oe => GND,
+	padio => ww_CLK,
+	combout => \CLK~combout\);
 
--- Location: LCCOMB_X1_Y12_N20
-\a|Mux0~3\ : cycloneii_lcell_comb
--- Equation(s):
--- \a|Mux0~3_combout\ = (\SW~combout\(3) & (\a|always0~0_combout\ & ((\a|Mux0~1_combout\)))) # (!\SW~combout\(3) & (((\a|Mux0~2_combout\ & !\a|Mux0~1_combout\))))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "1000100000110000",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	dataa => \a|always0~0_combout\,
-	datab => \SW~combout\(3),
-	datac => \a|Mux0~2_combout\,
-	datad => \a|Mux0~1_combout\,
-	combout => \a|Mux0~3_combout\);
-
--- Location: LCCOMB_X1_Y12_N2
-\a|estado[0]~0\ : cycloneii_lcell_comb
--- Equation(s):
--- \a|estado[0]~0_combout\ = (!\SW~combout\(2) & (!\SW~combout\(3) & (\SW~combout\(1) & !\SW~combout\(0))))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "0000000000010000",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	dataa => \SW~combout\(2),
-	datab => \SW~combout\(3),
-	datac => \SW~combout\(1),
-	datad => \SW~combout\(0),
-	combout => \a|estado[0]~0_combout\);
-
--- Location: LCCOMB_X1_Y12_N0
-\a|Mux0~4\ : cycloneii_lcell_comb
--- Equation(s):
--- \a|Mux0~4_combout\ = (\a|Mux0~0_combout\ & (((\a|Mux0~3_combout\)))) # (!\a|Mux0~0_combout\ & (\a|Mux0~1_combout\ & ((\a|estado[0]~0_combout\))))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "1110010010100000",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	dataa => \a|Mux0~0_combout\,
-	datab => \a|Mux0~1_combout\,
-	datac => \a|Mux0~3_combout\,
-	datad => \a|estado[0]~0_combout\,
-	combout => \a|Mux0~4_combout\);
-
--- Location: CLKCTRL_G3
-\a|Mux0~4clkctrl\ : cycloneii_clkctrl
+-- Location: CLKCTRL_G2
+\CLK~clkctrl\ : cycloneii_clkctrl
 -- pragma translate_off
 GENERIC MAP (
 	clock_type => "global clock",
 	ena_register_mode => "none")
 -- pragma translate_on
 PORT MAP (
-	inclk => \a|Mux0~4clkctrl_INCLK_bus\,
+	inclk => \CLK~clkctrl_INCLK_bus\,
 	devclrn => ww_devclrn,
 	devpor => ww_devpor,
-	outclk => \a|Mux0~4clkctrl_outclk\);
+	outclk => \CLK~clkctrl_outclk\);
 
--- Location: PIN_N6,	 I/O Standard: 3.3-V LVTTL,	 Current Strength: Default
+-- Location: PIN_V12,	 I/O Standard: 3.3-V LVTTL,	 Current Strength: Default
+\SW[3]~I\ : cycloneii_io
+-- pragma translate_off
+GENERIC MAP (
+	input_async_reset => "none",
+	input_power_up => "low",
+	input_register_mode => "none",
+	input_sync_reset => "none",
+	oe_async_reset => "none",
+	oe_power_up => "low",
+	oe_register_mode => "none",
+	oe_sync_reset => "none",
+	operation_mode => "input",
+	output_async_reset => "none",
+	output_power_up => "low",
+	output_register_mode => "none",
+	output_sync_reset => "none")
+-- pragma translate_on
+PORT MAP (
+	devclrn => ww_devclrn,
+	devpor => ww_devpor,
+	devoe => ww_devoe,
+	oe => GND,
+	padio => ww_SW(3),
+	combout => \SW~combout\(3));
+
+-- Location: PIN_W12,	 I/O Standard: 3.3-V LVTTL,	 Current Strength: Default
 \SW[4]~I\ : cycloneii_io
 -- pragma translate_off
 GENERIC MAP (
@@ -395,102 +302,410 @@ PORT MAP (
 	padio => ww_SW(4),
 	combout => \SW~combout\(4));
 
--- Location: LCCOMB_X1_Y12_N28
-\a|Mux2~0\ : cycloneii_lcell_comb
+-- Location: PIN_M22,	 I/O Standard: 3.3-V LVTTL,	 Current Strength: Default
+\SW[2]~I\ : cycloneii_io
+-- pragma translate_off
+GENERIC MAP (
+	input_async_reset => "none",
+	input_power_up => "low",
+	input_register_mode => "none",
+	input_sync_reset => "none",
+	oe_async_reset => "none",
+	oe_power_up => "low",
+	oe_register_mode => "none",
+	oe_sync_reset => "none",
+	operation_mode => "input",
+	output_async_reset => "none",
+	output_power_up => "low",
+	output_register_mode => "none",
+	output_sync_reset => "none")
+-- pragma translate_on
+PORT MAP (
+	devclrn => ww_devclrn,
+	devpor => ww_devpor,
+	devoe => ww_devoe,
+	oe => GND,
+	padio => ww_SW(2),
+	combout => \SW~combout\(2));
+
+-- Location: PIN_L22,	 I/O Standard: 3.3-V LVTTL,	 Current Strength: Default
+\SW[0]~I\ : cycloneii_io
+-- pragma translate_off
+GENERIC MAP (
+	input_async_reset => "none",
+	input_power_up => "low",
+	input_register_mode => "none",
+	input_sync_reset => "none",
+	oe_async_reset => "none",
+	oe_power_up => "low",
+	oe_register_mode => "none",
+	oe_sync_reset => "none",
+	operation_mode => "input",
+	output_async_reset => "none",
+	output_power_up => "low",
+	output_register_mode => "none",
+	output_sync_reset => "none")
+-- pragma translate_on
+PORT MAP (
+	devclrn => ww_devclrn,
+	devpor => ww_devpor,
+	devoe => ww_devoe,
+	oe => GND,
+	padio => ww_SW(0),
+	combout => \SW~combout\(0));
+
+-- Location: LCCOMB_X27_Y14_N18
+\a|Selector0~4\ : cycloneii_lcell_comb
 -- Equation(s):
--- \a|Mux2~0_combout\ = (\a|estado\(1) & (((\SW~combout\(3)) # (\SW~combout\(4))) # (!\a|always0~0_combout\)))
+-- \a|Selector0~4_combout\ = (\SW~combout\(1) & (!\SW~combout\(2) & (!\SW~combout\(3) & !\SW~combout\(0))))
 
 -- pragma translate_off
 GENERIC MAP (
-	lut_mask => "1111110100000000",
+	lut_mask => "0000000000000010",
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
-	dataa => \a|always0~0_combout\,
-	datab => \SW~combout\(3),
-	datac => \SW~combout\(4),
-	datad => \a|estado\(1),
-	combout => \a|Mux2~0_combout\);
+	dataa => \SW~combout\(1),
+	datab => \SW~combout\(2),
+	datac => \SW~combout\(3),
+	datad => \SW~combout\(0),
+	combout => \a|Selector0~4_combout\);
 
--- Location: LCCOMB_X1_Y12_N18
-\a|Mux2~1\ : cycloneii_lcell_comb
+-- Location: LCCOMB_X27_Y14_N0
+\a|Selector2~1\ : cycloneii_lcell_comb
 -- Equation(s):
--- \a|Mux2~1_combout\ = ((\a|Mux2~0_combout\) # ((!\SW~combout\(4) & \a|estado[0]~0_combout\))) # (!\a|estado\(0))
+-- \a|Selector2~1_combout\ = (\a|Selector0~7_combout\ & (\a|Selector2~0_combout\ & (!\a|Selector0~6_combout\))) # (!\a|Selector0~7_combout\ & (((\a|estado.Aberto~regout\))))
 
 -- pragma translate_off
 GENERIC MAP (
-	lut_mask => "1111111101001111",
+	lut_mask => "0010001011110000",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \a|Selector2~0_combout\,
+	datab => \a|Selector0~6_combout\,
+	datac => \a|estado.Aberto~regout\,
+	datad => \a|Selector0~7_combout\,
+	combout => \a|Selector2~1_combout\);
+
+-- Location: LCFF_X27_Y14_N1
+\a|estado.Aberto\ : cycloneii_lcell_ff
+PORT MAP (
+	clk => \CLK~clkctrl_outclk\,
+	datain => \a|Selector2~1_combout\,
+	devclrn => ww_devclrn,
+	devpor => ww_devpor,
+	regout => \a|estado.Aberto~regout\);
+
+-- Location: LCCOMB_X27_Y14_N14
+\a|Selector0~3\ : cycloneii_lcell_comb
+-- Equation(s):
+-- \a|Selector0~3_combout\ = (!\SW~combout\(4) & \a|estado.Aberto~regout\)
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "0000111100000000",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	datac => \SW~combout\(4),
+	datad => \a|estado.Aberto~regout\,
+	combout => \a|Selector0~3_combout\);
+
+-- Location: LCCOMB_X27_Y14_N22
+\a|Selector1~0\ : cycloneii_lcell_comb
+-- Equation(s):
+-- \a|Selector1~0_combout\ = (\a|Selector0~2_combout\ & (\a|Selector0~3_combout\ $ (((\a|Selector0~4_combout\ & \a|estado.Fechando~regout\))))) # (!\a|Selector0~2_combout\ & (\a|Selector0~4_combout\ & ((\a|estado.Fechando~regout\))))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "0110110010100000",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \a|Selector0~2_combout\,
+	datab => \a|Selector0~4_combout\,
+	datac => \a|Selector0~3_combout\,
+	datad => \a|estado.Fechando~regout\,
+	combout => \a|Selector1~0_combout\);
+
+-- Location: LCCOMB_X27_Y14_N10
+\a|estado.Fechado~0\ : cycloneii_lcell_comb
+-- Equation(s):
+-- \a|estado.Fechado~0_combout\ = (\a|Selector0~6_combout\ & (\a|estado.Fechado~regout\ & (\a|Selector0~1_combout\ $ (\a|Selector1~0_combout\)))) # (!\a|Selector0~6_combout\ & ((\a|estado.Fechado~regout\) # (\a|Selector0~1_combout\ $ 
+-- (\a|Selector1~0_combout\))))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "0111000110110010",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \a|Selector0~1_combout\,
+	datab => \a|Selector0~6_combout\,
+	datac => \a|estado.Fechado~regout\,
+	datad => \a|Selector1~0_combout\,
+	combout => \a|estado.Fechado~0_combout\);
+
+-- Location: LCFF_X27_Y14_N11
+\a|estado.Fechado\ : cycloneii_lcell_ff
+PORT MAP (
+	clk => \CLK~clkctrl_outclk\,
+	datain => \a|estado.Fechado~0_combout\,
+	devclrn => ww_devclrn,
+	devpor => ww_devpor,
+	regout => \a|estado.Fechado~regout\);
+
+-- Location: LCCOMB_X27_Y14_N6
+\a|Selector0~0\ : cycloneii_lcell_comb
+-- Equation(s):
+-- \a|Selector0~0_combout\ = (\SW~combout\(0) & (!\SW~combout\(2) & (\a|estado.Abrindo~regout\))) # (!\SW~combout\(0) & (\SW~combout\(2) & (!\a|estado.Abrindo~regout\ & !\a|estado.Fechado~regout\)))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "0010000000100100",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \SW~combout\(0),
+	datab => \SW~combout\(2),
+	datac => \a|estado.Abrindo~regout\,
+	datad => \a|estado.Fechado~regout\,
+	combout => \a|Selector0~0_combout\);
+
+-- Location: LCCOMB_X27_Y14_N8
+\a|Selector0~1\ : cycloneii_lcell_comb
+-- Equation(s):
+-- \a|Selector0~1_combout\ = (\SW~combout\(1) & (!\SW~combout\(3) & (\SW~combout\(4) & \a|Selector0~0_combout\)))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "0010000000000000",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \SW~combout\(1),
+	datab => \SW~combout\(3),
+	datac => \SW~combout\(4),
+	datad => \a|Selector0~0_combout\,
+	combout => \a|Selector0~1_combout\);
+
+-- Location: LCCOMB_X27_Y14_N28
+\a|Selector0~7\ : cycloneii_lcell_comb
+-- Equation(s):
+-- \a|Selector0~7_combout\ = \a|Selector0~6_combout\ $ (\a|Selector0~1_combout\ $ (\a|Selector1~0_combout\))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "1100001100111100",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	datab => \a|Selector0~6_combout\,
+	datac => \a|Selector0~1_combout\,
+	datad => \a|Selector1~0_combout\,
+	combout => \a|Selector0~7_combout\);
+
+-- Location: LCCOMB_X27_Y14_N4
+\a|Selector3~3\ : cycloneii_lcell_comb
+-- Equation(s):
+-- \a|Selector3~3_combout\ = (\a|Selector0~7_combout\ & (\a|Selector3~4_combout\ & (!\a|Selector0~6_combout\))) # (!\a|Selector0~7_combout\ & (((\a|estado.Abrindo~regout\))))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "0010001011110000",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \a|Selector3~4_combout\,
+	datab => \a|Selector0~6_combout\,
+	datac => \a|estado.Abrindo~regout\,
+	datad => \a|Selector0~7_combout\,
+	combout => \a|Selector3~3_combout\);
+
+-- Location: LCFF_X27_Y14_N5
+\a|estado.Abrindo\ : cycloneii_lcell_ff
+PORT MAP (
+	clk => \CLK~clkctrl_outclk\,
+	datain => \a|Selector3~3_combout\,
+	devclrn => ww_devclrn,
+	devpor => ww_devpor,
+	regout => \a|estado.Abrindo~regout\);
+
+-- Location: LCCOMB_X27_Y14_N30
+\a|Selector0~5\ : cycloneii_lcell_comb
+-- Equation(s):
+-- \a|Selector0~5_combout\ = (\SW~combout\(1) & (!\SW~combout\(2) & (!\SW~combout\(3) & \SW~combout\(0))))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "0000001000000000",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \SW~combout\(1),
+	datab => \SW~combout\(2),
+	datac => \SW~combout\(3),
+	datad => \SW~combout\(0),
+	combout => \a|Selector0~5_combout\);
+
+-- Location: LCCOMB_X27_Y14_N26
+\a|Selector0~6\ : cycloneii_lcell_comb
+-- Equation(s):
+-- \a|Selector0~6_combout\ = (!\SW~combout\(4) & (\a|estado.Abrindo~regout\ & \a|Selector0~5_combout\))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "0100010000000000",
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
 	dataa => \SW~combout\(4),
-	datab => \a|estado[0]~0_combout\,
-	datac => \a|estado\(0),
-	datad => \a|Mux2~0_combout\,
-	combout => \a|Mux2~1_combout\);
+	datab => \a|estado.Abrindo~regout\,
+	datad => \a|Selector0~5_combout\,
+	combout => \a|Selector0~6_combout\);
 
--- Location: LCCOMB_X1_Y12_N16
-\a|estado[0]\ : cycloneii_lcell_comb
+-- Location: LCCOMB_X27_Y14_N2
+\a|Selector1~1\ : cycloneii_lcell_comb
 -- Equation(s):
--- \a|estado\(0) = (GLOBAL(\a|Mux0~4clkctrl_outclk\) & ((\a|Mux2~1_combout\))) # (!GLOBAL(\a|Mux0~4clkctrl_outclk\) & (\a|estado\(0)))
+-- \a|Selector1~1_combout\ = (\a|Selector0~1_combout\ & ((\a|Selector0~6_combout\ & (\a|estado.Fechando~regout\ & !\a|Selector1~0_combout\)) # (!\a|Selector0~6_combout\ & ((\a|estado.Fechando~regout\) # (!\a|Selector1~0_combout\))))) # 
+-- (!\a|Selector0~1_combout\ & (\a|estado.Fechando~regout\ & (\a|Selector0~6_combout\ $ (!\a|Selector1~0_combout\))))
 
 -- pragma translate_off
 GENERIC MAP (
-	lut_mask => "1111101000001010",
+	lut_mask => "0110000010110010",
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
-	dataa => \a|estado\(0),
-	datac => \a|Mux0~4clkctrl_outclk\,
-	datad => \a|Mux2~1_combout\,
-	combout => \a|estado\(0));
+	dataa => \a|Selector0~1_combout\,
+	datab => \a|Selector0~6_combout\,
+	datac => \a|estado.Fechando~regout\,
+	datad => \a|Selector1~0_combout\,
+	combout => \a|Selector1~1_combout\);
 
--- Location: LCCOMB_X1_Y12_N8
-\a|Mult0~0\ : cycloneii_lcell_comb
+-- Location: LCFF_X27_Y14_N3
+\a|estado.Fechando\ : cycloneii_lcell_ff
+PORT MAP (
+	clk => \CLK~clkctrl_outclk\,
+	datain => \a|Selector1~1_combout\,
+	devclrn => ww_devclrn,
+	devpor => ww_devpor,
+	regout => \a|estado.Fechando~regout\);
+
+-- Location: LCFF_X27_Y14_N27
+\a|tmpLedVerde\ : cycloneii_lcell_ff
+PORT MAP (
+	clk => \CLK~clkctrl_outclk\,
+	sdata => \a|estado.Fechando~regout\,
+	sload => VCC,
+	devclrn => ww_devclrn,
+	devpor => ww_devpor,
+	regout => \a|tmpLedVerde~regout\);
+
+-- Location: LCFF_X27_Y14_N7
+\a|tmpLedVermelho\ : cycloneii_lcell_ff
+PORT MAP (
+	clk => \CLK~clkctrl_outclk\,
+	sdata => \a|estado.Abrindo~regout\,
+	sload => VCC,
+	devclrn => ww_devclrn,
+	devpor => ww_devpor,
+	regout => \a|tmpLedVermelho~regout\);
+
+-- Location: LCCOMB_X1_Y18_N16
+\a|tmpDisplay[1]~1\ : cycloneii_lcell_comb
 -- Equation(s):
--- \a|Mult0~0_combout\ = (\a|estado\(0) & !\a|estado\(1))
+-- \a|tmpDisplay[1]~1_combout\ = !\a|estado.Fechado~regout\
 
 -- pragma translate_off
 GENERIC MAP (
-	lut_mask => "0000101000001010",
+	lut_mask => "0000000011111111",
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
-	dataa => \a|estado\(0),
-	datac => \a|estado\(1),
-	combout => \a|Mult0~0_combout\);
+	datad => \a|estado.Fechado~regout\,
+	combout => \a|tmpDisplay[1]~1_combout\);
 
--- Location: LCCOMB_X1_Y12_N14
-\a|Mult1~0\ : cycloneii_lcell_comb
+-- Location: LCFF_X1_Y18_N17
+\a|tmpDisplay[1]\ : cycloneii_lcell_ff
+PORT MAP (
+	clk => \CLK~clkctrl_outclk\,
+	datain => \a|tmpDisplay[1]~1_combout\,
+	devclrn => ww_devclrn,
+	devpor => ww_devpor,
+	regout => \a|tmpDisplay\(1));
+
+-- Location: LCCOMB_X1_Y18_N6
+\a|tmpDisplay[2]~2\ : cycloneii_lcell_comb
 -- Equation(s):
--- \a|Mult1~0_combout\ = (\a|estado\(0) & \a|estado\(1))
+-- \a|tmpDisplay[2]~2_combout\ = !\a|estado.Fechado~regout\
 
 -- pragma translate_off
 GENERIC MAP (
-	lut_mask => "1010000010100000",
+	lut_mask => "0000000011111111",
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
-	dataa => \a|estado\(0),
-	datac => \a|estado\(1),
-	combout => \a|Mult1~0_combout\);
+	datad => \a|estado.Fechado~regout\,
+	combout => \a|tmpDisplay[2]~2_combout\);
 
--- Location: LCCOMB_X1_Y12_N30
-\a|Mult2~0\ : cycloneii_lcell_comb
+-- Location: LCFF_X1_Y18_N7
+\a|tmpDisplay[2]\ : cycloneii_lcell_ff
+PORT MAP (
+	clk => \CLK~clkctrl_outclk\,
+	datain => \a|tmpDisplay[2]~2_combout\,
+	devclrn => ww_devclrn,
+	devpor => ww_devpor,
+	regout => \a|tmpDisplay\(2));
+
+-- Location: LCCOMB_X26_Y14_N0
+\a|tmpDisplay~0\ : cycloneii_lcell_comb
 -- Equation(s):
--- \a|Mult2~0_combout\ = (\a|estado\(0)) # (\a|estado\(1))
+-- \a|tmpDisplay~0_combout\ = (\a|estado.Aberto~regout\) # (!\a|estado.Fechado~regout\)
 
 -- pragma translate_off
 GENERIC MAP (
-	lut_mask => "1111101011111010",
+	lut_mask => "1111000011111111",
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
-	dataa => \a|estado\(0),
-	datac => \a|estado\(1),
-	combout => \a|Mult2~0_combout\);
+	datac => \a|estado.Aberto~regout\,
+	datad => \a|estado.Fechado~regout\,
+	combout => \a|tmpDisplay~0_combout\);
 
--- Location: PIN_N1,	 I/O Standard: 3.3-V LVTTL,	 Current Strength: 24mA
+-- Location: LCFF_X26_Y14_N1
+\a|tmpDisplay[3]\ : cycloneii_lcell_ff
+PORT MAP (
+	clk => \CLK~clkctrl_outclk\,
+	datain => \a|tmpDisplay~0_combout\,
+	devclrn => ww_devclrn,
+	devpor => ww_devpor,
+	regout => \a|tmpDisplay\(3));
+
+-- Location: LCCOMB_X26_Y14_N10
+\a|tmpDisplay[6]~3\ : cycloneii_lcell_comb
+-- Equation(s):
+-- \a|tmpDisplay[6]~3_combout\ = !\a|tmpDisplay~0_combout\
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "0000000011111111",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	datad => \a|tmpDisplay~0_combout\,
+	combout => \a|tmpDisplay[6]~3_combout\);
+
+-- Location: LCFF_X26_Y14_N11
+\a|tmpDisplay[6]\ : cycloneii_lcell_ff
+PORT MAP (
+	clk => \CLK~clkctrl_outclk\,
+	datain => \a|tmpDisplay[6]~3_combout\,
+	devclrn => ww_devclrn,
+	devpor => ww_devpor,
+	regout => \a|tmpDisplay\(6));
+
+-- Location: PIN_U22,	 I/O Standard: 3.3-V LVTTL,	 Current Strength: 24mA
 \LEDG[0]~I\ : cycloneii_io
 -- pragma translate_off
 GENERIC MAP (
@@ -509,14 +724,14 @@ GENERIC MAP (
 	output_sync_reset => "none")
 -- pragma translate_on
 PORT MAP (
-	datain => \a|Mult0~0_combout\,
+	datain => \a|tmpLedVerde~regout\,
 	devclrn => ww_devclrn,
 	devpor => ww_devpor,
 	devoe => ww_devoe,
 	oe => VCC,
 	padio => ww_LEDG(0));
 
--- Location: PIN_M5,	 I/O Standard: 3.3-V LVTTL,	 Current Strength: 24mA
+-- Location: PIN_R20,	 I/O Standard: 3.3-V LVTTL,	 Current Strength: 24mA
 \LEDR[0]~I\ : cycloneii_io
 -- pragma translate_off
 GENERIC MAP (
@@ -535,14 +750,14 @@ GENERIC MAP (
 	output_sync_reset => "none")
 -- pragma translate_on
 PORT MAP (
-	datain => \a|Mult1~0_combout\,
+	datain => \a|tmpLedVermelho~regout\,
 	devclrn => ww_devclrn,
 	devpor => ww_devpor,
 	devoe => ww_devoe,
 	oe => VCC,
 	padio => ww_LEDR(0));
 
--- Location: PIN_V11,	 I/O Standard: 3.3-V LVTTL,	 Current Strength: 24mA
+-- Location: PIN_J2,	 I/O Standard: 3.3-V LVTTL,	 Current Strength: 24mA
 \HEX0[0]~I\ : cycloneii_io
 -- pragma translate_off
 GENERIC MAP (
@@ -568,7 +783,7 @@ PORT MAP (
 	oe => VCC,
 	padio => ww_HEX0(0));
 
--- Location: PIN_N4,	 I/O Standard: 3.3-V LVTTL,	 Current Strength: 24mA
+-- Location: PIN_J1,	 I/O Standard: 3.3-V LVTTL,	 Current Strength: 24mA
 \HEX0[1]~I\ : cycloneii_io
 -- pragma translate_off
 GENERIC MAP (
@@ -587,14 +802,14 @@ GENERIC MAP (
 	output_sync_reset => "none")
 -- pragma translate_on
 PORT MAP (
-	datain => \a|ALT_INV_Mult2~0_combout\,
+	datain => \a|tmpDisplay\(1),
 	devclrn => ww_devclrn,
 	devpor => ww_devpor,
 	devoe => ww_devoe,
 	oe => VCC,
 	padio => ww_HEX0(1));
 
--- Location: PIN_P3,	 I/O Standard: 3.3-V LVTTL,	 Current Strength: 24mA
+-- Location: PIN_H2,	 I/O Standard: 3.3-V LVTTL,	 Current Strength: 24mA
 \HEX0[2]~I\ : cycloneii_io
 -- pragma translate_off
 GENERIC MAP (
@@ -613,14 +828,14 @@ GENERIC MAP (
 	output_sync_reset => "none")
 -- pragma translate_on
 PORT MAP (
-	datain => \a|ALT_INV_Mult2~0_combout\,
+	datain => \a|tmpDisplay\(2),
 	devclrn => ww_devclrn,
 	devpor => ww_devpor,
 	devoe => ww_devoe,
 	oe => VCC,
 	padio => ww_HEX0(2));
 
--- Location: PIN_J2,	 I/O Standard: 3.3-V LVTTL,	 Current Strength: 24mA
+-- Location: PIN_H1,	 I/O Standard: 3.3-V LVTTL,	 Current Strength: 24mA
 \HEX0[3]~I\ : cycloneii_io
 -- pragma translate_off
 GENERIC MAP (
@@ -639,14 +854,14 @@ GENERIC MAP (
 	output_sync_reset => "none")
 -- pragma translate_on
 PORT MAP (
-	datain => \a|ALT_INV_estado\(0),
+	datain => \a|tmpDisplay\(3),
 	devclrn => ww_devclrn,
 	devpor => ww_devpor,
 	devoe => ww_devoe,
 	oe => VCC,
 	padio => ww_HEX0(3));
 
--- Location: PIN_J19,	 I/O Standard: 3.3-V LVTTL,	 Current Strength: 24mA
+-- Location: PIN_F2,	 I/O Standard: 3.3-V LVTTL,	 Current Strength: 24mA
 \HEX0[4]~I\ : cycloneii_io
 -- pragma translate_off
 GENERIC MAP (
@@ -672,7 +887,7 @@ PORT MAP (
 	oe => VCC,
 	padio => ww_HEX0(4));
 
--- Location: PIN_G12,	 I/O Standard: 3.3-V LVTTL,	 Current Strength: 24mA
+-- Location: PIN_F1,	 I/O Standard: 3.3-V LVTTL,	 Current Strength: 24mA
 \HEX0[5]~I\ : cycloneii_io
 -- pragma translate_off
 GENERIC MAP (
@@ -698,7 +913,7 @@ PORT MAP (
 	oe => VCC,
 	padio => ww_HEX0(5));
 
--- Location: PIN_J1,	 I/O Standard: 3.3-V LVTTL,	 Current Strength: 24mA
+-- Location: PIN_E2,	 I/O Standard: 3.3-V LVTTL,	 Current Strength: 24mA
 \HEX0[6]~I\ : cycloneii_io
 -- pragma translate_off
 GENERIC MAP (
@@ -717,7 +932,7 @@ GENERIC MAP (
 	output_sync_reset => "none")
 -- pragma translate_on
 PORT MAP (
-	datain => \a|estado\(0),
+	datain => \a|tmpDisplay\(6),
 	devclrn => ww_devclrn,
 	devpor => ww_devpor,
 	devoe => ww_devoe,

@@ -1,0 +1,7 @@
+
+State Machine - |maquina|inicial:a|estado
+Name estado.Abrindo estado.Aberto estado.Fechando estado.Fechado 
+estado.Fechado 0 0 0 0 
+estado.Fechando 0 0 1 1 
+estado.Aberto 0 1 0 1 
+estado.Abrindo 1 0 0 1 

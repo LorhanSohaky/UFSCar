@@ -1,61 +1,82 @@
-module inicial ( botao, aberto, fechado, motor, sentido, ledVerde, ledVermelho, display );
-	input botao, aberto, fechado, motor, sentido;
+module inicial ( botao, aberto, fechado, motor, sentido, ledVerde, ledVermelho, display, clock );
+	input botao, aberto, fechado, motor, sentido, clock;
 	output ledVerde, ledVermelho;
 	output [6:0] display;
 	
 	reg [1:0] estado;
+	reg [4:0] entrada;
 	
-	parameter A = 2'b00, B = 2'b01, C = 2'b10, D = 2'b11;
+	reg [6:0] tmpDisplay;
+	reg tmpLedVerde, tmpLedVermelho;
 	
-	initial estado = A;
+	parameter Fechado = 2'b00, Fechando = 2'b01, Aberto = 2'b10, Abrindo = 2'b11;
 	
-	always begin
+	initial estado = Fechado;
 	
-		case( estado )
-			A: if( botao == 1 && aberto == 0 && fechado == 1 && motor == 1 && sentido == 0 )
-					estado = B;
-					
-			B: begin
-					if( botao == 1 && aberto == 0 && fechado == 0 && motor == 1 && sentido == 0 )
-						estado = C;
-					if( botao == 0 && aberto == 0 && fechado == 0 && motor == 1 && sentido == 0 )
-						estado = D;
-				end
-			C: if( botao == 0 && aberto == 1 && fechado == 0 && motor == 1 && sentido == 1 )
-					estado = D;
-					
-			D: begin
-					if( botao == 1 && aberto == 0 && fechado == 0 && motor == 1 && sentido == 1 )
-						estado = B;
-					if( botao == 0 && aberto == 0 && fechado == 0 && motor == 1 && sentido == 1 )
-						estado = A;
-				end
-			default: estado = A;
-			
-		endcase
+	always @(posedge clock)begin
+            entrada[4] = botao;
+            entrada[3] = aberto;
+            entrada[2] = fechado;
+            entrada[1] = motor;
+            entrada[0] = sentido;
+      	        
+          	case( estado )
+          			Fechado: begin
+          			        tmpDisplay = 7'b0001110;
+          			        tmpLedVerde = 0;
+          			        tmpLedVermelho = 0;
+          			        
+          			        if( entrada == 5'b10110 ) // botao == 1 && aberto == 0 && fechado == 1 && motor == 1 && sentido == 0
+          					    estado = Fechando;
+          			   end
+          			   
+          			Fechando: begin
+          			        tmpDisplay = 7'b1000000;
+          			        tmpLedVerde = 1;
+          			        tmpLedVermelho = 0;
+          			        
+          					if( entrada == 5'b10010 ) // botao == 1 && aberto == 0 && fechado == 0 && motor == 1 && sentido == 0
+          						estado = Aberto;
+          					if( entrada == 5'b00010 ) // botao == 0 && aberto == 0 && fechado == 0 && motor == 1 && sentido == 0
+          						estado = Abrindo;
+          				end
+          				
+          			Aberto: begin
+          			        tmpDisplay = 7'b0001000;
+          			        tmpLedVerde = 0;
+          			        tmpLedVermelho = 0;
+          			        
+          			        if( entrada == 5'b01011 ) // botao == 0 && aberto == 1 && fechado == 0 && motor == 1 && sentido == 1
+          					    estado = Abrindo;
+          			   end
+          			   
+          			Abrindo: begin
+          			        tmpDisplay = 7'b1000000;
+          			        tmpLedVerde = 0;
+          			        tmpLedVermelho = 1;
+          			        
+          					if( entrada == 5'b10011 ) // botao == 1 && aberto == 0 && fechado == 0 && motor == 1 && sentido == 1
+          						estado = Fechando;
+          					if( entrada == 5'b00011 ) // botao == 0 && aberto == 0 && fechado == 0 && motor == 1 && sentido == 1
+          						estado = Fechado;
+          			   end
+          			   
+          			default: estado = Fechado;
+          			
+          		endcase
 	end
-		
-	assign ledVerde = (~estado[1] * estado[0]);	//Abrindo
-	assign ledVermelho = (estado[1] * estado[0]);//Fechando
 	
-	
-	assign display[1] = (~estado[1]*~estado[0]);
-	assign display[2] = (~estado[1]*~estado[0]);
-	assign display[3] = (~estado[0]);
-	
-	assign display[0] = 0;
-	assign display[4] = 0;
-	assign display[5] = 0;
-	
-	assign display[6] = (estado[0]); //Para aparecer o no display enquanto estiver abrindo ou fechando
-	
+	assign display= tmpDisplay;
+	assign ledVerde = tmpLedVerde;
+	assign ledVermelho = tmpLedVermelho;
 	
 endmodule
 
-module maquina(SW,LEDG,LEDR,HEX0);
+module maquina(SW,LEDG,LEDR,HEX0, CLK);
 	input [4:0] SW;
+	input CLK;
 	output [0:0] LEDG, LEDR;
 	output [6:0] HEX0;
 
-	inicial a( SW[4], SW[3], SW[2], SW[1], SW[0], LEDG[0], LEDR[0], HEX0);
+	inicial a( SW[4], SW[3], SW[2], SW[1], SW[0], LEDG[0], LEDR[0], HEX0, CLK);
 endmodule

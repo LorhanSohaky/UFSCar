@@ -1,5 +1,5 @@
 Assembler report for maquina
-Wed Nov 29 17:55:24 2017
+Thu Dec 07 16:56:50 2017
 Quartus II 64-Bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
 
 
@@ -38,7 +38,7 @@ applicable agreement for further details.
 +---------------------------------------------------------------+
 ; Assembler Summary                                             ;
 +-----------------------+---------------------------------------+
-; Assembler Status      ; Successful - Wed Nov 29 17:55:24 2017 ;
+; Assembler Status      ; Successful - Thu Dec 07 16:56:50 2017 ;
 ; Revision Name         ; maquina                               ;
 ; Top-level Entity Name ; maquina                               ;
 ; Family                ; Cyclone II                            ;
@@ -94,8 +94,8 @@ applicable agreement for further details.
 ; Option         ; Setting                                                   ;
 +----------------+-----------------------------------------------------------+
 ; Device         ; EP2C20F484C7                                              ;
-; JTAG usercode  ; 0x001B28F2                                                ;
-; Checksum       ; 0x001B28F2                                                ;
+; JTAG usercode  ; 0x001B451E                                                ;
+; Checksum       ; 0x001B451E                                                ;
 +----------------+-----------------------------------------------------------+
 
 
@@ -106,7 +106,7 @@ applicable agreement for further details.
 +--------------------+-------------------------------------------------------+
 ; Device             ; EPCS16                                                ;
 ; JTAG usercode      ; 0x00000000                                            ;
-; Checksum           ; 0x1DD97864                                            ;
+; Checksum           ; 0x1DD9C514                                            ;
 ; Compression Ratio  ; 3                                                     ;
 +--------------------+-------------------------------------------------------+
 
@@ -117,14 +117,14 @@ applicable agreement for further details.
 Info: *******************************************************************
 Info: Running Quartus II 64-Bit Assembler
     Info: Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
-    Info: Processing started: Wed Nov 29 17:55:21 2017
+    Info: Processing started: Thu Dec 07 16:56:49 2017
 Info: Command: quartus_asm --read_settings_files=off --write_settings_files=off maquina -c maquina
 Info (115031): Writing out detailed assembly data for power analysis
 Info (115030): Assembler is generating device programming files
 Info: Quartus II 64-Bit Assembler was successful. 0 errors, 0 warnings
-    Info: Peak virtual memory: 429 megabytes
-    Info: Processing ended: Wed Nov 29 17:55:24 2017
-    Info: Elapsed time: 00:00:03
-    Info: Total CPU time (on all processors): 00:00:03
+    Info: Peak virtual memory: 417 megabytes
+    Info: Processing ended: Thu Dec 07 16:56:50 2017
+    Info: Elapsed time: 00:00:01
+    Info: Total CPU time (on all processors): 00:00:01
 
 

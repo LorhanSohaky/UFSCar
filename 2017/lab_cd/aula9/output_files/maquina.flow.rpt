@@ -1,5 +1,5 @@
 Flow report for maquina
-Wed Nov 29 17:55:29 2017
+Thu Dec 07 16:56:53 2017
 Quartus II 64-Bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
 
 
@@ -40,18 +40,18 @@ applicable agreement for further details.
 +--------------------------------------------------------------------------------------+
 ; Flow Summary                                                                         ;
 +------------------------------------+-------------------------------------------------+
-; Flow Status                        ; Successful - Wed Nov 29 17:55:29 2017           ;
+; Flow Status                        ; Successful - Thu Dec 07 16:56:53 2017           ;
 ; Quartus II 64-Bit Version          ; 13.0.1 Build 232 06/12/2013 SP 1 SJ Web Edition ;
 ; Revision Name                      ; maquina                                         ;
 ; Top-level Entity Name              ; maquina                                         ;
 ; Family                             ; Cyclone II                                      ;
 ; Device                             ; EP2C20F484C7                                    ;
 ; Timing Models                      ; Final                                           ;
-; Total logic elements               ; 15 / 18,752 ( < 1 % )                           ;
-;     Total combinational functions  ; 15 / 18,752 ( < 1 % )                           ;
-;     Dedicated logic registers      ; 0 / 18,752 ( 0 % )                              ;
-; Total registers                    ; 0                                               ;
-; Total pins                         ; 14 / 315 ( 4 % )                                ;
+; Total logic elements               ; 20 / 18,752 ( < 1 % )                           ;
+;     Total combinational functions  ; 20 / 18,752 ( < 1 % )                           ;
+;     Dedicated logic registers      ; 10 / 18,752 ( < 1 % )                           ;
+; Total registers                    ; 10                                              ;
+; Total pins                         ; 15 / 315 ( 5 % )                                ;
 ; Total virtual pins                 ; 0                                               ;
 ; Total memory bits                  ; 0 / 239,616 ( 0 % )                             ;
 ; Embedded Multiplier 9-bit elements ; 0 / 52 ( 0 % )                                  ;
@@ -64,7 +64,7 @@ applicable agreement for further details.
 +-------------------+---------------------+
 ; Option            ; Setting             ;
 +-------------------+---------------------+
-; Start date & time ; 11/29/2017 17:55:09 ;
+; Start date & time ; 12/07/2017 16:56:44 ;
 ; Main task         ; Compilation         ;
 ; Revision Name     ; maquina             ;
 +-------------------+---------------------+
@@ -75,7 +75,7 @@ applicable agreement for further details.
 +--------------------------------------+---------------------------------------+---------------+-------------+----------------+
 ; Assignment Name                      ; Value                                 ; Default Value ; Entity Name ; Section Id     ;
 +--------------------------------------+---------------------------------------+---------------+-------------+----------------+
-; COMPILER_SIGNATURE_ID                ; 963361450667.151198530900216          ; --            ; --          ; --             ;
+; COMPILER_SIGNATURE_ID                ; 17629519237415.151267300405184        ; --            ; --          ; --             ;
 ; EDA_DESIGN_INSTANCE_NAME             ; NA                                    ; --            ; --          ; maquina_TB     ;
 ; EDA_NATIVELINK_SIMULATION_TEST_BENCH ; maquina_TB                            ; --            ; --          ; eda_simulation ;
 ; EDA_OUTPUT_DATA_FORMAT               ; Vhdl                                  ; --            ; --          ; eda_simulation ;
@@ -100,12 +100,12 @@ applicable agreement for further details.
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
 ; Module Name               ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Analysis & Synthesis      ; 00:00:02     ; 1.0                     ; 460 MB              ; 00:00:02                           ;
-; Fitter                    ; 00:00:08     ; 1.0                     ; 639 MB              ; 00:00:08                           ;
-; Assembler                 ; 00:00:03     ; 1.0                     ; 429 MB              ; 00:00:03                           ;
-; TimeQuest Timing Analyzer ; 00:00:02     ; 1.0                     ; 406 MB              ; 00:00:02                           ;
-; EDA Netlist Writer        ; 00:00:01     ; 1.0                     ; 389 MB              ; 00:00:01                           ;
-; Total                     ; 00:00:16     ; --                      ; --                  ; 00:00:16                           ;
+; Analysis & Synthesis      ; 00:00:01     ; 1.0                     ; 458 MB              ; 00:00:01                           ;
+; Fitter                    ; 00:00:02     ; 1.0                     ; 633 MB              ; 00:00:03                           ;
+; Assembler                 ; 00:00:01     ; 1.0                     ; 417 MB              ; 00:00:01                           ;
+; TimeQuest Timing Analyzer ; 00:00:01     ; 1.0                     ; 399 MB              ; 00:00:01                           ;
+; EDA Netlist Writer        ; 00:00:00     ; 1.0                     ; 383 MB              ; 00:00:00                           ;
+; Total                     ; 00:00:05     ; --                      ; --                  ; 00:00:06                           ;
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
 
 
@@ -114,11 +114,11 @@ applicable agreement for further details.
 +---------------------------+------------------+-----------+------------+----------------+
 ; Module Name               ; Machine Hostname ; OS Name   ; OS Version ; Processor type ;
 +---------------------------+------------------+-----------+------------+----------------+
-; Analysis & Synthesis      ; DESKTOP-4R8U9HV  ; Windows 7 ; 6.2        ; x86_64         ;
-; Fitter                    ; DESKTOP-4R8U9HV  ; Windows 7 ; 6.2        ; x86_64         ;
-; Assembler                 ; DESKTOP-4R8U9HV  ; Windows 7 ; 6.2        ; x86_64         ;
-; TimeQuest Timing Analyzer ; DESKTOP-4R8U9HV  ; Windows 7 ; 6.2        ; x86_64         ;
-; EDA Netlist Writer        ; DESKTOP-4R8U9HV  ; Windows 7 ; 6.2        ; x86_64         ;
+; Analysis & Synthesis      ; l5m8             ; Windows 7 ; 6.2        ; x86_64         ;
+; Fitter                    ; l5m8             ; Windows 7 ; 6.2        ; x86_64         ;
+; Assembler                 ; l5m8             ; Windows 7 ; 6.2        ; x86_64         ;
+; TimeQuest Timing Analyzer ; l5m8             ; Windows 7 ; 6.2        ; x86_64         ;
+; EDA Netlist Writer        ; l5m8             ; Windows 7 ; 6.2        ; x86_64         ;
 +---------------------------+------------------+-----------+------------+----------------+
 
 

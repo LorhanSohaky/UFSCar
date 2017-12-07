@@ -1,5 +1,5 @@
 Analysis & Synthesis report for maquina
-Wed Nov 29 17:55:11 2017
+Thu Dec 07 16:56:45 2017
 Quartus II 64-Bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
 
 
@@ -13,11 +13,14 @@ Quartus II 64-Bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edit
   5. Analysis & Synthesis Source Files Read
   6. Analysis & Synthesis Resource Usage Summary
   7. Analysis & Synthesis Resource Utilization by Entity
-  8. User-Specified and Inferred Latches
-  9. General Register Statistics
- 10. Parameter Settings for User Entity Instance: inicial:a
- 11. Elapsed Time Per Partition
- 12. Analysis & Synthesis Messages
+  8. State Machine - |maquina|inicial:a|estado
+  9. Registers Removed During Synthesis
+ 10. General Register Statistics
+ 11. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 12. Parameter Settings for User Entity Instance: inicial:a
+ 13. Elapsed Time Per Partition
+ 14. Analysis & Synthesis Messages
+ 15. Analysis & Synthesis Suppressed Messages
 
 
 
@@ -43,16 +46,16 @@ applicable agreement for further details.
 +--------------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                         ;
 +------------------------------------+-------------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Wed Nov 29 17:55:11 2017           ;
+; Analysis & Synthesis Status        ; Successful - Thu Dec 07 16:56:45 2017           ;
 ; Quartus II 64-Bit Version          ; 13.0.1 Build 232 06/12/2013 SP 1 SJ Web Edition ;
 ; Revision Name                      ; maquina                                         ;
 ; Top-level Entity Name              ; maquina                                         ;
 ; Family                             ; Cyclone II                                      ;
-; Total logic elements               ; 15                                              ;
-;     Total combinational functions  ; 15                                              ;
-;     Dedicated logic registers      ; 0                                               ;
-; Total registers                    ; 0                                               ;
-; Total pins                         ; 14                                              ;
+; Total logic elements               ; 22                                              ;
+;     Total combinational functions  ; 20                                              ;
+;     Dedicated logic registers      ; 10                                              ;
+; Total registers                    ; 10                                              ;
+; Total pins                         ; 15                                              ;
 ; Total virtual pins                 ; 0                                               ;
 ; Total memory bits                  ; 0                                               ;
 ; Embedded Multiplier 9-bit elements ; 0                                               ;
@@ -151,7 +154,7 @@ Parallel compilation was disabled, but you have multiple processors available. E
 +----------------------------+--------+
 ; Processors                 ; Number ;
 +----------------------------+--------+
-; Number detected on machine ; 4      ;
+; Number detected on machine ; 8      ;
 ; Maximum allowed            ; 1      ;
 +----------------------------+--------+
 
@@ -165,34 +168,34 @@ Parallel compilation was disabled, but you have multiple processors available. E
 +----------------------------------+-----------------+------------------------+-----------------------------------+---------+
 
 
-+-------------------------------------------------------------------+
-; Analysis & Synthesis Resource Usage Summary                       ;
-+---------------------------------------------+---------------------+
-; Resource                                    ; Usage               ;
-+---------------------------------------------+---------------------+
-; Estimated Total logic elements              ; 15                  ;
-;                                             ;                     ;
-; Total combinational functions               ; 15                  ;
-; Logic element usage by number of LUT inputs ;                     ;
-;     -- 4 input functions                    ; 7                   ;
-;     -- 3 input functions                    ; 3                   ;
-;     -- <=2 input functions                  ; 5                   ;
-;                                             ;                     ;
-; Logic elements by mode                      ;                     ;
-;     -- normal mode                          ; 15                  ;
-;     -- arithmetic mode                      ; 0                   ;
-;                                             ;                     ;
-; Total registers                             ; 0                   ;
-;     -- Dedicated logic registers            ; 0                   ;
-;     -- I/O registers                        ; 0                   ;
-;                                             ;                     ;
-; I/O pins                                    ; 14                  ;
-; Embedded Multiplier 9-bit elements          ; 0                   ;
-; Maximum fan-out node                        ; inicial:a|estado[0] ;
-; Maximum fan-out                             ; 10                  ;
-; Total fan-out                               ; 53                  ;
-; Average fan-out                             ; 1.83                ;
-+---------------------------------------------+---------------------+
++-----------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary         ;
++---------------------------------------------+-------+
+; Resource                                    ; Usage ;
++---------------------------------------------+-------+
+; Estimated Total logic elements              ; 22    ;
+;                                             ;       ;
+; Total combinational functions               ; 20    ;
+; Logic element usage by number of LUT inputs ;       ;
+;     -- 4 input functions                    ; 11    ;
+;     -- 3 input functions                    ; 4     ;
+;     -- <=2 input functions                  ; 5     ;
+;                                             ;       ;
+; Logic elements by mode                      ;       ;
+;     -- normal mode                          ; 20    ;
+;     -- arithmetic mode                      ; 0     ;
+;                                             ;       ;
+; Total registers                             ; 10    ;
+;     -- Dedicated logic registers            ; 10    ;
+;     -- I/O registers                        ; 0     ;
+;                                             ;       ;
+; I/O pins                                    ; 15    ;
+; Embedded Multiplier 9-bit elements          ; 0     ;
+; Maximum fan-out node                        ; CLK   ;
+; Maximum fan-out                             ; 10    ;
+; Total fan-out                               ; 89    ;
+; Average fan-out                             ; 1.98  ;
++---------------------------------------------+-------+
 
 
 +-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -200,22 +203,35 @@ Parallel compilation was disabled, but you have multiple processors available. E
 +----------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+---------------------+--------------+
 ; Compilation Hierarchy Node ; LC Combinationals ; LC Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name ; Library Name ;
 +----------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+---------------------+--------------+
-; |maquina                   ; 15 (0)            ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 14   ; 0            ; |maquina            ; work         ;
-;    |inicial:a|             ; 15 (15)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |maquina|inicial:a  ; work         ;
+; |maquina                   ; 20 (0)            ; 10 (0)       ; 0           ; 0            ; 0       ; 0         ; 15   ; 0            ; |maquina            ; work         ;
+;    |inicial:a|             ; 20 (20)           ; 10 (10)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |maquina|inicial:a  ; work         ;
 +----------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+---------------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
 
-+---------------------------------------------------------------------------------------------------+
-; User-Specified and Inferred Latches                                                               ;
-+----------------------------------------------------+---------------------+------------------------+
-; Latch Name                                         ; Latch Enable Signal ; Free of Timing Hazards ;
-+----------------------------------------------------+---------------------+------------------------+
-; inicial:a|estado[1]                                ; inicial:a|Mux0      ; yes                    ;
-; inicial:a|estado[0]                                ; inicial:a|Mux0      ; yes                    ;
-; Number of user-specified and inferred latches = 2  ;                     ;                        ;
-+----------------------------------------------------+---------------------+------------------------+
-Note: All latches listed above may not be present at the end of synthesis due to various synthesis optimizations.
+Encoding Type:  One-Hot
++-------------------------------------------------------------------------------------+
+; State Machine - |maquina|inicial:a|estado                                           ;
++-----------------+----------------+---------------+-----------------+----------------+
+; Name            ; estado.Abrindo ; estado.Aberto ; estado.Fechando ; estado.Fechado ;
++-----------------+----------------+---------------+-----------------+----------------+
+; estado.Fechado  ; 0              ; 0             ; 0               ; 0              ;
+; estado.Fechando ; 0              ; 0             ; 1               ; 1              ;
+; estado.Aberto   ; 0              ; 1             ; 0               ; 1              ;
+; estado.Abrindo  ; 1              ; 0             ; 0               ; 1              ;
++-----------------+----------------+---------------+-----------------+----------------+
+
+
++--------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                             ;
++---------------------------------------+----------------------------------------+
+; Register name                         ; Reason for Removal                     ;
++---------------------------------------+----------------------------------------+
+; inicial:a|tmpDisplay[0,4,5]           ; Stuck at GND due to stuck port data_in ;
+; inicial:a|estado~6                    ; Lost fanout                            ;
+; inicial:a|estado~7                    ; Lost fanout                            ;
+; Total Number of Removed Registers = 5 ;                                        ;
++---------------------------------------+----------------------------------------+
 
 
 +------------------------------------------------------+
@@ -223,7 +239,7 @@ Note: All latches listed above may not be present at the end of synthesis due to
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 0     ;
+; Total registers                              ; 10    ;
 ; Number of registers using Synchronous Clear  ; 0     ;
 ; Number of registers using Synchronous Load   ; 0     ;
 ; Number of registers using Asynchronous Clear ; 0     ;
@@ -233,15 +249,24 @@ Note: All latches listed above may not be present at the end of synthesis due to
 +----------------------------------------------+-------+
 
 
++--------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                             ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output   ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------+
+; 10:1               ; 4 bits    ; 24 LEs        ; 16 LEs               ; 8 LEs                  ; No         ; |maquina|inicial:a|Selector0 ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------+
+
+
 +--------------------------------------------------------+
 ; Parameter Settings for User Entity Instance: inicial:a ;
 +----------------+-------+-------------------------------+
 ; Parameter Name ; Value ; Type                          ;
 +----------------+-------+-------------------------------+
-; A              ; 00    ; Unsigned Binary               ;
-; B              ; 01    ; Unsigned Binary               ;
-; C              ; 10    ; Unsigned Binary               ;
-; D              ; 11    ; Unsigned Binary               ;
+; Fechado        ; 00    ; Unsigned Binary               ;
+; Fechando       ; 01    ; Unsigned Binary               ;
+; Aberto         ; 10    ; Unsigned Binary               ;
+; Abrindo        ; 11    ; Unsigned Binary               ;
 +----------------+-------+-------------------------------+
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
@@ -261,7 +286,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus II 64-Bit Analysis & Synthesis
     Info: Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
-    Info: Processing started: Wed Nov 29 17:55:08 2017
+    Info: Processing started: Thu Dec 07 16:56:44 2017
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off maquina -c maquina
 Warning (20028): Parallel compilation is not licensed and has been disabled
 Info (12021): Found 2 design units, including 2 entities, in source file maquina.v
@@ -269,27 +294,28 @@ Info (12021): Found 2 design units, including 2 entities, in source file maquina
     Info (12023): Found entity 2: maquina
 Info (12127): Elaborating entity "maquina" for the top level hierarchy
 Info (12128): Elaborating entity "inicial" for hierarchy "inicial:a"
-Warning (10240): Verilog HDL Always Construct warning at maquina.v(14): inferring latch(es) for variable "estado", which holds its previous value in one or more paths through the always construct
-Info (10041): Inferred latch for "estado[0]" at maquina.v(14)
-Info (10041): Inferred latch for "estado[1]" at maquina.v(14)
-Warning (13012): Latch inicial:a|estado[1] has unsafe behavior
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal inicial:a|estado[1]
-Warning (13012): Latch inicial:a|estado[0] has unsafe behavior
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal inicial:a|estado[0]
 Warning (13024): Output pins are stuck at VCC or GND
     Warning (13410): Pin "HEX0[0]" is stuck at GND
     Warning (13410): Pin "HEX0[4]" is stuck at GND
     Warning (13410): Pin "HEX0[5]" is stuck at GND
+Info (17049): 2 registers lost all their fanouts during netlist optimizations.
+Info (144001): Generated suppressed messages file C:/altera/13.0sp1/aula9/output_files/maquina.map.smsg
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Info (21057): Implemented 29 device resources after synthesis - the final resource count might be different
-    Info (21058): Implemented 5 input pins
+Info (21057): Implemented 38 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 6 input pins
     Info (21059): Implemented 9 output pins
-    Info (21061): Implemented 15 logic cells
-Info: Quartus II 64-Bit Analysis & Synthesis was successful. 0 errors, 10 warnings
-    Info: Peak virtual memory: 470 megabytes
-    Info: Processing ended: Wed Nov 29 17:55:11 2017
-    Info: Elapsed time: 00:00:03
-    Info: Total CPU time (on all processors): 00:00:02
+    Info (21061): Implemented 23 logic cells
+Info: Quartus II 64-Bit Analysis & Synthesis was successful. 0 errors, 5 warnings
+    Info: Peak virtual memory: 468 megabytes
+    Info: Processing ended: Thu Dec 07 16:56:45 2017
+    Info: Elapsed time: 00:00:01
+    Info: Total CPU time (on all processors): 00:00:01
+
+
++------------------------------------------+
+; Analysis & Synthesis Suppressed Messages ;
++------------------------------------------+
+The suppressed messages can be found in C:/altera/13.0sp1/aula9/output_files/maquina.map.smsg.
 
 

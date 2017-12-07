@@ -1,5 +1,5 @@
 Fitter report for maquina
-Wed Nov 29 17:55:20 2017
+Thu Dec 07 16:56:48 2017
 Quartus II 64-Bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
 
 
@@ -10,32 +10,32 @@ Quartus II 64-Bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edit
   2. Fitter Summary
   3. Fitter Settings
   4. Parallel Compilation
-  5. Incremental Compilation Preservation Summary
-  6. Incremental Compilation Partition Settings
-  7. Incremental Compilation Placement Preservation
-  8. Pin-Out File
-  9. Fitter Resource Usage Summary
- 10. Fitter Partition Statistics
- 11. Input Pins
- 12. Output Pins
- 13. I/O Bank Usage
- 14. All Package Pins
- 15. Output Pin Default Load For Reported TCO
- 16. Fitter Resource Utilization by Entity
- 17. Delay Chain Summary
- 18. Pad To Core Delay Chain Fanout
- 19. Control Signals
- 20. Global & Other Fast Signals
- 21. Non-Global High Fan-Out Signals
- 22. Other Routing Usage Summary
- 23. LAB Logic Elements
- 24. LAB Signals Sourced
- 25. LAB Signals Sourced Out
- 26. LAB Distinct Inputs
- 27. Fitter Device Options
- 28. Operating Settings and Conditions
- 29. Estimated Delay Added for Hold Timing Summary
- 30. Estimated Delay Added for Hold Timing Details
+  5. Ignored Assignments
+  6. Incremental Compilation Preservation Summary
+  7. Incremental Compilation Partition Settings
+  8. Incremental Compilation Placement Preservation
+  9. Pin-Out File
+ 10. Fitter Resource Usage Summary
+ 11. Fitter Partition Statistics
+ 12. Input Pins
+ 13. Output Pins
+ 14. I/O Bank Usage
+ 15. All Package Pins
+ 16. Output Pin Default Load For Reported TCO
+ 17. Fitter Resource Utilization by Entity
+ 18. Delay Chain Summary
+ 19. Pad To Core Delay Chain Fanout
+ 20. Control Signals
+ 21. Global & Other Fast Signals
+ 22. Non-Global High Fan-Out Signals
+ 23. Other Routing Usage Summary
+ 24. LAB Logic Elements
+ 25. LAB-wide Signals
+ 26. LAB Signals Sourced
+ 27. LAB Signals Sourced Out
+ 28. LAB Distinct Inputs
+ 29. Fitter Device Options
+ 30. Operating Settings and Conditions
  31. Fitter Messages
  32. Fitter Suppressed Messages
 
@@ -63,18 +63,18 @@ applicable agreement for further details.
 +--------------------------------------------------------------------------------------+
 ; Fitter Summary                                                                       ;
 +------------------------------------+-------------------------------------------------+
-; Fitter Status                      ; Successful - Wed Nov 29 17:55:20 2017           ;
+; Fitter Status                      ; Successful - Thu Dec 07 16:56:48 2017           ;
 ; Quartus II 64-Bit Version          ; 13.0.1 Build 232 06/12/2013 SP 1 SJ Web Edition ;
 ; Revision Name                      ; maquina                                         ;
 ; Top-level Entity Name              ; maquina                                         ;
 ; Family                             ; Cyclone II                                      ;
 ; Device                             ; EP2C20F484C7                                    ;
 ; Timing Models                      ; Final                                           ;
-; Total logic elements               ; 15 / 18,752 ( < 1 % )                           ;
-;     Total combinational functions  ; 15 / 18,752 ( < 1 % )                           ;
-;     Dedicated logic registers      ; 0 / 18,752 ( 0 % )                              ;
-; Total registers                    ; 0                                               ;
-; Total pins                         ; 14 / 315 ( 4 % )                                ;
+; Total logic elements               ; 20 / 18,752 ( < 1 % )                           ;
+;     Total combinational functions  ; 20 / 18,752 ( < 1 % )                           ;
+;     Dedicated logic registers      ; 10 / 18,752 ( < 1 % )                           ;
+; Total registers                    ; 10                                              ;
+; Total pins                         ; 15 / 315 ( 5 % )                                ;
 ; Total virtual pins                 ; 0                                               ;
 ; Total memory bits                  ; 0 / 239,616 ( 0 % )                             ;
 ; Embedded Multiplier 9-bit elements ; 0 / 52 ( 0 % )                                  ;
@@ -138,9 +138,282 @@ Parallel compilation was disabled, but you have multiple processors available. E
 +----------------------------+--------+
 ; Processors                 ; Number ;
 +----------------------------+--------+
-; Number detected on machine ; 4      ;
+; Number detected on machine ; 8      ;
 ; Maximum allowed            ; 1      ;
 +----------------------------+--------+
+
+
++-------------------------------------------------------------------------------------------+
+; Ignored Assignments                                                                       ;
++----------+----------------+--------------+---------------+---------------+----------------+
+; Name     ; Ignored Entity ; Ignored From ; Ignored To    ; Ignored Value ; Ignored Source ;
++----------+----------------+--------------+---------------+---------------+----------------+
+; Location ;                ;              ; AUD_ADCDAT    ; PIN_B6        ; QSF Assignment ;
+; Location ;                ;              ; AUD_ADCLRCK   ; PIN_A6        ; QSF Assignment ;
+; Location ;                ;              ; AUD_BCLK      ; PIN_A4        ; QSF Assignment ;
+; Location ;                ;              ; AUD_DACDAT    ; PIN_B5        ; QSF Assignment ;
+; Location ;                ;              ; AUD_DACLRCK   ; PIN_A5        ; QSF Assignment ;
+; Location ;                ;              ; AUD_XCK       ; PIN_B4        ; QSF Assignment ;
+; Location ;                ;              ; CLOCK_24[0]   ; PIN_B12       ; QSF Assignment ;
+; Location ;                ;              ; CLOCK_24[1]   ; PIN_A12       ; QSF Assignment ;
+; Location ;                ;              ; CLOCK_27[0]   ; PIN_D12       ; QSF Assignment ;
+; Location ;                ;              ; CLOCK_27[1]   ; PIN_E12       ; QSF Assignment ;
+; Location ;                ;              ; CLOCK_50      ; PIN_L1        ; QSF Assignment ;
+; Location ;                ;              ; DRAM_ADDR[0]  ; PIN_W4        ; QSF Assignment ;
+; Location ;                ;              ; DRAM_ADDR[10] ; PIN_W3        ; QSF Assignment ;
+; Location ;                ;              ; DRAM_ADDR[11] ; PIN_N6        ; QSF Assignment ;
+; Location ;                ;              ; DRAM_ADDR[1]  ; PIN_W5        ; QSF Assignment ;
+; Location ;                ;              ; DRAM_ADDR[2]  ; PIN_Y3        ; QSF Assignment ;
+; Location ;                ;              ; DRAM_ADDR[3]  ; PIN_Y4        ; QSF Assignment ;
+; Location ;                ;              ; DRAM_ADDR[4]  ; PIN_R6        ; QSF Assignment ;
+; Location ;                ;              ; DRAM_ADDR[5]  ; PIN_R5        ; QSF Assignment ;
+; Location ;                ;              ; DRAM_ADDR[6]  ; PIN_P6        ; QSF Assignment ;
+; Location ;                ;              ; DRAM_ADDR[7]  ; PIN_P5        ; QSF Assignment ;
+; Location ;                ;              ; DRAM_ADDR[8]  ; PIN_P3        ; QSF Assignment ;
+; Location ;                ;              ; DRAM_ADDR[9]  ; PIN_N4        ; QSF Assignment ;
+; Location ;                ;              ; DRAM_BA_0     ; PIN_U3        ; QSF Assignment ;
+; Location ;                ;              ; DRAM_BA_1     ; PIN_V4        ; QSF Assignment ;
+; Location ;                ;              ; DRAM_CAS_N    ; PIN_T3        ; QSF Assignment ;
+; Location ;                ;              ; DRAM_CKE      ; PIN_N3        ; QSF Assignment ;
+; Location ;                ;              ; DRAM_CLK      ; PIN_U4        ; QSF Assignment ;
+; Location ;                ;              ; DRAM_CS_N     ; PIN_T6        ; QSF Assignment ;
+; Location ;                ;              ; DRAM_DQ[0]    ; PIN_U1        ; QSF Assignment ;
+; Location ;                ;              ; DRAM_DQ[10]   ; PIN_P1        ; QSF Assignment ;
+; Location ;                ;              ; DRAM_DQ[11]   ; PIN_P2        ; QSF Assignment ;
+; Location ;                ;              ; DRAM_DQ[12]   ; PIN_R1        ; QSF Assignment ;
+; Location ;                ;              ; DRAM_DQ[13]   ; PIN_R2        ; QSF Assignment ;
+; Location ;                ;              ; DRAM_DQ[14]   ; PIN_T1        ; QSF Assignment ;
+; Location ;                ;              ; DRAM_DQ[15]   ; PIN_T2        ; QSF Assignment ;
+; Location ;                ;              ; DRAM_DQ[1]    ; PIN_U2        ; QSF Assignment ;
+; Location ;                ;              ; DRAM_DQ[2]    ; PIN_V1        ; QSF Assignment ;
+; Location ;                ;              ; DRAM_DQ[3]    ; PIN_V2        ; QSF Assignment ;
+; Location ;                ;              ; DRAM_DQ[4]    ; PIN_W1        ; QSF Assignment ;
+; Location ;                ;              ; DRAM_DQ[5]    ; PIN_W2        ; QSF Assignment ;
+; Location ;                ;              ; DRAM_DQ[6]    ; PIN_Y1        ; QSF Assignment ;
+; Location ;                ;              ; DRAM_DQ[7]    ; PIN_Y2        ; QSF Assignment ;
+; Location ;                ;              ; DRAM_DQ[8]    ; PIN_N1        ; QSF Assignment ;
+; Location ;                ;              ; DRAM_DQ[9]    ; PIN_N2        ; QSF Assignment ;
+; Location ;                ;              ; DRAM_LDQM     ; PIN_R7        ; QSF Assignment ;
+; Location ;                ;              ; DRAM_RAS_N    ; PIN_T5        ; QSF Assignment ;
+; Location ;                ;              ; DRAM_UDQM     ; PIN_M5        ; QSF Assignment ;
+; Location ;                ;              ; DRAM_WE_N     ; PIN_R8        ; QSF Assignment ;
+; Location ;                ;              ; EXT_CLOCK     ; PIN_M21       ; QSF Assignment ;
+; Location ;                ;              ; FL_ADDR[0]    ; PIN_AB20      ; QSF Assignment ;
+; Location ;                ;              ; FL_ADDR[10]   ; PIN_R12       ; QSF Assignment ;
+; Location ;                ;              ; FL_ADDR[11]   ; PIN_T12       ; QSF Assignment ;
+; Location ;                ;              ; FL_ADDR[12]   ; PIN_AB14      ; QSF Assignment ;
+; Location ;                ;              ; FL_ADDR[13]   ; PIN_AA13      ; QSF Assignment ;
+; Location ;                ;              ; FL_ADDR[14]   ; PIN_AB13      ; QSF Assignment ;
+; Location ;                ;              ; FL_ADDR[15]   ; PIN_AA12      ; QSF Assignment ;
+; Location ;                ;              ; FL_ADDR[16]   ; PIN_AB12      ; QSF Assignment ;
+; Location ;                ;              ; FL_ADDR[17]   ; PIN_AA20      ; QSF Assignment ;
+; Location ;                ;              ; FL_ADDR[18]   ; PIN_U14       ; QSF Assignment ;
+; Location ;                ;              ; FL_ADDR[19]   ; PIN_V14       ; QSF Assignment ;
+; Location ;                ;              ; FL_ADDR[1]    ; PIN_AA14      ; QSF Assignment ;
+; Location ;                ;              ; FL_ADDR[20]   ; PIN_U13       ; QSF Assignment ;
+; Location ;                ;              ; FL_ADDR[21]   ; PIN_R13       ; QSF Assignment ;
+; Location ;                ;              ; FL_ADDR[2]    ; PIN_Y16       ; QSF Assignment ;
+; Location ;                ;              ; FL_ADDR[3]    ; PIN_R15       ; QSF Assignment ;
+; Location ;                ;              ; FL_ADDR[4]    ; PIN_T15       ; QSF Assignment ;
+; Location ;                ;              ; FL_ADDR[5]    ; PIN_U15       ; QSF Assignment ;
+; Location ;                ;              ; FL_ADDR[6]    ; PIN_V15       ; QSF Assignment ;
+; Location ;                ;              ; FL_ADDR[7]    ; PIN_W15       ; QSF Assignment ;
+; Location ;                ;              ; FL_ADDR[8]    ; PIN_R14       ; QSF Assignment ;
+; Location ;                ;              ; FL_ADDR[9]    ; PIN_Y13       ; QSF Assignment ;
+; Location ;                ;              ; FL_CE_N       ; PIN_AB15      ; QSF Assignment ;
+; Location ;                ;              ; FL_DQ[0]      ; PIN_AB16      ; QSF Assignment ;
+; Location ;                ;              ; FL_DQ[1]      ; PIN_AA16      ; QSF Assignment ;
+; Location ;                ;              ; FL_DQ[2]      ; PIN_AB17      ; QSF Assignment ;
+; Location ;                ;              ; FL_DQ[3]      ; PIN_AA17      ; QSF Assignment ;
+; Location ;                ;              ; FL_DQ[4]      ; PIN_AB18      ; QSF Assignment ;
+; Location ;                ;              ; FL_DQ[5]      ; PIN_AA18      ; QSF Assignment ;
+; Location ;                ;              ; FL_DQ[6]      ; PIN_AB19      ; QSF Assignment ;
+; Location ;                ;              ; FL_DQ[7]      ; PIN_AA19      ; QSF Assignment ;
+; Location ;                ;              ; FL_OE_N       ; PIN_AA15      ; QSF Assignment ;
+; Location ;                ;              ; FL_RST_N      ; PIN_W14       ; QSF Assignment ;
+; Location ;                ;              ; FL_WE_N       ; PIN_Y14       ; QSF Assignment ;
+; Location ;                ;              ; GPIO_0[0]     ; PIN_A13       ; QSF Assignment ;
+; Location ;                ;              ; GPIO_0[10]    ; PIN_A18       ; QSF Assignment ;
+; Location ;                ;              ; GPIO_0[11]    ; PIN_B18       ; QSF Assignment ;
+; Location ;                ;              ; GPIO_0[12]    ; PIN_A19       ; QSF Assignment ;
+; Location ;                ;              ; GPIO_0[13]    ; PIN_B19       ; QSF Assignment ;
+; Location ;                ;              ; GPIO_0[14]    ; PIN_A20       ; QSF Assignment ;
+; Location ;                ;              ; GPIO_0[15]    ; PIN_B20       ; QSF Assignment ;
+; Location ;                ;              ; GPIO_0[16]    ; PIN_C21       ; QSF Assignment ;
+; Location ;                ;              ; GPIO_0[17]    ; PIN_C22       ; QSF Assignment ;
+; Location ;                ;              ; GPIO_0[18]    ; PIN_D21       ; QSF Assignment ;
+; Location ;                ;              ; GPIO_0[19]    ; PIN_D22       ; QSF Assignment ;
+; Location ;                ;              ; GPIO_0[1]     ; PIN_B13       ; QSF Assignment ;
+; Location ;                ;              ; GPIO_0[20]    ; PIN_E21       ; QSF Assignment ;
+; Location ;                ;              ; GPIO_0[21]    ; PIN_E22       ; QSF Assignment ;
+; Location ;                ;              ; GPIO_0[22]    ; PIN_F21       ; QSF Assignment ;
+; Location ;                ;              ; GPIO_0[23]    ; PIN_F22       ; QSF Assignment ;
+; Location ;                ;              ; GPIO_0[24]    ; PIN_G21       ; QSF Assignment ;
+; Location ;                ;              ; GPIO_0[25]    ; PIN_G22       ; QSF Assignment ;
+; Location ;                ;              ; GPIO_0[26]    ; PIN_J21       ; QSF Assignment ;
+; Location ;                ;              ; GPIO_0[27]    ; PIN_J22       ; QSF Assignment ;
+; Location ;                ;              ; GPIO_0[28]    ; PIN_K21       ; QSF Assignment ;
+; Location ;                ;              ; GPIO_0[29]    ; PIN_K22       ; QSF Assignment ;
+; Location ;                ;              ; GPIO_0[2]     ; PIN_A14       ; QSF Assignment ;
+; Location ;                ;              ; GPIO_0[30]    ; PIN_J19       ; QSF Assignment ;
+; Location ;                ;              ; GPIO_0[31]    ; PIN_J20       ; QSF Assignment ;
+; Location ;                ;              ; GPIO_0[32]    ; PIN_J18       ; QSF Assignment ;
+; Location ;                ;              ; GPIO_0[33]    ; PIN_K20       ; QSF Assignment ;
+; Location ;                ;              ; GPIO_0[34]    ; PIN_L19       ; QSF Assignment ;
+; Location ;                ;              ; GPIO_0[35]    ; PIN_L18       ; QSF Assignment ;
+; Location ;                ;              ; GPIO_0[3]     ; PIN_B14       ; QSF Assignment ;
+; Location ;                ;              ; GPIO_0[4]     ; PIN_A15       ; QSF Assignment ;
+; Location ;                ;              ; GPIO_0[5]     ; PIN_B15       ; QSF Assignment ;
+; Location ;                ;              ; GPIO_0[6]     ; PIN_A16       ; QSF Assignment ;
+; Location ;                ;              ; GPIO_0[7]     ; PIN_B16       ; QSF Assignment ;
+; Location ;                ;              ; GPIO_0[8]     ; PIN_A17       ; QSF Assignment ;
+; Location ;                ;              ; GPIO_0[9]     ; PIN_B17       ; QSF Assignment ;
+; Location ;                ;              ; GPIO_1[0]     ; PIN_H12       ; QSF Assignment ;
+; Location ;                ;              ; GPIO_1[10]    ; PIN_C14       ; QSF Assignment ;
+; Location ;                ;              ; GPIO_1[11]    ; PIN_D14       ; QSF Assignment ;
+; Location ;                ;              ; GPIO_1[12]    ; PIN_D15       ; QSF Assignment ;
+; Location ;                ;              ; GPIO_1[13]    ; PIN_D16       ; QSF Assignment ;
+; Location ;                ;              ; GPIO_1[14]    ; PIN_C17       ; QSF Assignment ;
+; Location ;                ;              ; GPIO_1[15]    ; PIN_C18       ; QSF Assignment ;
+; Location ;                ;              ; GPIO_1[16]    ; PIN_C19       ; QSF Assignment ;
+; Location ;                ;              ; GPIO_1[17]    ; PIN_C20       ; QSF Assignment ;
+; Location ;                ;              ; GPIO_1[18]    ; PIN_D19       ; QSF Assignment ;
+; Location ;                ;              ; GPIO_1[19]    ; PIN_D20       ; QSF Assignment ;
+; Location ;                ;              ; GPIO_1[1]     ; PIN_H13       ; QSF Assignment ;
+; Location ;                ;              ; GPIO_1[20]    ; PIN_E20       ; QSF Assignment ;
+; Location ;                ;              ; GPIO_1[21]    ; PIN_F20       ; QSF Assignment ;
+; Location ;                ;              ; GPIO_1[22]    ; PIN_E19       ; QSF Assignment ;
+; Location ;                ;              ; GPIO_1[23]    ; PIN_E18       ; QSF Assignment ;
+; Location ;                ;              ; GPIO_1[24]    ; PIN_G20       ; QSF Assignment ;
+; Location ;                ;              ; GPIO_1[25]    ; PIN_G18       ; QSF Assignment ;
+; Location ;                ;              ; GPIO_1[26]    ; PIN_G17       ; QSF Assignment ;
+; Location ;                ;              ; GPIO_1[27]    ; PIN_H17       ; QSF Assignment ;
+; Location ;                ;              ; GPIO_1[28]    ; PIN_J15       ; QSF Assignment ;
+; Location ;                ;              ; GPIO_1[29]    ; PIN_H18       ; QSF Assignment ;
+; Location ;                ;              ; GPIO_1[2]     ; PIN_H14       ; QSF Assignment ;
+; Location ;                ;              ; GPIO_1[30]    ; PIN_N22       ; QSF Assignment ;
+; Location ;                ;              ; GPIO_1[31]    ; PIN_N21       ; QSF Assignment ;
+; Location ;                ;              ; GPIO_1[32]    ; PIN_P15       ; QSF Assignment ;
+; Location ;                ;              ; GPIO_1[33]    ; PIN_N15       ; QSF Assignment ;
+; Location ;                ;              ; GPIO_1[34]    ; PIN_P17       ; QSF Assignment ;
+; Location ;                ;              ; GPIO_1[35]    ; PIN_P18       ; QSF Assignment ;
+; Location ;                ;              ; GPIO_1[3]     ; PIN_G15       ; QSF Assignment ;
+; Location ;                ;              ; GPIO_1[4]     ; PIN_E14       ; QSF Assignment ;
+; Location ;                ;              ; GPIO_1[5]     ; PIN_E15       ; QSF Assignment ;
+; Location ;                ;              ; GPIO_1[6]     ; PIN_F15       ; QSF Assignment ;
+; Location ;                ;              ; GPIO_1[7]     ; PIN_G16       ; QSF Assignment ;
+; Location ;                ;              ; GPIO_1[8]     ; PIN_F12       ; QSF Assignment ;
+; Location ;                ;              ; GPIO_1[9]     ; PIN_F13       ; QSF Assignment ;
+; Location ;                ;              ; HEX1[0]       ; PIN_E1        ; QSF Assignment ;
+; Location ;                ;              ; HEX1[1]       ; PIN_H6        ; QSF Assignment ;
+; Location ;                ;              ; HEX1[2]       ; PIN_H5        ; QSF Assignment ;
+; Location ;                ;              ; HEX1[3]       ; PIN_H4        ; QSF Assignment ;
+; Location ;                ;              ; HEX1[4]       ; PIN_G3        ; QSF Assignment ;
+; Location ;                ;              ; HEX1[5]       ; PIN_D2        ; QSF Assignment ;
+; Location ;                ;              ; HEX1[6]       ; PIN_D1        ; QSF Assignment ;
+; Location ;                ;              ; HEX2[0]       ; PIN_G5        ; QSF Assignment ;
+; Location ;                ;              ; HEX2[1]       ; PIN_G6        ; QSF Assignment ;
+; Location ;                ;              ; HEX2[2]       ; PIN_C2        ; QSF Assignment ;
+; Location ;                ;              ; HEX2[3]       ; PIN_C1        ; QSF Assignment ;
+; Location ;                ;              ; HEX2[4]       ; PIN_E3        ; QSF Assignment ;
+; Location ;                ;              ; HEX2[5]       ; PIN_E4        ; QSF Assignment ;
+; Location ;                ;              ; HEX2[6]       ; PIN_D3        ; QSF Assignment ;
+; Location ;                ;              ; HEX3[0]       ; PIN_F4        ; QSF Assignment ;
+; Location ;                ;              ; HEX3[1]       ; PIN_D5        ; QSF Assignment ;
+; Location ;                ;              ; HEX3[2]       ; PIN_D6        ; QSF Assignment ;
+; Location ;                ;              ; HEX3[3]       ; PIN_J4        ; QSF Assignment ;
+; Location ;                ;              ; HEX3[4]       ; PIN_L8        ; QSF Assignment ;
+; Location ;                ;              ; HEX3[5]       ; PIN_F3        ; QSF Assignment ;
+; Location ;                ;              ; HEX3[6]       ; PIN_D4        ; QSF Assignment ;
+; Location ;                ;              ; I2C_SCLK      ; PIN_A3        ; QSF Assignment ;
+; Location ;                ;              ; I2C_SDAT      ; PIN_B3        ; QSF Assignment ;
+; Location ;                ;              ; KEY[0]        ; PIN_R22       ; QSF Assignment ;
+; Location ;                ;              ; KEY[1]        ; PIN_R21       ; QSF Assignment ;
+; Location ;                ;              ; KEY[2]        ; PIN_T22       ; QSF Assignment ;
+; Location ;                ;              ; KEY[3]        ; PIN_T21       ; QSF Assignment ;
+; Location ;                ;              ; LEDG[1]       ; PIN_U21       ; QSF Assignment ;
+; Location ;                ;              ; LEDG[2]       ; PIN_V22       ; QSF Assignment ;
+; Location ;                ;              ; LEDG[3]       ; PIN_V21       ; QSF Assignment ;
+; Location ;                ;              ; LEDG[4]       ; PIN_W22       ; QSF Assignment ;
+; Location ;                ;              ; LEDG[5]       ; PIN_W21       ; QSF Assignment ;
+; Location ;                ;              ; LEDG[6]       ; PIN_Y22       ; QSF Assignment ;
+; Location ;                ;              ; LEDG[7]       ; PIN_Y21       ; QSF Assignment ;
+; Location ;                ;              ; LEDR[1]       ; PIN_R19       ; QSF Assignment ;
+; Location ;                ;              ; LEDR[2]       ; PIN_U19       ; QSF Assignment ;
+; Location ;                ;              ; LEDR[3]       ; PIN_Y19       ; QSF Assignment ;
+; Location ;                ;              ; LEDR[4]       ; PIN_T18       ; QSF Assignment ;
+; Location ;                ;              ; LEDR[5]       ; PIN_V19       ; QSF Assignment ;
+; Location ;                ;              ; LEDR[6]       ; PIN_Y18       ; QSF Assignment ;
+; Location ;                ;              ; LEDR[7]       ; PIN_U18       ; QSF Assignment ;
+; Location ;                ;              ; LEDR[8]       ; PIN_R18       ; QSF Assignment ;
+; Location ;                ;              ; LEDR[9]       ; PIN_R17       ; QSF Assignment ;
+; Location ;                ;              ; PS2_CLK       ; PIN_H15       ; QSF Assignment ;
+; Location ;                ;              ; PS2_DAT       ; PIN_J14       ; QSF Assignment ;
+; Location ;                ;              ; SRAM_ADDR[0]  ; PIN_AA3       ; QSF Assignment ;
+; Location ;                ;              ; SRAM_ADDR[10] ; PIN_R11       ; QSF Assignment ;
+; Location ;                ;              ; SRAM_ADDR[11] ; PIN_T11       ; QSF Assignment ;
+; Location ;                ;              ; SRAM_ADDR[12] ; PIN_Y10       ; QSF Assignment ;
+; Location ;                ;              ; SRAM_ADDR[13] ; PIN_U10       ; QSF Assignment ;
+; Location ;                ;              ; SRAM_ADDR[14] ; PIN_R10       ; QSF Assignment ;
+; Location ;                ;              ; SRAM_ADDR[15] ; PIN_T7        ; QSF Assignment ;
+; Location ;                ;              ; SRAM_ADDR[16] ; PIN_Y6        ; QSF Assignment ;
+; Location ;                ;              ; SRAM_ADDR[17] ; PIN_Y5        ; QSF Assignment ;
+; Location ;                ;              ; SRAM_ADDR[1]  ; PIN_AB3       ; QSF Assignment ;
+; Location ;                ;              ; SRAM_ADDR[2]  ; PIN_AA4       ; QSF Assignment ;
+; Location ;                ;              ; SRAM_ADDR[3]  ; PIN_AB4       ; QSF Assignment ;
+; Location ;                ;              ; SRAM_ADDR[4]  ; PIN_AA5       ; QSF Assignment ;
+; Location ;                ;              ; SRAM_ADDR[5]  ; PIN_AB10      ; QSF Assignment ;
+; Location ;                ;              ; SRAM_ADDR[6]  ; PIN_AA11      ; QSF Assignment ;
+; Location ;                ;              ; SRAM_ADDR[7]  ; PIN_AB11      ; QSF Assignment ;
+; Location ;                ;              ; SRAM_ADDR[8]  ; PIN_V11       ; QSF Assignment ;
+; Location ;                ;              ; SRAM_ADDR[9]  ; PIN_W11       ; QSF Assignment ;
+; Location ;                ;              ; SRAM_CE_N     ; PIN_AB5       ; QSF Assignment ;
+; Location ;                ;              ; SRAM_DQ[0]    ; PIN_AA6       ; QSF Assignment ;
+; Location ;                ;              ; SRAM_DQ[10]   ; PIN_V9        ; QSF Assignment ;
+; Location ;                ;              ; SRAM_DQ[11]   ; PIN_U9        ; QSF Assignment ;
+; Location ;                ;              ; SRAM_DQ[12]   ; PIN_R9        ; QSF Assignment ;
+; Location ;                ;              ; SRAM_DQ[13]   ; PIN_W8        ; QSF Assignment ;
+; Location ;                ;              ; SRAM_DQ[14]   ; PIN_V8        ; QSF Assignment ;
+; Location ;                ;              ; SRAM_DQ[15]   ; PIN_U8        ; QSF Assignment ;
+; Location ;                ;              ; SRAM_DQ[1]    ; PIN_AB6       ; QSF Assignment ;
+; Location ;                ;              ; SRAM_DQ[2]    ; PIN_AA7       ; QSF Assignment ;
+; Location ;                ;              ; SRAM_DQ[3]    ; PIN_AB7       ; QSF Assignment ;
+; Location ;                ;              ; SRAM_DQ[4]    ; PIN_AA8       ; QSF Assignment ;
+; Location ;                ;              ; SRAM_DQ[5]    ; PIN_AB8       ; QSF Assignment ;
+; Location ;                ;              ; SRAM_DQ[6]    ; PIN_AA9       ; QSF Assignment ;
+; Location ;                ;              ; SRAM_DQ[7]    ; PIN_AB9       ; QSF Assignment ;
+; Location ;                ;              ; SRAM_DQ[8]    ; PIN_Y9        ; QSF Assignment ;
+; Location ;                ;              ; SRAM_DQ[9]    ; PIN_W9        ; QSF Assignment ;
+; Location ;                ;              ; SRAM_LB_N     ; PIN_Y7        ; QSF Assignment ;
+; Location ;                ;              ; SRAM_OE_N     ; PIN_T8        ; QSF Assignment ;
+; Location ;                ;              ; SRAM_UB_N     ; PIN_W7        ; QSF Assignment ;
+; Location ;                ;              ; SRAM_WE_N     ; PIN_AA10      ; QSF Assignment ;
+; Location ;                ;              ; SW[5]         ; PIN_U12       ; QSF Assignment ;
+; Location ;                ;              ; SW[6]         ; PIN_U11       ; QSF Assignment ;
+; Location ;                ;              ; SW[7]         ; PIN_M2        ; QSF Assignment ;
+; Location ;                ;              ; SW[8]         ; PIN_M1        ; QSF Assignment ;
+; Location ;                ;              ; SW[9]         ; PIN_L2        ; QSF Assignment ;
+; Location ;                ;              ; TCK           ; PIN_C7        ; QSF Assignment ;
+; Location ;                ;              ; TCS           ; PIN_D8        ; QSF Assignment ;
+; Location ;                ;              ; TDI           ; PIN_E8        ; QSF Assignment ;
+; Location ;                ;              ; TDO           ; PIN_D7        ; QSF Assignment ;
+; Location ;                ;              ; UART_RXD      ; PIN_F14       ; QSF Assignment ;
+; Location ;                ;              ; UART_TXD      ; PIN_G12       ; QSF Assignment ;
+; Location ;                ;              ; VGA_B[0]      ; PIN_A9        ; QSF Assignment ;
+; Location ;                ;              ; VGA_B[1]      ; PIN_D11       ; QSF Assignment ;
+; Location ;                ;              ; VGA_B[2]      ; PIN_A10       ; QSF Assignment ;
+; Location ;                ;              ; VGA_B[3]      ; PIN_B10       ; QSF Assignment ;
+; Location ;                ;              ; VGA_G[0]      ; PIN_B8        ; QSF Assignment ;
+; Location ;                ;              ; VGA_G[1]      ; PIN_C10       ; QSF Assignment ;
+; Location ;                ;              ; VGA_G[2]      ; PIN_B9        ; QSF Assignment ;
+; Location ;                ;              ; VGA_G[3]      ; PIN_A8        ; QSF Assignment ;
+; Location ;                ;              ; VGA_HS        ; PIN_A11       ; QSF Assignment ;
+; Location ;                ;              ; VGA_R[0]      ; PIN_D9        ; QSF Assignment ;
+; Location ;                ;              ; VGA_R[1]      ; PIN_C9        ; QSF Assignment ;
+; Location ;                ;              ; VGA_R[2]      ; PIN_A7        ; QSF Assignment ;
+; Location ;                ;              ; VGA_R[3]      ; PIN_B7        ; QSF Assignment ;
+; Location ;                ;              ; VGA_VS        ; PIN_B11       ; QSF Assignment ;
++----------+----------------+--------------+---------------+---------------+----------------+
 
 
 +----------------------------------------------+
@@ -149,8 +422,8 @@ Parallel compilation was disabled, but you have multiple processors available. E
 ; Type                ; Value                  ;
 +---------------------+------------------------+
 ; Placement (by node) ;                        ;
-;     -- Requested    ; 0 / 34 ( 0.00 % )      ;
-;     -- Achieved     ; 0 / 34 ( 0.00 % )      ;
+;     -- Requested    ; 0 / 50 ( 0.00 % )      ;
+;     -- Achieved     ; 0 / 50 ( 0.00 % )      ;
 ;                     ;                        ;
 ; Routing (by net)    ;                        ;
 ;     -- Requested    ; 0 / 0 ( 0.00 % )       ;
@@ -173,7 +446,7 @@ Parallel compilation was disabled, but you have multiple processors available. E
 +--------------------------------+---------+-------------------+-------------------------+-------------------+
 ; Partition Name                 ; # Nodes ; # Preserved Nodes ; Preservation Level Used ; Netlist Type Used ;
 +--------------------------------+---------+-------------------+-------------------------+-------------------+
-; Top                            ; 31      ; 0                 ; N/A                     ; Source File       ;
+; Top                            ; 47      ; 0                 ; N/A                     ; Source File       ;
 ; hard_block:auto_generated_inst ; 3       ; 0                 ; N/A                     ; Source File       ;
 +--------------------------------+---------+-------------------+-------------------------+-------------------+
 
@@ -189,29 +462,29 @@ The pin-out file can be found in C:/altera/13.0sp1/aula9/output_files/maquina.pi
 +---------------------------------------------+-----------------------+
 ; Resource                                    ; Usage                 ;
 +---------------------------------------------+-----------------------+
-; Total logic elements                        ; 15 / 18,752 ( < 1 % ) ;
-;     -- Combinational with no register       ; 15                    ;
+; Total logic elements                        ; 20 / 18,752 ( < 1 % ) ;
+;     -- Combinational with no register       ; 10                    ;
 ;     -- Register only                        ; 0                     ;
-;     -- Combinational with a register        ; 0                     ;
+;     -- Combinational with a register        ; 10                    ;
 ;                                             ;                       ;
 ; Logic element usage by number of LUT inputs ;                       ;
-;     -- 4 input functions                    ; 7                     ;
-;     -- 3 input functions                    ; 3                     ;
+;     -- 4 input functions                    ; 11                    ;
+;     -- 3 input functions                    ; 4                     ;
 ;     -- <=2 input functions                  ; 5                     ;
 ;     -- Register only                        ; 0                     ;
 ;                                             ;                       ;
 ; Logic elements by mode                      ;                       ;
-;     -- normal mode                          ; 15                    ;
+;     -- normal mode                          ; 20                    ;
 ;     -- arithmetic mode                      ; 0                     ;
 ;                                             ;                       ;
-; Total registers*                            ; 0 / 19,649 ( 0 % )    ;
-;     -- Dedicated logic registers            ; 0 / 18,752 ( 0 % )    ;
+; Total registers*                            ; 10 / 19,649 ( < 1 % ) ;
+;     -- Dedicated logic registers            ; 10 / 18,752 ( < 1 % ) ;
 ;     -- I/O registers                        ; 0 / 897 ( 0 % )       ;
 ;                                             ;                       ;
-; Total LABs:  partially or completely used   ; 1 / 1,172 ( < 1 % )   ;
+; Total LABs:  partially or completely used   ; 3 / 1,172 ( < 1 % )   ;
 ; Virtual pins                                ; 0                     ;
-; I/O pins                                    ; 14 / 315 ( 4 % )      ;
-;     -- Clock pins                           ; 0 / 8 ( 0 % )         ;
+; I/O pins                                    ; 15 / 315 ( 5 % )      ;
+;     -- Clock pins                           ; 4 / 8 ( 50 % )        ;
 ;                                             ;                       ;
 ; Global signals                              ; 1                     ;
 ; M4Ks                                        ; 0 / 52 ( 0 % )        ;
@@ -226,9 +499,9 @@ The pin-out file can be found in C:/altera/13.0sp1/aula9/output_files/maquina.pi
 ; Average interconnect usage (total/H/V)      ; 0% / 0% / 0%          ;
 ; Peak interconnect usage (total/H/V)         ; 0% / 0% / 0%          ;
 ; Maximum fan-out                             ; 10                    ;
-; Highest non-global fan-out                  ; 10                    ;
-; Total fan-out                               ; 54                    ;
-; Average fan-out                             ; 1.64                  ;
+; Highest non-global fan-out                  ; 6                     ;
+; Total fan-out                               ; 90                    ;
+; Average fan-out                             ; 1.84                  ;
 +---------------------------------------------+-----------------------+
 *  Register count does not include registers inside RAM blocks or DSP blocks.
 
@@ -241,28 +514,28 @@ The pin-out file can be found in C:/altera/13.0sp1/aula9/output_files/maquina.pi
 +---------------------------------------------+----------------------+--------------------------------+
 ; Difficulty Clustering Region                ; Low                  ; Low                            ;
 ;                                             ;                      ;                                ;
-; Total logic elements                        ; 15 / 18752 ( < 1 % ) ; 0 / 18752 ( 0 % )              ;
-;     -- Combinational with no register       ; 15                   ; 0                              ;
+; Total logic elements                        ; 20 / 18752 ( < 1 % ) ; 0 / 18752 ( 0 % )              ;
+;     -- Combinational with no register       ; 10                   ; 0                              ;
 ;     -- Register only                        ; 0                    ; 0                              ;
-;     -- Combinational with a register        ; 0                    ; 0                              ;
+;     -- Combinational with a register        ; 10                   ; 0                              ;
 ;                                             ;                      ;                                ;
 ; Logic element usage by number of LUT inputs ;                      ;                                ;
-;     -- 4 input functions                    ; 7                    ; 0                              ;
-;     -- 3 input functions                    ; 3                    ; 0                              ;
+;     -- 4 input functions                    ; 11                   ; 0                              ;
+;     -- 3 input functions                    ; 4                    ; 0                              ;
 ;     -- <=2 input functions                  ; 5                    ; 0                              ;
 ;     -- Register only                        ; 0                    ; 0                              ;
 ;                                             ;                      ;                                ;
 ; Logic elements by mode                      ;                      ;                                ;
-;     -- normal mode                          ; 15                   ; 0                              ;
+;     -- normal mode                          ; 20                   ; 0                              ;
 ;     -- arithmetic mode                      ; 0                    ; 0                              ;
 ;                                             ;                      ;                                ;
-; Total registers                             ; 0                    ; 0                              ;
-;     -- Dedicated logic registers            ; 0 / 18752 ( 0 % )    ; 0 / 18752 ( 0 % )              ;
+; Total registers                             ; 10                   ; 0                              ;
+;     -- Dedicated logic registers            ; 10 / 18752 ( < 1 % ) ; 0 / 18752 ( 0 % )              ;
 ;                                             ;                      ;                                ;
-; Total LABs:  partially or completely used   ; 1 / 1172 ( < 1 % )   ; 0 / 1172 ( 0 % )               ;
+; Total LABs:  partially or completely used   ; 3 / 1172 ( < 1 % )   ; 0 / 1172 ( 0 % )               ;
 ;                                             ;                      ;                                ;
 ; Virtual pins                                ; 0                    ; 0                              ;
-; I/O pins                                    ; 14                   ; 0                              ;
+; I/O pins                                    ; 15                   ; 0                              ;
 ; Embedded Multiplier 9-bit elements          ; 0 / 52 ( 0 % )       ; 0 / 52 ( 0 % )                 ;
 ; Total memory bits                           ; 0                    ; 0                              ;
 ; Total RAM block bits                        ; 0                    ; 0                              ;
@@ -275,15 +548,15 @@ The pin-out file can be found in C:/altera/13.0sp1/aula9/output_files/maquina.pi
 ;     -- Registered Output Connections        ; 0                    ; 0                              ;
 ;                                             ;                      ;                                ;
 ; Internal Connections                        ;                      ;                                ;
-;     -- Total Connections                    ; 54                   ; 0                              ;
-;     -- Registered Connections               ; 0                    ; 0                              ;
+;     -- Total Connections                    ; 90                   ; 0                              ;
+;     -- Registered Connections               ; 24                   ; 0                              ;
 ;                                             ;                      ;                                ;
 ; External Connections                        ;                      ;                                ;
 ;     -- Top                                  ; 0                    ; 0                              ;
 ;     -- hard_block:auto_generated_inst       ; 0                    ; 0                              ;
 ;                                             ;                      ;                                ;
 ; Partition Interface                         ;                      ;                                ;
-;     -- Input Ports                          ; 5                    ; 0                              ;
+;     -- Input Ports                          ; 6                    ; 0                              ;
 ;     -- Output Ports                         ; 9                    ; 0                              ;
 ;     -- Bidir Ports                          ; 0                    ; 0                              ;
 ;                                             ;                      ;                                ;
@@ -308,11 +581,12 @@ The pin-out file can be found in C:/altera/13.0sp1/aula9/output_files/maquina.pi
 +-------+-------+----------+--------------+--------------+-------------+-----------------------+--------------------+--------+----------------+---------------+-----------------+----------+--------------+--------------+-------------+----------------------+
 ; Name  ; Pin # ; I/O Bank ; X coordinate ; Y coordinate ; Cell number ; Combinational Fan-Out ; Registered Fan-Out ; Global ; Input Register ; Power Up High ; PCI I/O Enabled ; Bus Hold ; Weak Pull Up ; I/O Standard ; Termination ; Location assigned by ;
 +-------+-------+----------+--------------+--------------+-------------+-----------------------+--------------------+--------+----------------+---------------+-----------------+----------+--------------+--------------+-------------+----------------------+
-; SW[0] ; N2    ; 1        ; 0            ; 12           ; 3           ; 4                     ; 0                  ; no     ; no             ; no            ; no              ; no       ; Off          ; 3.3-V LVTTL  ; Off         ; Fitter               ;
-; SW[1] ; P2    ; 1        ; 0            ; 11           ; 1           ; 3                     ; 0                  ; no     ; no             ; no            ; no              ; no       ; Off          ; 3.3-V LVTTL  ; Off         ; Fitter               ;
-; SW[2] ; P1    ; 1        ; 0            ; 11           ; 0           ; 3                     ; 0                  ; no     ; no             ; no            ; no              ; no       ; Off          ; 3.3-V LVTTL  ; Off         ; Fitter               ;
-; SW[3] ; M6    ; 1        ; 0            ; 12           ; 1           ; 3                     ; 0                  ; no     ; no             ; no            ; no              ; no       ; Off          ; 3.3-V LVTTL  ; Off         ; Fitter               ;
-; SW[4] ; N6    ; 1        ; 0            ; 11           ; 2           ; 4                     ; 0                  ; no     ; no             ; no            ; no              ; no       ; Off          ; 3.3-V LVTTL  ; Off         ; Fitter               ;
+; CLK   ; L1    ; 2        ; 0            ; 13           ; 0           ; 1                     ; 0                  ; yes    ; no             ; no            ; no              ; no       ; Off          ; 3.3-V LVTTL  ; Off         ; Fitter               ;
+; SW[0] ; L22   ; 5        ; 50           ; 14           ; 0           ; 4                     ; 0                  ; no     ; no             ; no            ; no              ; no       ; Off          ; 3.3-V LVTTL  ; Off         ; User                 ;
+; SW[1] ; L21   ; 5        ; 50           ; 14           ; 1           ; 4                     ; 0                  ; no     ; no             ; no            ; no              ; no       ; Off          ; 3.3-V LVTTL  ; Off         ; User                 ;
+; SW[2] ; M22   ; 6        ; 50           ; 14           ; 2           ; 4                     ; 0                  ; no     ; no             ; no            ; no              ; no       ; Off          ; 3.3-V LVTTL  ; Off         ; User                 ;
+; SW[3] ; V12   ; 7        ; 26           ; 0            ; 0           ; 4                     ; 0                  ; no     ; no             ; no            ; no              ; no       ; Off          ; 3.3-V LVTTL  ; Off         ; User                 ;
+; SW[4] ; W12   ; 7        ; 26           ; 0            ; 1           ; 6                     ; 0                  ; no     ; no             ; no            ; no              ; no       ; Off          ; 3.3-V LVTTL  ; Off         ; User                 ;
 +-------+-------+----------+--------------+--------------+-------------+-----------------------+--------------------+--------+----------------+---------------+-----------------+----------+--------------+--------------+-------------+----------------------+
 
 
@@ -321,32 +595,32 @@ The pin-out file can be found in C:/altera/13.0sp1/aula9/output_files/maquina.pi
 +---------+-------+----------+--------------+--------------+-------------+-----------------+------------------------+---------------+-----------------+------------+---------------+----------+--------------+--------------+------------------+-------------+----------------------+------+----------------------+---------------------+
 ; Name    ; Pin # ; I/O Bank ; X coordinate ; Y coordinate ; Cell number ; Output Register ; Output Enable Register ; Power Up High ; PCI I/O Enabled ; Open Drain ; TRI Primitive ; Bus Hold ; Weak Pull Up ; I/O Standard ; Current Strength ; Termination ; Location assigned by ; Load ; Output Enable Source ; Output Enable Group ;
 +---------+-------+----------+--------------+--------------+-------------+-----------------+------------------------+---------------+-----------------+------------+---------------+----------+--------------+--------------+------------------+-------------+----------------------+------+----------------------+---------------------+
-; HEX0[0] ; V11   ; 8        ; 20           ; 0            ; 0           ; no              ; no                     ; no            ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 24mA             ; Off         ; Fitter               ; 0 pF ; -                    ; -                   ;
-; HEX0[1] ; N4    ; 1        ; 0            ; 10           ; 2           ; no              ; no                     ; no            ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 24mA             ; Off         ; Fitter               ; 0 pF ; -                    ; -                   ;
-; HEX0[2] ; P3    ; 1        ; 0            ; 10           ; 0           ; no              ; no                     ; no            ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 24mA             ; Off         ; Fitter               ; 0 pF ; -                    ; -                   ;
-; HEX0[3] ; J2    ; 2        ; 0            ; 18           ; 2           ; no              ; no                     ; no            ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 24mA             ; Off         ; Fitter               ; 0 pF ; -                    ; -                   ;
-; HEX0[4] ; J19   ; 5        ; 50           ; 17           ; 1           ; no              ; no                     ; no            ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 24mA             ; Off         ; Fitter               ; 0 pF ; -                    ; -                   ;
-; HEX0[5] ; G12   ; 4        ; 31           ; 27           ; 3           ; no              ; no                     ; no            ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 24mA             ; Off         ; Fitter               ; 0 pF ; -                    ; -                   ;
-; HEX0[6] ; J1    ; 2        ; 0            ; 18           ; 1           ; no              ; no                     ; no            ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 24mA             ; Off         ; Fitter               ; 0 pF ; -                    ; -                   ;
-; LEDG[0] ; N1    ; 1        ; 0            ; 12           ; 2           ; no              ; no                     ; no            ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 24mA             ; Off         ; Fitter               ; 0 pF ; -                    ; -                   ;
-; LEDR[0] ; M5    ; 1        ; 0            ; 12           ; 0           ; no              ; no                     ; no            ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 24mA             ; Off         ; Fitter               ; 0 pF ; -                    ; -                   ;
+; HEX0[0] ; J2    ; 2        ; 0            ; 18           ; 2           ; no              ; no                     ; no            ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 24mA             ; Off         ; User                 ; 0 pF ; -                    ; -                   ;
+; HEX0[1] ; J1    ; 2        ; 0            ; 18           ; 1           ; no              ; no                     ; no            ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 24mA             ; Off         ; User                 ; 0 pF ; -                    ; -                   ;
+; HEX0[2] ; H2    ; 2        ; 0            ; 19           ; 1           ; no              ; no                     ; no            ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 24mA             ; Off         ; User                 ; 0 pF ; -                    ; -                   ;
+; HEX0[3] ; H1    ; 2        ; 0            ; 19           ; 0           ; no              ; no                     ; no            ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 24mA             ; Off         ; User                 ; 0 pF ; -                    ; -                   ;
+; HEX0[4] ; F2    ; 2        ; 0            ; 20           ; 3           ; no              ; no                     ; no            ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 24mA             ; Off         ; User                 ; 0 pF ; -                    ; -                   ;
+; HEX0[5] ; F1    ; 2        ; 0            ; 20           ; 2           ; no              ; no                     ; no            ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 24mA             ; Off         ; User                 ; 0 pF ; -                    ; -                   ;
+; HEX0[6] ; E2    ; 2        ; 0            ; 20           ; 1           ; no              ; no                     ; no            ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 24mA             ; Off         ; User                 ; 0 pF ; -                    ; -                   ;
+; LEDG[0] ; U22   ; 6        ; 50           ; 7            ; 0           ; no              ; no                     ; no            ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 24mA             ; Off         ; User                 ; 0 pF ; -                    ; -                   ;
+; LEDR[0] ; R20   ; 6        ; 50           ; 10           ; 0           ; no              ; no                     ; no            ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 24mA             ; Off         ; User                 ; 0 pF ; -                    ; -                   ;
 +---------+-------+----------+--------------+--------------+-------------+-----------------+------------------------+---------------+-----------------+------------+---------------+----------+--------------+--------------+------------------+-------------+----------------------+------+----------------------+---------------------+
 
 
-+-----------------------------------------------------------+
-; I/O Bank Usage                                            ;
-+----------+-----------------+---------------+--------------+
-; I/O Bank ; Usage           ; VCCIO Voltage ; VREF Voltage ;
-+----------+-----------------+---------------+--------------+
-; 1        ; 9 / 41 ( 22 % ) ; 3.3V          ; --           ;
-; 2        ; 4 / 33 ( 12 % ) ; 3.3V          ; --           ;
-; 3        ; 0 / 43 ( 0 % )  ; 3.3V          ; --           ;
-; 4        ; 1 / 40 ( 3 % )  ; 3.3V          ; --           ;
-; 5        ; 1 / 39 ( 3 % )  ; 3.3V          ; --           ;
-; 6        ; 1 / 36 ( 3 % )  ; 3.3V          ; --           ;
-; 7        ; 0 / 40 ( 0 % )  ; 3.3V          ; --           ;
-; 8        ; 1 / 43 ( 2 % )  ; 3.3V          ; --           ;
-+----------+-----------------+---------------+--------------+
++------------------------------------------------------------+
+; I/O Bank Usage                                             ;
++----------+------------------+---------------+--------------+
+; I/O Bank ; Usage            ; VCCIO Voltage ; VREF Voltage ;
++----------+------------------+---------------+--------------+
+; 1        ; 0 / 41 ( 0 % )   ; 3.3V          ; --           ;
+; 2        ; 10 / 33 ( 30 % ) ; 3.3V          ; --           ;
+; 3        ; 0 / 43 ( 0 % )   ; 3.3V          ; --           ;
+; 4        ; 0 / 40 ( 0 % )   ; 3.3V          ; --           ;
+; 5        ; 2 / 39 ( 5 % )   ; 3.3V          ; --           ;
+; 6        ; 4 / 36 ( 11 % )  ; 3.3V          ; --           ;
+; 7        ; 2 / 40 ( 5 % )   ; 3.3V          ; --           ;
+; 8        ; 0 / 43 ( 0 % )   ; 3.3V          ; --           ;
++----------+------------------+---------------+--------------+
 
 
 +------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -487,7 +761,7 @@ The pin-out file can be found in C:/altera/13.0sp1/aula9/output_files/maquina.pi
 ; D21      ; 229        ; 5        ; GND*                                     ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
 ; D22      ; 230        ; 5        ; GND*                                     ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
 ; E1       ; 20         ; 2        ; GND*                                     ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
-; E2       ; 21         ; 2        ; GND*                                     ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
+; E2       ; 21         ; 2        ; HEX0[6]                                  ; output ; 3.3-V LVTTL  ;         ; Row I/O    ; Y               ; no       ; Off          ;
 ; E3       ; 6          ; 2        ; GND*                                     ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
 ; E4       ; 7          ; 2        ; GND*                                     ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
 ; E5       ;            ;          ; VCCD_PLL3                                ; power  ;              ; 1.2V    ; --         ;                 ; --       ; --           ;
@@ -508,8 +782,8 @@ The pin-out file can be found in C:/altera/13.0sp1/aula9/output_files/maquina.pi
 ; E20      ; 234        ; 5        ; GND*                                     ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
 ; E21      ; 227        ; 5        ; GND*                                     ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
 ; E22      ; 228        ; 5        ; GND*                                     ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
-; F1       ; 22         ; 2        ; GND*                                     ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
-; F2       ; 23         ; 2        ; GND*                                     ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
+; F1       ; 22         ; 2        ; HEX0[5]                                  ; output ; 3.3-V LVTTL  ;         ; Row I/O    ; Y               ; no       ; Off          ;
+; F2       ; 23         ; 2        ; HEX0[4]                                  ; output ; 3.3-V LVTTL  ;         ; Row I/O    ; Y               ; no       ; Off          ;
 ; F3       ; 13         ; 2        ; GND*                                     ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
 ; F4       ; 10         ; 2        ; GND*                                     ;        ;              ;         ; Row I/O    ;                 ; --       ; --           ;
 ; F5       ;            ;          ; GND_PLL3                                 ; gnd    ;              ;         ; --         ;                 ; --       ; --           ;
@@ -541,7 +815,7 @@ The pin-out file can be found in C:/altera/13.0sp1/aula9/output_files/maquina.pi
 ; G9       ;            ; 3        ; VCCIO3                                   ; power  ;              ; 3.3V    ; --         ;                 ; --       ; --           ;
 ; G10      ;            ;          ; GND                                      ; gnd    ;              ;         ; --         ;                 ; --       ; --           ;
 ; G11      ; 291        ; 3        ; GND*                                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
-; G12      ; 277        ; 4        ; HEX0[5]                                  ; output ; 3.3-V LVTTL  ;         ; Column I/O ; N               ; no       ; Off          ;
+; G12      ; 277        ; 4        ; GND*                                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
 ; G13      ;            ;          ; GND                                      ; gnd    ;              ;         ; --         ;                 ; --       ; --           ;
 ; G14      ;            ; 4        ; VCCIO4                                   ; power  ;              ; 3.3V    ; --         ;                 ; --       ; --           ;
 ; G15      ; 261        ; 4        ; GND*                                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
@@ -552,8 +826,8 @@ The pin-out file can be found in C:/altera/13.0sp1/aula9/output_files/maquina.pi
 ; G20      ; 233        ; 5        ; GND*                                     ;        ;              ;         ; Row I/O    ;                 ; --       ; --           ;
 ; G21      ; 221        ; 5        ; GND*                                     ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
 ; G22      ; 222        ; 5        ; GND*                                     ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
-; H1       ; 24         ; 2        ; GND*                                     ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
-; H2       ; 25         ; 2        ; GND*                                     ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
+; H1       ; 24         ; 2        ; HEX0[3]                                  ; output ; 3.3-V LVTTL  ;         ; Row I/O    ; Y               ; no       ; Off          ;
+; H2       ; 25         ; 2        ; HEX0[2]                                  ; output ; 3.3-V LVTTL  ;         ; Row I/O    ; Y               ; no       ; Off          ;
 ; H3       ; 27         ; 2        ; GND*                                     ;        ;              ;         ; Row I/O    ;                 ; --       ; --           ;
 ; H4       ; 17         ; 2        ; GND*                                     ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
 ; H5       ; 18         ; 2        ; GND*                                     ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
@@ -574,8 +848,8 @@ The pin-out file can be found in C:/altera/13.0sp1/aula9/output_files/maquina.pi
 ; H20      ;            ;          ; GND                                      ; gnd    ;              ;         ; --         ;                 ; --       ; --           ;
 ; H21      ;            ;          ; NC                                       ;        ;              ;         ; --         ;                 ; --       ; --           ;
 ; H22      ;            ;          ; NC                                       ;        ;              ;         ; --         ;                 ; --       ; --           ;
-; J1       ; 29         ; 2        ; HEX0[6]                                  ; output ; 3.3-V LVTTL  ;         ; Row I/O    ; N               ; no       ; Off          ;
-; J2       ; 30         ; 2        ; HEX0[3]                                  ; output ; 3.3-V LVTTL  ;         ; Row I/O    ; N               ; no       ; Off          ;
+; J1       ; 29         ; 2        ; HEX0[1]                                  ; output ; 3.3-V LVTTL  ;         ; Row I/O    ; Y               ; no       ; Off          ;
+; J2       ; 30         ; 2        ; HEX0[0]                                  ; output ; 3.3-V LVTTL  ;         ; Row I/O    ; Y               ; no       ; Off          ;
 ; J3       ;            ;          ; NC                                       ;        ;              ;         ; --         ;                 ; --       ; --           ;
 ; J4       ; 28         ; 2        ; GND*                                     ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
 ; J5       ;            ;          ; NC                                       ;        ;              ;         ; --         ;                 ; --       ; --           ;
@@ -592,7 +866,7 @@ The pin-out file can be found in C:/altera/13.0sp1/aula9/output_files/maquina.pi
 ; J16      ;            ; 5        ; VCCIO5                                   ; power  ;              ; 3.3V    ; --         ;                 ; --       ; --           ;
 ; J17      ; 218        ; 5        ; GND*                                     ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
 ; J18      ; 217        ; 5        ; GND*                                     ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
-; J19      ; 216        ; 5        ; HEX0[4]                                  ; output ; 3.3-V LVTTL  ;         ; Row I/O    ; N               ; no       ; Off          ;
+; J19      ; 216        ; 5        ; GND*                                     ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
 ; J20      ; 213        ; 5        ; GND*                                     ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
 ; J21      ; 211        ; 5        ; GND*                                     ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
 ; J22      ; 212        ; 5        ; GND*                                     ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
@@ -618,7 +892,7 @@ The pin-out file can be found in C:/altera/13.0sp1/aula9/output_files/maquina.pi
 ; K20      ; 215        ; 5        ; GND*                                     ;        ;              ;         ; Row I/O    ;                 ; --       ; --           ;
 ; K21      ; 209        ; 5        ; GND*                                     ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
 ; K22      ; 210        ; 5        ; GND*                                     ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
-; L1       ; 38         ; 2        ; GND+                                     ;        ;              ;         ; Row I/O    ;                 ; --       ; --           ;
+; L1       ; 38         ; 2        ; CLK                                      ; input  ; 3.3-V LVTTL  ;         ; Row I/O    ; N               ; no       ; Off          ;
 ; L2       ; 39         ; 2        ; GND+                                     ;        ;              ;         ; Row I/O    ;                 ; --       ; --           ;
 ; L3       ;            ; 2        ; VCCIO2                                   ; power  ;              ; 3.3V    ; --         ;                 ; --       ; --           ;
 ; L4       ; 40         ; 2        ; ^nCONFIG                                 ;        ;              ;         ; --         ;                 ; --       ; --           ;
@@ -638,14 +912,14 @@ The pin-out file can be found in C:/altera/13.0sp1/aula9/output_files/maquina.pi
 ; L18      ; 208        ; 5        ; GND*                                     ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
 ; L19      ; 207        ; 5        ; GND*                                     ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
 ; L20      ;            ; 5        ; VCCIO5                                   ; power  ;              ; 3.3V    ; --         ;                 ; --       ; --           ;
-; L21      ; 205        ; 5        ; GND+                                     ;        ;              ;         ; Row I/O    ;                 ; --       ; --           ;
-; L22      ; 206        ; 5        ; GND+                                     ;        ;              ;         ; Row I/O    ;                 ; --       ; --           ;
+; L21      ; 205        ; 5        ; SW[1]                                    ; input  ; 3.3-V LVTTL  ;         ; Row I/O    ; Y               ; no       ; Off          ;
+; L22      ; 206        ; 5        ; SW[0]                                    ; input  ; 3.3-V LVTTL  ;         ; Row I/O    ; Y               ; no       ; Off          ;
 ; M1       ; 41         ; 1        ; GND+                                     ;        ;              ;         ; Row I/O    ;                 ; --       ; --           ;
 ; M2       ; 42         ; 1        ; GND+                                     ;        ;              ;         ; Row I/O    ;                 ; --       ; --           ;
 ; M3       ;            ; 1        ; VCCIO1                                   ; power  ;              ; 3.3V    ; --         ;                 ; --       ; --           ;
 ; M4       ;            ;          ; GND                                      ; gnd    ;              ;         ; --         ;                 ; --       ; --           ;
-; M5       ; 43         ; 1        ; LEDR[0]                                  ; output ; 3.3-V LVTTL  ;         ; Row I/O    ; N               ; no       ; Off          ;
-; M6       ; 44         ; 1        ; SW[3]                                    ; input  ; 3.3-V LVTTL  ;         ; Row I/O    ; N               ; no       ; Off          ;
+; M5       ; 43         ; 1        ; GND*                                     ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
+; M6       ; 44         ; 1        ; GND*                                     ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
 ; M7       ;            ;          ; NC                                       ;        ;              ;         ; --         ;                 ; --       ; --           ;
 ; M8       ;            ;          ; NC                                       ;        ;              ;         ; --         ;                 ; --       ; --           ;
 ; M9       ;            ;          ; VCCINT                                   ; power  ;              ; 1.2V    ; --         ;                 ; --       ; --           ;
@@ -661,13 +935,13 @@ The pin-out file can be found in C:/altera/13.0sp1/aula9/output_files/maquina.pi
 ; M19      ; 201        ; 6        ; GND*                                     ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
 ; M20      ;            ; 6        ; VCCIO6                                   ; power  ;              ; 3.3V    ; --         ;                 ; --       ; --           ;
 ; M21      ; 203        ; 6        ; GND+                                     ;        ;              ;         ; Row I/O    ;                 ; --       ; --           ;
-; M22      ; 204        ; 6        ; GND+                                     ;        ;              ;         ; Row I/O    ;                 ; --       ; --           ;
-; N1       ; 45         ; 1        ; LEDG[0]                                  ; output ; 3.3-V LVTTL  ;         ; Row I/O    ; N               ; no       ; Off          ;
-; N2       ; 46         ; 1        ; SW[0]                                    ; input  ; 3.3-V LVTTL  ;         ; Row I/O    ; N               ; no       ; Off          ;
+; M22      ; 204        ; 6        ; SW[2]                                    ; input  ; 3.3-V LVTTL  ;         ; Row I/O    ; Y               ; no       ; Off          ;
+; N1       ; 45         ; 1        ; GND*                                     ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
+; N2       ; 46         ; 1        ; GND*                                     ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
 ; N3       ; 51         ; 1        ; GND*                                     ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
-; N4       ; 52         ; 1        ; HEX0[1]                                  ; output ; 3.3-V LVTTL  ;         ; Row I/O    ; N               ; no       ; Off          ;
+; N4       ; 52         ; 1        ; GND*                                     ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
 ; N5       ;            ;          ; NC                                       ;        ;              ;         ; --         ;                 ; --       ; --           ;
-; N6       ; 49         ; 1        ; SW[4]                                    ; input  ; 3.3-V LVTTL  ;         ; Row I/O    ; N               ; no       ; Off          ;
+; N6       ; 49         ; 1        ; GND*                                     ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
 ; N7       ;            ;          ; GND                                      ; gnd    ;              ;         ; --         ;                 ; --       ; --           ;
 ; N8       ;            ;          ; NC                                       ;        ;              ;         ; --         ;                 ; --       ; --           ;
 ; N9       ;            ;          ; VCCINT                                   ; power  ;              ; 1.2V    ; --         ;                 ; --       ; --           ;
@@ -684,9 +958,9 @@ The pin-out file can be found in C:/altera/13.0sp1/aula9/output_files/maquina.pi
 ; N20      ; 195        ; 6        ; ^nSTATUS                                 ;        ;              ;         ; --         ;                 ; --       ; --           ;
 ; N21      ; 199        ; 6        ; GND*                                     ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
 ; N22      ; 200        ; 6        ; GND*                                     ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
-; P1       ; 47         ; 1        ; SW[2]                                    ; input  ; 3.3-V LVTTL  ;         ; Row I/O    ; N               ; no       ; Off          ;
-; P2       ; 48         ; 1        ; SW[1]                                    ; input  ; 3.3-V LVTTL  ;         ; Row I/O    ; N               ; no       ; Off          ;
-; P3       ; 50         ; 1        ; HEX0[2]                                  ; output ; 3.3-V LVTTL  ;         ; Row I/O    ; N               ; no       ; Off          ;
+; P1       ; 47         ; 1        ; GND*                                     ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
+; P2       ; 48         ; 1        ; GND*                                     ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
+; P3       ; 50         ; 1        ; GND*                                     ;        ;              ;         ; Row I/O    ;                 ; --       ; --           ;
 ; P4       ;            ;          ; NC                                       ;        ;              ;         ; --         ;                 ; --       ; --           ;
 ; P5       ; 55         ; 1        ; GND*                                     ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
 ; P6       ; 56         ; 1        ; GND*                                     ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
@@ -725,7 +999,7 @@ The pin-out file can be found in C:/altera/13.0sp1/aula9/output_files/maquina.pi
 ; R17      ; 177        ; 6        ; GND*                                     ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
 ; R18      ; 184        ; 6        ; GND*                                     ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
 ; R19      ; 185        ; 6        ; GND*                                     ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
-; R20      ; 192        ; 6        ; GND*                                     ;        ;              ;         ; Row I/O    ;                 ; --       ; --           ;
+; R20      ; 192        ; 6        ; LEDR[0]                                  ; output ; 3.3-V LVTTL  ;         ; Row I/O    ; Y               ; no       ; Off          ;
 ; R21      ; 190        ; 6        ; GND*                                     ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
 ; R22      ; 191        ; 6        ; GND*                                     ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
 ; T1       ; 59         ; 1        ; GND*                                     ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
@@ -771,7 +1045,7 @@ The pin-out file can be found in C:/altera/13.0sp1/aula9/output_files/maquina.pi
 ; U19      ; 172        ; 6        ; GND*                                     ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
 ; U20      ; 176        ; 6        ; GND*                                     ;        ;              ;         ; Row I/O    ;                 ; --       ; --           ;
 ; U21      ; 182        ; 6        ; GND*                                     ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
-; U22      ; 183        ; 6        ; GND*                                     ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
+; U22      ; 183        ; 6        ; LEDG[0]                                  ; output ; 3.3-V LVTTL  ;         ; Row I/O    ; Y               ; no       ; Off          ;
 ; V1       ; 65         ; 1        ; GND*                                     ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
 ; V2       ; 66         ; 1        ; GND*                                     ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
 ; V3       ;            ;          ; GND                                      ; gnd    ;              ;         ; --         ;                 ; --       ; --           ;
@@ -782,8 +1056,8 @@ The pin-out file can be found in C:/altera/13.0sp1/aula9/output_files/maquina.pi
 ; V8       ; 98         ; 8        ; GND*                                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
 ; V9       ; 101        ; 8        ; GND*                                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
 ; V10      ;            ; 8        ; VCCIO8                                   ; power  ;              ; 3.3V    ; --         ;                 ; --       ; --           ;
-; V11      ; 118        ; 8        ; HEX0[0]                                  ; output ; 3.3-V LVTTL  ;         ; Column I/O ; N               ; no       ; Off          ;
-; V12      ; 126        ; 7        ; GND+                                     ;        ;              ;         ; Column I/O ;                 ; --       ; --           ;
+; V11      ; 118        ; 8        ; GND*                                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
+; V12      ; 126        ; 7        ; SW[3]                                    ; input  ; 3.3-V LVTTL  ;         ; Column I/O ; Y               ; no       ; Off          ;
 ; V13      ;            ; 7        ; VCCIO7                                   ; power  ;              ; 3.3V    ; --         ;                 ; --       ; --           ;
 ; V14      ; 142        ; 7        ; GND*                                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
 ; V15      ; 158        ; 7        ; GND*                                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
@@ -805,7 +1079,7 @@ The pin-out file can be found in C:/altera/13.0sp1/aula9/output_files/maquina.pi
 ; W9       ; 105        ; 8        ; GND*                                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
 ; W10      ;            ;          ; GND                                      ; gnd    ;              ;         ; --         ;                 ; --       ; --           ;
 ; W11      ; 117        ; 8        ; GND*                                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
-; W12      ; 125        ; 7        ; GND+                                     ;        ;              ;         ; Column I/O ;                 ; --       ; --           ;
+; W12      ; 125        ; 7        ; SW[4]                                    ; input  ; 3.3-V LVTTL  ;         ; Column I/O ; Y               ; no       ; Off          ;
 ; W13      ;            ;          ; GND                                      ; gnd    ;              ;         ; --         ;                 ; --       ; --           ;
 ; W14      ; 141        ; 7        ; GND*                                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
 ; W15      ; 149        ; 7        ; GND*                                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
@@ -884,8 +1158,8 @@ Note: User assignments will override these defaults. The user specified values a
 +----------------------------+-------------+---------------------------+---------------+-------------+------+--------------+---------+-----------+------+--------------+--------------+-------------------+------------------+---------------------+--------------+
 ; Compilation Hierarchy Node ; Logic Cells ; Dedicated Logic Registers ; I/O Registers ; Memory Bits ; M4Ks ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; LUT-Only LCs ; Register-Only LCs ; LUT/Register LCs ; Full Hierarchy Name ; Library Name ;
 +----------------------------+-------------+---------------------------+---------------+-------------+------+--------------+---------+-----------+------+--------------+--------------+-------------------+------------------+---------------------+--------------+
-; |maquina                   ; 15 (0)      ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0            ; 0       ; 0         ; 14   ; 0            ; 15 (0)       ; 0 (0)             ; 0 (0)            ; |maquina            ; work         ;
-;    |inicial:a|             ; 15 (15)     ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0            ; 0       ; 0         ; 0    ; 0            ; 15 (15)      ; 0 (0)             ; 0 (0)            ; |maquina|inicial:a  ; work         ;
+; |maquina                   ; 20 (0)      ; 10 (0)                    ; 0 (0)         ; 0           ; 0    ; 0            ; 0       ; 0         ; 15   ; 0            ; 10 (0)       ; 0 (0)             ; 10 (0)           ; |maquina            ; work         ;
+;    |inicial:a|             ; 20 (20)     ; 10 (10)                   ; 0 (0)         ; 0           ; 0    ; 0            ; 0       ; 0         ; 0    ; 0            ; 10 (10)      ; 0 (0)             ; 10 (10)          ; |maquina|inicial:a  ; work         ;
 +----------------------------+-------------+---------------------------+---------------+-------------+------+--------------+---------+-----------+------+--------------+--------------+-------------------+------------------+---------------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
@@ -904,87 +1178,88 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; HEX0[4] ; Output   ; --            ; --            ; --                    ; --  ;
 ; HEX0[5] ; Output   ; --            ; --            ; --                    ; --  ;
 ; HEX0[6] ; Output   ; --            ; --            ; --                    ; --  ;
-; SW[4]   ; Input    ; (6) 2523 ps   ; (6) 2523 ps   ; --                    ; --  ;
-; SW[3]   ; Input    ; (6) 2523 ps   ; (6) 2523 ps   ; --                    ; --  ;
-; SW[1]   ; Input    ; (6) 2523 ps   ; (6) 2523 ps   ; --                    ; --  ;
-; SW[2]   ; Input    ; (6) 2523 ps   ; (6) 2523 ps   ; --                    ; --  ;
+; CLK     ; Input    ; (0) 171 ps    ; (0) 171 ps    ; --                    ; --  ;
+; SW[1]   ; Input    ; (0) 171 ps    ; (0) 171 ps    ; --                    ; --  ;
+; SW[4]   ; Input    ; (0) 170 ps    ; (0) 170 ps    ; --                    ; --  ;
 ; SW[0]   ; Input    ; (0) 171 ps    ; (0) 171 ps    ; --                    ; --  ;
+; SW[2]   ; Input    ; (0) 171 ps    ; (0) 171 ps    ; --                    ; --  ;
+; SW[3]   ; Input    ; (0) 170 ps    ; (0) 170 ps    ; --                    ; --  ;
 +---------+----------+---------------+---------------+-----------------------+-----+
 
 
-+------------------------------------------------------------+
-; Pad To Core Delay Chain Fanout                             ;
-+------------------------------+-------------------+---------+
-; Source Pin / Fanout          ; Pad To Core Index ; Setting ;
-+------------------------------+-------------------+---------+
-; SW[4]                        ;                   ;         ;
-;      - inicial:a|Mux2~0      ; 0                 ; 6       ;
-;      - inicial:a|Mux2~1      ; 0                 ; 6       ;
-;      - inicial:a|Mux0~0      ; 0                 ; 6       ;
-;      - inicial:a|Mux0~1      ; 0                 ; 6       ;
-; SW[3]                        ;                   ;         ;
-;      - inicial:a|Mux2~0      ; 0                 ; 6       ;
-;      - inicial:a|estado[0]~0 ; 0                 ; 6       ;
-;      - inicial:a|Mux0~3      ; 0                 ; 6       ;
-; SW[1]                        ;                   ;         ;
-;      - inicial:a|always0~0   ; 0                 ; 6       ;
-;      - inicial:a|estado[0]~0 ; 0                 ; 6       ;
-;      - inicial:a|Mux0~2      ; 0                 ; 6       ;
-; SW[2]                        ;                   ;         ;
-;      - inicial:a|always0~0   ; 1                 ; 6       ;
-;      - inicial:a|estado[0]~0 ; 1                 ; 6       ;
-;      - inicial:a|Mux0~2      ; 1                 ; 6       ;
-; SW[0]                        ;                   ;         ;
-;      - inicial:a|estado[0]~0 ; 1                 ; 0       ;
-;      - inicial:a|Mux0~0      ; 1                 ; 0       ;
-;      - inicial:a|Mux0~1      ; 1                 ; 0       ;
-;      - inicial:a|Mux0~2      ; 1                 ; 0       ;
-+------------------------------+-------------------+---------+
++---------------------------------------------------+
+; Pad To Core Delay Chain Fanout                    ;
++---------------------+-------------------+---------+
+; Source Pin / Fanout ; Pad To Core Index ; Setting ;
++---------------------+-------------------+---------+
+; CLK                 ;                   ;         ;
+; SW[1]               ;                   ;         ;
+; SW[4]               ;                   ;         ;
+; SW[0]               ;                   ;         ;
+; SW[2]               ;                   ;         ;
+; SW[3]               ;                   ;         ;
++---------------------+-------------------+---------+
 
 
-+---------------------------------------------------------------------------------------------------------------------------------------------+
-; Control Signals                                                                                                                             ;
-+------------------+------------------+---------+--------------+--------+----------------------+------------------+---------------------------+
-; Name             ; Location         ; Fan-Out ; Usage        ; Global ; Global Resource Used ; Global Line Name ; Enable Signal Source Name ;
-+------------------+------------------+---------+--------------+--------+----------------------+------------------+---------------------------+
-; inicial:a|Mux0~4 ; LCCOMB_X1_Y12_N0 ; 2       ; Latch enable ; yes    ; Global Clock         ; GCLK3            ; --                        ;
-+------------------+------------------+---------+--------------+--------+----------------------+------------------+---------------------------+
++------------------------------------------------------------------------------------------------------------------+
+; Control Signals                                                                                                  ;
++------+----------+---------+-------+--------+----------------------+------------------+---------------------------+
+; Name ; Location ; Fan-Out ; Usage ; Global ; Global Resource Used ; Global Line Name ; Enable Signal Source Name ;
++------+----------+---------+-------+--------+----------------------+------------------+---------------------------+
+; CLK  ; PIN_L1   ; 10      ; Clock ; yes    ; Global Clock         ; GCLK2            ; --                        ;
++------+----------+---------+-------+--------+----------------------+------------------+---------------------------+
 
 
-+---------------------------------------------------------------------------------------------------------------------+
-; Global & Other Fast Signals                                                                                         ;
-+------------------+------------------+---------+----------------------+------------------+---------------------------+
-; Name             ; Location         ; Fan-Out ; Global Resource Used ; Global Line Name ; Enable Signal Source Name ;
-+------------------+------------------+---------+----------------------+------------------+---------------------------+
-; inicial:a|Mux0~4 ; LCCOMB_X1_Y12_N0 ; 2       ; Global Clock         ; GCLK3            ; --                        ;
-+------------------+------------------+---------+----------------------+------------------+---------------------------+
++-------------------------------------------------------------------------------------------------+
+; Global & Other Fast Signals                                                                     ;
++------+----------+---------+----------------------+------------------+---------------------------+
+; Name ; Location ; Fan-Out ; Global Resource Used ; Global Line Name ; Enable Signal Source Name ;
++------+----------+---------+----------------------+------------------+---------------------------+
+; CLK  ; PIN_L1   ; 10      ; Global Clock         ; GCLK2            ; --                        ;
++------+----------+---------+----------------------+------------------+---------------------------+
 
 
-+---------------------------------+
-; Non-Global High Fan-Out Signals ;
-+-----------------------+---------+
-; Name                  ; Fan-Out ;
-+-----------------------+---------+
-; inicial:a|estado[0]   ; 10      ;
-; inicial:a|estado[1]   ; 8       ;
-; SW[0]                 ; 4       ;
-; SW[4]                 ; 4       ;
-; SW[2]                 ; 3       ;
-; SW[1]                 ; 3       ;
-; SW[3]                 ; 3       ;
-; inicial:a|Mux0~1      ; 2       ;
-; inicial:a|estado[0]~0 ; 2       ;
-; inicial:a|always0~0   ; 2       ;
-; inicial:a|Mult2~0     ; 2       ;
-; inicial:a|Mux1~0      ; 1       ;
-; inicial:a|Mux0~3      ; 1       ;
-; inicial:a|Mux0~2      ; 1       ;
-; inicial:a|Mux0~0      ; 1       ;
-; inicial:a|Mux2~1      ; 1       ;
-; inicial:a|Mux2~0      ; 1       ;
-; inicial:a|Mult1~0     ; 1       ;
-; inicial:a|Mult0~0     ; 1       ;
-+-----------------------+---------+
++--------------------------------------+
+; Non-Global High Fan-Out Signals      ;
++----------------------------+---------+
+; Name                       ; Fan-Out ;
++----------------------------+---------+
+; SW[4]                      ; 6       ;
+; inicial:a|Selector0~6      ; 5       ;
+; inicial:a|estado.Fechado   ; 5       ;
+; inicial:a|estado.Fechando  ; 5       ;
+; SW[3]                      ; 4       ;
+; SW[2]                      ; 4       ;
+; SW[0]                      ; 4       ;
+; SW[1]                      ; 4       ;
+; inicial:a|estado.Aberto    ; 4       ;
+; inicial:a|estado.Abrindo   ; 4       ;
+; inicial:a|Selector1~0      ; 3       ;
+; inicial:a|Selector0~4      ; 3       ;
+; inicial:a|Selector0~1      ; 3       ;
+; inicial:a|Selector0~7      ; 2       ;
+; inicial:a|Selector0~2      ; 2       ;
+; inicial:a|tmpDisplay~0     ; 2       ;
+; inicial:a|tmpDisplay[6]~3  ; 1       ;
+; inicial:a|tmpDisplay[2]~2  ; 1       ;
+; inicial:a|tmpDisplay[1]~1  ; 1       ;
+; inicial:a|Selector3~4      ; 1       ;
+; inicial:a|Selector2~1      ; 1       ;
+; inicial:a|Selector2~0      ; 1       ;
+; inicial:a|estado.Fechado~0 ; 1       ;
+; inicial:a|Selector3~3      ; 1       ;
+; inicial:a|Selector3~2      ; 1       ;
+; inicial:a|Selector1~1      ; 1       ;
+; inicial:a|Selector0~5      ; 1       ;
+; inicial:a|Selector0~3      ; 1       ;
+; inicial:a|Selector0~0      ; 1       ;
+; inicial:a|tmpDisplay[6]    ; 1       ;
+; inicial:a|tmpDisplay[3]    ; 1       ;
+; inicial:a|tmpDisplay[2]    ; 1       ;
+; inicial:a|tmpDisplay[1]    ; 1       ;
+; inicial:a|tmpLedVermelho   ; 1       ;
+; inicial:a|tmpLedVerde      ; 1       ;
++----------------------------+---------+
 
 
 +-----------------------------------------------------+
@@ -992,51 +1267,60 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +-----------------------------+-----------------------+
 ; Other Routing Resource Type ; Usage                 ;
 +-----------------------------+-----------------------+
-; Block interconnects         ; 15 / 54,004 ( < 1 % ) ;
-; C16 interconnects           ; 0 / 2,100 ( 0 % )     ;
-; C4 interconnects            ; 5 / 36,000 ( < 1 % )  ;
-; Direct links                ; 3 / 54,004 ( < 1 % )  ;
+; Block interconnects         ; 17 / 54,004 ( < 1 % ) ;
+; C16 interconnects           ; 3 / 2,100 ( < 1 % )   ;
+; C4 interconnects            ; 8 / 36,000 ( < 1 % )  ;
+; Direct links                ; 4 / 54,004 ( < 1 % )  ;
 ; Global clocks               ; 1 / 16 ( 6 % )        ;
-; Local interconnects         ; 11 / 18,752 ( < 1 % ) ;
-; R24 interconnects           ; 0 / 1,900 ( 0 % )     ;
-; R4 interconnects            ; 5 / 46,920 ( < 1 % )  ;
+; Local interconnects         ; 17 / 18,752 ( < 1 % ) ;
+; R24 interconnects           ; 5 / 1,900 ( < 1 % )   ;
+; R4 interconnects            ; 33 / 46,920 ( < 1 % ) ;
 +-----------------------------+-----------------------+
 
 
-+---------------------------------------------------------------------------+
-; LAB Logic Elements                                                        ;
-+---------------------------------------------+-----------------------------+
-; Number of Logic Elements  (Average = 15.00) ; Number of LABs  (Total = 1) ;
-+---------------------------------------------+-----------------------------+
-; 1                                           ; 0                           ;
-; 2                                           ; 0                           ;
-; 3                                           ; 0                           ;
-; 4                                           ; 0                           ;
-; 5                                           ; 0                           ;
-; 6                                           ; 0                           ;
-; 7                                           ; 0                           ;
-; 8                                           ; 0                           ;
-; 9                                           ; 0                           ;
-; 10                                          ; 0                           ;
-; 11                                          ; 0                           ;
-; 12                                          ; 0                           ;
-; 13                                          ; 0                           ;
-; 14                                          ; 0                           ;
-; 15                                          ; 1                           ;
-; 16                                          ; 0                           ;
-+---------------------------------------------+-----------------------------+
++--------------------------------------------------------------------------+
+; LAB Logic Elements                                                       ;
++--------------------------------------------+-----------------------------+
+; Number of Logic Elements  (Average = 6.67) ; Number of LABs  (Total = 3) ;
++--------------------------------------------+-----------------------------+
+; 1                                          ; 0                           ;
+; 2                                          ; 2                           ;
+; 3                                          ; 0                           ;
+; 4                                          ; 0                           ;
+; 5                                          ; 0                           ;
+; 6                                          ; 0                           ;
+; 7                                          ; 0                           ;
+; 8                                          ; 0                           ;
+; 9                                          ; 0                           ;
+; 10                                         ; 0                           ;
+; 11                                         ; 0                           ;
+; 12                                         ; 0                           ;
+; 13                                         ; 0                           ;
+; 14                                         ; 0                           ;
+; 15                                         ; 0                           ;
+; 16                                         ; 1                           ;
++--------------------------------------------+-----------------------------+
+
+
++------------------------------------------------------------------+
+; LAB-wide Signals                                                 ;
++------------------------------------+-----------------------------+
+; LAB-wide Signals  (Average = 1.00) ; Number of LABs  (Total = 3) ;
++------------------------------------+-----------------------------+
+; 1 Clock                            ; 3                           ;
++------------------------------------+-----------------------------+
 
 
 +----------------------------------------------------------------------------+
 ; LAB Signals Sourced                                                        ;
 +----------------------------------------------+-----------------------------+
-; Number of Signals Sourced  (Average = 15.00) ; Number of LABs  (Total = 1) ;
+; Number of Signals Sourced  (Average = 10.00) ; Number of LABs  (Total = 3) ;
 +----------------------------------------------+-----------------------------+
 ; 0                                            ; 0                           ;
 ; 1                                            ; 0                           ;
 ; 2                                            ; 0                           ;
 ; 3                                            ; 0                           ;
-; 4                                            ; 0                           ;
+; 4                                            ; 2                           ;
 ; 5                                            ; 0                           ;
 ; 6                                            ; 0                           ;
 ; 7                                            ; 0                           ;
@@ -1047,33 +1331,39 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; 12                                           ; 0                           ;
 ; 13                                           ; 0                           ;
 ; 14                                           ; 0                           ;
-; 15                                           ; 1                           ;
+; 15                                           ; 0                           ;
+; 16                                           ; 0                           ;
+; 17                                           ; 0                           ;
+; 18                                           ; 0                           ;
+; 19                                           ; 0                           ;
+; 20                                           ; 0                           ;
+; 21                                           ; 0                           ;
+; 22                                           ; 1                           ;
 +----------------------------------------------+-----------------------------+
 
 
 +-------------------------------------------------------------------------------+
 ; LAB Signals Sourced Out                                                       ;
 +-------------------------------------------------+-----------------------------+
-; Number of Signals Sourced Out  (Average = 5.00) ; Number of LABs  (Total = 1) ;
+; Number of Signals Sourced Out  (Average = 2.67) ; Number of LABs  (Total = 3) ;
 +-------------------------------------------------+-----------------------------+
 ; 0                                               ; 0                           ;
 ; 1                                               ; 0                           ;
-; 2                                               ; 0                           ;
+; 2                                               ; 2                           ;
 ; 3                                               ; 0                           ;
-; 4                                               ; 0                           ;
-; 5                                               ; 1                           ;
+; 4                                               ; 1                           ;
 +-------------------------------------------------+-----------------------------+
 
 
 +---------------------------------------------------------------------------+
 ; LAB Distinct Inputs                                                       ;
 +---------------------------------------------+-----------------------------+
-; Number of Distinct Inputs  (Average = 6.00) ; Number of LABs  (Total = 1) ;
+; Number of Distinct Inputs  (Average = 3.67) ; Number of LABs  (Total = 3) ;
 +---------------------------------------------+-----------------------------+
 ; 0                                           ; 0                           ;
 ; 1                                           ; 0                           ;
-; 2                                           ; 0                           ;
-; 3                                           ; 0                           ;
+; 2                                           ; 1                           ;
+; 3                                           ; 1                           ;
 ; 4                                           ; 0                           ;
 ; 5                                           ; 0                           ;
 ; 6                                           ; 1                           ;
@@ -1109,30 +1399,6 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +---------------------------+--------+
 
 
-+------------------------------------------------------------+
-; Estimated Delay Added for Hold Timing Summary              ;
-+-----------------+----------------------+-------------------+
-; Source Clock(s) ; Destination Clock(s) ; Delay Added in ns ;
-+-----------------+----------------------+-------------------+
-; I/O             ; SW[0]                ; 1.1               ;
-+-----------------+----------------------+-------------------+
-Note: For more information on problematic transfers, consider running the Fitter again with the Optimize hold timing option (Settings Menu) turned off.
-This will disable optimization of problematic paths and expose them for further analysis using either the TimeQuest Timing Analyzer or the Classic Timing Analyzer.
-
-
-+------------------------------------------------------------+
-; Estimated Delay Added for Hold Timing Details              ;
-+-----------------+----------------------+-------------------+
-; Source Register ; Destination Register ; Delay Added in ns ;
-+-----------------+----------------------+-------------------+
-; SW[1]           ; inicial:a|estado[0]  ; 1.085             ;
-; SW[2]           ; inicial:a|estado[0]  ; 1.085             ;
-; SW[3]           ; inicial:a|estado[0]  ; 1.085             ;
-; SW[0]           ; inicial:a|estado[0]  ; 1.085             ;
-+-----------------+----------------------+-------------------+
-Note: This table only shows the top 4 path(s) that have the largest delay added for hold.
-
-
 +-----------------+
 ; Fitter Messages ;
 +-----------------+
@@ -1150,61 +1416,295 @@ Info (169124): Fitter converted 3 user pins into dedicated programming pins
     Info (169125): Pin ~ASDO~ is reserved at location C4
     Info (169125): Pin ~nCSO~ is reserved at location C3
     Info (169125): Pin ~LVDS91p/nCEO~ is reserved at location W20
-Critical Warning (169085): No exact pin location assignment(s) for 14 pins of 14 total pins
-    Info (169086): Pin LEDG[0] not assigned to an exact location on the device
-    Info (169086): Pin LEDR[0] not assigned to an exact location on the device
-    Info (169086): Pin HEX0[0] not assigned to an exact location on the device
-    Info (169086): Pin HEX0[1] not assigned to an exact location on the device
-    Info (169086): Pin HEX0[2] not assigned to an exact location on the device
-    Info (169086): Pin HEX0[3] not assigned to an exact location on the device
-    Info (169086): Pin HEX0[4] not assigned to an exact location on the device
-    Info (169086): Pin HEX0[5] not assigned to an exact location on the device
-    Info (169086): Pin HEX0[6] not assigned to an exact location on the device
-    Info (169086): Pin SW[4] not assigned to an exact location on the device
-    Info (169086): Pin SW[3] not assigned to an exact location on the device
-    Info (169086): Pin SW[1] not assigned to an exact location on the device
-    Info (169086): Pin SW[2] not assigned to an exact location on the device
-    Info (169086): Pin SW[0] not assigned to an exact location on the device
-Warning (335093): TimeQuest Timing Analyzer is analyzing 2 combinational loops as latches.
+Critical Warning (169085): No exact pin location assignment(s) for 1 pins of 15 total pins
+    Info (169086): Pin CLK not assigned to an exact location on the device
 Critical Warning (332012): Synopsys Design Constraints File file not found: 'maquina.sdc'. A Synopsys Design Constraints File is required by the TimeQuest Timing Analyzer to get proper timing constraints. Without it, the Compiler will not properly optimize the design.
 Info (332144): No user constrained base clocks found in the design
-Info (332097): The following timing edges are non-unate.  TimeQuest will assume pos-unate behavior for these edges in the clock network.
-    Info (332098): Cell: a|Mux0~0  from: datad  to: combout
-    Info (332098): Cell: a|Mux0~2  from: dataa  to: combout
-    Info (332098): Cell: a|Mux0~3  from: datad  to: combout
-    Info (332098): Cell: a|Mux0~4  from: datab  to: combout
 Info (332130): Timing requirements not specified -- quality metrics such as performance may be sacrificed to reduce compilation time.
-Info (176353): Automatically promoted node inicial:a|Mux0~4 
-    Info (176355): Automatically promoted destinations to use location or clock signal Global Clock
+Info (176353): Automatically promoted node CLK (placed in PIN L1 (CLK0, LVDSCLK0p, Input))
+    Info (176355): Automatically promoted destinations to use location or clock signal Global Clock CLKCTRL_G2
 Info (176233): Starting register packing
 Info (176235): Finished register packing
     Extra Info (176219): No registers were packed into other blocks
-Info (176214): Statistics of I/O pins that need to be placed that use the same VCCIO and VREF, before I/O pin placement
-    Info (176211): Number of I/O pins in group: 14 (unused VREF, 3.3V VCCIO, 5 input, 9 output, 0 bidirectional)
-        Info (176212): I/O standards used: 3.3-V LVTTL.
-Info (176215): I/O bank details before I/O pin placement
-    Info (176214): Statistics of I/O banks
-        Info (176213): I/O bank number 1 does not use VREF pins and has undetermined VCCIO pins. 0 total pin(s) used --  41 pins available
-        Info (176213): I/O bank number 2 does not use VREF pins and has undetermined VCCIO pins. 2 total pin(s) used --  31 pins available
-        Info (176213): I/O bank number 3 does not use VREF pins and has undetermined VCCIO pins. 0 total pin(s) used --  43 pins available
-        Info (176213): I/O bank number 4 does not use VREF pins and has undetermined VCCIO pins. 0 total pin(s) used --  40 pins available
-        Info (176213): I/O bank number 5 does not use VREF pins and has undetermined VCCIO pins. 0 total pin(s) used --  39 pins available
-        Info (176213): I/O bank number 6 does not use VREF pins and has undetermined VCCIO pins. 1 total pin(s) used --  35 pins available
-        Info (176213): I/O bank number 7 does not use VREF pins and has undetermined VCCIO pins. 0 total pin(s) used --  40 pins available
-        Info (176213): I/O bank number 8 does not use VREF pins and has undetermined VCCIO pins. 0 total pin(s) used --  43 pins available
-Info (171121): Fitter preparation operations ending: elapsed time is 00:00:00
+Warning (15705): Ignored locations or region assignments to the following nodes
+    Warning (15706): Node "AUD_ADCDAT" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "AUD_ADCLRCK" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "AUD_BCLK" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "AUD_DACDAT" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "AUD_DACLRCK" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "AUD_XCK" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "CLOCK_24[0]" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "CLOCK_24[1]" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "CLOCK_27[0]" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "CLOCK_27[1]" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "CLOCK_50" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "DRAM_ADDR[0]" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "DRAM_ADDR[10]" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "DRAM_ADDR[11]" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "DRAM_ADDR[1]" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "DRAM_ADDR[2]" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "DRAM_ADDR[3]" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "DRAM_ADDR[4]" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "DRAM_ADDR[5]" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "DRAM_ADDR[6]" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "DRAM_ADDR[7]" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "DRAM_ADDR[8]" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "DRAM_ADDR[9]" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "DRAM_BA_0" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "DRAM_BA_1" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "DRAM_CAS_N" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "DRAM_CKE" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "DRAM_CLK" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "DRAM_CS_N" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "DRAM_DQ[0]" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "DRAM_DQ[10]" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "DRAM_DQ[11]" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "DRAM_DQ[12]" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "DRAM_DQ[13]" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "DRAM_DQ[14]" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "DRAM_DQ[15]" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "DRAM_DQ[1]" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "DRAM_DQ[2]" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "DRAM_DQ[3]" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "DRAM_DQ[4]" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "DRAM_DQ[5]" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "DRAM_DQ[6]" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "DRAM_DQ[7]" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "DRAM_DQ[8]" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "DRAM_DQ[9]" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "DRAM_LDQM" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "DRAM_RAS_N" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "DRAM_UDQM" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "DRAM_WE_N" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "EXT_CLOCK" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "FL_ADDR[0]" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "FL_ADDR[10]" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "FL_ADDR[11]" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "FL_ADDR[12]" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "FL_ADDR[13]" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "FL_ADDR[14]" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "FL_ADDR[15]" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "FL_ADDR[16]" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "FL_ADDR[17]" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "FL_ADDR[18]" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "FL_ADDR[19]" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "FL_ADDR[1]" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "FL_ADDR[20]" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "FL_ADDR[21]" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "FL_ADDR[2]" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "FL_ADDR[3]" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "FL_ADDR[4]" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "FL_ADDR[5]" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "FL_ADDR[6]" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "FL_ADDR[7]" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "FL_ADDR[8]" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "FL_ADDR[9]" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "FL_CE_N" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "FL_DQ[0]" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "FL_DQ[1]" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "FL_DQ[2]" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "FL_DQ[3]" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "FL_DQ[4]" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "FL_DQ[5]" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "FL_DQ[6]" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "FL_DQ[7]" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "FL_OE_N" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "FL_RST_N" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "FL_WE_N" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "GPIO_0[0]" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "GPIO_0[10]" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "GPIO_0[11]" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "GPIO_0[12]" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "GPIO_0[13]" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "GPIO_0[14]" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "GPIO_0[15]" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "GPIO_0[16]" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "GPIO_0[17]" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "GPIO_0[18]" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "GPIO_0[19]" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "GPIO_0[1]" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "GPIO_0[20]" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "GPIO_0[21]" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "GPIO_0[22]" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "GPIO_0[23]" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "GPIO_0[24]" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "GPIO_0[25]" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "GPIO_0[26]" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "GPIO_0[27]" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "GPIO_0[28]" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "GPIO_0[29]" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "GPIO_0[2]" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "GPIO_0[30]" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "GPIO_0[31]" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "GPIO_0[32]" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "GPIO_0[33]" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "GPIO_0[34]" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "GPIO_0[35]" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "GPIO_0[3]" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "GPIO_0[4]" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "GPIO_0[5]" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "GPIO_0[6]" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "GPIO_0[7]" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "GPIO_0[8]" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "GPIO_0[9]" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "GPIO_1[0]" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "GPIO_1[10]" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "GPIO_1[11]" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "GPIO_1[12]" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "GPIO_1[13]" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "GPIO_1[14]" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "GPIO_1[15]" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "GPIO_1[16]" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "GPIO_1[17]" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "GPIO_1[18]" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "GPIO_1[19]" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "GPIO_1[1]" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "GPIO_1[20]" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "GPIO_1[21]" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "GPIO_1[22]" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "GPIO_1[23]" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "GPIO_1[24]" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "GPIO_1[25]" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "GPIO_1[26]" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "GPIO_1[27]" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "GPIO_1[28]" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "GPIO_1[29]" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "GPIO_1[2]" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "GPIO_1[30]" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "GPIO_1[31]" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "GPIO_1[32]" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "GPIO_1[33]" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "GPIO_1[34]" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "GPIO_1[35]" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "GPIO_1[3]" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "GPIO_1[4]" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "GPIO_1[5]" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "GPIO_1[6]" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "GPIO_1[7]" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "GPIO_1[8]" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "GPIO_1[9]" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "HEX1[0]" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "HEX1[1]" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "HEX1[2]" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "HEX1[3]" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "HEX1[4]" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "HEX1[5]" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "HEX1[6]" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "HEX2[0]" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "HEX2[1]" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "HEX2[2]" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "HEX2[3]" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "HEX2[4]" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "HEX2[5]" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "HEX2[6]" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "HEX3[0]" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "HEX3[1]" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "HEX3[2]" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "HEX3[3]" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "HEX3[4]" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "HEX3[5]" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "HEX3[6]" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "I2C_SCLK" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "I2C_SDAT" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "KEY[0]" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "KEY[1]" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "KEY[2]" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "KEY[3]" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "LEDG[1]" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "LEDG[2]" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "LEDG[3]" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "LEDG[4]" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "LEDG[5]" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "LEDG[6]" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "LEDG[7]" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "LEDR[1]" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "LEDR[2]" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "LEDR[3]" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "LEDR[4]" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "LEDR[5]" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "LEDR[6]" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "LEDR[7]" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "LEDR[8]" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "LEDR[9]" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "PS2_CLK" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "PS2_DAT" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "SRAM_ADDR[0]" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "SRAM_ADDR[10]" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "SRAM_ADDR[11]" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "SRAM_ADDR[12]" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "SRAM_ADDR[13]" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "SRAM_ADDR[14]" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "SRAM_ADDR[15]" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "SRAM_ADDR[16]" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "SRAM_ADDR[17]" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "SRAM_ADDR[1]" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "SRAM_ADDR[2]" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "SRAM_ADDR[3]" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "SRAM_ADDR[4]" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "SRAM_ADDR[5]" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "SRAM_ADDR[6]" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "SRAM_ADDR[7]" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "SRAM_ADDR[8]" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "SRAM_ADDR[9]" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "SRAM_CE_N" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "SRAM_DQ[0]" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "SRAM_DQ[10]" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "SRAM_DQ[11]" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "SRAM_DQ[12]" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "SRAM_DQ[13]" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "SRAM_DQ[14]" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "SRAM_DQ[15]" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "SRAM_DQ[1]" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "SRAM_DQ[2]" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "SRAM_DQ[3]" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "SRAM_DQ[4]" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "SRAM_DQ[5]" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "SRAM_DQ[6]" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "SRAM_DQ[7]" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "SRAM_DQ[8]" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "SRAM_DQ[9]" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "SRAM_LB_N" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "SRAM_OE_N" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "SRAM_UB_N" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "SRAM_WE_N" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "SW[5]" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "SW[6]" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "SW[7]" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "SW[8]" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "SW[9]" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "TCK" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "TCS" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "TDI" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "TDO" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "UART_RXD" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "UART_TXD" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "VGA_B[0]" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "VGA_B[1]" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "VGA_B[2]" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "VGA_B[3]" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "VGA_G[0]" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "VGA_G[1]" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "VGA_G[2]" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "VGA_G[3]" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "VGA_HS" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "VGA_R[0]" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "VGA_R[1]" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "VGA_R[2]" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "VGA_R[3]" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "VGA_VS" is assigned to location or region, but does not exist in design
+Info (171121): Fitter preparation operations ending: elapsed time is 00:00:01
 Info (170189): Fitter placement preparation operations beginning
 Info (170190): Fitter placement preparation operations ending: elapsed time is 00:00:00
 Info (170191): Fitter placement operations beginning
 Info (170137): Fitter placement was successful
-Info (170192): Fitter placement operations ending: elapsed time is 00:00:01
+Info (170192): Fitter placement operations ending: elapsed time is 00:00:00
 Info (170193): Fitter routing operations beginning
 Info (170195): Router estimated average interconnect usage is 0% of the available device resources
-    Info (170196): Router estimated peak interconnect usage is 0% of the available device resources in the region that extends from location X0_Y0 to location X11_Y13
-Info (170194): Fitter routing operations ending: elapsed time is 00:00:01
+    Info (170196): Router estimated peak interconnect usage is 0% of the available device resources in the region that extends from location X25_Y14 to location X37_Y27
+Info (170194): Fitter routing operations ending: elapsed time is 00:00:00
 Info (170199): The Fitter performed an Auto Fit compilation.  Optimizations were skipped to reduce compilation time.
     Info (170201): Optimizations that may affect the design's routability were skipped
-Info (11888): Total time spent on timing analysis during the Fitter is 1.06 seconds.
+Info (11888): Total time spent on timing analysis during the Fitter is 0.06 seconds.
 Info (306004): Started post-fitting delay annotation
 Warning (306006): Found 9 output pins without output pin load capacitance assignment
     Info (306007): Pin "LEDG[0]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
@@ -1219,14 +1719,15 @@ Warning (306006): Found 9 output pins without output pin load capacitance assign
 Info (306005): Delay annotation completed successfully
 Info (306004): Started post-fitting delay annotation
 Info (306005): Delay annotation completed successfully
-Info (11218): Fitter post-fit operations ending: elapsed time is 00:00:01
+Info (11218): Fitter post-fit operations ending: elapsed time is 00:00:00
+Warning (171167): Found invalid Fitter assignments. See the Ignored Assignments panel in the Fitter Compilation Report for more information.
 Warning (169174): The Reserve All Unused Pins setting has not been specified, and will default to 'As output driving ground'.
 Info (144001): Generated suppressed messages file C:/altera/13.0sp1/aula9/output_files/maquina.fit.smsg
-Info: Quartus II 64-Bit Fitter was successful. 0 errors, 7 warnings
-    Info: Peak virtual memory: 639 megabytes
-    Info: Processing ended: Wed Nov 29 17:55:20 2017
-    Info: Elapsed time: 00:00:08
-    Info: Total CPU time (on all processors): 00:00:08
+Info: Quartus II 64-Bit Fitter was successful. 0 errors, 273 warnings
+    Info: Peak virtual memory: 633 megabytes
+    Info: Processing ended: Thu Dec 07 16:56:49 2017
+    Info: Elapsed time: 00:00:03
+    Info: Total CPU time (on all processors): 00:00:03
 
 
 +----------------------------+
