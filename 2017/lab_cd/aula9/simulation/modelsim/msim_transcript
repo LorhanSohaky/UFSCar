@@ -29,19 +29,16 @@
 # vsim -L altera_ver -L lpm_ver -L sgate_ver -L altera_mf_ver -L altera_lnsim_ver -L cycloneii_ver -L rtl_work -L work -voptargs=\"+acc\" -t 1ps maquina_TB 
 # Loading work.maquina_TB
 # Loading work.inicial
-# ** Warning: (vsim-3015) C:/altera/13.0sp1/aula9/maquina_TB.v(8): [PCDPC] - Port size (1 or 1) does not match connection size (32) for port 'clock'. The port definition is at: C:/altera/13.0sp1/aula9/maquina.v(1).
-# 
-#         Region: /maquina_TB/i
 # 
 # add wave *
 # ** Warning: (vsim-WLF-5000) WLF file currently in use: vsim.wlf
 # 
 #           File in use by: Lorhan Kondo  Hostname: DESKTOP-4R8U9HV  ProcessID: 2392
 # 
-#           Attempting to use alternate WLF file "./wlft0vtiwx".
+#           Attempting to use alternate WLF file "./wlft4fbkw0".
 # ** Warning: (vsim-WLF-5001) Could not open WLF file: vsim.wlf
 # 
-#           Using alternate file: ./wlft0vtiwx
+#           Using alternate file: ./wlft4fbkw0
 # 
 # view structure
 # .main_pane.structure.interior.cs.body.struct
@@ -50,6 +47,12 @@
 # run -all
 # 	Sistema Porta
 # 
-# Entrada | LG | LR | HEX
+# Estado | Entrada | LG | LR | HEX
 # -------------------
-  10110 |  x |  x |
+#  Fechado |  00000 |  0 |  0 |  F
+#  Abrindo |  10110 |  1 |  0 |  O
+#   Aberto |  10010 |  0 |  0 |  A
+# Fechando |  01011 |  0 |  1 |  O
+#  Fechado |  00011 |  0 |  0 |  F
+# Break key hit 
+# Break in Module maquina_TB in file C:/altera/13.0sp1/aula9/maquina_TB.v

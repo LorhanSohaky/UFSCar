@@ -16,7 +16,7 @@
 -- PROGRAM "Quartus II 64-Bit"
 -- VERSION "Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition"
 
--- DATE "12/07/2017 16:56:53"
+-- DATE "12/08/2017 11:48:37"
 
 -- 
 -- Device: Altera EP2C20F484C7 Package FBGA484
@@ -92,11 +92,11 @@ SIGNAL \a|Selector0~0_combout\ : std_logic;
 SIGNAL \a|Selector0~1_combout\ : std_logic;
 SIGNAL \a|Selector0~7_combout\ : std_logic;
 SIGNAL \a|Selector3~3_combout\ : std_logic;
-SIGNAL \a|estado.Abrindo~regout\ : std_logic;
+SIGNAL \a|estado.Fechando~regout\ : std_logic;
 SIGNAL \a|Selector0~5_combout\ : std_logic;
 SIGNAL \a|Selector0~6_combout\ : std_logic;
 SIGNAL \a|Selector1~1_combout\ : std_logic;
-SIGNAL \a|estado.Fechando~regout\ : std_logic;
+SIGNAL \a|estado.Abrindo~regout\ : std_logic;
 SIGNAL \a|tmpLedVerde~regout\ : std_logic;
 SIGNAL \a|tmpLedVermelho~regout\ : std_logic;
 SIGNAL \a|tmpDisplay[1]~1_combout\ : std_logic;
@@ -139,7 +139,7 @@ PORT MAP (
 -- Location: LCCOMB_X27_Y14_N12
 \a|Selector3~2\ : cycloneii_lcell_comb
 -- Equation(s):
--- \a|Selector3~2_combout\ = (\a|Selector0~4_combout\ & (!\SW~combout\(4) & \a|estado.Fechando~regout\))
+-- \a|Selector3~2_combout\ = (\a|Selector0~4_combout\ & (!\SW~combout\(4) & \a|estado.Abrindo~regout\))
 
 -- pragma translate_off
 GENERIC MAP (
@@ -149,13 +149,13 @@ GENERIC MAP (
 PORT MAP (
 	datab => \a|Selector0~4_combout\,
 	datac => \SW~combout\(4),
-	datad => \a|estado.Fechando~regout\,
+	datad => \a|estado.Abrindo~regout\,
 	combout => \a|Selector3~2_combout\);
 
 -- Location: LCCOMB_X27_Y14_N24
 \a|Selector2~0\ : cycloneii_lcell_comb
 -- Equation(s):
--- \a|Selector2~0_combout\ = (\a|Selector0~4_combout\ & (\SW~combout\(4) & \a|estado.Fechando~regout\))
+-- \a|Selector2~0_combout\ = (\a|Selector0~4_combout\ & (\SW~combout\(4) & \a|estado.Abrindo~regout\))
 
 -- pragma translate_off
 GENERIC MAP (
@@ -165,7 +165,7 @@ GENERIC MAP (
 PORT MAP (
 	datab => \a|Selector0~4_combout\,
 	datac => \SW~combout\(4),
-	datad => \a|estado.Fechando~regout\,
+	datad => \a|estado.Abrindo~regout\,
 	combout => \a|Selector2~0_combout\);
 
 -- Location: LCCOMB_X27_Y14_N20
@@ -415,7 +415,7 @@ PORT MAP (
 -- Location: LCCOMB_X27_Y14_N22
 \a|Selector1~0\ : cycloneii_lcell_comb
 -- Equation(s):
--- \a|Selector1~0_combout\ = (\a|Selector0~2_combout\ & (\a|Selector0~3_combout\ $ (((\a|Selector0~4_combout\ & \a|estado.Fechando~regout\))))) # (!\a|Selector0~2_combout\ & (\a|Selector0~4_combout\ & ((\a|estado.Fechando~regout\))))
+-- \a|Selector1~0_combout\ = (\a|Selector0~2_combout\ & (\a|Selector0~3_combout\ $ (((\a|Selector0~4_combout\ & \a|estado.Abrindo~regout\))))) # (!\a|Selector0~2_combout\ & (\a|Selector0~4_combout\ & ((\a|estado.Abrindo~regout\))))
 
 -- pragma translate_off
 GENERIC MAP (
@@ -426,7 +426,7 @@ PORT MAP (
 	dataa => \a|Selector0~2_combout\,
 	datab => \a|Selector0~4_combout\,
 	datac => \a|Selector0~3_combout\,
-	datad => \a|estado.Fechando~regout\,
+	datad => \a|estado.Abrindo~regout\,
 	combout => \a|Selector1~0_combout\);
 
 -- Location: LCCOMB_X27_Y14_N10
@@ -459,7 +459,7 @@ PORT MAP (
 -- Location: LCCOMB_X27_Y14_N6
 \a|Selector0~0\ : cycloneii_lcell_comb
 -- Equation(s):
--- \a|Selector0~0_combout\ = (\SW~combout\(0) & (!\SW~combout\(2) & (\a|estado.Abrindo~regout\))) # (!\SW~combout\(0) & (\SW~combout\(2) & (!\a|estado.Abrindo~regout\ & !\a|estado.Fechado~regout\)))
+-- \a|Selector0~0_combout\ = (\SW~combout\(0) & (!\SW~combout\(2) & (\a|estado.Fechando~regout\))) # (!\SW~combout\(0) & (\SW~combout\(2) & (!\a|estado.Fechando~regout\ & !\a|estado.Fechado~regout\)))
 
 -- pragma translate_off
 GENERIC MAP (
@@ -469,7 +469,7 @@ GENERIC MAP (
 PORT MAP (
 	dataa => \SW~combout\(0),
 	datab => \SW~combout\(2),
-	datac => \a|estado.Abrindo~regout\,
+	datac => \a|estado.Fechando~regout\,
 	datad => \a|estado.Fechado~regout\,
 	combout => \a|Selector0~0_combout\);
 
@@ -509,7 +509,7 @@ PORT MAP (
 -- Location: LCCOMB_X27_Y14_N4
 \a|Selector3~3\ : cycloneii_lcell_comb
 -- Equation(s):
--- \a|Selector3~3_combout\ = (\a|Selector0~7_combout\ & (\a|Selector3~4_combout\ & (!\a|Selector0~6_combout\))) # (!\a|Selector0~7_combout\ & (((\a|estado.Abrindo~regout\))))
+-- \a|Selector3~3_combout\ = (\a|Selector0~7_combout\ & (\a|Selector3~4_combout\ & (!\a|Selector0~6_combout\))) # (!\a|Selector0~7_combout\ & (((\a|estado.Fechando~regout\))))
 
 -- pragma translate_off
 GENERIC MAP (
@@ -519,18 +519,18 @@ GENERIC MAP (
 PORT MAP (
 	dataa => \a|Selector3~4_combout\,
 	datab => \a|Selector0~6_combout\,
-	datac => \a|estado.Abrindo~regout\,
+	datac => \a|estado.Fechando~regout\,
 	datad => \a|Selector0~7_combout\,
 	combout => \a|Selector3~3_combout\);
 
 -- Location: LCFF_X27_Y14_N5
-\a|estado.Abrindo\ : cycloneii_lcell_ff
+\a|estado.Fechando\ : cycloneii_lcell_ff
 PORT MAP (
 	clk => \CLK~clkctrl_outclk\,
 	datain => \a|Selector3~3_combout\,
 	devclrn => ww_devclrn,
 	devpor => ww_devpor,
-	regout => \a|estado.Abrindo~regout\);
+	regout => \a|estado.Fechando~regout\);
 
 -- Location: LCCOMB_X27_Y14_N30
 \a|Selector0~5\ : cycloneii_lcell_comb
@@ -552,7 +552,7 @@ PORT MAP (
 -- Location: LCCOMB_X27_Y14_N26
 \a|Selector0~6\ : cycloneii_lcell_comb
 -- Equation(s):
--- \a|Selector0~6_combout\ = (!\SW~combout\(4) & (\a|estado.Abrindo~regout\ & \a|Selector0~5_combout\))
+-- \a|Selector0~6_combout\ = (!\SW~combout\(4) & (\a|estado.Fechando~regout\ & \a|Selector0~5_combout\))
 
 -- pragma translate_off
 GENERIC MAP (
@@ -561,15 +561,15 @@ GENERIC MAP (
 -- pragma translate_on
 PORT MAP (
 	dataa => \SW~combout\(4),
-	datab => \a|estado.Abrindo~regout\,
+	datab => \a|estado.Fechando~regout\,
 	datad => \a|Selector0~5_combout\,
 	combout => \a|Selector0~6_combout\);
 
 -- Location: LCCOMB_X27_Y14_N2
 \a|Selector1~1\ : cycloneii_lcell_comb
 -- Equation(s):
--- \a|Selector1~1_combout\ = (\a|Selector0~1_combout\ & ((\a|Selector0~6_combout\ & (\a|estado.Fechando~regout\ & !\a|Selector1~0_combout\)) # (!\a|Selector0~6_combout\ & ((\a|estado.Fechando~regout\) # (!\a|Selector1~0_combout\))))) # 
--- (!\a|Selector0~1_combout\ & (\a|estado.Fechando~regout\ & (\a|Selector0~6_combout\ $ (!\a|Selector1~0_combout\))))
+-- \a|Selector1~1_combout\ = (\a|Selector0~1_combout\ & ((\a|Selector0~6_combout\ & (\a|estado.Abrindo~regout\ & !\a|Selector1~0_combout\)) # (!\a|Selector0~6_combout\ & ((\a|estado.Abrindo~regout\) # (!\a|Selector1~0_combout\))))) # 
+-- (!\a|Selector0~1_combout\ & (\a|estado.Abrindo~regout\ & (\a|Selector0~6_combout\ $ (!\a|Selector1~0_combout\))))
 
 -- pragma translate_off
 GENERIC MAP (
@@ -579,24 +579,24 @@ GENERIC MAP (
 PORT MAP (
 	dataa => \a|Selector0~1_combout\,
 	datab => \a|Selector0~6_combout\,
-	datac => \a|estado.Fechando~regout\,
+	datac => \a|estado.Abrindo~regout\,
 	datad => \a|Selector1~0_combout\,
 	combout => \a|Selector1~1_combout\);
 
 -- Location: LCFF_X27_Y14_N3
-\a|estado.Fechando\ : cycloneii_lcell_ff
+\a|estado.Abrindo\ : cycloneii_lcell_ff
 PORT MAP (
 	clk => \CLK~clkctrl_outclk\,
 	datain => \a|Selector1~1_combout\,
 	devclrn => ww_devclrn,
 	devpor => ww_devpor,
-	regout => \a|estado.Fechando~regout\);
+	regout => \a|estado.Abrindo~regout\);
 
 -- Location: LCFF_X27_Y14_N27
 \a|tmpLedVerde\ : cycloneii_lcell_ff
 PORT MAP (
 	clk => \CLK~clkctrl_outclk\,
-	sdata => \a|estado.Fechando~regout\,
+	sdata => \a|estado.Abrindo~regout\,
 	sload => VCC,
 	devclrn => ww_devclrn,
 	devpor => ww_devpor,
@@ -606,7 +606,7 @@ PORT MAP (
 \a|tmpLedVermelho\ : cycloneii_lcell_ff
 PORT MAP (
 	clk => \CLK~clkctrl_outclk\,
-	sdata => \a|estado.Abrindo~regout\,
+	sdata => \a|estado.Fechando~regout\,
 	sload => VCC,
 	devclrn => ww_devclrn,
 	devpor => ww_devpor,

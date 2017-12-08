@@ -24,7 +24,7 @@
 (DELAYFILE
   (SDFVERSION "2.1")
   (DESIGN "maquina")
-  (DATE "12/07/2017 16:56:53")
+  (DATE "12/08/2017 11:48:37")
   (VENDOR "Altera")
   (PROGRAM "Quartus II 64-Bit")
   (VERSION "Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition")
@@ -334,7 +334,7 @@
   )
   (CELL
     (CELLTYPE "cycloneii_lcell_ff")
-    (INSTANCE \\a\|estado\.Abrindo\\)
+    (INSTANCE \\a\|estado\.Fechando\\)
     (DELAY
       (ABSOLUTE
         (PORT clk (1036:1036:1036) (1036:1036:1036))
@@ -393,7 +393,7 @@
   )
   (CELL
     (CELLTYPE "cycloneii_lcell_ff")
-    (INSTANCE \\a\|estado\.Fechando\\)
+    (INSTANCE \\a\|estado\.Abrindo\\)
     (DELAY
       (ABSOLUTE
         (PORT clk (1036:1036:1036) (1036:1036:1036))

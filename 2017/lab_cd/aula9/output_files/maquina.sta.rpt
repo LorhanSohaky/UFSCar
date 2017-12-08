@@ -1,5 +1,5 @@
 TimeQuest Timing Analyzer report for maquina
-Thu Dec 07 16:56:52 2017
+Fri Dec 08 11:48:36 2017
 Quartus II 64-Bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
 
 
@@ -157,28 +157,28 @@ No paths to report.
 +--------+---------------------------+---------------------------+--------------+-------------+--------------+------------+------------+
 ; -1.813 ; inicial:a|estado.Fechado  ; inicial:a|tmpDisplay[1]   ; CLK          ; CLK         ; 1.000        ; -0.008     ; 2.843      ;
 ; -1.810 ; inicial:a|estado.Fechado  ; inicial:a|tmpDisplay[2]   ; CLK          ; CLK         ; 1.000        ; -0.008     ; 2.840      ;
-; -1.637 ; inicial:a|estado.Abrindo  ; inicial:a|estado.Aberto   ; CLK          ; CLK         ; 1.000        ; 0.000      ; 2.675      ;
-; -1.636 ; inicial:a|estado.Abrindo  ; inicial:a|estado.Abrindo  ; CLK          ; CLK         ; 1.000        ; 0.000      ; 2.674      ;
-; -1.598 ; inicial:a|estado.Abrindo  ; inicial:a|estado.Fechado  ; CLK          ; CLK         ; 1.000        ; 0.000      ; 2.636      ;
-; -1.598 ; inicial:a|estado.Abrindo  ; inicial:a|estado.Fechando ; CLK          ; CLK         ; 1.000        ; 0.000      ; 2.636      ;
+; -1.637 ; inicial:a|estado.Fechando ; inicial:a|estado.Aberto   ; CLK          ; CLK         ; 1.000        ; 0.000      ; 2.675      ;
+; -1.636 ; inicial:a|estado.Fechando ; inicial:a|estado.Fechando ; CLK          ; CLK         ; 1.000        ; 0.000      ; 2.674      ;
+; -1.598 ; inicial:a|estado.Fechando ; inicial:a|estado.Fechado  ; CLK          ; CLK         ; 1.000        ; 0.000      ; 2.636      ;
+; -1.598 ; inicial:a|estado.Fechando ; inicial:a|estado.Abrindo  ; CLK          ; CLK         ; 1.000        ; 0.000      ; 2.636      ;
 ; -1.516 ; inicial:a|estado.Aberto   ; inicial:a|estado.Aberto   ; CLK          ; CLK         ; 1.000        ; 0.000      ; 2.554      ;
-; -1.515 ; inicial:a|estado.Aberto   ; inicial:a|estado.Abrindo  ; CLK          ; CLK         ; 1.000        ; 0.000      ; 2.553      ;
+; -1.515 ; inicial:a|estado.Aberto   ; inicial:a|estado.Fechando ; CLK          ; CLK         ; 1.000        ; 0.000      ; 2.553      ;
 ; -1.496 ; inicial:a|estado.Fechado  ; inicial:a|estado.Aberto   ; CLK          ; CLK         ; 1.000        ; 0.000      ; 2.534      ;
-; -1.495 ; inicial:a|estado.Fechado  ; inicial:a|estado.Abrindo  ; CLK          ; CLK         ; 1.000        ; 0.000      ; 2.533      ;
+; -1.495 ; inicial:a|estado.Fechado  ; inicial:a|estado.Fechando ; CLK          ; CLK         ; 1.000        ; 0.000      ; 2.533      ;
 ; -1.457 ; inicial:a|estado.Fechado  ; inicial:a|estado.Fechado  ; CLK          ; CLK         ; 1.000        ; 0.000      ; 2.495      ;
-; -1.457 ; inicial:a|estado.Fechado  ; inicial:a|estado.Fechando ; CLK          ; CLK         ; 1.000        ; 0.000      ; 2.495      ;
-; -1.255 ; inicial:a|estado.Fechando ; inicial:a|estado.Abrindo  ; CLK          ; CLK         ; 1.000        ; 0.000      ; 2.293      ;
-; -1.019 ; inicial:a|estado.Aberto   ; inicial:a|estado.Fechando ; CLK          ; CLK         ; 1.000        ; 0.000      ; 2.057      ;
+; -1.457 ; inicial:a|estado.Fechado  ; inicial:a|estado.Abrindo  ; CLK          ; CLK         ; 1.000        ; 0.000      ; 2.495      ;
+; -1.255 ; inicial:a|estado.Abrindo  ; inicial:a|estado.Fechando ; CLK          ; CLK         ; 1.000        ; 0.000      ; 2.293      ;
+; -1.019 ; inicial:a|estado.Aberto   ; inicial:a|estado.Abrindo  ; CLK          ; CLK         ; 1.000        ; 0.000      ; 2.057      ;
 ; -1.018 ; inicial:a|estado.Aberto   ; inicial:a|estado.Fechado  ; CLK          ; CLK         ; 1.000        ; 0.000      ; 2.056      ;
-; -0.926 ; inicial:a|estado.Fechando ; inicial:a|estado.Aberto   ; CLK          ; CLK         ; 1.000        ; 0.000      ; 1.964      ;
+; -0.926 ; inicial:a|estado.Abrindo  ; inicial:a|estado.Aberto   ; CLK          ; CLK         ; 1.000        ; 0.000      ; 1.964      ;
 ; -0.845 ; inicial:a|estado.Fechado  ; inicial:a|tmpDisplay[6]   ; CLK          ; CLK         ; 1.000        ; 0.001      ; 1.884      ;
 ; -0.663 ; inicial:a|estado.Aberto   ; inicial:a|tmpDisplay[6]   ; CLK          ; CLK         ; 1.000        ; 0.001      ; 1.702      ;
-; -0.429 ; inicial:a|estado.Fechando ; inicial:a|estado.Fechando ; CLK          ; CLK         ; 1.000        ; 0.000      ; 1.467      ;
-; -0.428 ; inicial:a|estado.Fechando ; inicial:a|estado.Fechado  ; CLK          ; CLK         ; 1.000        ; 0.000      ; 1.466      ;
+; -0.429 ; inicial:a|estado.Abrindo  ; inicial:a|estado.Abrindo  ; CLK          ; CLK         ; 1.000        ; 0.000      ; 1.467      ;
+; -0.428 ; inicial:a|estado.Abrindo  ; inicial:a|estado.Fechado  ; CLK          ; CLK         ; 1.000        ; 0.000      ; 1.466      ;
 ; -0.383 ; inicial:a|estado.Fechado  ; inicial:a|tmpDisplay[3]   ; CLK          ; CLK         ; 1.000        ; 0.001      ; 1.422      ;
-; -0.243 ; inicial:a|estado.Fechando ; inicial:a|tmpLedVerde     ; CLK          ; CLK         ; 1.000        ; 0.000      ; 1.281      ;
+; -0.243 ; inicial:a|estado.Abrindo  ; inicial:a|tmpLedVerde     ; CLK          ; CLK         ; 1.000        ; 0.000      ; 1.281      ;
 ; -0.201 ; inicial:a|estado.Aberto   ; inicial:a|tmpDisplay[3]   ; CLK          ; CLK         ; 1.000        ; 0.001      ; 1.240      ;
-; -0.022 ; inicial:a|estado.Abrindo  ; inicial:a|tmpLedVermelho  ; CLK          ; CLK         ; 1.000        ; 0.000      ; 1.060      ;
+; -0.022 ; inicial:a|estado.Fechando ; inicial:a|tmpLedVermelho  ; CLK          ; CLK         ; 1.000        ; 0.000      ; 1.060      ;
 +--------+---------------------------+---------------------------+--------------+-------------+--------------+------------+------------+
 
 
@@ -187,27 +187,27 @@ No paths to report.
 +-------+---------------------------+---------------------------+--------------+-------------+--------------+------------+------------+
 ; Slack ; From Node                 ; To Node                   ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
 +-------+---------------------------+---------------------------+--------------+-------------+--------------+------------+------------+
-; 0.445 ; inicial:a|estado.Abrindo  ; inicial:a|estado.Abrindo  ; CLK          ; CLK         ; 0.000        ; 0.000      ; 0.731      ;
+; 0.445 ; inicial:a|estado.Fechando ; inicial:a|estado.Fechando ; CLK          ; CLK         ; 0.000        ; 0.000      ; 0.731      ;
 ; 0.445 ; inicial:a|estado.Fechado  ; inicial:a|estado.Fechado  ; CLK          ; CLK         ; 0.000        ; 0.000      ; 0.731      ;
 ; 0.445 ; inicial:a|estado.Aberto   ; inicial:a|estado.Aberto   ; CLK          ; CLK         ; 0.000        ; 0.000      ; 0.731      ;
-; 0.445 ; inicial:a|estado.Fechando ; inicial:a|estado.Fechando ; CLK          ; CLK         ; 0.000        ; 0.000      ; 0.731      ;
-; 0.774 ; inicial:a|estado.Abrindo  ; inicial:a|tmpLedVermelho  ; CLK          ; CLK         ; 0.000        ; 0.000      ; 1.060      ;
+; 0.445 ; inicial:a|estado.Abrindo  ; inicial:a|estado.Abrindo  ; CLK          ; CLK         ; 0.000        ; 0.000      ; 0.731      ;
+; 0.774 ; inicial:a|estado.Fechando ; inicial:a|tmpLedVermelho  ; CLK          ; CLK         ; 0.000        ; 0.000      ; 1.060      ;
 ; 0.953 ; inicial:a|estado.Aberto   ; inicial:a|tmpDisplay[3]   ; CLK          ; CLK         ; 0.000        ; 0.001      ; 1.240      ;
-; 0.995 ; inicial:a|estado.Fechando ; inicial:a|tmpLedVerde     ; CLK          ; CLK         ; 0.000        ; 0.000      ; 1.281      ;
+; 0.995 ; inicial:a|estado.Abrindo  ; inicial:a|tmpLedVerde     ; CLK          ; CLK         ; 0.000        ; 0.000      ; 1.281      ;
 ; 1.135 ; inicial:a|estado.Fechado  ; inicial:a|tmpDisplay[3]   ; CLK          ; CLK         ; 0.000        ; 0.001      ; 1.422      ;
-; 1.180 ; inicial:a|estado.Fechando ; inicial:a|estado.Fechado  ; CLK          ; CLK         ; 0.000        ; 0.000      ; 1.466      ;
+; 1.180 ; inicial:a|estado.Abrindo  ; inicial:a|estado.Fechado  ; CLK          ; CLK         ; 0.000        ; 0.000      ; 1.466      ;
 ; 1.415 ; inicial:a|estado.Aberto   ; inicial:a|tmpDisplay[6]   ; CLK          ; CLK         ; 0.000        ; 0.001      ; 1.702      ;
-; 1.538 ; inicial:a|estado.Fechando ; inicial:a|estado.Aberto   ; CLK          ; CLK         ; 0.000        ; 0.000      ; 1.824      ;
+; 1.538 ; inicial:a|estado.Abrindo  ; inicial:a|estado.Aberto   ; CLK          ; CLK         ; 0.000        ; 0.000      ; 1.824      ;
 ; 1.597 ; inicial:a|estado.Fechado  ; inicial:a|tmpDisplay[6]   ; CLK          ; CLK         ; 0.000        ; 0.001      ; 1.884      ;
-; 1.677 ; inicial:a|estado.Fechando ; inicial:a|estado.Abrindo  ; CLK          ; CLK         ; 0.000        ; 0.000      ; 1.963      ;
+; 1.677 ; inicial:a|estado.Abrindo  ; inicial:a|estado.Fechando ; CLK          ; CLK         ; 0.000        ; 0.000      ; 1.963      ;
 ; 1.770 ; inicial:a|estado.Aberto   ; inicial:a|estado.Fechado  ; CLK          ; CLK         ; 0.000        ; 0.000      ; 2.056      ;
-; 1.771 ; inicial:a|estado.Aberto   ; inicial:a|estado.Fechando ; CLK          ; CLK         ; 0.000        ; 0.000      ; 2.057      ;
-; 1.800 ; inicial:a|estado.Abrindo  ; inicial:a|estado.Fechado  ; CLK          ; CLK         ; 0.000        ; 0.000      ; 2.086      ;
-; 1.802 ; inicial:a|estado.Abrindo  ; inicial:a|estado.Aberto   ; CLK          ; CLK         ; 0.000        ; 0.000      ; 2.088      ;
-; 1.802 ; inicial:a|estado.Abrindo  ; inicial:a|estado.Fechando ; CLK          ; CLK         ; 0.000        ; 0.000      ; 2.088      ;
-; 1.849 ; inicial:a|estado.Aberto   ; inicial:a|estado.Abrindo  ; CLK          ; CLK         ; 0.000        ; 0.000      ; 2.135      ;
-; 2.209 ; inicial:a|estado.Fechado  ; inicial:a|estado.Fechando ; CLK          ; CLK         ; 0.000        ; 0.000      ; 2.495      ;
-; 2.247 ; inicial:a|estado.Fechado  ; inicial:a|estado.Abrindo  ; CLK          ; CLK         ; 0.000        ; 0.000      ; 2.533      ;
+; 1.771 ; inicial:a|estado.Aberto   ; inicial:a|estado.Abrindo  ; CLK          ; CLK         ; 0.000        ; 0.000      ; 2.057      ;
+; 1.800 ; inicial:a|estado.Fechando ; inicial:a|estado.Fechado  ; CLK          ; CLK         ; 0.000        ; 0.000      ; 2.086      ;
+; 1.802 ; inicial:a|estado.Fechando ; inicial:a|estado.Aberto   ; CLK          ; CLK         ; 0.000        ; 0.000      ; 2.088      ;
+; 1.802 ; inicial:a|estado.Fechando ; inicial:a|estado.Abrindo  ; CLK          ; CLK         ; 0.000        ; 0.000      ; 2.088      ;
+; 1.849 ; inicial:a|estado.Aberto   ; inicial:a|estado.Fechando ; CLK          ; CLK         ; 0.000        ; 0.000      ; 2.135      ;
+; 2.209 ; inicial:a|estado.Fechado  ; inicial:a|estado.Abrindo  ; CLK          ; CLK         ; 0.000        ; 0.000      ; 2.495      ;
+; 2.247 ; inicial:a|estado.Fechado  ; inicial:a|estado.Fechando ; CLK          ; CLK         ; 0.000        ; 0.000      ; 2.533      ;
 ; 2.248 ; inicial:a|estado.Fechado  ; inicial:a|estado.Aberto   ; CLK          ; CLK         ; 0.000        ; 0.000      ; 2.534      ;
 ; 2.562 ; inicial:a|estado.Fechado  ; inicial:a|tmpDisplay[2]   ; CLK          ; CLK         ; 0.000        ; -0.008     ; 2.840      ;
 ; 2.565 ; inicial:a|estado.Fechado  ; inicial:a|tmpDisplay[1]   ; CLK          ; CLK         ; 0.000        ; -0.008     ; 2.843      ;
@@ -377,28 +377,28 @@ No paths to report.
 +--------+---------------------------+---------------------------+--------------+-------------+--------------+------------+------------+
 ; -0.160 ; inicial:a|estado.Fechado  ; inicial:a|tmpDisplay[1]   ; CLK          ; CLK         ; 1.000        ; -0.009     ; 1.183      ;
 ; -0.157 ; inicial:a|estado.Fechado  ; inicial:a|tmpDisplay[2]   ; CLK          ; CLK         ; 1.000        ; -0.009     ; 1.180      ;
-; 0.015  ; inicial:a|estado.Abrindo  ; inicial:a|estado.Abrindo  ; CLK          ; CLK         ; 1.000        ; 0.000      ; 1.017      ;
-; 0.015  ; inicial:a|estado.Abrindo  ; inicial:a|estado.Aberto   ; CLK          ; CLK         ; 1.000        ; 0.000      ; 1.017      ;
-; 0.040  ; inicial:a|estado.Abrindo  ; inicial:a|estado.Fechado  ; CLK          ; CLK         ; 1.000        ; 0.000      ; 0.992      ;
-; 0.040  ; inicial:a|estado.Abrindo  ; inicial:a|estado.Fechando ; CLK          ; CLK         ; 1.000        ; 0.000      ; 0.992      ;
-; 0.051  ; inicial:a|estado.Aberto   ; inicial:a|estado.Abrindo  ; CLK          ; CLK         ; 1.000        ; 0.000      ; 0.981      ;
+; 0.015  ; inicial:a|estado.Fechando ; inicial:a|estado.Fechando ; CLK          ; CLK         ; 1.000        ; 0.000      ; 1.017      ;
+; 0.015  ; inicial:a|estado.Fechando ; inicial:a|estado.Aberto   ; CLK          ; CLK         ; 1.000        ; 0.000      ; 1.017      ;
+; 0.040  ; inicial:a|estado.Fechando ; inicial:a|estado.Fechado  ; CLK          ; CLK         ; 1.000        ; 0.000      ; 0.992      ;
+; 0.040  ; inicial:a|estado.Fechando ; inicial:a|estado.Abrindo  ; CLK          ; CLK         ; 1.000        ; 0.000      ; 0.992      ;
+; 0.051  ; inicial:a|estado.Aberto   ; inicial:a|estado.Fechando ; CLK          ; CLK         ; 1.000        ; 0.000      ; 0.981      ;
 ; 0.051  ; inicial:a|estado.Aberto   ; inicial:a|estado.Aberto   ; CLK          ; CLK         ; 1.000        ; 0.000      ; 0.981      ;
-; 0.065  ; inicial:a|estado.Fechado  ; inicial:a|estado.Abrindo  ; CLK          ; CLK         ; 1.000        ; 0.000      ; 0.967      ;
+; 0.065  ; inicial:a|estado.Fechado  ; inicial:a|estado.Fechando ; CLK          ; CLK         ; 1.000        ; 0.000      ; 0.967      ;
 ; 0.065  ; inicial:a|estado.Fechado  ; inicial:a|estado.Aberto   ; CLK          ; CLK         ; 1.000        ; 0.000      ; 0.967      ;
 ; 0.090  ; inicial:a|estado.Fechado  ; inicial:a|estado.Fechado  ; CLK          ; CLK         ; 1.000        ; 0.000      ; 0.942      ;
-; 0.090  ; inicial:a|estado.Fechado  ; inicial:a|estado.Fechando ; CLK          ; CLK         ; 1.000        ; 0.000      ; 0.942      ;
-; 0.142  ; inicial:a|estado.Fechando ; inicial:a|estado.Abrindo  ; CLK          ; CLK         ; 1.000        ; 0.000      ; 0.890      ;
-; 0.229  ; inicial:a|estado.Aberto   ; inicial:a|estado.Fechando ; CLK          ; CLK         ; 1.000        ; 0.000      ; 0.803      ;
+; 0.090  ; inicial:a|estado.Fechado  ; inicial:a|estado.Abrindo  ; CLK          ; CLK         ; 1.000        ; 0.000      ; 0.942      ;
+; 0.142  ; inicial:a|estado.Abrindo  ; inicial:a|estado.Fechando ; CLK          ; CLK         ; 1.000        ; 0.000      ; 0.890      ;
+; 0.229  ; inicial:a|estado.Aberto   ; inicial:a|estado.Abrindo  ; CLK          ; CLK         ; 1.000        ; 0.000      ; 0.803      ;
 ; 0.230  ; inicial:a|estado.Aberto   ; inicial:a|estado.Fechado  ; CLK          ; CLK         ; 1.000        ; 0.000      ; 0.802      ;
-; 0.247  ; inicial:a|estado.Fechando ; inicial:a|estado.Aberto   ; CLK          ; CLK         ; 1.000        ; 0.000      ; 0.785      ;
+; 0.247  ; inicial:a|estado.Abrindo  ; inicial:a|estado.Aberto   ; CLK          ; CLK         ; 1.000        ; 0.000      ; 0.785      ;
 ; 0.256  ; inicial:a|estado.Fechado  ; inicial:a|tmpDisplay[6]   ; CLK          ; CLK         ; 1.000        ; 0.000      ; 0.776      ;
 ; 0.328  ; inicial:a|estado.Aberto   ; inicial:a|tmpDisplay[6]   ; CLK          ; CLK         ; 1.000        ; 0.000      ; 0.704      ;
-; 0.425  ; inicial:a|estado.Fechando ; inicial:a|estado.Fechando ; CLK          ; CLK         ; 1.000        ; 0.000      ; 0.607      ;
-; 0.426  ; inicial:a|estado.Fechando ; inicial:a|estado.Fechado  ; CLK          ; CLK         ; 1.000        ; 0.000      ; 0.606      ;
+; 0.425  ; inicial:a|estado.Abrindo  ; inicial:a|estado.Abrindo  ; CLK          ; CLK         ; 1.000        ; 0.000      ; 0.607      ;
+; 0.426  ; inicial:a|estado.Abrindo  ; inicial:a|estado.Fechado  ; CLK          ; CLK         ; 1.000        ; 0.000      ; 0.606      ;
 ; 0.437  ; inicial:a|estado.Fechado  ; inicial:a|tmpDisplay[3]   ; CLK          ; CLK         ; 1.000        ; 0.000      ; 0.595      ;
-; 0.472  ; inicial:a|estado.Fechando ; inicial:a|tmpLedVerde     ; CLK          ; CLK         ; 1.000        ; 0.000      ; 0.560      ;
+; 0.472  ; inicial:a|estado.Abrindo  ; inicial:a|tmpLedVerde     ; CLK          ; CLK         ; 1.000        ; 0.000      ; 0.560      ;
 ; 0.509  ; inicial:a|estado.Aberto   ; inicial:a|tmpDisplay[3]   ; CLK          ; CLK         ; 1.000        ; 0.000      ; 0.523      ;
-; 0.551  ; inicial:a|estado.Abrindo  ; inicial:a|tmpLedVermelho  ; CLK          ; CLK         ; 1.000        ; 0.000      ; 0.481      ;
+; 0.551  ; inicial:a|estado.Fechando ; inicial:a|tmpLedVermelho  ; CLK          ; CLK         ; 1.000        ; 0.000      ; 0.481      ;
 +--------+---------------------------+---------------------------+--------------+-------------+--------------+------------+------------+
 
 
@@ -407,27 +407,27 @@ No paths to report.
 +-------+---------------------------+---------------------------+--------------+-------------+--------------+------------+------------+
 ; Slack ; From Node                 ; To Node                   ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
 +-------+---------------------------+---------------------------+--------------+-------------+--------------+------------+------------+
-; 0.215 ; inicial:a|estado.Abrindo  ; inicial:a|estado.Abrindo  ; CLK          ; CLK         ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215 ; inicial:a|estado.Fechando ; inicial:a|estado.Fechando ; CLK          ; CLK         ; 0.000        ; 0.000      ; 0.367      ;
 ; 0.215 ; inicial:a|estado.Fechado  ; inicial:a|estado.Fechado  ; CLK          ; CLK         ; 0.000        ; 0.000      ; 0.367      ;
 ; 0.215 ; inicial:a|estado.Aberto   ; inicial:a|estado.Aberto   ; CLK          ; CLK         ; 0.000        ; 0.000      ; 0.367      ;
-; 0.215 ; inicial:a|estado.Fechando ; inicial:a|estado.Fechando ; CLK          ; CLK         ; 0.000        ; 0.000      ; 0.367      ;
-; 0.329 ; inicial:a|estado.Abrindo  ; inicial:a|tmpLedVermelho  ; CLK          ; CLK         ; 0.000        ; 0.000      ; 0.481      ;
+; 0.215 ; inicial:a|estado.Abrindo  ; inicial:a|estado.Abrindo  ; CLK          ; CLK         ; 0.000        ; 0.000      ; 0.367      ;
+; 0.329 ; inicial:a|estado.Fechando ; inicial:a|tmpLedVermelho  ; CLK          ; CLK         ; 0.000        ; 0.000      ; 0.481      ;
 ; 0.371 ; inicial:a|estado.Aberto   ; inicial:a|tmpDisplay[3]   ; CLK          ; CLK         ; 0.000        ; 0.000      ; 0.523      ;
-; 0.408 ; inicial:a|estado.Fechando ; inicial:a|tmpLedVerde     ; CLK          ; CLK         ; 0.000        ; 0.000      ; 0.560      ;
+; 0.408 ; inicial:a|estado.Abrindo  ; inicial:a|tmpLedVerde     ; CLK          ; CLK         ; 0.000        ; 0.000      ; 0.560      ;
 ; 0.443 ; inicial:a|estado.Fechado  ; inicial:a|tmpDisplay[3]   ; CLK          ; CLK         ; 0.000        ; 0.000      ; 0.595      ;
-; 0.454 ; inicial:a|estado.Fechando ; inicial:a|estado.Fechado  ; CLK          ; CLK         ; 0.000        ; 0.000      ; 0.606      ;
+; 0.454 ; inicial:a|estado.Abrindo  ; inicial:a|estado.Fechado  ; CLK          ; CLK         ; 0.000        ; 0.000      ; 0.606      ;
 ; 0.552 ; inicial:a|estado.Aberto   ; inicial:a|tmpDisplay[6]   ; CLK          ; CLK         ; 0.000        ; 0.000      ; 0.704      ;
-; 0.573 ; inicial:a|estado.Fechando ; inicial:a|estado.Aberto   ; CLK          ; CLK         ; 0.000        ; 0.000      ; 0.725      ;
+; 0.573 ; inicial:a|estado.Abrindo  ; inicial:a|estado.Aberto   ; CLK          ; CLK         ; 0.000        ; 0.000      ; 0.725      ;
 ; 0.624 ; inicial:a|estado.Fechado  ; inicial:a|tmpDisplay[6]   ; CLK          ; CLK         ; 0.000        ; 0.000      ; 0.776      ;
-; 0.633 ; inicial:a|estado.Fechando ; inicial:a|estado.Abrindo  ; CLK          ; CLK         ; 0.000        ; 0.000      ; 0.785      ;
+; 0.633 ; inicial:a|estado.Abrindo  ; inicial:a|estado.Fechando ; CLK          ; CLK         ; 0.000        ; 0.000      ; 0.785      ;
 ; 0.650 ; inicial:a|estado.Aberto   ; inicial:a|estado.Fechado  ; CLK          ; CLK         ; 0.000        ; 0.000      ; 0.802      ;
-; 0.651 ; inicial:a|estado.Aberto   ; inicial:a|estado.Fechando ; CLK          ; CLK         ; 0.000        ; 0.000      ; 0.803      ;
-; 0.673 ; inicial:a|estado.Aberto   ; inicial:a|estado.Abrindo  ; CLK          ; CLK         ; 0.000        ; 0.000      ; 0.825      ;
-; 0.677 ; inicial:a|estado.Abrindo  ; inicial:a|estado.Fechado  ; CLK          ; CLK         ; 0.000        ; 0.000      ; 0.829      ;
-; 0.681 ; inicial:a|estado.Abrindo  ; inicial:a|estado.Aberto   ; CLK          ; CLK         ; 0.000        ; 0.000      ; 0.833      ;
-; 0.681 ; inicial:a|estado.Abrindo  ; inicial:a|estado.Fechando ; CLK          ; CLK         ; 0.000        ; 0.000      ; 0.833      ;
-; 0.790 ; inicial:a|estado.Fechado  ; inicial:a|estado.Fechando ; CLK          ; CLK         ; 0.000        ; 0.000      ; 0.942      ;
-; 0.815 ; inicial:a|estado.Fechado  ; inicial:a|estado.Abrindo  ; CLK          ; CLK         ; 0.000        ; 0.000      ; 0.967      ;
+; 0.651 ; inicial:a|estado.Aberto   ; inicial:a|estado.Abrindo  ; CLK          ; CLK         ; 0.000        ; 0.000      ; 0.803      ;
+; 0.673 ; inicial:a|estado.Aberto   ; inicial:a|estado.Fechando ; CLK          ; CLK         ; 0.000        ; 0.000      ; 0.825      ;
+; 0.677 ; inicial:a|estado.Fechando ; inicial:a|estado.Fechado  ; CLK          ; CLK         ; 0.000        ; 0.000      ; 0.829      ;
+; 0.681 ; inicial:a|estado.Fechando ; inicial:a|estado.Aberto   ; CLK          ; CLK         ; 0.000        ; 0.000      ; 0.833      ;
+; 0.681 ; inicial:a|estado.Fechando ; inicial:a|estado.Abrindo  ; CLK          ; CLK         ; 0.000        ; 0.000      ; 0.833      ;
+; 0.790 ; inicial:a|estado.Fechado  ; inicial:a|estado.Abrindo  ; CLK          ; CLK         ; 0.000        ; 0.000      ; 0.942      ;
+; 0.815 ; inicial:a|estado.Fechado  ; inicial:a|estado.Fechando ; CLK          ; CLK         ; 0.000        ; 0.000      ; 0.967      ;
 ; 0.815 ; inicial:a|estado.Fechado  ; inicial:a|estado.Aberto   ; CLK          ; CLK         ; 0.000        ; 0.000      ; 0.967      ;
 ; 1.037 ; inicial:a|estado.Fechado  ; inicial:a|tmpDisplay[2]   ; CLK          ; CLK         ; 0.000        ; -0.009     ; 1.180      ;
 ; 1.040 ; inicial:a|estado.Fechado  ; inicial:a|tmpDisplay[1]   ; CLK          ; CLK         ; 0.000        ; -0.009     ; 1.183      ;
@@ -677,7 +677,7 @@ No dedicated SERDES Receiver circuitry present in device or used in design
 Info: *******************************************************************
 Info: Running Quartus II 64-Bit TimeQuest Timing Analyzer
     Info: Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
-    Info: Processing started: Thu Dec 07 16:56:51 2017
+    Info: Processing started: Fri Dec 08 11:48:35 2017
 Info: Command: quartus_sta maquina -c maquina
 Info: qsta_default_script.tcl version: #1
 Warning (20028): Parallel compilation is not licensed and has been disabled
@@ -726,7 +726,7 @@ Info (332102): Design is not fully constrained for setup requirements
 Info (332102): Design is not fully constrained for hold requirements
 Info: Quartus II 64-Bit TimeQuest Timing Analyzer was successful. 0 errors, 4 warnings
     Info: Peak virtual memory: 399 megabytes
-    Info: Processing ended: Thu Dec 07 16:56:52 2017
+    Info: Processing ended: Fri Dec 08 11:48:36 2017
     Info: Elapsed time: 00:00:01
     Info: Total CPU time (on all processors): 00:00:01
 

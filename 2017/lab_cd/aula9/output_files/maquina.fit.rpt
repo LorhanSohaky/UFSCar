@@ -1,5 +1,5 @@
 Fitter report for maquina
-Thu Dec 07 16:56:48 2017
+Fri Dec 08 11:48:33 2017
 Quartus II 64-Bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
 
 
@@ -63,7 +63,7 @@ applicable agreement for further details.
 +--------------------------------------------------------------------------------------+
 ; Fitter Summary                                                                       ;
 +------------------------------------+-------------------------------------------------+
-; Fitter Status                      ; Successful - Thu Dec 07 16:56:48 2017           ;
+; Fitter Status                      ; Successful - Fri Dec 08 11:48:33 2017           ;
 ; Quartus II 64-Bit Version          ; 13.0.1 Build 232 06/12/2013 SP 1 SJ Web Edition ;
 ; Revision Name                      ; maquina                                         ;
 ; Top-level Entity Name              ; maquina                                         ;
@@ -1227,13 +1227,13 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; SW[4]                      ; 6       ;
 ; inicial:a|Selector0~6      ; 5       ;
 ; inicial:a|estado.Fechado   ; 5       ;
-; inicial:a|estado.Fechando  ; 5       ;
+; inicial:a|estado.Abrindo   ; 5       ;
 ; SW[3]                      ; 4       ;
 ; SW[2]                      ; 4       ;
 ; SW[0]                      ; 4       ;
 ; SW[1]                      ; 4       ;
 ; inicial:a|estado.Aberto    ; 4       ;
-; inicial:a|estado.Abrindo   ; 4       ;
+; inicial:a|estado.Fechando  ; 4       ;
 ; inicial:a|Selector1~0      ; 3       ;
 ; inicial:a|Selector0~4      ; 3       ;
 ; inicial:a|Selector0~1      ; 3       ;
@@ -1692,7 +1692,7 @@ Warning (15705): Ignored locations or region assignments to the following nodes
     Warning (15706): Node "VGA_R[2]" is assigned to location or region, but does not exist in design
     Warning (15706): Node "VGA_R[3]" is assigned to location or region, but does not exist in design
     Warning (15706): Node "VGA_VS" is assigned to location or region, but does not exist in design
-Info (171121): Fitter preparation operations ending: elapsed time is 00:00:01
+Info (171121): Fitter preparation operations ending: elapsed time is 00:00:00
 Info (170189): Fitter placement preparation operations beginning
 Info (170190): Fitter placement preparation operations ending: elapsed time is 00:00:00
 Info (170191): Fitter placement operations beginning
@@ -1704,7 +1704,7 @@ Info (170195): Router estimated average interconnect usage is 0% of the availabl
 Info (170194): Fitter routing operations ending: elapsed time is 00:00:00
 Info (170199): The Fitter performed an Auto Fit compilation.  Optimizations were skipped to reduce compilation time.
     Info (170201): Optimizations that may affect the design's routability were skipped
-Info (11888): Total time spent on timing analysis during the Fitter is 0.06 seconds.
+Info (11888): Total time spent on timing analysis during the Fitter is 0.09 seconds.
 Info (306004): Started post-fitting delay annotation
 Warning (306006): Found 9 output pins without output pin load capacitance assignment
     Info (306007): Pin "LEDG[0]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
@@ -1719,13 +1719,13 @@ Warning (306006): Found 9 output pins without output pin load capacitance assign
 Info (306005): Delay annotation completed successfully
 Info (306004): Started post-fitting delay annotation
 Info (306005): Delay annotation completed successfully
-Info (11218): Fitter post-fit operations ending: elapsed time is 00:00:00
+Info (11218): Fitter post-fit operations ending: elapsed time is 00:00:01
 Warning (171167): Found invalid Fitter assignments. See the Ignored Assignments panel in the Fitter Compilation Report for more information.
 Warning (169174): The Reserve All Unused Pins setting has not been specified, and will default to 'As output driving ground'.
 Info (144001): Generated suppressed messages file C:/altera/13.0sp1/aula9/output_files/maquina.fit.smsg
 Info: Quartus II 64-Bit Fitter was successful. 0 errors, 273 warnings
     Info: Peak virtual memory: 633 megabytes
-    Info: Processing ended: Thu Dec 07 16:56:49 2017
+    Info: Processing ended: Fri Dec 08 11:48:33 2017
     Info: Elapsed time: 00:00:03
     Info: Total CPU time (on all processors): 00:00:03
 
