@@ -1,0 +1,67 @@
+m255
+K3
+13
+cModel Technology
+Z0 dC:\altera\13.0sp1\circuitoAdicional\simulation\modelsim
+vcircuitoAdicional
+I6BkXbZ9`C0e]1>JJJUV_h0
+Vo?j2z[]F7?j4<:h6Se;:[3
+Z1 dC:\altera\13.0sp1\circuitoAdicional\simulation\modelsim
+Z2 w1512751167
+Z3 8C:/altera/13.0sp1/circuitoAdicional/circuitoAdicional.v
+Z4 FC:/altera/13.0sp1/circuitoAdicional/circuitoAdicional.v
+L0 39
+Z5 OV;L;10.1d;51
+r1
+31
+Z6 !s108 1512754620.749000
+Z7 !s107 C:/altera/13.0sp1/circuitoAdicional/circuitoAdicional.v|
+Z8 !s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/altera/13.0sp1/circuitoAdicional|C:/altera/13.0sp1/circuitoAdicional/circuitoAdicional.v|
+Z9 o-vlog01compat -work work -O0
+Z10 !s92 -vlog01compat -work work +incdir+C:/altera/13.0sp1/circuitoAdicional -O0
+ncircuito@adicional
+!i10b 1
+!s100 E9^Ae?FcQGVII`aYCiJFk2
+!s85 0
+!s101 -O0
+vcircuitoAdicional_TB
+!i10b 1
+!s100 iAzab2P1KbOHFmP`l596^0
+IYgYA9f<>a9E?M@^I_I<d61
+VPh_Sooc=6:3@<Rh`k`;D22
+R1
+w1512754294
+8C:/altera/13.0sp1/circuitoAdicional/circuitoAdicional_TB.v
+FC:/altera/13.0sp1/circuitoAdicional/circuitoAdicional_TB.v
+L0 1
+R5
+r1
+!s85 0
+31
+!s108 1512754621.129000
+!s107 C:/altera/13.0sp1/circuitoAdicional/circuitoAdicional_TB.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/altera/13.0sp1/circuitoAdicional|C:/altera/13.0sp1/circuitoAdicional/circuitoAdicional_TB.v|
+!s101 -O0
+R9
+R10
+ncircuito@adicional_@t@b
+vinicial
+IhC6CeS?4mhCdh6;5<?o842
+Vankj7z;856G[>5LZ`W1:Q2
+R1
+R2
+R3
+R4
+L0 1
+R5
+r1
+31
+R6
+R7
+R8
+R9
+R10
+!i10b 1
+!s100 P=<=Y@ejY7OzG8b8jfKgQ2
+!s85 0
+!s101 -O0

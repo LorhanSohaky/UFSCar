@@ -1,0 +1,47 @@
+# Reading C:/altera/13.0sp1/modelsim_ase/tcl/vsim/pref.tcl 
+# do circuitoAdicional_run_msim_rtl_verilog.do 
+# if {[file exists rtl_work]} {
+# 	vdel -lib rtl_work -all
+# }
+# vlib rtl_work
+# vmap work rtl_work
+# Copying C:\altera\13.0sp1\modelsim_ase\win32aloem/../modelsim.ini to modelsim.ini
+# Modifying modelsim.ini
+# ** Warning: Copied C:\altera\13.0sp1\modelsim_ase\win32aloem/../modelsim.ini to modelsim.ini.
+#          Updated modelsim.ini.
+# 
+# vlog -vlog01compat -work work +incdir+C:/altera/13.0sp1/circuitoAdicional {C:/altera/13.0sp1/circuitoAdicional/circuitoAdicional.v}
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module inicial
+# -- Compiling module circuitoAdicional
+# 
+# Top level modules:
+# 	circuitoAdicional
+# 
+# vlog -vlog01compat -work work +incdir+C:/altera/13.0sp1/circuitoAdicional {C:/altera/13.0sp1/circuitoAdicional/circuitoAdicional_TB.v}
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module circuitoAdicional_TB
+# 
+# Top level modules:
+# 	circuitoAdicional_TB
+# 
+# vsim -t 1ps -L altera_ver -L lpm_ver -L sgate_ver -L altera_mf_ver -L altera_lnsim_ver -L cycloneii_ver -L rtl_work -L work -voptargs="+acc"  circuitoAdicional_TB
+# vsim -L altera_ver -L lpm_ver -L sgate_ver -L altera_mf_ver -L altera_lnsim_ver -L cycloneii_ver -L rtl_work -L work -voptargs=\"+acc\" -t 1ps circuitoAdicional_TB 
+# Loading work.circuitoAdicional_TB
+# Loading work.inicial
+# 
+# add wave *
+# view structure
+# .main_pane.structure.interior.cs.body.struct
+# view signals
+# .main_pane.objects.interior.cs.body.tree
+# run -all
+# 	Sistema Porta
+# 
+# Estado | Entrada | LG | LR
+# --------------------------
+#    A   |    0    |  1 |  0 
+#    B   |    1    |  0 |  1 
+#    A   |    1    |  1 |  0 
+# Break key hit 
+# Simulation stop requested.

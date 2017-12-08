@@ -1,0 +1,17 @@
+|circuitoAdicional
+KEY[0] => KEY[0].IN1
+LEDG[0] <= inicial:i.port1
+LEDR[0] <= inicial:i.port2
+CLK => CLK.IN1
+
+
+|circuitoAdicional|inicial:i
+botao => estado.OUTPUTSELECT
+botao => estado.OUTPUTSELECT
+ledVerde <= tmpLedVerde.DB_MAX_OUTPUT_PORT_TYPE
+ledVermelho <= tmpLedVermelho.DB_MAX_OUTPUT_PORT_TYPE
+clock => estado.CLK
+clock => tmpLedVermelho.CLK
+clock => tmpLedVerde.CLK
+
+
