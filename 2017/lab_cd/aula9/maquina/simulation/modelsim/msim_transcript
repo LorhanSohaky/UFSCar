@@ -10,7 +10,7 @@
 # ** Warning: Copied C:\altera\13.0sp1\modelsim_ase\win32aloem/../modelsim.ini to modelsim.ini.
 #          Updated modelsim.ini.
 # 
-# vlog -vlog01compat -work work +incdir+C:/altera/13.0sp1/aula9 {C:/altera/13.0sp1/aula9/maquina.v}
+# vlog -vlog01compat -work work +incdir+C:/altera/13.0sp1/aula9/maquina {C:/altera/13.0sp1/aula9/maquina/maquina.v}
 # Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
 # -- Compiling module inicial
 # -- Compiling module maquina
@@ -18,7 +18,7 @@
 # Top level modules:
 # 	maquina
 # 
-# vlog -vlog01compat -work work +incdir+C:/altera/13.0sp1/aula9 {C:/altera/13.0sp1/aula9/maquina_TB.v}
+# vlog -vlog01compat -work work +incdir+C:/altera/13.0sp1/aula9/maquina {C:/altera/13.0sp1/aula9/maquina/maquina_TB.v}
 # Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
 # -- Compiling module maquina_TB
 # 
@@ -35,10 +35,10 @@
 # 
 #           File in use by: Lorhan Kondo  Hostname: DESKTOP-4R8U9HV  ProcessID: 2392
 # 
-#           Attempting to use alternate WLF file "./wlft4fbkw0".
+#           Attempting to use alternate WLF file "./wlft8za32x".
 # ** Warning: (vsim-WLF-5001) Could not open WLF file: vsim.wlf
 # 
-#           Using alternate file: ./wlft4fbkw0
+#           Using alternate file: ./wlft8za32x
 # 
 # view structure
 # .main_pane.structure.interior.cs.body.struct
@@ -47,12 +47,10 @@
 # run -all
 # 	Sistema Porta
 # 
-# Estado | Entrada | LG | LR | HEX
-# -------------------
-#  Fechado |  00000 |  0 |  0 |  F
-#  Abrindo |  10110 |  1 |  0 |  O
-#   Aberto |  10010 |  0 |  0 |  A
-# Fechando |  01011 |  0 |  1 |  O
-#  Fechado |  00011 |  0 |  0 |  F
-# Break key hit 
-# Break in Module maquina_TB in file C:/altera/13.0sp1/aula9/maquina_TB.v
+#  Estado  | Entrada | LG | LR | HEX
+# ----------------------------------
+#  Fechado |  00000  |  0 |  0 |  F
+#  Abrindo |  10110  |  1 |  0 |  O
+#   Aberto |  10010  |  0 |  0 |  A
+# Fechando |  01011  |  0 |  1 |  O
+#  Fechado |  00011  |  0 |  0 |  F

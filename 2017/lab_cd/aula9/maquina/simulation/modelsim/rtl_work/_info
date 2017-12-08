@@ -2,29 +2,29 @@ m255
 K3
 13
 cModel Technology
-Z0 dC:\altera\13.0sp1\aula9\simulation\modelsim
+Z0 dC:\altera\13.0sp1\aula9\maquina\simulation\modelsim
 vinicial
-I1OoPN=W6j=kbn[IJliFgK3
+I`eFlHYWfYUb]JN658j0CV3
 Vc4`TF88g0f0VIDLgNHIRl0
-Z1 dC:\altera\13.0sp1\aula9\simulation\modelsim
-Z2 w1512741872
-Z3 8C:/altera/13.0sp1/aula9/maquina.v
-Z4 FC:/altera/13.0sp1/aula9/maquina.v
+Z1 dC:\altera\13.0sp1\aula9\maquina\simulation\modelsim
+Z2 w1512749673
+Z3 8C:/altera/13.0sp1/aula9/maquina/maquina.v
+Z4 FC:/altera/13.0sp1/aula9/maquina/maquina.v
 L0 1
 Z5 OV;L;10.1d;51
 r1
 31
-Z6 !s108 1512741977.547000
-Z7 !s107 C:/altera/13.0sp1/aula9/maquina.v|
-Z8 !s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/altera/13.0sp1/aula9|C:/altera/13.0sp1/aula9/maquina.v|
+Z6 !s108 1512757074.602000
+Z7 !s107 C:/altera/13.0sp1/aula9/maquina/maquina.v|
+Z8 !s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/altera/13.0sp1/aula9/maquina|C:/altera/13.0sp1/aula9/maquina/maquina.v|
 Z9 o-vlog01compat -work work -O0
-Z10 !s92 -vlog01compat -work work +incdir+C:/altera/13.0sp1/aula9 -O0
+Z10 !s92 -vlog01compat -work work +incdir+C:/altera/13.0sp1/aula9/maquina -O0
 !i10b 1
-!s100 GzeJXUcC6l[dMh;`P7n[F1
+!s100 l3QE>D4i8Cia2C_m=aMiY2
 !s85 0
 !s101 -O0
 vmaquina
-IW=9_T_D[Z4zN7fi4?3`7O2
+IzGKMYLCk;WA;O42?AH=_R3
 VR=F8M8<jO8bzba1<JKZZV2
 R1
 R2
@@ -40,26 +40,26 @@ R8
 R9
 R10
 !i10b 1
-!s100 ^Q3>QA;cQD43EY3HOemE73
+!s100 TOdPehDNYV<lL[c`djFe;2
 !s85 0
 !s101 -O0
 vmaquina_TB
 !i10b 1
-!s100 9dQGlKaSA4bbj[R:V2JnF3
-IW[d6UDD7@Sj8YP3D@YOj13
+!s100 YSHW=33?A4Vm5SnkIAFbJ2
+IbLNnZoIl:c:@LB@G>_LfJ1
 VgedBmR9Qb2MH==PWPnMfJ3
 R1
-w1512741900
-8C:/altera/13.0sp1/aula9/maquina_TB.v
-FC:/altera/13.0sp1/aula9/maquina_TB.v
+w1512756947
+8C:/altera/13.0sp1/aula9/maquina/maquina_TB.v
+FC:/altera/13.0sp1/aula9/maquina/maquina_TB.v
 L0 1
 R5
 r1
 !s85 0
 31
-!s108 1512741977.844000
-!s107 C:/altera/13.0sp1/aula9/maquina_TB.v|
-!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/altera/13.0sp1/aula9|C:/altera/13.0sp1/aula9/maquina_TB.v|
+!s108 1512757075.016000
+!s107 C:/altera/13.0sp1/aula9/maquina/maquina_TB.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/altera/13.0sp1/aula9/maquina|C:/altera/13.0sp1/aula9/maquina/maquina_TB.v|
 !s101 -O0
 R9
 R10

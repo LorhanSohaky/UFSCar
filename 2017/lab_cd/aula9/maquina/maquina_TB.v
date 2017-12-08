@@ -18,34 +18,34 @@ module maquina_TB;
 	
 	initial begin
 		$display("\tSistema Porta\n");
-		$display("Estado | Entrada | LG | LR | HEX");
-		$display("-------------------");
+		$display(" Estado  | Entrada | LG | LR | HEX");
+		$display("----------------------------------");
 		
 		//Estado Fechado
 		#50
-		a=0;val[4] = a[4];val[3] = a[3]; val[2] = a[2]; val[1] = a[1]; val[0] = a[0];#100 // a = 00000
-		$write( " Fechado |  %x%x%x%x%x |  %x |  %x |", a[4], a[3], a[2], a[1], a[0], ledVerde, ledVermelho);
+		a=0;#100 // a = 00000
+		$write( " Fechado |  %x%x%x%x%x  |  %x |  %x |", a[4], a[3], a[2], a[1], a[0], ledVerde, ledVermelho);
 		if( HEX == 7'b0001110 ) $display( "  F" ); if( HEX == 7'b1000000 ) $display ("  O" );  if( HEX == 7'b0001000 ) $display( "  A" );
 		
 		//Estado Abrindo
-		a=22;val[4] = a[4];val[3] = a[3]; val[2] = a[2]; val[1] = a[1]; val[0] = a[0];#100 // a = 10110
-		$write( " Abrindo |  %x%x%x%x%x |  %x |  %x |", a[4], a[3], a[2], a[1], a[0], ledVerde, ledVermelho);
+		a=22;#100 // a = 10110
+		$write( " Abrindo |  %x%x%x%x%x  |  %x |  %x |", a[4], a[3], a[2], a[1], a[0], ledVerde, ledVermelho);
 		if( HEX == 7'b0001110 ) $display( "  F" ); if( HEX == 7'b1000000 ) $display ("  O" ); if( HEX == 7'b0001000 ) $display( "  A" );
 		
 		//Estado Aberto
-		a=18;val[4] = a[4];val[3] = a[3]; val[2] = a[2]; val[1] = a[1]; val[0] = a[0];#100 // a = 10010
-		$write( "  Aberto |  %x%x%x%x%x |  %x |  %x |", a[4], a[3], a[2], a[1], a[0], ledVerde, ledVermelho);
+		a=18;#100 // a = 10010
+		$write( "  Aberto |  %x%x%x%x%x  |  %x |  %x |", a[4], a[3], a[2], a[1], a[0], ledVerde, ledVermelho);
 		if( HEX == 7'b0001110 ) $display( "  F" ); if( HEX == 7'b1000000 ) $display ("  O" ); if( HEX == 7'b0001000 ) $display( "  A" );
 		
 		//Estado Fechando
-		a=11;val[4] = a[4];val[3] = a[3]; val[2] = a[2]; val[1] = a[1]; val[0] = a[0];#100 // a = 01011
-		$write( "Fechando |  %x%x%x%x%x |  %x |  %x |", a[4], a[3], a[2], a[1], a[0], ledVerde, ledVermelho);
+		a=11;#100 // a = 01011
+		$write( "Fechando |  %x%x%x%x%x  |  %x |  %x |", a[4], a[3], a[2], a[1], a[0], ledVerde, ledVermelho);
 		if( HEX == 7'b0001110 ) $display( "  F" ); if( HEX == 7'b1000000 ) $display ("  O" ); if( HEX == 7'b0001000 ) $display( "  A" );
 		
 		//Estado Fechado
 		#50
-		a=3;val[4] = a[4];val[3] = a[3]; val[2] = a[2]; val[1] = a[1]; val[0] = a[0];#100 // a = 00011
-		$write( " Fechado |  %x%x%x%x%x |  %x |  %x |", a[4], a[3], a[2], a[1], a[0], ledVerde, ledVermelho);
+		a=3;#100 // a = 00011
+		$write( " Fechado |  %x%x%x%x%x  |  %x |  %x |", a[4], a[3], a[2], a[1], a[0], ledVerde, ledVermelho);
 		if( HEX == 7'b0001110 ) $display( "  F" ); if( HEX == 7'b1000000 ) $display ("  O" );  if( HEX == 7'b0001000 ) $display( "  A" );
 	end
 endmodule
