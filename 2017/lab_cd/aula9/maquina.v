@@ -22,48 +22,48 @@ module inicial ( botao, aberto, fechado, motor, sentido, ledVerde, ledVermelho, 
       	        
           	case( estado )
           			Fechado: begin
-          			        tmpDisplay = 7'b0001110;
-          			        tmpLedVerde = 0;
-          			        tmpLedVermelho = 0;
-          			        
-          			        if( entrada == 5'b10110 ) // botao == 1 && aberto == 0 && fechado == 1 && motor == 1 && sentido == 0
-          					    estado = Abrindo;
-          			   end
+									  tmpDisplay = 7'b0001110;
+									  tmpLedVerde = 0;
+									  tmpLedVermelho = 0;
+									  
+									  if( entrada == 5'b10110 ) // botao == 1 && aberto == 0 && fechado == 1 && motor == 1 && sentido == 0
+										 estado = Abrindo;
+									end
           			   
           			Abrindo: begin
-          			        tmpDisplay = 7'b1000000;
-          			        tmpLedVerde = 1;
-          			        tmpLedVermelho = 0;
-          			        
-          					if( entrada == 5'b10010 ) // botao == 1 && aberto == 0 && fechado == 0 && motor == 1 && sentido == 0
-          						estado = Aberto;
-          					if( entrada == 5'b00010 ) // botao == 0 && aberto == 0 && fechado == 0 && motor == 1 && sentido == 0
-          						estado = Fechando;
-          				end
+									  tmpDisplay = 7'b1000000;
+									  tmpLedVerde = 1;
+									  tmpLedVermelho = 0;
+									  
+										if( entrada == 5'b10010 ) // botao == 1 && aberto == 0 && fechado == 0 && motor == 1 && sentido == 0
+											estado = Aberto;
+										if( entrada == 5'b00010 ) // botao == 0 && aberto == 0 && fechado == 0 && motor == 1 && sentido == 0
+											estado = Fechando;
+									end
           				
           			Aberto: begin
-          			        tmpDisplay = 7'b0001000;
-          			        tmpLedVerde = 0;
-          			        tmpLedVermelho = 0;
-          			        
-          			        if( entrada == 5'b01011 ) // botao == 0 && aberto == 1 && fechado == 0 && motor == 1 && sentido == 1
-          					    estado = Fechando;
-          			   end
+									  tmpDisplay = 7'b0001000;
+									  tmpLedVerde = 0;
+									  tmpLedVermelho = 0;
+									  
+									  if( entrada == 5'b01011 ) // botao == 0 && aberto == 1 && fechado == 0 && motor == 1 && sentido == 1
+										 estado = Fechando;
+								  end
           			   
           			Fechando: begin
-          			        tmpDisplay = 7'b1000000;
-          			        tmpLedVerde = 0;
-          			        tmpLedVermelho = 1;
-          			        
-          					if( entrada == 5'b10011 ) // botao == 1 && aberto == 0 && fechado == 0 && motor == 1 && sentido == 1
-          						estado = Abrindo;
-          					if( entrada == 5'b00011 ) // botao == 0 && aberto == 0 && fechado == 0 && motor == 1 && sentido == 1
-          						estado = Fechado;
-          			   end
+									  tmpDisplay = 7'b1000000;
+									  tmpLedVerde = 0;
+									  tmpLedVermelho = 1;
+									  
+										if( entrada == 5'b10011 ) // botao == 1 && aberto == 0 && fechado == 0 && motor == 1 && sentido == 1
+											estado = Abrindo;
+										if( entrada == 5'b00011 ) // botao == 0 && aberto == 0 && fechado == 0 && motor == 1 && sentido == 1
+											estado = Fechado;
+									 end
           			   
           			default: estado = Fechado;
           			
-          		endcase
+          	endcase
 	end
 	
 	assign display= tmpDisplay;
