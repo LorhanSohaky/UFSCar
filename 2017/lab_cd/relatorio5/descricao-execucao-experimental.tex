@@ -60,6 +60,9 @@
 		\end{quadro}
 
 	\section{Passo 2 - Escrever um código Verilog para a máquina de estado}
+		Para a realização deste passo, foram utilizados o programa Quartus 13.0 SP 1
+		 e a placa \ac{fpga} Cyclone II - EP2C20F484C7.
+
 		Com a máquina de estado pronto, criou-se a código em Verilog, que no
 		estado\ "totalmente aberto"\ apresenta A \textit{display}, no estado\ "totalmente fechado"\
 		apresenta F no \textit{display}, no estado\ "abrindo"\ acende um \ac{led} verde e no
@@ -67,7 +70,8 @@
 		\textit{display} apresenta 0. O Verilog encontra-se no \autoref{codigo:maquina} e o resultado da
 		compilação na \autoref{figura:compilacaoMaquina}.
 
-		\lstinputlisting[label = {codigo:maquina},caption = {Código da máquina de estado do problema da garagem.}]{codigo/maquina.v}
+		\lstinputlisting[label = {codigo:maquina},caption = {Código da máquina de estado do problema da garagem.}]
+		{codigo/maquina.v}
 
 		\begin{figure}[H]
 			 \centering
@@ -77,7 +81,11 @@
 		\end{figure}
 
 		Para a realização dos testes, criou-se um \textit{test bench} conforme o \autoref{codigo:testBenchMaquina}.
-		\lstinputlisting[label = {codigo:testBenchMaquina},caption = {Código da máquina de estado do problema da garagem.}]{codigo/maquina_TB.v}
+		Além disto, fez-se o \textit{deploy} na \ac{fpga}\footnote{Os resultados dos
+		 testes e simulações encontram-se na Avaliação dos resultados.}.
+
+		\lstinputlisting[label = {codigo:testBenchMaquina},caption = {Código de \textit{test bench} da máquina do problema da garagem.}]
+		{codigo/maquina_TB.v}
 
 
 
