@@ -12,6 +12,7 @@
 
 % Pacote para usar listing (código)
 \usepackage{listings} % Inserção de códigos
+%\usepackage{courier} % Fonte
 
 
 % alterando a capa
@@ -133,7 +134,7 @@
 % Configuração do listing
 \renewcommand{\lstlistingname}{Código}
 \lstset{backgroundcolor=\color{white},   % choose the background color; you must add \usepackage{color} or \usepackage{xcolor}; should come as last argument
-  basicstyle=\footnotesize,        % the size of the fonts that are used for the code
+  basicstyle=\footnotesize\ttfamily,        % the size of the fonts that are used for the code and Courie font style
   breakatwhitespace=false,         % sets if automatic breaks should only happen at whitespace
   breaklines=true,                 % sets automatic line breaking
   captionpos=b,                    % sets the caption-position to bottom
@@ -150,7 +151,8 @@
   stepnumber=2,                    % the step between two line-numbers. If it's 1, each line will be numbered
   stringstyle=\color{mymauve},     % string literal style
   tabsize=2,	                   % sets default tabsize to 2 spaces
-  title=\lstname  }
+  title=\lstname
+  }
 
 
 %  ---- https://github.com/abntex/abntex2/wiki/HowToCriarNovoAmbienteListing
