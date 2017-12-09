@@ -156,6 +156,8 @@
   stepnumber=2,                    % the step between two line-numbers. If it's 1, each line will be numbered
   stringstyle=\color{mymauve},     % string literal style
   tabsize=2,	                   % sets default tabsize to 2 spaces
+  commentstyle=\itshape\color{mygreen},
+  identifierstyle=\color{black},
   title=\lstname
   }
 
