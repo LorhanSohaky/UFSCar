@@ -61,14 +61,23 @@
 
 	\section{Passo 2 - Escrever um código Verilog para a máquina de estado}
 		Com a máquina de estado pronto, criou-se a código em Verilog, que no
-		estado "totalmente aberto" apresenta A \textit{display}, no estado "totalmente fechado"
-		apresenta F no \textit{display}, no estado 'abrindo' acende um \textit{led} verde e no
-		estado "fechando" acente um \textit{led} vermelho. Nos estados "abrindo" e "fechando" o
-		\textit{display} apresenta 0. O Verilog encontra-se no \autoref{codigo:maquina}.
+		estado\ "totalmente aberto"\ apresenta A \textit{display}, no estado\ "totalmente fechado"\
+		apresenta F no \textit{display}, no estado\ "abrindo"\ acende um \ac{led} verde e no
+		estado "fechando"\ acente um \ac{led} vermelho. Nos estados "abrindo"\ e "fechando"\ o
+		\textit{display} apresenta 0. O Verilog encontra-se no \autoref{codigo:maquina} e o resultado da
+		compilação na \autoref{figura:compilacaoMaquina}.
 
 		\lstinputlisting[label = {codigo:maquina},caption = {Código da máquina de estado do problema da garagem.}]{codigo/maquina.v}
 
+		\begin{figure}[H]
+			 \centering
+			 \caption{\label{figura:compilacaoMaquina}Resultado da compilação do código da máquina de
+			  estado do problema da garagem.}
+			 \includegraphics[width=1\textwidth]{img/maquina/compilacao}
+		\end{figure}
 
+		Para a realização dos testes, criou-se um \textit{test bench} conforme o \autoref{codigo:testBenchMaquina}.
+		\lstinputlisting[label = {codigo:testBenchMaquina},caption = {Código da máquina de estado do problema da garagem.}]{codigo/maquina_TB.v}
 
 
 
