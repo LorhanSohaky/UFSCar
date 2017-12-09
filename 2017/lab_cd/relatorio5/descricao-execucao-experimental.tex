@@ -1,13 +1,81 @@
-% Para facilitar a manutenção é sempre melhore criar um arquivo por capitulo, para exemplo isso não é necessário 
-
-%---------------------------------------------------------------------------------------
 \chapter{Descrição da execução do experimento}
-Apresentar   o   detalhamento   da  execução  e   resultados   dos   passos   realizados 
-durante   o   experimento,   incluindo   tabelas   verdade,   esquemáticos,   e   código 
-(quando  houver). 
-Especificar  componentes,  sistemas  e  instrumentos  utilizados. 
-Usar listas, figuras e quadros, descrevê-los e discuti-los.
+	\section{Passo 1 – Desenhar a máquina de estado}
+		Com o problema em questão, tem-se em mente que trata-se de um portão de garagem
+		que move-se horizontalmente, ou seja, da esquerda para direita e vise e versa.
+		Assim, para a elaboração da máquina\footnote{Preferiu-se a utilização de uma máquina de Moore
+		por haver conhecimento prévio deste tipo de máquina.}, considerou-se as entradas conforme o
+		\autoref{quadro:listaDeEntradas}.
+
+		\begin{quadro}[H]
+			\centering
+			\caption{Lista das entradas da máquina de estado do problema da garagem.}
+			\label{quadro:listaDeEntradas}
+			\begin{tabular}{|l|l|l|}
+			  \hline
+			   \textbf{Entrada} & \textbf{Valor lógico 0}  & \textbf{Valor lógico 1}\\
+			    \hline
+				   Botao (b) & Abrir & Fechar \\
+			   	\hline
+			   		Aberto (a) & Não aberto & Totalmente aberto \\
+			    \hline
+					Fechado (f) & Não fechado & Totalmente fechado \\
+			    \hline
+			    	Motor (m) & Motor desligado & Motor ligado \\
+			    \hline
+					Sentido (s) & Esquerda & Direita \\
+			   \hline
+			\end{tabular}
+			\legend{Fonte: Próprio Autor}
+		\end{quadro}
+
+		Com as entradas descritas no \autoref{quadro:listaDeEntradas} elaborou-se a máquina conforme a
+		\autoref{figura:maquinaDeEstado}.
+
+		\begin{figure}[H]
+			 \centering
+			 \caption{\label{figura:maquinaDeEstado}Ilustração da máquina de estado do problema da garagem.}
+			 \includegraphics[width=1\textwidth]{img/maquina/maquinaEstado}
+			 \caption*{Nota: A entrada está está no formato ( b, a, f, m, s ). Os
+			  significados dos estados estão no \autoref{quadro:significadoEstados}.}
+		\end{figure}
+
+		\begin{quadro}[H]
+			\centering
+			\caption{Significados dos estados relacionando com os estados reais do problema proposto.}
+			\label{quadro:significadoEstados}
+			\begin{tabular}{|c|l|}
+			  \hline
+			   \textbf{Estado} & \textbf{Significado}\\
+			    \hline
+				   A & Totalmente fechado \\
+			   	\hline
+			   		B & Abrindo \\
+			    \hline
+					C & Totalmente aberto \\
+			    \hline
+			    	D & Fechando \\
+			    \hline
+			\end{tabular}
+			\legend{Fonte: Próprio Autor}
+		\end{quadro}
+
+	\section{Passo 2 - Escrever um código Verilog para a máquina de estado}
+		Com a máquina de estado pronto, criou-se a código em Verilog, que no
+		estado "totalmente aberto" apresenta A \textit{display}, no estado "totalmente fechado"
+		apresenta F no \textit{display}, no estado 'abrindo' acende um \textit{led} verde e no
+		estado "fechando" acente um \textit{led} vermelho. Nos estados "abrindo" e "fechando" o
+		\textit{display} apresenta 0. O Verilog encontra-se no \autoref{codigo:maquina}.
+
+		\lstinputlisting[label = {codigo:maquina},caption = {Código da máquina de estado do problema da garagem.}]{codigo/maquina.v}
 
 
 
-%---------------------------------------------------------------------------------------
+
+
+
+
+%Apresentar   o   detalhamento   da  execução  e   resultados   dos   passos   realizados
+%durante   o   experimento,   incluindo   tabelas   verdade,   esquemáticos,   e   código
+%(quando  houver).
+%Especificar  componentes,  sistemas  e  instrumentos  utilizados.
+%Usar listas, figuras e quadros, descrevê-los e discuti-los.
