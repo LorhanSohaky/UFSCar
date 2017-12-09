@@ -12,7 +12,8 @@
 
 % Pacote para usar listing (código)
 \usepackage{listings} % Inserção de códigos
-%\usepackage{courier} % Fonte
+\usepackage{courier} % Fonte
+\usepackage{color} % Cores
 
 
 % alterando a capa
@@ -132,6 +133,10 @@
 
 
 % Configuração do listing
+\definecolor{mygreen}{rgb}{0,0.6,0}
+\definecolor{mygray}{rgb}{0.5,0.5,0.5}
+\definecolor{mymauve}{rgb}{0.58,0,0.82}
+
 \renewcommand{\lstlistingname}{Código}
 \lstset{backgroundcolor=\color{white},   % choose the background color; you must add \usepackage{color} or \usepackage{xcolor}; should come as last argument
   basicstyle=\footnotesize\ttfamily,        % the size of the fonts that are used for the code and Courie font style
