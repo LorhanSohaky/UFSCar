@@ -65,14 +65,15 @@
 		 e a placa \ac{fpga} Cyclone II - EP2C20F484C7.
 
 		Com a máquina de estado pronto, criou-se a código em Verilog, que no
-		estado\ "totalmente aberto"\ apresenta A \textit{display}, no estado\ "totalmente fechado"\
+		estado\ "totalmente aberto"\ apresenta A no \textit{display}, no estado\ "totalmente fechado"\
 		apresenta F no \textit{display}, no estado\ "abrindo"\ acende um \ac{led} verde e no
 		estado "fechando"\ acente um \ac{led} vermelho. Nos estados "abrindo"\ e "fechando"\ o
-		\textit{display} apresenta 0. O Verilog encontra-se no \autoref{codigo:maquina} e o resultado da
+		\textit{display} apresenta 0. O código da máquina de estado encontra-se no \autoref{codigo:maquina} e o resultado da
 		compilação na \autoref{figura:compilacaoMaquina}.
 
 		\lstinputlisting[label = {codigo:maquina},caption = {Código da máquina de estado do problema da garagem.}]
 		{codigo/maquina.v}
+		Nota: Para as entradas não mapeadas, a máquina mantêm-se no estado atual.
 
 		\begin{figure}[H]
 			 \centering
