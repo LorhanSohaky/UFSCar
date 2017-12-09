@@ -1,6 +1,7 @@
 \chapter{Resumo}
-	A ideia deste experimento é implementar uma maquina de estado utilizando a linguagem Verilog.
-	A maquina tenta representar uma situação do mundo real de um portão de garagem.
+	A ideia deste experimento é implementar uma máquina de estado utilizando a linguagem de descrição
+	de \textit{hardware} Verilog.
+	A máquina tenta representar uma situação do mundo real de um portão de garagem.
 
 	\begin{quote}
 		Considere o cenário de um controle para um portão de garagem. Em um estado inicial, o portão
@@ -19,6 +20,15 @@
 		deslocando. Nesse caso, se o portão estiver abrindo, ele deve passar a fechar e vice-versa.
 	\end{quote}
 
+	Para solucionar tal problema e facilitar sua resolução, dividiu-se o processo em quatro passos:
+	\begin{enumerate}
+	   \item Desenhar a máquina de estado para o cenário em questão;
+	   \item Escrever um código Verilog para a máquina de estado no passo anterior;
+	   \item Executar o código na \ac{fpga} e simulação.
+	 \end{enumerate}
+
+	 Além disso, escolheu-se uma máquina de estado qualquer para estudar como
+	 implementá-la em Verilog.
 %Apresentar  o  objetivo  do  experimento e  sua  relação  com  o  mundo  real.
 %Citar exemplos  de  produtos  e  dados  de  empresas  que  usam  circuitos  semelhantes.
 %Dados  históricos  e  estatísticos,  em  temas  próximos,  são  desejáveis.
