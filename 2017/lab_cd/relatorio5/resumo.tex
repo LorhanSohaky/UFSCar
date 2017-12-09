@@ -1,5 +1,25 @@
 \chapter{Resumo}
-Apresentar  o  objetivo  do  experimento e  sua  relação  com  o  mundo  real. 
-Citar exemplos  de  produtos  e  dados  de  empresas  que  usam  circuitos  semelhantes. 
-Dados  históricos  e  estatísticos,  em  temas  próximos,  são  desejáveis.
-Adicionar referências bibliográficas.
+	A ideia deste experimento é implementar uma maquina de estado utilizando a linguagem Verilog.
+	A maquina tenta representar uma situação do mundo real de um portão de garagem.
+
+	\begin{quote}
+		Considere o cenário de um controle para um portão de garagem. Em um estado inicial, o portão
+		está fechado. Caso um acionador externo seja selecionado, o portão abre. Caso o portão esteja
+		aberto e o acionador externo seja selecionado, o portão fecha. O portão nunca abre e fecha ao
+		mesmo tempo. O trilho no qual o portão se desloca é equipado com dois sensores que indicam
+		quando o portão está completamente aberto e quando está completamente fechado. O motor
+		não deve tentar abrir o portão quando esse estiver aberto e nem deve fechá-lo quando este já
+		estiver fechado.
+
+		Para maior segurança dos usuários, o motor está equipado com um aviso luminoso que deve ser
+		acesso quando o portão se desloca.
+
+		Deve-se assumir que não é possível parar o portão enquanto ele estiver abrindo ou fechando,
+		mas é possível que o usuário aperte o acionador externo enquanto o portão estiver se
+		deslocando. Nesse caso, se o portão estiver abrindo, ele deve passar a fechar e vice-versa.
+	\end{quote}
+
+%Apresentar  o  objetivo  do  experimento e  sua  relação  com  o  mundo  real.
+%Citar exemplos  de  produtos  e  dados  de  empresas  que  usam  circuitos  semelhantes.
+%Dados  históricos  e  estatísticos,  em  temas  próximos,  são  desejáveis.
+%Adicionar referências bibliográficas.
