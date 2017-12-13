@@ -1,0 +1,7 @@
+
+State Machine - |projetoPessoal|inicial:a|estado
+Name estado.D estado.C estado.B estado.A 
+estado.A 0 0 0 0 
+estado.B 0 0 1 1 
+estado.C 0 1 0 1 
+estado.D 1 0 0 1 
