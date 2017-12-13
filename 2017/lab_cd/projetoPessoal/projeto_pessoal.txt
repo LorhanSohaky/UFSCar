@@ -16,3 +16,18 @@ preferência:{
 manter no estado atual, se houver duas pessoas tentando entrar e sair.
 
 
+---Estado Metal---
+1 vermelho na entrada para sinalizar que deve deixar os metais
+
+---Estado Entrando---
+1 verde na entrada dizendo que pode prosseguir (sem metais)
+
+---Estado Duas Pessoas---
+1 verde para saida (pode prosseguir)
+1 vermelho na entrada (esperar a pessoa sair)
+
+
+
+Total leds
+2 vermelhos
+2 verdes
