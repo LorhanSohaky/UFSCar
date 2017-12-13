@@ -1,0 +1,18 @@
+sensores:{
+	sentido de giro,
+	detecção de presença,
+	detecção de metais (para quem estiver entrando)
+}
+
+led:{
+	verde para seguir em frente,
+	vermelho (detectou metais)
+}
+
+preferência:{
+	se estiver uma pessoa entrando e saindo, dar preferência a quem estiver saíndo. Led verde pra saída; vermelho para entrada.
+}
+
+manter no estado atual, se houver duas pessoas tentando entrar e sair.
+
+

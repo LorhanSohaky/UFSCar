@@ -1,0 +1,43 @@
+sensor giro: 1 - anti-horário, 0 - parado
+sensor presença entrada: 1 - tem pessoa, 0 - não tem
+sensor presença saida: 1 - tem pessoa, 0 - não tem
+sensor metais: 1 - tem metal, 0 - não tem
+
+
+entrada = ( g, e, s, m)
+
+------Estados-------
+A = inicial (parado)
+B = entrando
+C = detectou metal
+D = duas pessoas
+E = saindo
+F = entrou
+
+ A: se ( 1, 1, 0, 0) -> B
+	se ( 1, 1, *, 1) -> C
+	se ( 1, 1, 1, *) -> D
+	se ( 1, 0, 1, 0) -> E
+
+ B: se ( 1, 0, 0, 0) -> F
+	se ( 1, 1, 0, 1) -> C
+	se ( 1, 1, 1, *) -> D
+	se ( 1, 0, 1, *) -> E
+	se ( 0, 0, 0, 0) -> A
+
+ C: se ( 1, 1, 0, 0) -> F
+	se ( *, 1, 1, 0) -> D
+	se ( 1, 0, 1, 0) -> E
+	se ( 0, 0, 0, 0) -> A
+
+ D: se ( *, 1, 1, 1) -> C
+	se ( 1, 1, 0, 0) -> B
+	se ( 1, 0, 1, 0) -> E
+	se ( 0, 0, 0, 0) -> A
+
+ E: se ( 0, 0, 0, 0) -> A
+	se ( *, 1, 1, 0) -> D
+	se ( 1, 1, 0, 0) -> B
+	se ( 1, 1, 0, 1) -> C
+	se ( 1, 0, 0, 0) -> A
+	
