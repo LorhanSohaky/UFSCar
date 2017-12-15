@@ -1,0 +1,67 @@
+m255
+K3
+13
+cModel Technology
+Z0 dC:\altera\13.0sp1\verilog\simulation\modelsim
+vinicial
+I0d3AQm16gb39GXJ=z33;c0
+V:hR`A@Ph@>@4JCe2>>5kZ2
+Z1 dC:\altera\13.0sp1\verilog\simulation\modelsim
+Z2 w1513305615
+Z3 8C:/altera/13.0sp1/verilog/projetoPessoal.v
+Z4 FC:/altera/13.0sp1/verilog/projetoPessoal.v
+L0 1
+Z5 OV;L;10.1d;51
+r1
+31
+Z6 !s108 1513342943.009000
+Z7 !s107 C:/altera/13.0sp1/verilog/projetoPessoal.v|
+Z8 !s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/altera/13.0sp1/verilog|C:/altera/13.0sp1/verilog/projetoPessoal.v|
+Z9 o-vlog01compat -work work -O0
+Z10 !s92 -vlog01compat -work work +incdir+C:/altera/13.0sp1/verilog -O0
+!i10b 1
+!s100 M7jKY`hIPI3;8U<D4IkKf0
+!s85 0
+!s101 -O0
+vprojetoPessoal
+IY=;m6lOmaDQ0kCQRLkQ:Q3
+V]kXzn`V=DJYk_^]XeP5?B3
+R1
+R2
+R3
+R4
+L0 107
+R5
+r1
+31
+R6
+R7
+R8
+R9
+R10
+nprojeto@pessoal
+!i10b 1
+!s100 hMRW=l5iUK[^8V<ed>A4O0
+!s85 0
+!s101 -O0
+vprojetoPessoal_TB
+!i10b 1
+!s100 G;G<<nc8ahh<M0A<c=KDe0
+IYhQQRdC=UA]Xk^_zWez520
+VlCiIlI5?AF=JX4V^eP[mP3
+R1
+w1513305625
+8C:/altera/13.0sp1/verilog/projetoPessoal_TB.v
+FC:/altera/13.0sp1/verilog/projetoPessoal_TB.v
+L0 1
+R5
+r1
+!s85 0
+31
+!s108 1513342943.329000
+!s107 C:/altera/13.0sp1/verilog/projetoPessoal_TB.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/altera/13.0sp1/verilog|C:/altera/13.0sp1/verilog/projetoPessoal_TB.v|
+!s101 -O0
+R9
+R10
+nprojeto@pessoal_@t@b

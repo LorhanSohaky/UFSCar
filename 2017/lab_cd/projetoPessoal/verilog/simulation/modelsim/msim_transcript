@@ -1,0 +1,59 @@
+# Reading C:/altera/13.0sp1/modelsim_ase/tcl/vsim/pref.tcl 
+# do projetoPessoal_run_msim_rtl_verilog.do 
+# if {[file exists rtl_work]} {
+# 	vdel -lib rtl_work -all
+# }
+# vlib rtl_work
+# vmap work rtl_work
+# Copying C:\altera\13.0sp1\modelsim_ase\win32aloem/../modelsim.ini to modelsim.ini
+# Modifying modelsim.ini
+# ** Warning: Copied C:\altera\13.0sp1\modelsim_ase\win32aloem/../modelsim.ini to modelsim.ini.
+#          Updated modelsim.ini.
+# 
+# vlog -vlog01compat -work work +incdir+C:/altera/13.0sp1/verilog {C:/altera/13.0sp1/verilog/projetoPessoal.v}
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module inicial
+# -- Compiling module projetoPessoal
+# 
+# Top level modules:
+# 	projetoPessoal
+# 
+# vlog -vlog01compat -work work +incdir+C:/altera/13.0sp1/verilog {C:/altera/13.0sp1/verilog/projetoPessoal_TB.v}
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module projetoPessoal_TB
+# 
+# Top level modules:
+# 	projetoPessoal_TB
+# 
+# vsim -t 1ps -L altera_ver -L lpm_ver -L sgate_ver -L altera_mf_ver -L altera_lnsim_ver -L cycloneii_ver -L rtl_work -L work -voptargs="+acc"  projetoPessoal_TB
+# vsim -L altera_ver -L lpm_ver -L sgate_ver -L altera_mf_ver -L altera_lnsim_ver -L cycloneii_ver -L rtl_work -L work -voptargs=\"+acc\" -t 1ps projetoPessoal_TB 
+# Loading work.projetoPessoal_TB
+# Loading work.inicial
+# 
+# add wave *
+# ** Warning: (vsim-WLF-5000) WLF file currently in use: vsim.wlf
+# 
+#           File in use by: Lorhan Kondo  Hostname: DESKTOP-4R8U9HV  ProcessID: 8276
+# 
+#           Attempting to use alternate WLF file "./wlftnxe9jz".
+# ** Warning: (vsim-WLF-5001) Could not open WLF file: vsim.wlf
+# 
+#           Using alternate file: ./wlftnxe9jz
+# 
+# view structure
+# .main_pane.structure.interior.cs.body.struct
+# view signals
+# .main_pane.objects.interior.cs.body.tree
+# run -all
+# 	Porta Giratorias
+# 
+#  Estado  | Entrada | LG | LR
+# ----------------------------
+#     A    |   0000  | 00 |  00
+#     B    |   1100  | 01 |  00
+#     C    |   1101  | 00 |  01
+#     D    |   0110  | 10 |  10
+#     E    |   1010  | 00 |  00
+#     A    |   1000  | 00 |  00
+# Break key hit 
+# Break in Module projetoPessoal_TB in file C:/altera/13.0sp1/verilog/projetoPessoal_TB.v

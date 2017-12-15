@@ -329,4 +329,13 @@ set_location_assignment PIN_T8 -to SRAM_OE_N
 set_location_assignment PIN_W7 -to SRAM_UB_N
 set_location_assignment PIN_AA10 -to SRAM_WE_N
 set_location_assignment PIN_AB15 -to FL_CE_N
+set_global_assignment -name VERILOG_TEST_BENCH_FILE projetoPessoal_TB.v
+set_global_assignment -name EDA_SIMULATION_TOOL "ModelSim-Altera (VHDL)"
+set_global_assignment -name EDA_OUTPUT_DATA_FORMAT VHDL -section_id eda_simulation
+set_global_assignment -name EDA_TEST_BENCH_ENABLE_STATUS TEST_BENCH_MODE -section_id eda_simulation
+set_global_assignment -name EDA_NATIVELINK_SIMULATION_TEST_BENCH projetoPessoal_TB -section_id eda_simulation
+set_global_assignment -name EDA_TEST_BENCH_NAME projetoPessoal_TB -section_id eda_simulation
+set_global_assignment -name EDA_DESIGN_INSTANCE_NAME NA -section_id projetoPessoal_TB
+set_global_assignment -name EDA_TEST_BENCH_MODULE_NAME projetoPessoal_TB -section_id projetoPessoal_TB
+set_global_assignment -name EDA_TEST_BENCH_FILE projetoPessoal_TB.v -section_id projetoPessoal_TB
 set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top

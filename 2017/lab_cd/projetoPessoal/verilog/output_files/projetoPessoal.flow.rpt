@@ -1,5 +1,5 @@
 Flow report for projetoPessoal
-Fri Dec 15 00:02:43 2017
+Fri Dec 15 00:39:04 2017
 Quartus II 64-Bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
 
 
@@ -40,7 +40,7 @@ applicable agreement for further details.
 +--------------------------------------------------------------------------------------+
 ; Flow Summary                                                                         ;
 +------------------------------------+-------------------------------------------------+
-; Flow Status                        ; Successful - Fri Dec 15 00:02:37 2017           ;
+; Flow Status                        ; Successful - Fri Dec 15 00:39:04 2017           ;
 ; Quartus II 64-Bit Version          ; 13.0.1 Build 232 06/12/2013 SP 1 SJ Web Edition ;
 ; Revision Name                      ; projetoPessoal                                  ;
 ; Top-level Entity Name              ; projetoPessoal                                  ;
@@ -64,25 +64,33 @@ applicable agreement for further details.
 +-------------------+---------------------+
 ; Option            ; Setting             ;
 +-------------------+---------------------+
-; Start date & time ; 12/15/2017 00:02:12 ;
+; Start date & time ; 12/15/2017 00:38:46 ;
 ; Main task         ; Compilation         ;
 ; Revision Name     ; projetoPessoal      ;
 +-------------------+---------------------+
 
 
-+---------------------------------------------------------------------------------------------------------------+
-; Flow Non-Default Global Settings                                                                              ;
-+-------------------------------------+------------------------------+---------------+-------------+------------+
-; Assignment Name                     ; Value                        ; Default Value ; Entity Name ; Section Id ;
-+-------------------------------------+------------------------------+---------------+-------------+------------+
-; COMPILER_SIGNATURE_ID               ; 963361450667.151330333202548 ; --            ; --          ; --         ;
-; MAX_CORE_JUNCTION_TEMP              ; 85                           ; --            ; --          ; --         ;
-; MIN_CORE_JUNCTION_TEMP              ; 0                            ; --            ; --          ; --         ;
-; PARTITION_COLOR                     ; 16764057                     ; --            ; --          ; Top        ;
-; PARTITION_FITTER_PRESERVATION_LEVEL ; PLACEMENT_AND_ROUTING        ; --            ; --          ; Top        ;
-; PARTITION_NETLIST_TYPE              ; SOURCE                       ; --            ; --          ; Top        ;
-; PROJECT_OUTPUT_DIRECTORY            ; output_files                 ; --            ; --          ; --         ;
-+-------------------------------------+------------------------------+---------------+-------------+------------+
++-----------------------------------------------------------------------------------------------------------------------+
+; Flow Non-Default Global Settings                                                                                      ;
++--------------------------------------+------------------------------+---------------+-------------+-------------------+
+; Assignment Name                      ; Value                        ; Default Value ; Entity Name ; Section Id        ;
++--------------------------------------+------------------------------+---------------+-------------+-------------------+
+; COMPILER_SIGNATURE_ID                ; 963361450667.151330552604364 ; --            ; --          ; --                ;
+; EDA_DESIGN_INSTANCE_NAME             ; NA                           ; --            ; --          ; projetoPessoal_TB ;
+; EDA_NATIVELINK_SIMULATION_TEST_BENCH ; projetoPessoal_TB            ; --            ; --          ; eda_simulation    ;
+; EDA_OUTPUT_DATA_FORMAT               ; Vhdl                         ; --            ; --          ; eda_simulation    ;
+; EDA_SIMULATION_TOOL                  ; ModelSim-Altera (VHDL)       ; <None>        ; --          ; --                ;
+; EDA_TEST_BENCH_ENABLE_STATUS         ; TEST_BENCH_MODE              ; --            ; --          ; eda_simulation    ;
+; EDA_TEST_BENCH_FILE                  ; projetoPessoal_TB.v          ; --            ; --          ; projetoPessoal_TB ;
+; EDA_TEST_BENCH_MODULE_NAME           ; projetoPessoal_TB            ; --            ; --          ; projetoPessoal_TB ;
+; EDA_TEST_BENCH_NAME                  ; projetoPessoal_TB            ; --            ; --          ; eda_simulation    ;
+; MAX_CORE_JUNCTION_TEMP               ; 85                           ; --            ; --          ; --                ;
+; MIN_CORE_JUNCTION_TEMP               ; 0                            ; --            ; --          ; --                ;
+; PARTITION_COLOR                      ; 16764057                     ; --            ; --          ; Top               ;
+; PARTITION_FITTER_PRESERVATION_LEVEL  ; PLACEMENT_AND_ROUTING        ; --            ; --          ; Top               ;
+; PARTITION_NETLIST_TYPE               ; SOURCE                       ; --            ; --          ; Top               ;
+; PROJECT_OUTPUT_DIRECTORY             ; output_files                 ; --            ; --          ; --                ;
++--------------------------------------+------------------------------+---------------+-------------+-------------------+
 
 
 +-------------------------------------------------------------------------------------------------------------------------------+
@@ -90,11 +98,12 @@ applicable agreement for further details.
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
 ; Module Name               ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Analysis & Synthesis      ; 00:00:03     ; 1.0                     ; 456 MB              ; 00:00:02                           ;
-; Fitter                    ; 00:00:09     ; 1.0                     ; 635 MB              ; 00:00:07                           ;
-; Assembler                 ; 00:00:03     ; 1.0                     ; 420 MB              ; 00:00:03                           ;
+; Analysis & Synthesis      ; 00:00:02     ; 1.0                     ; 461 MB              ; 00:00:02                           ;
+; Fitter                    ; 00:00:07     ; 1.0                     ; 640 MB              ; 00:00:07                           ;
+; Assembler                 ; 00:00:02     ; 1.0                     ; 420 MB              ; 00:00:03                           ;
 ; TimeQuest Timing Analyzer ; 00:00:02     ; 1.0                     ; 402 MB              ; 00:00:02                           ;
-; Total                     ; 00:00:17     ; --                      ; --                  ; 00:00:14                           ;
+; EDA Netlist Writer        ; 00:00:01     ; 1.0                     ; 386 MB              ; 00:00:01                           ;
+; Total                     ; 00:00:14     ; --                      ; --                  ; 00:00:15                           ;
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
 
 
@@ -107,6 +116,7 @@ applicable agreement for further details.
 ; Fitter                    ; DESKTOP-4R8U9HV  ; Windows 7 ; 6.2        ; x86_64         ;
 ; Assembler                 ; DESKTOP-4R8U9HV  ; Windows 7 ; 6.2        ; x86_64         ;
 ; TimeQuest Timing Analyzer ; DESKTOP-4R8U9HV  ; Windows 7 ; 6.2        ; x86_64         ;
+; EDA Netlist Writer        ; DESKTOP-4R8U9HV  ; Windows 7 ; 6.2        ; x86_64         ;
 +---------------------------+------------------+-----------+------------+----------------+
 
 
@@ -117,6 +127,7 @@ quartus_map --read_settings_files=on --write_settings_files=off projetoPessoal -
 quartus_fit --read_settings_files=off --write_settings_files=off projetoPessoal -c projetoPessoal
 quartus_asm --read_settings_files=off --write_settings_files=off projetoPessoal -c projetoPessoal
 quartus_sta projetoPessoal -c projetoPessoal
+quartus_eda --read_settings_files=off --write_settings_files=off projetoPessoal -c projetoPessoal
 
 
 
