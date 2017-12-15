@@ -1,11 +1,11 @@
-module inicial ( giro, entrada, saida, metais, estadoLed, clock );
+module inicial ( giro, entrada, saida, metais, ledVerde, ledVermelho, clock );
 	input giro, entrada, saida, metais, clock;
-	output [9:5]estadoLed;
+	output [1:0] ledVerde, ledVermelho;
 	
 	reg [1:0] estado;
 	reg [3:0] tmp;
 	
-	reg [9:5] tmpLed;
+	reg [1:0] tmpLedVerde, tmpLedVermelho;
 	
 	parameter A = 3'b000, B = 3'b001, C = 3'b010, D = 3'b011, E = 3'b100;
 	
@@ -19,7 +19,8 @@ module inicial ( giro, entrada, saida, metais, estadoLed, clock );
       	        
           	case( estado )
           			A: begin
-								tmpLed = 5'b10000;
+								tmpLedVerde = 2'b00;
+								tmpLedVermelho= 2'b00;
 									  
 								if( tmp == 4'b1100 )
 									estado = B;
@@ -33,7 +34,8 @@ module inicial ( giro, entrada, saida, metais, estadoLed, clock );
 							end
           			   
           			B: begin
-								tmpLed = 5'b01000;
+								tmpLedVerde = 2'b01;
+								tmpLedVermelho= 2'b00;
 									  
 								if( tmp == 4'b0000 | tmp == 4'b1000 )
 									estado = A;
@@ -47,7 +49,8 @@ module inicial ( giro, entrada, saida, metais, estadoLed, clock );
 							end
           				
           			C: begin
-								tmpLed = 5'b00100;
+								tmpLedVerde = 2'b00;
+								tmpLedVermelho= 2'b01;
 									  
 								if( tmp == 4'b0100 | tmp == 4'b1100 )
 									estado = B;
@@ -61,7 +64,8 @@ module inicial ( giro, entrada, saida, metais, estadoLed, clock );
 							end
           			   
           			D: begin
-								tmpLed = 5'b00010;
+								tmpLedVerde = 2'b10;
+								tmpLedVermelho= 2'b10;
 									  
 								if( tmp == 4'b0111 | tmp == 4'b1111 )
 									estado = C;
@@ -75,7 +79,8 @@ module inicial ( giro, entrada, saida, metais, estadoLed, clock );
 							end
 							
 						E: begin
-								tmpLed = 5'b00001;
+								tmpLedVerde = 2'b00;
+								tmpLedVermelho= 2'b00;
 									  
 								if( tmp == 4'b0000 | tmp == 4'b1000 )
 									estado = A;
@@ -93,15 +98,15 @@ module inicial ( giro, entrada, saida, metais, estadoLed, clock );
           	endcase
 	end
 	
-	assign estadoLed= tmpLed;
+	assign ledVerde = tmpLedVerde;
+	assign ledVermelho = tmpLedVermelho;
 	
 endmodule
 
-module projetoPessoal(SW,LEDR,HEX0, CLK);
+module projetoPessoal( SW,LEDG, LEDR, CLK );
 	input [3:0] SW;
 	input CLK;
-	output [9:5] LEDR;
-	output [6:0] HEX0;
+	output [1:0] LEDG, LEDR;
 
-	inicial a( SW[3], SW[2], SW[1], SW[0], LEDR, CLK);
+	inicial a( SW[3], SW[2], SW[1], SW[0], LEDG, LEDR, CLK);
 endmodule

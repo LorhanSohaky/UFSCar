@@ -1,5 +1,5 @@
 Fitter report for projetoPessoal
-Wed Dec 13 15:32:08 2017
+Fri Dec 15 00:02:29 2017
 Quartus II 64-Bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
 
 
@@ -63,7 +63,7 @@ applicable agreement for further details.
 +--------------------------------------------------------------------------------------+
 ; Fitter Summary                                                                       ;
 +------------------------------------+-------------------------------------------------+
-; Fitter Status                      ; Successful - Wed Dec 13 15:32:07 2017           ;
+; Fitter Status                      ; Successful - Fri Dec 15 00:02:29 2017           ;
 ; Quartus II 64-Bit Version          ; 13.0.1 Build 232 06/12/2013 SP 1 SJ Web Edition ;
 ; Revision Name                      ; projetoPessoal                                  ;
 ; Top-level Entity Name              ; projetoPessoal                                  ;
@@ -71,10 +71,10 @@ applicable agreement for further details.
 ; Device                             ; EP2C20F484C7                                    ;
 ; Timing Models                      ; Final                                           ;
 ; Total logic elements               ; 11 / 18,752 ( < 1 % )                           ;
-;     Total combinational functions  ; 11 / 18,752 ( < 1 % )                           ;
+;     Total combinational functions  ; 10 / 18,752 ( < 1 % )                           ;
 ;     Dedicated logic registers      ; 6 / 18,752 ( < 1 % )                            ;
 ; Total registers                    ; 6                                               ;
-; Total pins                         ; 17 / 315 ( 5 % )                                ;
+; Total pins                         ; 9 / 315 ( 3 % )                                 ;
 ; Total virtual pins                 ; 0                                               ;
 ; Total memory bits                  ; 0 / 239,616 ( 0 % )                             ;
 ; Embedded Multiplier 9-bit elements ; 0 / 52 ( 0 % )                                  ;
@@ -138,7 +138,7 @@ Parallel compilation was disabled, but you have multiple processors available. E
 +----------------------------+--------+
 ; Processors                 ; Number ;
 +----------------------------+--------+
-; Number detected on machine ; 8      ;
+; Number detected on machine ; 4      ;
 ; Maximum allowed            ; 1      ;
 +----------------------------+--------+
 
@@ -304,6 +304,13 @@ Parallel compilation was disabled, but you have multiple processors available. E
 ; Location ;                ;              ; GPIO_1[7]     ; PIN_G16       ; QSF Assignment ;
 ; Location ;                ;              ; GPIO_1[8]     ; PIN_F12       ; QSF Assignment ;
 ; Location ;                ;              ; GPIO_1[9]     ; PIN_F13       ; QSF Assignment ;
+; Location ;                ;              ; HEX0[0]       ; PIN_J2        ; QSF Assignment ;
+; Location ;                ;              ; HEX0[1]       ; PIN_J1        ; QSF Assignment ;
+; Location ;                ;              ; HEX0[2]       ; PIN_H2        ; QSF Assignment ;
+; Location ;                ;              ; HEX0[3]       ; PIN_H1        ; QSF Assignment ;
+; Location ;                ;              ; HEX0[4]       ; PIN_F2        ; QSF Assignment ;
+; Location ;                ;              ; HEX0[5]       ; PIN_F1        ; QSF Assignment ;
+; Location ;                ;              ; HEX0[6]       ; PIN_E2        ; QSF Assignment ;
 ; Location ;                ;              ; HEX1[0]       ; PIN_E1        ; QSF Assignment ;
 ; Location ;                ;              ; HEX1[1]       ; PIN_H6        ; QSF Assignment ;
 ; Location ;                ;              ; HEX1[2]       ; PIN_H5        ; QSF Assignment ;
@@ -331,19 +338,20 @@ Parallel compilation was disabled, but you have multiple processors available. E
 ; Location ;                ;              ; KEY[1]        ; PIN_R21       ; QSF Assignment ;
 ; Location ;                ;              ; KEY[2]        ; PIN_T22       ; QSF Assignment ;
 ; Location ;                ;              ; KEY[3]        ; PIN_T21       ; QSF Assignment ;
-; Location ;                ;              ; LEDG[0]       ; PIN_U22       ; QSF Assignment ;
-; Location ;                ;              ; LEDG[1]       ; PIN_U21       ; QSF Assignment ;
 ; Location ;                ;              ; LEDG[2]       ; PIN_V22       ; QSF Assignment ;
 ; Location ;                ;              ; LEDG[3]       ; PIN_V21       ; QSF Assignment ;
 ; Location ;                ;              ; LEDG[4]       ; PIN_W22       ; QSF Assignment ;
 ; Location ;                ;              ; LEDG[5]       ; PIN_W21       ; QSF Assignment ;
 ; Location ;                ;              ; LEDG[6]       ; PIN_Y22       ; QSF Assignment ;
 ; Location ;                ;              ; LEDG[7]       ; PIN_Y21       ; QSF Assignment ;
-; Location ;                ;              ; LEDR[0]       ; PIN_R20       ; QSF Assignment ;
-; Location ;                ;              ; LEDR[1]       ; PIN_R19       ; QSF Assignment ;
 ; Location ;                ;              ; LEDR[2]       ; PIN_U19       ; QSF Assignment ;
 ; Location ;                ;              ; LEDR[3]       ; PIN_Y19       ; QSF Assignment ;
 ; Location ;                ;              ; LEDR[4]       ; PIN_T18       ; QSF Assignment ;
+; Location ;                ;              ; LEDR[5]       ; PIN_V19       ; QSF Assignment ;
+; Location ;                ;              ; LEDR[6]       ; PIN_Y18       ; QSF Assignment ;
+; Location ;                ;              ; LEDR[7]       ; PIN_U18       ; QSF Assignment ;
+; Location ;                ;              ; LEDR[8]       ; PIN_R18       ; QSF Assignment ;
+; Location ;                ;              ; LEDR[9]       ; PIN_R17       ; QSF Assignment ;
 ; Location ;                ;              ; PS2_CLK       ; PIN_H15       ; QSF Assignment ;
 ; Location ;                ;              ; PS2_DAT       ; PIN_J14       ; QSF Assignment ;
 ; Location ;                ;              ; SRAM_ADDR[0]  ; PIN_AA3       ; QSF Assignment ;
@@ -420,8 +428,8 @@ Parallel compilation was disabled, but you have multiple processors available. E
 ; Type                ; Value                  ;
 +---------------------+------------------------+
 ; Placement (by node) ;                        ;
-;     -- Requested    ; 0 / 39 ( 0.00 % )      ;
-;     -- Achieved     ; 0 / 39 ( 0.00 % )      ;
+;     -- Requested    ; 0 / 30 ( 0.00 % )      ;
+;     -- Achieved     ; 0 / 30 ( 0.00 % )      ;
 ;                     ;                        ;
 ; Routing (by net)    ;                        ;
 ;     -- Requested    ; 0 / 0 ( 0.00 % )       ;
@@ -444,7 +452,7 @@ Parallel compilation was disabled, but you have multiple processors available. E
 +--------------------------------+---------+-------------------+-------------------------+-------------------+
 ; Partition Name                 ; # Nodes ; # Preserved Nodes ; Preservation Level Used ; Netlist Type Used ;
 +--------------------------------+---------+-------------------+-------------------------+-------------------+
-; Top                            ; 36      ; 0                 ; N/A                     ; Source File       ;
+; Top                            ; 27      ; 0                 ; N/A                     ; Source File       ;
 ; hard_block:auto_generated_inst ; 3       ; 0                 ; N/A                     ; Source File       ;
 +--------------------------------+---------+-------------------+-------------------------+-------------------+
 
@@ -462,17 +470,17 @@ The pin-out file can be found in C:/altera/13.0sp1/verilog/output_files/projetoP
 +---------------------------------------------+-----------------------+
 ; Total logic elements                        ; 11 / 18,752 ( < 1 % ) ;
 ;     -- Combinational with no register       ; 5                     ;
-;     -- Register only                        ; 0                     ;
-;     -- Combinational with a register        ; 6                     ;
+;     -- Register only                        ; 1                     ;
+;     -- Combinational with a register        ; 5                     ;
 ;                                             ;                       ;
 ; Logic element usage by number of LUT inputs ;                       ;
 ;     -- 4 input functions                    ; 7                     ;
 ;     -- 3 input functions                    ; 0                     ;
-;     -- <=2 input functions                  ; 4                     ;
-;     -- Register only                        ; 0                     ;
+;     -- <=2 input functions                  ; 3                     ;
+;     -- Register only                        ; 1                     ;
 ;                                             ;                       ;
 ; Logic elements by mode                      ;                       ;
-;     -- normal mode                          ; 11                    ;
+;     -- normal mode                          ; 10                    ;
 ;     -- arithmetic mode                      ; 0                     ;
 ;                                             ;                       ;
 ; Total registers*                            ; 6 / 19,649 ( < 1 % )  ;
@@ -481,8 +489,8 @@ The pin-out file can be found in C:/altera/13.0sp1/verilog/output_files/projetoP
 ;                                             ;                       ;
 ; Total LABs:  partially or completely used   ; 1 / 1,172 ( < 1 % )   ;
 ; Virtual pins                                ; 0                     ;
-; I/O pins                                    ; 17 / 315 ( 5 % )      ;
-;     -- Clock pins                           ; 4 / 8 ( 50 % )        ;
+; I/O pins                                    ; 9 / 315 ( 3 % )       ;
+;     -- Clock pins                           ; 3 / 8 ( 38 % )        ;
 ;                                             ;                       ;
 ; Global signals                              ; 1                     ;
 ; M4Ks                                        ; 0 / 52 ( 0 % )        ;
@@ -496,10 +504,10 @@ The pin-out file can be found in C:/altera/13.0sp1/verilog/output_files/projetoP
 ; CRC blocks                                  ; 0 / 1 ( 0 % )         ;
 ; Average interconnect usage (total/H/V)      ; 0% / 0% / 0%          ;
 ; Peak interconnect usage (total/H/V)         ; 0% / 0% / 0%          ;
-; Maximum fan-out                             ; 7                     ;
-; Highest non-global fan-out                  ; 7                     ;
-; Total fan-out                               ; 53                    ;
-; Average fan-out                             ; 1.39                  ;
+; Maximum fan-out                             ; 6                     ;
+; Highest non-global fan-out                  ; 6                     ;
+; Total fan-out                               ; 52                    ;
+; Average fan-out                             ; 1.73                  ;
 +---------------------------------------------+-----------------------+
 *  Register count does not include registers inside RAM blocks or DSP blocks.
 
@@ -514,17 +522,17 @@ The pin-out file can be found in C:/altera/13.0sp1/verilog/output_files/projetoP
 ;                                             ;                      ;                                ;
 ; Total logic elements                        ; 11 / 18752 ( < 1 % ) ; 0 / 18752 ( 0 % )              ;
 ;     -- Combinational with no register       ; 5                    ; 0                              ;
-;     -- Register only                        ; 0                    ; 0                              ;
-;     -- Combinational with a register        ; 6                    ; 0                              ;
+;     -- Register only                        ; 1                    ; 0                              ;
+;     -- Combinational with a register        ; 5                    ; 0                              ;
 ;                                             ;                      ;                                ;
 ; Logic element usage by number of LUT inputs ;                      ;                                ;
 ;     -- 4 input functions                    ; 7                    ; 0                              ;
 ;     -- 3 input functions                    ; 0                    ; 0                              ;
-;     -- <=2 input functions                  ; 4                    ; 0                              ;
-;     -- Register only                        ; 0                    ; 0                              ;
+;     -- <=2 input functions                  ; 3                    ; 0                              ;
+;     -- Register only                        ; 1                    ; 0                              ;
 ;                                             ;                      ;                                ;
 ; Logic elements by mode                      ;                      ;                                ;
-;     -- normal mode                          ; 11                   ; 0                              ;
+;     -- normal mode                          ; 10                   ; 0                              ;
 ;     -- arithmetic mode                      ; 0                    ; 0                              ;
 ;                                             ;                      ;                                ;
 ; Total registers                             ; 6                    ; 0                              ;
@@ -533,7 +541,7 @@ The pin-out file can be found in C:/altera/13.0sp1/verilog/output_files/projetoP
 ; Total LABs:  partially or completely used   ; 1 / 1172 ( < 1 % )   ; 0 / 1172 ( 0 % )               ;
 ;                                             ;                      ;                                ;
 ; Virtual pins                                ; 0                    ; 0                              ;
-; I/O pins                                    ; 17                   ; 0                              ;
+; I/O pins                                    ; 9                    ; 0                              ;
 ; Embedded Multiplier 9-bit elements          ; 0 / 52 ( 0 % )       ; 0 / 52 ( 0 % )                 ;
 ; Total memory bits                           ; 0                    ; 0                              ;
 ; Total RAM block bits                        ; 0                    ; 0                              ;
@@ -546,8 +554,8 @@ The pin-out file can be found in C:/altera/13.0sp1/verilog/output_files/projetoP
 ;     -- Registered Output Connections        ; 0                    ; 0                              ;
 ;                                             ;                      ;                                ;
 ; Internal Connections                        ;                      ;                                ;
-;     -- Total Connections                    ; 53                   ; 0                              ;
-;     -- Registered Connections               ; 18                   ; 0                              ;
+;     -- Total Connections                    ; 52                   ; 0                              ;
+;     -- Registered Connections               ; 16                   ; 0                              ;
 ;                                             ;                      ;                                ;
 ; External Connections                        ;                      ;                                ;
 ;     -- Top                                  ; 0                    ; 0                              ;
@@ -555,7 +563,7 @@ The pin-out file can be found in C:/altera/13.0sp1/verilog/output_files/projetoP
 ;                                             ;                      ;                                ;
 ; Partition Interface                         ;                      ;                                ;
 ;     -- Input Ports                          ; 5                    ; 0                              ;
-;     -- Output Ports                         ; 12                   ; 0                              ;
+;     -- Output Ports                         ; 4                    ; 0                              ;
 ;     -- Bidir Ports                          ; 0                    ; 0                              ;
 ;                                             ;                      ;                                ;
 ; Registered Ports                            ;                      ;                                ;
@@ -579,7 +587,7 @@ The pin-out file can be found in C:/altera/13.0sp1/verilog/output_files/projetoP
 +-------+-------+----------+--------------+--------------+-------------+-----------------------+--------------------+--------+----------------+---------------+-----------------+----------+--------------+--------------+-------------+----------------------+
 ; Name  ; Pin # ; I/O Bank ; X coordinate ; Y coordinate ; Cell number ; Combinational Fan-Out ; Registered Fan-Out ; Global ; Input Register ; Power Up High ; PCI I/O Enabled ; Bus Hold ; Weak Pull Up ; I/O Standard ; Termination ; Location assigned by ;
 +-------+-------+----------+--------------+--------------+-------------+-----------------------+--------------------+--------+----------------+---------------+-----------------+----------+--------------+--------------+-------------+----------------------+
-; CLK   ; L1    ; 2        ; 0            ; 13           ; 0           ; 1                     ; 0                  ; yes    ; no             ; no            ; no              ; no       ; Off          ; 3.3-V LVTTL  ; Off         ; Fitter               ;
+; CLK   ; M21   ; 6        ; 50           ; 14           ; 3           ; 1                     ; 0                  ; yes    ; no             ; no            ; no              ; no       ; Off          ; 3.3-V LVTTL  ; Off         ; Fitter               ;
 ; SW[0] ; L22   ; 5        ; 50           ; 14           ; 0           ; 4                     ; 0                  ; no     ; no             ; no            ; no              ; no       ; Off          ; 3.3-V LVTTL  ; Off         ; User                 ;
 ; SW[1] ; L21   ; 5        ; 50           ; 14           ; 1           ; 4                     ; 0                  ; no     ; no             ; no            ; no              ; no       ; Off          ; 3.3-V LVTTL  ; Off         ; User                 ;
 ; SW[2] ; M22   ; 6        ; 50           ; 14           ; 2           ; 4                     ; 0                  ; no     ; no             ; no            ; no              ; no       ; Off          ; 3.3-V LVTTL  ; Off         ; User                 ;
@@ -592,35 +600,27 @@ The pin-out file can be found in C:/altera/13.0sp1/verilog/output_files/projetoP
 +---------+-------+----------+--------------+--------------+-------------+-----------------+------------------------+---------------+-----------------+------------+---------------+----------+--------------+--------------+------------------+-------------+----------------------+------+----------------------+---------------------+
 ; Name    ; Pin # ; I/O Bank ; X coordinate ; Y coordinate ; Cell number ; Output Register ; Output Enable Register ; Power Up High ; PCI I/O Enabled ; Open Drain ; TRI Primitive ; Bus Hold ; Weak Pull Up ; I/O Standard ; Current Strength ; Termination ; Location assigned by ; Load ; Output Enable Source ; Output Enable Group ;
 +---------+-------+----------+--------------+--------------+-------------+-----------------+------------------------+---------------+-----------------+------------+---------------+----------+--------------+--------------+------------------+-------------+----------------------+------+----------------------+---------------------+
-; HEX0[0] ; J2    ; 2        ; 0            ; 18           ; 2           ; no              ; no                     ; no            ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 24mA             ; Off         ; User                 ; 0 pF ; -                    ; -                   ;
-; HEX0[1] ; J1    ; 2        ; 0            ; 18           ; 1           ; no              ; no                     ; no            ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 24mA             ; Off         ; User                 ; 0 pF ; -                    ; -                   ;
-; HEX0[2] ; H2    ; 2        ; 0            ; 19           ; 1           ; no              ; no                     ; no            ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 24mA             ; Off         ; User                 ; 0 pF ; -                    ; -                   ;
-; HEX0[3] ; H1    ; 2        ; 0            ; 19           ; 0           ; no              ; no                     ; no            ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 24mA             ; Off         ; User                 ; 0 pF ; -                    ; -                   ;
-; HEX0[4] ; F2    ; 2        ; 0            ; 20           ; 3           ; no              ; no                     ; no            ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 24mA             ; Off         ; User                 ; 0 pF ; -                    ; -                   ;
-; HEX0[5] ; F1    ; 2        ; 0            ; 20           ; 2           ; no              ; no                     ; no            ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 24mA             ; Off         ; User                 ; 0 pF ; -                    ; -                   ;
-; HEX0[6] ; E2    ; 2        ; 0            ; 20           ; 1           ; no              ; no                     ; no            ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 24mA             ; Off         ; User                 ; 0 pF ; -                    ; -                   ;
-; LEDR[5] ; V19   ; 6        ; 50           ; 2            ; 2           ; no              ; no                     ; no            ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 24mA             ; Off         ; User                 ; 0 pF ; -                    ; -                   ;
-; LEDR[6] ; Y18   ; 6        ; 50           ; 2            ; 3           ; no              ; no                     ; no            ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 24mA             ; Off         ; User                 ; 0 pF ; -                    ; -                   ;
-; LEDR[7] ; U18   ; 6        ; 50           ; 3            ; 1           ; no              ; no                     ; no            ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 24mA             ; Off         ; User                 ; 0 pF ; -                    ; -                   ;
-; LEDR[8] ; R18   ; 6        ; 50           ; 8            ; 2           ; no              ; no                     ; no            ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 24mA             ; Off         ; User                 ; 0 pF ; -                    ; -                   ;
-; LEDR[9] ; R17   ; 6        ; 50           ; 5            ; 0           ; no              ; no                     ; no            ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 24mA             ; Off         ; User                 ; 0 pF ; -                    ; -                   ;
+; LEDG[0] ; U22   ; 6        ; 50           ; 7            ; 0           ; no              ; no                     ; no            ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 24mA             ; Off         ; User                 ; 0 pF ; -                    ; -                   ;
+; LEDG[1] ; U21   ; 6        ; 50           ; 7            ; 1           ; no              ; no                     ; no            ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 24mA             ; Off         ; User                 ; 0 pF ; -                    ; -                   ;
+; LEDR[0] ; R20   ; 6        ; 50           ; 10           ; 0           ; no              ; no                     ; no            ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 24mA             ; Off         ; User                 ; 0 pF ; -                    ; -                   ;
+; LEDR[1] ; R19   ; 6        ; 50           ; 8            ; 1           ; no              ; no                     ; no            ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 24mA             ; Off         ; User                 ; 0 pF ; -                    ; -                   ;
 +---------+-------+----------+--------------+--------------+-------------+-----------------+------------------------+---------------+-----------------+------------+---------------+----------+--------------+--------------+------------------+-------------+----------------------+------+----------------------+---------------------+
 
 
-+------------------------------------------------------------+
-; I/O Bank Usage                                             ;
-+----------+------------------+---------------+--------------+
-; I/O Bank ; Usage            ; VCCIO Voltage ; VREF Voltage ;
-+----------+------------------+---------------+--------------+
-; 1        ; 0 / 41 ( 0 % )   ; 3.3V          ; --           ;
-; 2        ; 10 / 33 ( 30 % ) ; 3.3V          ; --           ;
-; 3        ; 0 / 43 ( 0 % )   ; 3.3V          ; --           ;
-; 4        ; 0 / 40 ( 0 % )   ; 3.3V          ; --           ;
-; 5        ; 2 / 39 ( 5 % )   ; 3.3V          ; --           ;
-; 6        ; 7 / 36 ( 19 % )  ; 3.3V          ; --           ;
-; 7        ; 1 / 40 ( 3 % )   ; 3.3V          ; --           ;
-; 8        ; 0 / 43 ( 0 % )   ; 3.3V          ; --           ;
-+----------+------------------+---------------+--------------+
++-----------------------------------------------------------+
+; I/O Bank Usage                                            ;
++----------+-----------------+---------------+--------------+
+; I/O Bank ; Usage           ; VCCIO Voltage ; VREF Voltage ;
++----------+-----------------+---------------+--------------+
+; 1        ; 0 / 41 ( 0 % )  ; 3.3V          ; --           ;
+; 2        ; 2 / 33 ( 6 % )  ; 3.3V          ; --           ;
+; 3        ; 0 / 43 ( 0 % )  ; 3.3V          ; --           ;
+; 4        ; 0 / 40 ( 0 % )  ; 3.3V          ; --           ;
+; 5        ; 2 / 39 ( 5 % )  ; 3.3V          ; --           ;
+; 6        ; 7 / 36 ( 19 % ) ; 3.3V          ; --           ;
+; 7        ; 1 / 40 ( 3 % )  ; 3.3V          ; --           ;
+; 8        ; 0 / 43 ( 0 % )  ; 3.3V          ; --           ;
++----------+-----------------+---------------+--------------+
 
 
 +------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -761,7 +761,7 @@ The pin-out file can be found in C:/altera/13.0sp1/verilog/output_files/projetoP
 ; D21      ; 229        ; 5        ; GND*                                     ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
 ; D22      ; 230        ; 5        ; GND*                                     ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
 ; E1       ; 20         ; 2        ; GND*                                     ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
-; E2       ; 21         ; 2        ; HEX0[6]                                  ; output ; 3.3-V LVTTL  ;         ; Row I/O    ; Y               ; no       ; Off          ;
+; E2       ; 21         ; 2        ; GND*                                     ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
 ; E3       ; 6          ; 2        ; GND*                                     ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
 ; E4       ; 7          ; 2        ; GND*                                     ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
 ; E5       ;            ;          ; VCCD_PLL3                                ; power  ;              ; 1.2V    ; --         ;                 ; --       ; --           ;
@@ -782,8 +782,8 @@ The pin-out file can be found in C:/altera/13.0sp1/verilog/output_files/projetoP
 ; E20      ; 234        ; 5        ; GND*                                     ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
 ; E21      ; 227        ; 5        ; GND*                                     ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
 ; E22      ; 228        ; 5        ; GND*                                     ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
-; F1       ; 22         ; 2        ; HEX0[5]                                  ; output ; 3.3-V LVTTL  ;         ; Row I/O    ; Y               ; no       ; Off          ;
-; F2       ; 23         ; 2        ; HEX0[4]                                  ; output ; 3.3-V LVTTL  ;         ; Row I/O    ; Y               ; no       ; Off          ;
+; F1       ; 22         ; 2        ; GND*                                     ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
+; F2       ; 23         ; 2        ; GND*                                     ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
 ; F3       ; 13         ; 2        ; GND*                                     ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
 ; F4       ; 10         ; 2        ; GND*                                     ;        ;              ;         ; Row I/O    ;                 ; --       ; --           ;
 ; F5       ;            ;          ; GND_PLL3                                 ; gnd    ;              ;         ; --         ;                 ; --       ; --           ;
@@ -826,8 +826,8 @@ The pin-out file can be found in C:/altera/13.0sp1/verilog/output_files/projetoP
 ; G20      ; 233        ; 5        ; GND*                                     ;        ;              ;         ; Row I/O    ;                 ; --       ; --           ;
 ; G21      ; 221        ; 5        ; GND*                                     ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
 ; G22      ; 222        ; 5        ; GND*                                     ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
-; H1       ; 24         ; 2        ; HEX0[3]                                  ; output ; 3.3-V LVTTL  ;         ; Row I/O    ; Y               ; no       ; Off          ;
-; H2       ; 25         ; 2        ; HEX0[2]                                  ; output ; 3.3-V LVTTL  ;         ; Row I/O    ; Y               ; no       ; Off          ;
+; H1       ; 24         ; 2        ; GND*                                     ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
+; H2       ; 25         ; 2        ; GND*                                     ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
 ; H3       ; 27         ; 2        ; GND*                                     ;        ;              ;         ; Row I/O    ;                 ; --       ; --           ;
 ; H4       ; 17         ; 2        ; GND*                                     ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
 ; H5       ; 18         ; 2        ; GND*                                     ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
@@ -848,8 +848,8 @@ The pin-out file can be found in C:/altera/13.0sp1/verilog/output_files/projetoP
 ; H20      ;            ;          ; GND                                      ; gnd    ;              ;         ; --         ;                 ; --       ; --           ;
 ; H21      ;            ;          ; NC                                       ;        ;              ;         ; --         ;                 ; --       ; --           ;
 ; H22      ;            ;          ; NC                                       ;        ;              ;         ; --         ;                 ; --       ; --           ;
-; J1       ; 29         ; 2        ; HEX0[1]                                  ; output ; 3.3-V LVTTL  ;         ; Row I/O    ; Y               ; no       ; Off          ;
-; J2       ; 30         ; 2        ; HEX0[0]                                  ; output ; 3.3-V LVTTL  ;         ; Row I/O    ; Y               ; no       ; Off          ;
+; J1       ; 29         ; 2        ; GND*                                     ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
+; J2       ; 30         ; 2        ; GND*                                     ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
 ; J3       ;            ;          ; NC                                       ;        ;              ;         ; --         ;                 ; --       ; --           ;
 ; J4       ; 28         ; 2        ; GND*                                     ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
 ; J5       ;            ;          ; NC                                       ;        ;              ;         ; --         ;                 ; --       ; --           ;
@@ -892,7 +892,7 @@ The pin-out file can be found in C:/altera/13.0sp1/verilog/output_files/projetoP
 ; K20      ; 215        ; 5        ; GND*                                     ;        ;              ;         ; Row I/O    ;                 ; --       ; --           ;
 ; K21      ; 209        ; 5        ; GND*                                     ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
 ; K22      ; 210        ; 5        ; GND*                                     ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
-; L1       ; 38         ; 2        ; CLK                                      ; input  ; 3.3-V LVTTL  ;         ; Row I/O    ; N               ; no       ; Off          ;
+; L1       ; 38         ; 2        ; GND+                                     ;        ;              ;         ; Row I/O    ;                 ; --       ; --           ;
 ; L2       ; 39         ; 2        ; GND+                                     ;        ;              ;         ; Row I/O    ;                 ; --       ; --           ;
 ; L3       ;            ; 2        ; VCCIO2                                   ; power  ;              ; 3.3V    ; --         ;                 ; --       ; --           ;
 ; L4       ; 40         ; 2        ; ^nCONFIG                                 ;        ;              ;         ; --         ;                 ; --       ; --           ;
@@ -934,7 +934,7 @@ The pin-out file can be found in C:/altera/13.0sp1/verilog/output_files/projetoP
 ; M18      ; 202        ; 6        ; GND*                                     ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
 ; M19      ; 201        ; 6        ; GND*                                     ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
 ; M20      ;            ; 6        ; VCCIO6                                   ; power  ;              ; 3.3V    ; --         ;                 ; --       ; --           ;
-; M21      ; 203        ; 6        ; GND+                                     ;        ;              ;         ; Row I/O    ;                 ; --       ; --           ;
+; M21      ; 203        ; 6        ; CLK                                      ; input  ; 3.3-V LVTTL  ;         ; Row I/O    ; N               ; no       ; Off          ;
 ; M22      ; 204        ; 6        ; SW[2]                                    ; input  ; 3.3-V LVTTL  ;         ; Row I/O    ; Y               ; no       ; Off          ;
 ; N1       ; 45         ; 1        ; GND*                                     ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
 ; N2       ; 46         ; 1        ; GND*                                     ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
@@ -996,10 +996,10 @@ The pin-out file can be found in C:/altera/13.0sp1/verilog/output_files/projetoP
 ; R14      ; 150        ; 7        ; GND*                                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
 ; R15      ; 151        ; 7        ; GND*                                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
 ; R16      ; 155        ; 7        ; GND*                                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
-; R17      ; 177        ; 6        ; LEDR[9]                                  ; output ; 3.3-V LVTTL  ;         ; Row I/O    ; Y               ; no       ; Off          ;
-; R18      ; 184        ; 6        ; LEDR[8]                                  ; output ; 3.3-V LVTTL  ;         ; Row I/O    ; Y               ; no       ; Off          ;
-; R19      ; 185        ; 6        ; GND*                                     ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
-; R20      ; 192        ; 6        ; GND*                                     ;        ;              ;         ; Row I/O    ;                 ; --       ; --           ;
+; R17      ; 177        ; 6        ; GND*                                     ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
+; R18      ; 184        ; 6        ; GND*                                     ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
+; R19      ; 185        ; 6        ; LEDR[1]                                  ; output ; 3.3-V LVTTL  ;         ; Row I/O    ; Y               ; no       ; Off          ;
+; R20      ; 192        ; 6        ; LEDR[0]                                  ; output ; 3.3-V LVTTL  ;         ; Row I/O    ; Y               ; no       ; Off          ;
 ; R21      ; 190        ; 6        ; GND*                                     ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
 ; R22      ; 191        ; 6        ; GND*                                     ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
 ; T1       ; 59         ; 1        ; GND*                                     ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
@@ -1041,11 +1041,11 @@ The pin-out file can be found in C:/altera/13.0sp1/verilog/output_files/projetoP
 ; U15      ; 157        ; 7        ; GND*                                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
 ; U16      ;            ;          ; VCCA_PLL4                                ; power  ;              ; 1.2V    ; --         ;                 ; --       ; --           ;
 ; U17      ;            ;          ; VCCD_PLL4                                ; power  ;              ; 1.2V    ; --         ;                 ; --       ; --           ;
-; U18      ; 170        ; 6        ; LEDR[7]                                  ; output ; 3.3-V LVTTL  ;         ; Row I/O    ; Y               ; no       ; Off          ;
+; U18      ; 170        ; 6        ; GND*                                     ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
 ; U19      ; 172        ; 6        ; GND*                                     ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
 ; U20      ; 176        ; 6        ; GND*                                     ;        ;              ;         ; Row I/O    ;                 ; --       ; --           ;
-; U21      ; 182        ; 6        ; GND*                                     ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
-; U22      ; 183        ; 6        ; GND*                                     ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
+; U21      ; 182        ; 6        ; LEDG[1]                                  ; output ; 3.3-V LVTTL  ;         ; Row I/O    ; Y               ; no       ; Off          ;
+; U22      ; 183        ; 6        ; LEDG[0]                                  ; output ; 3.3-V LVTTL  ;         ; Row I/O    ; Y               ; no       ; Off          ;
 ; V1       ; 65         ; 1        ; GND*                                     ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
 ; V2       ; 66         ; 1        ; GND*                                     ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
 ; V3       ;            ;          ; GND                                      ; gnd    ;              ;         ; --         ;                 ; --       ; --           ;
@@ -1064,7 +1064,7 @@ The pin-out file can be found in C:/altera/13.0sp1/verilog/output_files/projetoP
 ; V16      ;            ;          ; GNDA_PLL4                                ; gnd    ;              ;         ; --         ;                 ; --       ; --           ;
 ; V17      ;            ;          ; GND                                      ; gnd    ;              ;         ; --         ;                 ; --       ; --           ;
 ; V18      ;            ;          ; GND_PLL4                                 ; gnd    ;              ;         ; --         ;                 ; --       ; --           ;
-; V19      ; 166        ; 6        ; LEDR[5]                                  ; output ; 3.3-V LVTTL  ;         ; Row I/O    ; Y               ; no       ; Off          ;
+; V19      ; 166        ; 6        ; GND*                                     ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
 ; V20      ; 173        ; 6        ; GND*                                     ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
 ; V21      ; 180        ; 6        ; GND*                                     ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
 ; V22      ; 181        ; 6        ; GND*                                     ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
@@ -1107,7 +1107,7 @@ The pin-out file can be found in C:/altera/13.0sp1/verilog/output_files/projetoP
 ; Y15      ;            ;          ; GND                                      ; gnd    ;              ;         ; --         ;                 ; --       ; --           ;
 ; Y16      ; 154        ; 7        ; GND*                                     ;        ;              ;         ; Column I/O ;                 ; --       ; --           ;
 ; Y17      ; 159        ; 7        ; GND*                                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
-; Y18      ; 165        ; 6        ; LEDR[6]                                  ; output ; 3.3-V LVTTL  ;         ; Row I/O    ; Y               ; no       ; Off          ;
+; Y18      ; 165        ; 6        ; GND*                                     ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
 ; Y19      ; 168        ; 6        ; GND*                                     ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
 ; Y20      ; 169        ; 6        ; GND*                                     ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
 ; Y21      ; 178        ; 6        ; GND*                                     ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
@@ -1158,8 +1158,8 @@ Note: User assignments will override these defaults. The user specified values a
 +----------------------------+-------------+---------------------------+---------------+-------------+------+--------------+---------+-----------+------+--------------+--------------+-------------------+------------------+---------------------------+--------------+
 ; Compilation Hierarchy Node ; Logic Cells ; Dedicated Logic Registers ; I/O Registers ; Memory Bits ; M4Ks ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; LUT-Only LCs ; Register-Only LCs ; LUT/Register LCs ; Full Hierarchy Name       ; Library Name ;
 +----------------------------+-------------+---------------------------+---------------+-------------+------+--------------+---------+-----------+------+--------------+--------------+-------------------+------------------+---------------------------+--------------+
-; |projetoPessoal            ; 11 (0)      ; 6 (0)                     ; 0 (0)         ; 0           ; 0    ; 0            ; 0       ; 0         ; 17   ; 0            ; 5 (0)        ; 0 (0)             ; 6 (0)            ; |projetoPessoal           ; work         ;
-;    |inicial:a|             ; 11 (11)     ; 6 (6)                     ; 0 (0)         ; 0           ; 0    ; 0            ; 0       ; 0         ; 0    ; 0            ; 5 (5)        ; 0 (0)             ; 6 (6)            ; |projetoPessoal|inicial:a ; work         ;
+; |projetoPessoal            ; 11 (0)      ; 6 (0)                     ; 0 (0)         ; 0           ; 0    ; 0            ; 0       ; 0         ; 9    ; 0            ; 5 (0)        ; 1 (0)             ; 5 (0)            ; |projetoPessoal           ; work         ;
+;    |inicial:a|             ; 11 (11)     ; 6 (6)                     ; 0 (0)         ; 0           ; 0    ; 0            ; 0       ; 0         ; 0    ; 0            ; 5 (5)        ; 1 (1)             ; 5 (5)            ; |projetoPessoal|inicial:a ; work         ;
 +----------------------------+-------------+---------------------------+---------------+-------------+------+--------------+---------+-----------+------+--------------+--------------+-------------------+------------------+---------------------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
@@ -1169,23 +1169,15 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +---------+----------+---------------+---------------+-----------------------+-----+
 ; Name    ; Pin Type ; Pad to Core 0 ; Pad to Core 1 ; Pad to Input Register ; TCO ;
 +---------+----------+---------------+---------------+-----------------------+-----+
-; LEDR[5] ; Output   ; --            ; --            ; --                    ; --  ;
-; LEDR[6] ; Output   ; --            ; --            ; --                    ; --  ;
-; LEDR[7] ; Output   ; --            ; --            ; --                    ; --  ;
-; LEDR[8] ; Output   ; --            ; --            ; --                    ; --  ;
-; LEDR[9] ; Output   ; --            ; --            ; --                    ; --  ;
-; HEX0[0] ; Output   ; --            ; --            ; --                    ; --  ;
-; HEX0[1] ; Output   ; --            ; --            ; --                    ; --  ;
-; HEX0[2] ; Output   ; --            ; --            ; --                    ; --  ;
-; HEX0[3] ; Output   ; --            ; --            ; --                    ; --  ;
-; HEX0[4] ; Output   ; --            ; --            ; --                    ; --  ;
-; HEX0[5] ; Output   ; --            ; --            ; --                    ; --  ;
-; HEX0[6] ; Output   ; --            ; --            ; --                    ; --  ;
+; LEDG[0] ; Output   ; --            ; --            ; --                    ; --  ;
+; LEDG[1] ; Output   ; --            ; --            ; --                    ; --  ;
+; LEDR[0] ; Output   ; --            ; --            ; --                    ; --  ;
+; LEDR[1] ; Output   ; --            ; --            ; --                    ; --  ;
 ; CLK     ; Input    ; (0) 171 ps    ; (0) 171 ps    ; --                    ; --  ;
-; SW[3]   ; Input    ; (0) 170 ps    ; (0) 170 ps    ; --                    ; --  ;
-; SW[2]   ; Input    ; (0) 171 ps    ; (0) 171 ps    ; --                    ; --  ;
-; SW[1]   ; Input    ; (0) 171 ps    ; (0) 171 ps    ; --                    ; --  ;
 ; SW[0]   ; Input    ; (0) 171 ps    ; (0) 171 ps    ; --                    ; --  ;
+; SW[2]   ; Input    ; (0) 171 ps    ; (0) 171 ps    ; --                    ; --  ;
+; SW[3]   ; Input    ; (0) 170 ps    ; (0) 170 ps    ; --                    ; --  ;
+; SW[1]   ; Input    ; (0) 171 ps    ; (0) 171 ps    ; --                    ; --  ;
 +---------+----------+---------------+---------------+-----------------------+-----+
 
 
@@ -1195,10 +1187,10 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; Source Pin / Fanout ; Pad To Core Index ; Setting ;
 +---------------------+-------------------+---------+
 ; CLK                 ;                   ;         ;
-; SW[3]               ;                   ;         ;
-; SW[2]               ;                   ;         ;
-; SW[1]               ;                   ;         ;
 ; SW[0]               ;                   ;         ;
+; SW[2]               ;                   ;         ;
+; SW[3]               ;                   ;         ;
+; SW[1]               ;                   ;         ;
 +---------------------+-------------------+---------+
 
 
@@ -1207,7 +1199,7 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +------+----------+---------+-------+--------+----------------------+------------------+---------------------------+
 ; Name ; Location ; Fan-Out ; Usage ; Global ; Global Resource Used ; Global Line Name ; Enable Signal Source Name ;
 +------+----------+---------+-------+--------+----------------------+------------------+---------------------------+
-; CLK  ; PIN_L1   ; 6       ; Clock ; yes    ; Global Clock         ; GCLK2            ; --                        ;
+; CLK  ; PIN_M21  ; 6       ; Clock ; yes    ; Global Clock         ; GCLK7            ; --                        ;
 +------+----------+---------+-------+--------+----------------------+------------------+---------------------------+
 
 
@@ -1216,37 +1208,36 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +------+----------+---------+----------------------+------------------+---------------------------+
 ; Name ; Location ; Fan-Out ; Global Resource Used ; Global Line Name ; Enable Signal Source Name ;
 +------+----------+---------+----------------------+------------------+---------------------------+
-; CLK  ; PIN_L1   ; 6       ; Global Clock         ; GCLK2            ; --                        ;
+; CLK  ; PIN_M21  ; 6       ; Global Clock         ; GCLK7            ; --                        ;
 +------+----------+---------+----------------------+------------------+---------------------------+
 
 
-+---------------------------------+
-; Non-Global High Fan-Out Signals ;
-+----------------------+----------+
-; Name                 ; Fan-Out  ;
-+----------------------+----------+
-; inicial:a|estado[0]  ; 7        ;
-; inicial:a|estado[1]  ; 7        ;
-; SW[3]                ; 5        ;
-; SW[0]                ; 4        ;
-; SW[1]                ; 4        ;
-; SW[2]                ; 4        ;
-; inicial:a|Mux1~3     ; 1        ;
-; inicial:a|Mux1~2     ; 1        ;
-; inicial:a|Mux1~1     ; 1        ;
-; inicial:a|Mux1~0     ; 1        ;
-; inicial:a|Mux0~2     ; 1        ;
-; inicial:a|Mux0~1     ; 1        ;
-; inicial:a|Mux0~0     ; 1        ;
-; inicial:a|Decoder0~3 ; 1        ;
-; inicial:a|Decoder0~2 ; 1        ;
-; inicial:a|Decoder0~1 ; 1        ;
-; inicial:a|Decoder0~0 ; 1        ;
-; inicial:a|tmpLed[9]  ; 1        ;
-; inicial:a|tmpLed[8]  ; 1        ;
-; inicial:a|tmpLed[7]  ; 1        ;
-; inicial:a|tmpLed[6]  ; 1        ;
-+----------------------+----------+
++---------------------------------------+
+; Non-Global High Fan-Out Signals       ;
++-----------------------------+---------+
+; Name                        ; Fan-Out ;
++-----------------------------+---------+
+; inicial:a|estado[1]         ; 6       ;
+; inicial:a|estado[0]         ; 6       ;
+; SW[3]                       ; 5       ;
+; SW[1]                       ; 4       ;
+; SW[2]                       ; 4       ;
+; SW[0]                       ; 4       ;
+; inicial:a|Decoder0~1        ; 2       ;
+; inicial:a|Mux0~2            ; 1       ;
+; inicial:a|Mux0~1            ; 1       ;
+; inicial:a|Mux0~0            ; 1       ;
+; inicial:a|Mux1~3            ; 1       ;
+; inicial:a|Mux1~2            ; 1       ;
+; inicial:a|Mux1~1            ; 1       ;
+; inicial:a|Mux1~0            ; 1       ;
+; inicial:a|Decoder0~2        ; 1       ;
+; inicial:a|Decoder0~0        ; 1       ;
+; inicial:a|tmpLedVermelho[1] ; 1       ;
+; inicial:a|tmpLedVermelho[0] ; 1       ;
+; inicial:a|tmpLedVerde[1]    ; 1       ;
+; inicial:a|tmpLedVerde[0]    ; 1       ;
++-----------------------------+---------+
 
 
 +-----------------------------------------------------+
@@ -1256,10 +1247,10 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +-----------------------------+-----------------------+
 ; Block interconnects         ; 11 / 54,004 ( < 1 % ) ;
 ; C16 interconnects           ; 1 / 2,100 ( < 1 % )   ;
-; C4 interconnects            ; 12 / 36,000 ( < 1 % ) ;
-; Direct links                ; 2 / 54,004 ( < 1 % )  ;
+; C4 interconnects            ; 7 / 36,000 ( < 1 % )  ;
+; Direct links                ; 3 / 54,004 ( < 1 % )  ;
 ; Global clocks               ; 1 / 16 ( 6 % )        ;
-; Local interconnects         ; 6 / 18,752 ( < 1 % )  ;
+; Local interconnects         ; 8 / 18,752 ( < 1 % )  ;
 ; R24 interconnects           ; 1 / 1,900 ( < 1 % )   ;
 ; R4 interconnects            ; 1 / 46,920 ( < 1 % )  ;
 +-----------------------------+-----------------------+
@@ -1397,13 +1388,13 @@ Info (169124): Fitter converted 3 user pins into dedicated programming pins
     Info (169125): Pin ~ASDO~ is reserved at location C4
     Info (169125): Pin ~nCSO~ is reserved at location C3
     Info (169125): Pin ~LVDS91p/nCEO~ is reserved at location W20
-Critical Warning (169085): No exact pin location assignment(s) for 1 pins of 17 total pins
+Critical Warning (169085): No exact pin location assignment(s) for 1 pins of 9 total pins
     Info (169086): Pin CLK not assigned to an exact location on the device
 Critical Warning (332012): Synopsys Design Constraints File file not found: 'projetoPessoal.sdc'. A Synopsys Design Constraints File is required by the TimeQuest Timing Analyzer to get proper timing constraints. Without it, the Compiler will not properly optimize the design.
 Info (332144): No user constrained base clocks found in the design
 Info (332130): Timing requirements not specified -- quality metrics such as performance may be sacrificed to reduce compilation time.
-Info (176353): Automatically promoted node CLK (placed in PIN L1 (CLK0, LVDSCLK0p, Input))
-    Info (176355): Automatically promoted destinations to use location or clock signal Global Clock CLKCTRL_G2
+Info (176353): Automatically promoted node CLK (placed in PIN M21 (CLK7, LVDSCLK3n, Input))
+    Info (176355): Automatically promoted destinations to use location or clock signal Global Clock CLKCTRL_G7
 Info (176233): Starting register packing
 Info (176235): Finished register packing
     Extra Info (176219): No registers were packed into other blocks
@@ -1564,6 +1555,13 @@ Warning (15705): Ignored locations or region assignments to the following nodes
     Warning (15706): Node "GPIO_1[7]" is assigned to location or region, but does not exist in design
     Warning (15706): Node "GPIO_1[8]" is assigned to location or region, but does not exist in design
     Warning (15706): Node "GPIO_1[9]" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "HEX0[0]" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "HEX0[1]" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "HEX0[2]" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "HEX0[3]" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "HEX0[4]" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "HEX0[5]" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "HEX0[6]" is assigned to location or region, but does not exist in design
     Warning (15706): Node "HEX1[0]" is assigned to location or region, but does not exist in design
     Warning (15706): Node "HEX1[1]" is assigned to location or region, but does not exist in design
     Warning (15706): Node "HEX1[2]" is assigned to location or region, but does not exist in design
@@ -1591,19 +1589,20 @@ Warning (15705): Ignored locations or region assignments to the following nodes
     Warning (15706): Node "KEY[1]" is assigned to location or region, but does not exist in design
     Warning (15706): Node "KEY[2]" is assigned to location or region, but does not exist in design
     Warning (15706): Node "KEY[3]" is assigned to location or region, but does not exist in design
-    Warning (15706): Node "LEDG[0]" is assigned to location or region, but does not exist in design
-    Warning (15706): Node "LEDG[1]" is assigned to location or region, but does not exist in design
     Warning (15706): Node "LEDG[2]" is assigned to location or region, but does not exist in design
     Warning (15706): Node "LEDG[3]" is assigned to location or region, but does not exist in design
     Warning (15706): Node "LEDG[4]" is assigned to location or region, but does not exist in design
     Warning (15706): Node "LEDG[5]" is assigned to location or region, but does not exist in design
     Warning (15706): Node "LEDG[6]" is assigned to location or region, but does not exist in design
     Warning (15706): Node "LEDG[7]" is assigned to location or region, but does not exist in design
-    Warning (15706): Node "LEDR[0]" is assigned to location or region, but does not exist in design
-    Warning (15706): Node "LEDR[1]" is assigned to location or region, but does not exist in design
     Warning (15706): Node "LEDR[2]" is assigned to location or region, but does not exist in design
     Warning (15706): Node "LEDR[3]" is assigned to location or region, but does not exist in design
     Warning (15706): Node "LEDR[4]" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "LEDR[5]" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "LEDR[6]" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "LEDR[7]" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "LEDR[8]" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "LEDR[9]" is assigned to location or region, but does not exist in design
     Warning (15706): Node "PS2_CLK" is assigned to location or region, but does not exist in design
     Warning (15706): Node "PS2_DAT" is assigned to location or region, but does not exist in design
     Warning (15706): Node "SRAM_ADDR[0]" is assigned to location or region, but does not exist in design
@@ -1683,33 +1682,25 @@ Info (170195): Router estimated average interconnect usage is 0% of the availabl
 Info (170194): Fitter routing operations ending: elapsed time is 00:00:00
 Info (170199): The Fitter performed an Auto Fit compilation.  Optimizations were skipped to reduce compilation time.
     Info (170201): Optimizations that may affect the design's routability were skipped
-Info (11888): Total time spent on timing analysis during the Fitter is 0.09 seconds.
+Info (11888): Total time spent on timing analysis during the Fitter is 0.17 seconds.
 Info (306004): Started post-fitting delay annotation
-Warning (306006): Found 12 output pins without output pin load capacitance assignment
-    Info (306007): Pin "LEDR[5]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
-    Info (306007): Pin "LEDR[6]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
-    Info (306007): Pin "LEDR[7]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
-    Info (306007): Pin "LEDR[8]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
-    Info (306007): Pin "LEDR[9]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
-    Info (306007): Pin "HEX0[0]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
-    Info (306007): Pin "HEX0[1]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
-    Info (306007): Pin "HEX0[2]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
-    Info (306007): Pin "HEX0[3]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
-    Info (306007): Pin "HEX0[4]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
-    Info (306007): Pin "HEX0[5]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
-    Info (306007): Pin "HEX0[6]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
+Warning (306006): Found 4 output pins without output pin load capacitance assignment
+    Info (306007): Pin "LEDG[0]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
+    Info (306007): Pin "LEDG[1]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
+    Info (306007): Pin "LEDR[0]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
+    Info (306007): Pin "LEDR[1]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
 Info (306005): Delay annotation completed successfully
 Info (306004): Started post-fitting delay annotation
 Info (306005): Delay annotation completed successfully
-Info (11218): Fitter post-fit operations ending: elapsed time is 00:00:00
+Info (11218): Fitter post-fit operations ending: elapsed time is 00:00:01
 Warning (171167): Found invalid Fitter assignments. See the Ignored Assignments panel in the Fitter Compilation Report for more information.
 Warning (169174): The Reserve All Unused Pins setting has not been specified, and will default to 'As output driving ground'.
 Info (144001): Generated suppressed messages file C:/altera/13.0sp1/verilog/output_files/projetoPessoal.fit.smsg
-Info: Quartus II 64-Bit Fitter was successful. 0 errors, 271 warnings
-    Info: Peak virtual memory: 632 megabytes
-    Info: Processing ended: Wed Dec 13 15:32:08 2017
-    Info: Elapsed time: 00:00:04
-    Info: Total CPU time (on all processors): 00:00:03
+Info: Quartus II 64-Bit Fitter was successful. 0 errors, 279 warnings
+    Info: Peak virtual memory: 635 megabytes
+    Info: Processing ended: Fri Dec 15 00:02:29 2017
+    Info: Elapsed time: 00:00:09
+    Info: Total CPU time (on all processors): 00:00:07
 
 
 +----------------------------+
