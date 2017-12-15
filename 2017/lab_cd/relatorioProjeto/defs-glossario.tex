@@ -1,0 +1,20 @@
+% Definições para glossario
+ \newglossaryentry{pai}{
+                name={pai},
+                plural={pai},
+                description={este é uma entrada pai, que possui outras
+                subentradas.} }
+
+ \newglossaryentry{componente}{
+                name={componente},
+                plural={componentes},
+                parent=pai,
+                description={descriação da entrada componente.} }
+ 
+ \newglossaryentry{filho}{
+                name={filho},
+                plural={filhos},
+                parent=pai,
+                description={isto é uma entrada filha da entrada de nome
+                \gls{pai}. Trata-se de uma entrada irmã da entrada
+                \gls{componente}.} }
