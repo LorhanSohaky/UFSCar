@@ -12,10 +12,11 @@ module inicial ( giro, entrada, saida, metais, ledVerde, ledVermelho, clock );
 	initial estado = A;
 	
 	always @(posedge clock)begin
-            tmp[3] = giro;
+				tmp = {giro,entrada,saida,metais}; // Equivamente as linhas 16 a 19
+            /*tmp[3] = giro;
             tmp[2] = entrada;
             tmp[1] = saida;
-            tmp[0] = metais;
+            tmp[0] = metais;*/
       	        
           	case( estado )
           			A: begin
