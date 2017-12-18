@@ -2,7 +2,7 @@ module inicial ( giro, entrada, saida, metais, ledVerde, ledVermelho, clock );
 	input giro, entrada, saida, metais, clock;
 	output [1:0] ledVerde, ledVermelho;
 	
-	reg [1:0] estado;
+	reg [2:0] estado;
 	reg [3:0] tmp;
 	
 	reg [1:0] tmpLedVerde, tmpLedVermelho;
