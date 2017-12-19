@@ -12,8 +12,8 @@ module inicial ( giro, entrada, saida, metais, ledVerde, ledVermelho, display, c
 
 	initial estado = A;
 
-	always @(posedge clock)begin
-			tmp = {giro,entrada,saida,metais}; // Equivamente as linhas 16 a 19
+	always @( posedge clock ) begin
+			tmp = { giro, entrada, saida, metais }; // Equivamente as linhas 16 a 19
             /*tmp[3] = giro;
             tmp[2] = entrada;
             tmp[1] = saida;
@@ -111,11 +111,11 @@ module inicial ( giro, entrada, saida, metais, ledVerde, ledVermelho, display, c
 
 endmodule
 
-module projetoPessoal( SW,LEDG, LEDR,HEX0, CLK );
+module projetoPessoal( SW,LEDG, LEDR, HEX0, CLK );
 	input [3:0] SW;
 	input CLK;
 	output [1:0] LEDG, LEDR;
 	output [6:0] HEX0;
 
-	inicial a( SW[3], SW[2], SW[1], SW[0], LEDG, LEDR, HEX0, CLK);
+	inicial a( SW[3], SW[2], SW[1], SW[0], LEDG, LEDR, HEX0, CLK );
 endmodule
