@@ -15,6 +15,7 @@ entity inicial is
         metais          : in     vl_logic;
         ledVerde        : out    vl_logic_vector(1 downto 0);
         ledVermelho     : out    vl_logic_vector(1 downto 0);
+        display         : out    vl_logic_vector(6 downto 0);
         clock           : in     vl_logic
     );
     attribute mti_svvh_generic_type : integer;

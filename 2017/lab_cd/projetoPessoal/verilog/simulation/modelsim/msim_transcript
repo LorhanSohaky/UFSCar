@@ -35,10 +35,10 @@
 # 
 #           File in use by: Lorhan Kondo  Hostname: DESKTOP-4R8U9HV  ProcessID: 8276
 # 
-#           Attempting to use alternate WLF file "./wlftnxe9jz".
+#           Attempting to use alternate WLF file "./wlft9enzq1".
 # ** Warning: (vsim-WLF-5001) Could not open WLF file: vsim.wlf
 # 
-#           Using alternate file: ./wlftnxe9jz
+#           Using alternate file: ./wlft9enzq1
 # 
 # view structure
 # .main_pane.structure.interior.cs.body.struct
@@ -56,4 +56,4 @@
 #     E    |   1010  | 00 |  00
 #     A    |   1000  | 00 |  00
 # Break key hit 
-# Break in Module projetoPessoal_TB in file C:/altera/13.0sp1/verilog/projetoPessoal_TB.v
+# Break in Module projetoPessoal_TB at C:/altera/13.0sp1/verilog/projetoPessoal_TB.v line 15

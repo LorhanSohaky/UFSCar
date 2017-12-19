@@ -1,5 +1,5 @@
 EDA Netlist Writer report for projetoPessoal
-Fri Dec 15 00:39:04 2017
+Tue Dec 19 00:38:00 2017
 Quartus II 64-Bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
 
 
@@ -36,7 +36,7 @@ applicable agreement for further details.
 +-------------------------------------------------------------------+
 ; EDA Netlist Writer Summary                                        ;
 +---------------------------+---------------------------------------+
-; EDA Netlist Writer Status ; Successful - Fri Dec 15 00:39:04 2017 ;
+; EDA Netlist Writer Status ; Successful - Tue Dec 19 00:38:00 2017 ;
 ; Revision Name             ; projetoPessoal                        ;
 ; Top-level Entity Name     ; projetoPessoal                        ;
 ; Family                    ; Cyclone II                            ;
@@ -84,13 +84,13 @@ applicable agreement for further details.
 Info: *******************************************************************
 Info: Running Quartus II 64-Bit EDA Netlist Writer
     Info: Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
-    Info: Processing started: Fri Dec 15 00:39:03 2017
+    Info: Processing started: Tue Dec 19 00:37:58 2017
 Info: Command: quartus_eda --read_settings_files=off --write_settings_files=off projetoPessoal -c projetoPessoal
 Info (204026): Generated files "projetoPessoal.vho", "projetoPessoal_fast.vho", "projetoPessoal_vhd.sdo" and "projetoPessoal_vhd_fast.sdo" in directory "C:/altera/13.0sp1/verilog/simulation/modelsim/" for EDA simulation tool
 Info: Quartus II 64-Bit EDA Netlist Writer was successful. 0 errors, 0 warnings
     Info: Peak virtual memory: 398 megabytes
-    Info: Processing ended: Fri Dec 15 00:39:04 2017
-    Info: Elapsed time: 00:00:01
+    Info: Processing ended: Tue Dec 19 00:38:00 2017
+    Info: Elapsed time: 00:00:02
     Info: Total CPU time (on all processors): 00:00:01
 
 
