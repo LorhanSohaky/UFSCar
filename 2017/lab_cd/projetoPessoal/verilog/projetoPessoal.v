@@ -13,7 +13,7 @@ module inicial ( giro, entrada, saida, metais, ledVerde, ledVermelho, display, c
 	initial estado = A;
 
 	always @( posedge clock ) begin
-			tmp = { giro, entrada, saida, metais }; // Equivamente as linhas 16 a 19
+			tmp = { giro, entrada, saida, metais }; // Equivamente ao código comentado abaixo
             /*tmp[3] = giro;
             tmp[2] = entrada;
             tmp[1] = saida;
