@@ -111,7 +111,7 @@ module inicial ( giro, entrada, saida, metais, ledVerde, ledVermelho, display, c
 
 endmodule
 
-module projetoPessoal( SW,LEDG, LEDR, HEX0, CLK );
+module projetoPessoal ( SW,LEDG, LEDR, HEX0, CLK );
 	input [3:0] SW;
 	input CLK;
 	output [1:0] LEDG, LEDR;
