@@ -1,5 +1,37 @@
 \chapter{Resumo}
-Apresentar  o  objetivo  do  experimento e  sua  relação  com  o  mundo  real. 
-Citar exemplos  de  produtos  e  dados  de  empresas  que  usam  circuitos  semelhantes. 
-Dados  históricos  e  estatísticos,  em  temas  próximos,  são  desejáveis.
-Adicionar referências bibliográficas.
+	O experimento tem como objetivo implementar uma máquina de estado que corresponda ao
+	funcionamento de uma porta giratório de banco. Confome a seguinte descrição:
+
+	\begin{quotation}
+		Considere uma porta giratória integrada com detector de metais, utilizada em bancos e
+		desenvolva um projeto de um circuito Lógico Digital para Controle da porta utilizando FSM
+		(máquina de estados finitos). A porta possui sensores de detecção de sentido de giro, detecção
+		de presença de pessoas, sensor detecção de presença de metais para quem estiver entrando,
+		sinalizador luminoso para luz verde (seguir em frente) e vermelho (retornar e colocar metais na
+		janela lateral), além de mensagem sonora indicando a necessidade de voltar e retirar metais dos
+		bolsos e colocar na janela lateral. Considere as seguintes características operacionais:
+		A porta é bidirecional:
+		1. Quando uma pessoa adentrar a porta giratória para sair ou para entrar deve ter o sensor
+		de presença detecta a presença de pessoa no lado correspondente e acende uma luz
+		verde para sinalizar o “vá em frente”;
+		2. Se houver pessoas de ambos lados a preferência será para quem estiver saindo, assim
+		deverá ser sinalizado verde de um lado (saída) e vermelho do lado entrada;
+		3. A detecção de metais ocorrerá somente para quem estiver entrando, e em caso positivo,
+		a porta deverá acender a luz vermelha e disparar mensagem audível para que a pessoa
+		retorne e coloque metais na janela lateral;
+		4. A porta deverá permanecer travada enquanto houver 2 pessoas simultâneas tentando
+		entrar / sair, até que a pessoa entrando recue para aquela que estiver saíndo sair antes
+		dela.
+	\end{quotation}
+
+	Para desenvolver tal projeto, dividiu-se a tarefa em etapas:
+	\begin{enumerate}
+	   \item Desenhar a máquina de estado para o cenário em questão;
+	   \item Escrever um código Verilog para a máquina de estado no passo anterior;
+	   \item Executar o código na \ac{fpga} e simulação.
+	 \end{enumerate}
+
+%Apresentar  o  objetivo  do  experimento e  sua  relação  com  o  mundo  real.
+%Citar exemplos  de  produtos  e  dados  de  empresas  que  usam  circuitos  semelhantes.
+%Dados  históricos  e  estatísticos,  em  temas  próximos,  são  desejáveis.
+%Adicionar referências bibliográficas.
