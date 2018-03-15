@@ -1,0 +1,10 @@
+desempilha ( Pilha* p, char* x, bool* deuCerto ) {
+    se ( p->topo != 0 ) {
+        *x = p->elementos[ p->topo ];
+        p->topo--;
+
+        *deuCerto = true;
+    } senao {
+        *deuCerto = false;
+    }
+}
