@@ -1,0 +1,42 @@
+bool saoIguais(Fila *f1, Fila *f2){
+
+    iguais = true;
+
+    equanto(!vazia(f1) && !vazia(f2)){
+        retira(f1, valor1, deuCerto);
+        insere(a1, valor1, deuCerto);
+
+        retira(f2, valor2, deuCerto);
+        insere(a2, valor2, deuCerto);
+
+        se(valor1 != valor2){
+            iguais = false;
+        }
+    }
+
+    se(vazia(f1) != vazia(f2)){
+        iguais = false;
+
+        enquanto(!vazia(f1)){
+            retira(f1, valor1, deuCerto);
+            insere(a1, valor1, deuCerto);
+        }
+
+        enquanto(!vazia(f2)){
+            retira(f2, valor2, deuCerto);
+            insere(a2, valor2, deuCerto);
+        }
+    }
+
+    enquanto(!vazia(a1)){
+        retira(a1, valor1, deuCerto);
+        insere(f1, valor1, deuCerto);
+    }
+
+    enquanto(!vazia(a2)){
+        retira(a2, valor2, deuCerto);
+        insere(f2, valor2, deuCerto);
+    }
+
+    retorna iguais;
+}
