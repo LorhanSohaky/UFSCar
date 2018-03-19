@@ -1,0 +1,16 @@
+insere(Fila *fila, char *valor, bool deuCerto){
+    se(cheia(fila)){
+        deuCerto = false;
+    }senao{
+        nroElementos++;
+        fila->elementos[final] = valor;
+
+        deuCerto = true;
+
+        se(fila->final == tamanho){
+            fila->final = 1;
+        }senao{
+            fila->final++;
+        }
+    }
+}
