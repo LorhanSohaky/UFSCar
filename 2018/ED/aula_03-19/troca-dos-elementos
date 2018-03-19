@@ -1,0 +1,16 @@
+trocaDosElementos(Fila *f1, Fila *f2){
+    equanto(!vazia(f1)){
+        retira(f1, valor, deuCerto);
+        insere(auxiliar, valor, deuCerto);
+    }
+
+    equanto(!vazia(f2)){
+        retira(f2, valor, deuCerto);
+        insere(f1, valor, deuCerto);
+    }
+
+    equanto(!vazia(auxiliar)){
+        retira(auxiliar, valor, deuCerto);
+        insere(f2, valor, deuCerto);
+    }
+}
