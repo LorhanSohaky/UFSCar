@@ -1,0 +1,103 @@
+Fila *JuncaoDosElementos( Fila *f1, Fila *f2 ){
+    Fila *f3, *tmp;
+    Elemento *elemento;
+    bool *deuCerto;
+    
+    Cria(f3);
+    Cria(tmp);
+    
+    enquanto( !vazia( f1 ) ){
+        Retira( f1, elemento, deuCerto );
+        Insere( f3, elemento, deuCerto );
+        Insere( tmp, elemento, deuCerto );
+    }
+    
+    enquanto( !vazia( tmp ) ){
+        Retira( tmp, elemento, deuCerto );
+        Insere( f1, elemento, deuCerto );
+    }
+    
+    enquanto( !vazia( f2 ) ){
+        Retira( f2, elemento, deuCerto );
+        Insere( f3, elemento, deuCerto );
+        Insere( tmp, elemento, deuCerto );
+    }
+    
+    enquanto( !vazia( tmp ) ){
+        Retira( tmp, elemento, deuCerto );
+        Insere( f2, elemento, deuCerto );
+    }
+    
+    retorne f3;
+}
+
+TrocaDosElementos( Fila *f1, Fila *f2 ){
+    Fila *tmp;
+    Cria(tmp);
+    
+    Elemento *elemento;
+    
+    enquanto( !vazia( f1 ) ){
+        Retira( f1, elemento, deuCerto );
+        Insere( tmp, elemento, deuCerto );
+    }
+    
+    enquanto( !vazia( f2 ) ){
+        Retira( f2, elemento, deuCerto );
+        Insere( f1, elemento, deuCerto );
+    }
+    
+    enquanto( !vazia( tmp ) ){
+        Retira( tmp, elemento, deuCerto );
+        Insere( f2, elemento, deuCerto );
+    }
+}
+
+Insere( Fila *fila, Elemento elemento, bool *deuCerto ){
+    se( cheia( fila ) ){
+        *deuCerto = false;
+    } senao {
+        fila->elementos[final] = elemento;
+        fila->numeroElementos++;
+
+        se( fila->final == fila->tamanho ){
+            fila->final = 1;
+        } senao {
+            fila->final++;
+        }
+        
+        *deuCerto = true;        
+    }
+}
+
+Retira( Fila *fila, Elemento *elemento, bool *deuCerto ){
+
+    se( vazia( fila ) ){
+        *deuCerto = false;
+    } senao {
+        *elemento = fila->elementos[final];
+        fila->numeroElementos--;
+        
+        se( fila->final == 1 ){
+            fila->final = tamanho;
+        } senao {
+            fila->final--;
+        }
+        
+        *deuCerto = true;
+    }
+}
+
+Cria( Fila *fila ){
+    fila->inicial = 1;
+    fila->final = 1;
+    fila->numeroElementos = 0;
+}
+
+bool Vazia( Fila *fila ){
+    retorne fila->numeroElementos == 0;
+}
+
+bool Cheia( Fila *fila ){
+    retorne fila->numeroElementos == tamanho;
+}

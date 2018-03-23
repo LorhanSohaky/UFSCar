@@ -1,0 +1,143 @@
+TransfereElementos( Pilha *origem, Pilha *destino ){
+    Elemento *elemento;
+    bool *deuCerto;
+
+    enquanto( !vazia( origem ) ){
+        Desempilha( origem, elemento, deuCerto );
+        Empilha( destino, elemento, deuCerto );
+    }
+}
+
+MaisElementos( Pilha *p1, Pilha *p2 ){
+    Pilha *t1, *t2;
+    
+    Cria(t1);
+    Cria(t2);
+    
+    int tamanhoP1 = 0;
+    int tamanhoP2 = 0;
+    
+    bool *deuCerto;
+    Elemento *elemento;
+    
+    enquanto( !vazia(p1) ){
+        tamanhoP1++;
+        Desempilha( p1, elemento, deuCerto );
+        Empilha( t1, elemento, deuCerto );
+    }
+    
+    enquanto( !vazia(p2) ){
+        tamanhoP2++;
+        Desempilha( p2, elemento, deuCerto );
+        Empilha( t2, elemento, deuCerto );
+    }
+    
+    TransfereElementos( t1, p1 );
+    TransfereElementos( t2, p2 );
+    
+    retorne tamanhoP1 > tamanhoP2;
+}
+
+bool AlgumElementoIgualAX( Pilha *pilha, Elemento x){
+    Elemento *elemento;
+    Pilha *temporaria;
+    bool *deuCerto;
+    
+    bool iguais = false;
+    
+    enquanto( !vazia( pilha ) ){
+        Desempilha( pilha, elemento, deuCerto );
+        Empilha( temporaria, elemento, deuCerto );
+        
+        se ( X == *elemento){
+            iguais = true;
+        }
+    }
+    
+    TransfereElementos( temporaria , pilha );
+    
+    retorne iguais;
+}
+
+bool Iguais( Pilha *p1, Pilha *p2 ){
+    Pilha *t1, *t2;
+    
+    Cria(t1);
+    Cria(t2);
+    
+    int tamanhoP1 = 0;
+    int tamanhoP2 = 0;
+    
+    bool *deuCerto;
+    Elemento *elemento1, *elemento2;
+    
+    bool iguais = true;
+    
+    enquanto( !vazia(p1) ){
+        tamanhoP1++;
+        Desempilha( p1, elemento1, deuCerto );
+        Empilha( t1, elemento1, deuCerto );
+    }
+    
+    enquanto( !vazia(p2) ){
+        tamanhoP2++;
+        Desempilha( p2, elemento2, deuCerto );
+        Empilha( t2, elemento2, deuCerto );
+    }
+    
+    se( tamanhoP1 != tamanhoP2 ){
+        iguais = false;
+        TransfereElementos( t1, p1 );
+        TransfereElementos( t2, p2 );
+    } senao {
+        enquanto( !vazia(t1) ){ // Tanto faz usar t1 ou t2 pois ambas possuem o mesmo tamanho
+            Desempilha( t1, elemento1, deuCerto );
+            Desempilha( t2, elemento2, deuCerto );
+            
+            se( *elemento1 != *elemento2 ){
+                iguais = false;
+            }
+            
+            Empilha( p1, elemento1, deuCerto );
+            Empilha( p2, elemento2, deuCerto );
+        }
+    }
+    
+    retorne iguais;
+}
+
+Desempilha( Pilha *pilha, Elemento *elemento, bool *deuCerto){
+    se( !vazia( pilha ) ){
+        *elemento = pilha->elementos[ topo ];
+        pilha-> topo--;
+        deuCerto = true;
+    }else{
+        *deuCerto = false;
+    }
+}
+
+Cria( Pilha *pilha ){
+    pilha->topo = 0;
+}
+
+bool Vazia( Pilha *pilha ){
+    retorne pilha->topo == 0;
+}
+
+bool Cheia( Pilha *pilha ){
+    retorne pilha->topo == tamanho;
+}
+
+Elemento ElementoDoTopo( Pilha *pilha, bool *deuCerto ){ //Tem um problema de retorno aqui (slide 20) - Pilha
+    Elemento *elemento;
+    
+    se( vazia( pilha ) ){
+        *deuCerto = false;
+    } senao {
+        Desempilha( pilha, elemento, deuCerto);
+        Empilha( pilha, elemento, deuCerto);
+    }
+    
+    retorne *elemento;   
+}
+

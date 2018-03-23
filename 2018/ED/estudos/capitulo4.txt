@@ -1,0 +1,238 @@
+Exercício 4.2 Executar passo a Passo a Operação Empilha Partindo de Situação Inicial com Um Elemento na Pilha
+
+    PAux = NewNode;
+    PAux -> Info = X;
+    PAux -> Next = P.Topo;
+    P.Topo = PAux;
+    
+    
+Cria( Pilha *pilha ){
+    pilha -> Topo = null;
+}
+
+bool Vazia( Pilha *pilha ){
+    retorne pilha -> Topo == null;
+}
+
+bool Cheia ( Pilha *pilha ){
+    retorne false;
+}
+
+Desempilha( Pilha *pilha, Elemento *elemento, bool *deuCerto ){
+    se( Vazia( pilha ) ){
+        deuCerto = false;
+    } senao {
+        Node *aux = pilha -> Topo;
+        *elemento = aux -> Info;
+        pilha -> Topo = aux;
+        DeleteNode(aux);
+        
+        deuCerto = true;
+    }
+}
+
+
+Exercícios 4.8 a 4.12 - Fila Implementada como Lista Encadeada
+
+Cria( Fila *fila ){
+    fila -> primeiro = null;
+    fila -> ultimo = null;
+}
+
+bool Vazia( Fila *fila ){
+    retorne fila -> primeiro == null;
+}
+
+bool Cheia( Fila *fila ){
+    retorne false;
+}
+
+Insere ( Fila *fila, Elemento *elemento, bool *deuCerto ){
+    Node *node = newNode();
+    node -> Info = *elemento;
+    node -> Next = null;
+    
+    se( Vazia( fila ) ){
+        fila -> primeiro = node;
+        fila -> ultimo = node;
+        
+    } senao {
+        fila -> ultimo -> Next = node;
+        fila -> ultimo = node;
+    }
+    
+    *deuCerto = true;
+}
+
+Remove ( Fila *fila, Elemento *elemento, bool *deuCerto ){
+    
+    se( Vazia( fila ) ){
+        *deuCerto = false;
+    } senao {
+        se ( fila -> primeiro == fila -> ultimo ){
+            fila -> ultimo = null;
+        }
+        
+        Node *aux = fila -> primeiro;
+        *elemento = aux -> Info;
+        fila -> primeiro = aux -> Next;
+        
+        DeleteNode( aux );
+        *deuCerto = true;
+    }
+}
+
+
+
+Exercício 4.13 - Fila Implementada como Lista Encadeada Circular
+
+
+
+
+Cria( Fila *fila ){
+    fila -> primeiro = null;
+    fila -> ultimo = null;
+}
+
+bool Vazia( Fila *fila ){
+    retorne fila -> primeiro == null;
+}
+
+bool Cheia( Fila *fila ){
+    retorne false;
+}
+
+Insere ( Fila *fila, Elemento *elemento, bool *deuCerto ){
+    Node *node = newNode();
+    node -> Info = *elemento;
+    
+    se( Vazia( fila ) ){
+        fila -> primeiro = node;
+        fila -> ultimo = node;
+        
+    } senao {
+        fila -> ultimo -> Next = node;
+        fila -> ultimo = node;
+    }
+    
+    node -> Next = fila -> primeiro;
+    
+    *deuCerto = true;
+}
+
+Remove ( Fila *fila, Elemento *elemento, bool *deuCerto ){
+    
+    se( Vazia( fila ) ){
+        *deuCerto = false;
+    } senao {
+        se ( fila -> primeiro == fila -> ultimo ){
+            fila -> ultimo = null;
+        }
+        
+        Node *aux = fila -> primeiro;
+        *elemento = aux -> Info;
+        
+        fila -> primeiro = aux -> Next;
+        
+        DeleteNode( aux );
+        
+        *deuCerto = true;
+    }
+}
+
+
+
+Exercício 4.14 - Fila como Lista Encadeada Circular com Só 1 Ponteiro
+
+
+Cria( Fila *fila ){
+    fila -> ultimo = null;
+}
+
+bool Vazia( Fila *fila ){
+    retorne fila -> ultimo == null;
+}
+
+bool Cheia( Fila *fila ){
+    retorne false;
+}
+
+Insere ( Fila *fila, Elemento *elemento, bool *deuCerto ){
+    Node *node = newNode();
+    node -> Info = *elemento;
+    
+    se( Vazia( fila ) ){
+        fila -> ultimo = node;
+        node -> Next = fila -> ultimo;
+    } senao {
+        node -> Next = fila -> ultimo -> Next;
+        fila -> ultimo -> Next = node;
+        fila -> ultimo = node;
+    }
+    
+    *deuCerto = true;
+}
+
+Remove ( Fila *fila, Elemento *elemento, bool *deuCerto ){
+    
+    se( Vazia( fila ) ){
+        *deuCerto = false;
+    } senao {
+        Node *aux = fila -> ultimo -> Next;
+        *elemento = aux -> Info;
+        fila -> ultimo -> Next = aux;
+        
+        DeleteNode( aux );
+        
+        *deuCerto = true;
+    }
+}
+
+
+
+Exercício 4.15 - Pilha como Lista Encadeada Circular
+
+
+Cria( Pilha *pilha ){
+    fila -> topo = null;
+}
+
+bool Vazia( Pilha *pilha ){
+    retorne pilha -> topo == null;
+}
+
+bool Cheia( Pilha *pilha ){
+    retorne false;
+}
+
+Insere ( Pilha *pilha, Elemento *elemento, bool *deuCerto ){
+    Node *node = newNode();
+    node -> Info = *elemento;
+    
+    se( Vazia( pilha ) ){
+        pilha -> topo = node;
+        node -> Next = pilha -> topo;
+    } senao {
+        node -> Next = pilha -> topo;
+        pilha -> topo = node;
+    }
+    
+    *deuCerto = true;
+}
+
+Remove ( Pilha *pilha, Elemento *elemento, bool *deuCerto ){
+    
+    se( Vazia( pilha ) ){
+        *deuCerto = false;
+    } senao {
+        Node *aux = pilha -> topo -> Next;
+        *elemento = pilha -> topo -> Info;
+        pilha -> topo = aux;
+        
+        DeleteNode( aux );
+        
+        *deuCerto = true;
+    }
+}
+
+

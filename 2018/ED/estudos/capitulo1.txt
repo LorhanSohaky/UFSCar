@@ -1,0 +1,12 @@
+TransfereCarta ( Pilha *origem, PilhaIntermediaria *destino, bool *deuCerto ){
+    Carta *carta;
+    Desempilha( origem, carta, deuCerto );
+    
+    se( deuCerto ){
+        EmpilhaNaSequencia( destino, carta, deuCerto );
+        
+        se( !deuCerto ){
+            EmpilhaSempre( origem, carta );
+        }
+    }
+}
