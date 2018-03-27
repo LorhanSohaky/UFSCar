@@ -1,0 +1,159 @@
+# Reading C:/altera/13.0sp1/modelsim_ase/tcl/vsim/pref.tcl 
+# do counter_run_msim_gate_verilog.do 
+# if {[file exists gate_work]} {
+# 	vdel -lib gate_work -all
+# }
+# vlib gate_work
+# vmap work gate_work
+# Copying C:\altera\13.0sp1\modelsim_ase\win32aloem/../modelsim.ini to modelsim.ini
+# Modifying modelsim.ini
+# ** Warning: Copied C:\altera\13.0sp1\modelsim_ase\win32aloem/../modelsim.ini to modelsim.ini.
+#          Updated modelsim.ini.
+# 
+# vlog -vlog01compat -work work +incdir+. {counter.vo}
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module counter
+# 
+# Top level modules:
+# 	counter
+# 
+# vlog -vlog01compat -work work +incdir+C:/Users/740951/Downloads/RenomeiMe/Lorhan740951 {C:/Users/740951/Downloads/RenomeiMe/Lorhan740951/tcounter.v}
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module tcounter
+# 
+# Top level modules:
+# 	tcounter
+# 
+# vsim -t 1ps +transport_int_delays +transport_path_delays -L cycloneii_ver -L gate_work -L work -voptargs="+acc"  tcounter
+# vsim +transport_int_delays +transport_path_delays -L cycloneii_ver -L gate_work -L work -voptargs=\"+acc\" -t 1ps tcounter 
+# Loading work.tcounter
+# Loading work.counter
+# Loading cycloneii_ver.cycloneii_io
+# Loading cycloneii_ver.cycloneii_mux21
+# Loading cycloneii_ver.cycloneii_dffe
+# Loading cycloneii_ver.cycloneii_asynch_io
+# Loading cycloneii_ver.cycloneii_clkctrl
+# Loading cycloneii_ver.cycloneii_mux41
+# Loading cycloneii_ver.cycloneii_ena_reg
+# Loading cycloneii_ver.cycloneii_lcell_comb
+# Loading cycloneii_ver.cycloneii_lcell_ff
+# Loading instances from counter_v.sdo
+# Loading cycloneii_ver.CYCLONEII_PRIM_DFFE
+# Loading timing data from counter_v.sdo
+# ** Note: (vsim-3587) SDF Backannotation Successfully Completed.
+#    Time: 0 ps  Iteration: 0  Instance: /tcounter File: C:/Users/740951/Downloads/RenomeiMe/Lorhan740951/tcounter.v
+# 
+# add wave *
+# view structure
+# .main_pane.structure.interior.cs.body.struct
+# view signals
+# .main_pane.objects.interior.cs.body.tree
+# run 500 ns
+#          0 0 0    x
+#          4 0 0    X
+#          4 0 0    X
+#          4 0 0    X
+#          4 0 0    X
+#          4 0 0    X
+#          4 0 0    X
+#          4 0 0    X
+#          4 0 0    0
+#          5 1 0    0
+#          9 0 0    0
+#         10 0 1    0
+#         17 0 1    1
+#         20 0 0    1
+#         30 0 1    1
+#         37 0 1    0
+#         37 0 1    2
+#         40 0 0    2
+#         50 0 1    2
+#         57 0 1    3
+#         60 0 0    3
+#         70 0 1    3
+#         77 0 1    2
+#         77 0 1    6
+#         77 0 1    4
+#         80 0 0    4
+#         90 0 1    4
+#         97 0 1    5
+#        100 0 0    5
+#        110 0 1    5
+#        117 0 1    4
+#        117 0 1    6
+#        120 0 0    6
+#        130 0 1    6
+#        137 0 1    7
+#        140 0 0    7
+#        150 0 1    7
+#        157 0 1    6
+#        157 0 1   14
+#        157 0 1   10
+#        157 0 1    8
+#        160 0 0    8
+#        170 0 1    8
+#        177 0 1    9
+#        180 0 0    9
+#        190 0 1    9
+#        197 0 1    8
+#        197 0 1   10
+#        200 0 0   10
+#        210 0 1   10
+#        217 0 1   11
+#        220 0 0   11
+#        230 0 1   11
+#        237 0 1   10
+#        237 0 1   14
+#        237 0 1   12
+#        240 0 0   12
+#        250 0 1   12
+#        257 0 1   13
+#        260 0 0   13
+#        270 0 1   13
+#        277 0 1   12
+#        277 0 1   14
+#        280 0 0   14
+#        290 0 1   14
+#        297 0 1   15
+#        300 0 0   15
+#        310 0 1   15
+#        317 0 1   31
+#        317 0 1   30
+#        317 0 1   22
+#        317 0 1   18
+#        317 0 1   16
+#        320 0 0   16
+#        330 0 1   16
+#        337 0 1   17
+#        340 0 0   17
+#        350 0 1   17
+#        357 0 1   16
+#        357 0 1   18
+#        360 0 0   18
+#        370 0 1   18
+#        377 0 1   19
+#        380 0 0   19
+#        390 0 1   19
+#        397 0 1   18
+#        397 0 1   22
+#        397 0 1   20
+#        400 0 0   20
+#        410 0 1   20
+#        417 0 1   21
+#        420 0 0   21
+#        430 0 1   21
+#        437 0 1   20
+#        437 0 1   22
+#        440 0 0   22
+#        450 0 1   22
+#        457 0 1   23
+#        460 0 0   23
+#        470 0 1   23
+#        477 0 1   22
+#        477 0 1   30
+#        477 0 1   26
+#        477 0 1   24
+#        480 0 0   24
+#        490 0 1   24
+#        497 0 1   25
+# WARNING: No extended dataflow license exists

@@ -1,0 +1,45 @@
+m255
+K3
+13
+cModel Technology
+Z0 dC:\Users\740951\Downloads\RenomeiMe\Lorhan740951\simulation\modelsim
+vcounter
+Ika<zCad`Qa_MjZ6b>L<U11
+V<a``W2i2XPmDKjQGkCC<D3
+Z1 dC:\Users\740951\Downloads\RenomeiMe\Lorhan740951\simulation\modelsim
+w1522097205
+8counter.vo
+Fcounter.vo
+L0 31
+Z2 OV;L;10.1d;51
+r1
+31
+Z3 o-vlog01compat -work work -O0
+!i10b 1
+!s100 P5ddMm?AW<cQSAU;mBzOZ1
+!s85 0
+!s108 1522097285.656000
+!s107 counter.vo|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+.|counter.vo|
+!s101 -O0
+!s92 -vlog01compat -work work +incdir+. -O0
+vtcounter
+!i10b 1
+!s100 EKhXFJLN10Jz@6JZ6Z2930
+IT5oJjD1df268D;goVK8<93
+Ve7@4V`j47=0b_Sec]d?=E3
+R1
+w1522097273
+8C:/Users/740951/Downloads/RenomeiMe/Lorhan740951/tcounter.v
+FC:/Users/740951/Downloads/RenomeiMe/Lorhan740951/tcounter.v
+L0 11
+R2
+r1
+!s85 0
+31
+!s108 1522097285.844000
+!s107 C:/Users/740951/Downloads/RenomeiMe/Lorhan740951/tcounter.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/740951/Downloads/RenomeiMe/Lorhan740951|C:/Users/740951/Downloads/RenomeiMe/Lorhan740951/tcounter.v|
+!s101 -O0
+R3
+!s92 -vlog01compat -work work +incdir+C:/Users/740951/Downloads/RenomeiMe/Lorhan740951 -O0
