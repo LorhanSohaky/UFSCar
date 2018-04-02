@@ -1,0 +1,18 @@
+ProcuraX( Lista *lista, Elemento *elemento, Node *node, Node *anterior, Bool *achou ){
+    se ( node == null ){
+        *achou = false;
+    } senao {
+        *achou = true;
+        enquanto( node != null ){
+            se( elemento == node -> conteudo ){
+                *achou = false;
+                break;
+            } senao {
+                anterior = node;
+                node = node -> proximo;
+            }
+        }
+    }
+
+
+}
