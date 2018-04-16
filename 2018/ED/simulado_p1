@@ -1,0 +1,129 @@
+/*
+Questão 1 : Considere Lista não ordenada, circular, encadeada, com elementos repetidos.
+L.Primeiro é um ponteiro para o início da lista.
+O ponteiro L.Atual é utilizado nas operações de percorrer a lista - PegaOPrimeiro e PegaOPróximo.
+A lista vazia é composta pelos ponteiros L.Primeiro e L.Atual apontando para NULL.Implemente,
+da forma mais apropriada a operação REMOVE
+*/
+
+Remove( Elemento X, Lista *L, bool *Ok ) {
+    if( vazia( L ) ) {
+        *Ok = false;
+    } else {
+        NodePtr tmp = L->Primeiro;
+        NodePtr ant = L->Atual;
+        bool achou  = false;
+        do {
+            if( tmp->Info == X ) {
+                achou = true;
+                break;
+            } else {
+                ant = tmp;
+                tmp = tmp->Next;
+            }
+        } while( tmp != L->Atual->Next );
+
+        if( achou ) {
+            if( tmp == ant ) {
+                L->Primeiro = NULL;
+                L->Atual    = NULL;
+
+            } else {
+                ant->Next = tmp->Next;
+            }
+            DeleteNode( tmp );
+
+            *Ok = true;
+        } else {
+            *Ok = false;
+        }
+    }
+}
+
+/*
+Questão 2:Considere a FILA, implementado através de uma lista duplamente encadeada, circular.
+Implemente, da forma mais apropriada para proporcionar portabilidade e reusabilidade, as operações
+Retira, Vazia e Destrói:
+*/
+bool Vazia( Fila *F ) {
+    return F->Primeiro == NULL;
+}
+
+Retira( Fila *F, Elemento *X, bool *Erro ) {
+    if( vazia( F ) ) {
+        *Erro = true;
+    } else {
+        *Erro = false;
+        *X    = F->Primeiro->Info;
+
+        if( F->Primeiro == F->Ultimo ) {
+            F->Primeiro = NULL;
+            F->Ultimo   = NULL;
+
+            DeleteNode( F->Primeiro );
+        } else {
+            NodePtr tmp = F->Primeiro;
+
+            F->Primeiro      = F->Primeiro->Dir;
+            F->Primeiro->Esq = F->Ultimo;
+            F->Ultimo->Dir   = F->Primeiro;
+
+            DeleteNode( tmp );
+        }
+    }
+}
+
+Destroi( Fila *F ) {
+    Elemento *X;
+    bool *Erro;
+
+    while( !vazia( F ) ) {
+        Retira( F, X, Erro );
+    }
+}
+
+/*
+
+Pode ter elementos repetidos?
+
+Questão 3: Considerando prontas para uso as operações primitivas de uma Pilha:
+        -Empilha( QualPilha, QualElemento,DeuCerto);
+        -Desempilha( QualPilha, QualElemento, DeuCerto );
+        -Vazia ( QualPilha);
+        -Cheia ( QualPilha );
+        -Cria( QualPilha );
+e considerando uma pilha de elementos do tipo inteiro, desenvolva, da forma mais apropriada para
+proporcionar portabilidade e reusabilidade, a operação: EmpilhaEmOrdemDecrescente
+*/
+
+EmpilhaEmOrdemDecrescente( Pilha *QualPilha, int QualElemento, bool *DeuCerto ) {
+    if( vazia( QualPilha ) ) {
+        *DeuCerto = false;
+    } else {
+        Pilha *tmp;
+        int &valor;
+        bool &certo;
+
+        Cria( tmp );
+        Desempilha( QualPilha, valor, certo );
+
+        if( QualElemento > valor ) {
+            Empilha( tmp, QualElemento, certo );
+            Empilha( tmp, valor, certo );
+
+            *DeuCerto = true;
+        } else {
+            *DeuCerto = false;
+        }
+
+        while( cheia( QualPilha ) ) {
+            Desempilha( QualPilha, valor, certo );
+            Empilha( tmp, valor, certo );
+        }
+
+        while( cheia( QualPilha ) ) {
+            Desempilha( tmp, valor, certo );
+            Empilha( QualPilha, valor, certo );
+        }
+    }
+}
