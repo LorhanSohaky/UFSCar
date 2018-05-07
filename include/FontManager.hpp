@@ -8,8 +8,7 @@
 
 class FontManager {
   private:
-    static std::map< std::string, std::pair< std::string, std::unique_ptr< sf::Font > > >
-        fontsMap;
+    static std::map< std::string, std::pair< std::string, std::unique_ptr< sf::Font > > > fontsMap;
 
   public:
     FontManager();
@@ -20,7 +19,5 @@ class FontManager {
 
     static sf::Font& get( const std::string& alias );
 };
-
-
 
 #endif
