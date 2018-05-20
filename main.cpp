@@ -1,24 +1,10 @@
 #include "include/Config.hpp"
-#include "include/InputManager.hpp"
-#include "include/ScreenMenu.hpp"
-#include "include/TextureManager.hpp"
-#include "include/Utils.hpp"
-#include <SFML/Graphics.hpp>
-#include <iostream>
+#include "include/Game.hpp"
 
 int main() {
-    GameRef gameRef = std::make_shared< GameData >();
+    Game game( TITLE, WINDOW_WIDTH, WINDOW_HEIGHT, FRAME_LIMIT );
 
-    sf::RenderWindow app( sf::VideoMode( WINDOW_WIDTH, WINDOW_HEIGHT ), TITLE );
-    gameRef->window = &app;
-
-    TextureManager::add( "img", "cb.bmp" );
-
-    ScreenMenu menu( gameRef );
-
-    while( gameRef->window->isOpen() ) {
-        menu.update();
-    }
+    game.run();
 
     return EXIT_SUCCESS;
 }

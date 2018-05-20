@@ -4,7 +4,7 @@ IDIR = -I./include
 CXXFLAGS = -Wall -std=c++14 $(IDIR)
 LIBS = -lsfml-audio -lsfml-graphics -lsfml-window -lsfml-system
 
-SOURCES_PATH = *.cpp src/model/*.cpp src/viewer/*.cpp
+SOURCES_PATH = *.cpp src/model/*.cpp src/viewer/*.cpp src/controller/*.cpp
 
 define listar_os_sources
 	$(foreach source,$1,$(wildcard $(source)))
