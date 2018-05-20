@@ -1,27 +1,24 @@
-#include <SFML/Graphics.hpp>
-#include "include/TextureManager.hpp"
 #include "include/Config.hpp"
+#include "include/InputManager.hpp"
+#include "include/ScreenMenu.hpp"
+#include "include/TextureManager.hpp"
+#include "include/Utils.hpp"
+#include <SFML/Graphics.hpp>
+#include <iostream>
 
 int main() {
-	sf::RenderWindow app(sf::VideoMode(WINDOW_WIDTH, WINDOW_HEIGHT), TITLE);
+    GameRef gameRef = std::make_shared< GameData >();
 
-	TextureManager::add("img","cb.bmp");
+    sf::RenderWindow app( sf::VideoMode( WINDOW_WIDTH, WINDOW_HEIGHT ), TITLE );
+    gameRef->window = &app;
 
-	sf::Sprite sprite(TextureManager::get("img"));
+    TextureManager::add( "img", "cb.bmp" );
 
-	while (app.isOpen()) {
-		sf::Event event;
-		while (app.pollEvent(event)) {
-			if (event.type == sf::Event::Closed) {
-				app.close();
-			}
+    ScreenMenu menu( gameRef );
 
-		}
+    while( gameRef->window->isOpen() ) {
+        menu.update();
+    }
 
-		app.clear();
-		app.draw(sprite);
-		app.display();
-	}
-
-	return EXIT_SUCCESS;
+    return EXIT_SUCCESS;
 }
