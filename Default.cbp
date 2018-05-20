@@ -30,15 +30,23 @@
 		<Unit filename="cb.bmp" />
 		<Unit filename="include/Config.hpp" />
 		<Unit filename="include/FontManager.hpp" />
+		<Unit filename="include/Game.hpp" />
+		<Unit filename="include/InputManager.hpp" />
 		<Unit filename="include/MusicManager.hpp" />
+		<Unit filename="include/Screen.hpp" />
+		<Unit filename="include/ScreenMenu.hpp" />
 		<Unit filename="include/SoundManager.hpp" />
 		<Unit filename="include/TextureManager.hpp" />
 		<Unit filename="include/Utils.hpp" />
 		<Unit filename="main.cpp" />
+		<Unit filename="src/controller/Game.cpp" />
 		<Unit filename="src/model/FontManager.cpp" />
+		<Unit filename="src/model/InputManager.cpp" />
 		<Unit filename="src/model/MusicManager.cpp" />
+		<Unit filename="src/model/Screen.cpp" />
 		<Unit filename="src/model/SoundManager.cpp" />
 		<Unit filename="src/model/TextureManager.cpp" />
+		<Unit filename="src/viewer/ScreenMenu.cpp" />
 		<Extensions>
 			<code_completion />
 			<debugger />
