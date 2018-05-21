@@ -8,21 +8,29 @@ Game::Game( const std::string titulo,
             const int limiteDeFrames ) {
     gameRef->window =
         new sf::RenderWindow( sf::VideoMode( largura, altura ), titulo, sf::Style::Close );
+
     gameRef->window->setFramerateLimit( limiteDeFrames );
     gameRef->isAudioOn    = true;
     gameRef->estadoJanela = MENU;
 
-    TextureManager::add( "img", "cb.bmp" );
+    gameRef->inputManager = new InputManager( &gameRef->event, gameRef->window );
 }
 
 void Game::run() {
     ScreenMenu menu( gameRef );
 
     while( gameRef->window->isOpen() ) {
-        menu.update();
+        switch( gameRef->estadoJanela ) {
+            case MENU:
+                menu.update();
+                break;
+            default:
+                menu.update();
+        }
     }
 }
 
 Game::~Game() {
     delete gameRef->window;
+    delete gameRef->inputManager;
 }
