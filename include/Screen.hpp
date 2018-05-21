@@ -13,8 +13,10 @@ class Screen {
     virtual void update()     = 0;
 
   protected:
+    InputManager* inputManager;
+
     sf::RenderWindow* window;
-    sf::Event event;
+    sf::Event* event;
     bool* isAudioOn;
     WINDOW_STATES* estadoJanela;
 
