@@ -1,4 +1,5 @@
 #include "../../include/TextureManager.hpp"
+#include "../../include/Collision.hpp"
 #include "../../include/Config.hpp"
 
 std::map< std::string, std::pair< std::string, std::unique_ptr< sf::Texture > > >
@@ -12,7 +13,8 @@ sf::Texture& TextureManager::add( const std::string& alias, const std::string& f
     }
 
     std::unique_ptr< sf::Texture > texture = std::make_unique< sf::Texture >();
-    if( !texture->loadFromFile( DEFAULT_TEXTURE_PATH + filePath ) ) {
+    ;
+    if( !Collision::CreateTextureAndBitmask( *texture, DEFAULT_TEXTURE_PATH + filePath ) ) {
         throw;
     }
 
