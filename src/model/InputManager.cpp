@@ -1,4 +1,5 @@
 #include "../../include/InputManager.hpp"
+#include "../../include/Collision.hpp"
 
 InputManager::InputManager( sf::Event* event, sf::RenderWindow* window ) {
     this->event  = event;
@@ -35,8 +36,9 @@ bool InputManager::keyReleased( const std::vector< sf::Event::KeyEvent > keys ) 
 
 bool InputManager::isSpriteClicked( const sf::Mouse::Button& button, const sf::Sprite& sprite ) {
     if( sf::Mouse::isButtonPressed( button ) ) {
-        if( sprite.getGlobalBounds().contains(
-                sf::Vector2< float >( sf::Mouse::getPosition( *window ) ) ) ) {
+        sf::Vector2< float > vector( sf::Mouse::getPosition( *window ) );
+
+        if( Collision::VectorPerfectTest( sprite, vector ) ) {
             return true;
         }
     }
