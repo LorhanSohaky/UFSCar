@@ -1,7 +1,7 @@
 CXX = g++
 
 IDIR = -I./include
-CXXFLAGS = -Wall -std=c++14 $(IDIR)
+CXXFLAGS = -Wall -std=c++14 -O3 $(IDIR)
 LIBS = -lsfml-audio -lsfml-graphics -lsfml-window -lsfml-system
 
 SOURCES_PATH = *.cpp src/model/*.cpp src/viewer/*.cpp src/controller/*.cpp
