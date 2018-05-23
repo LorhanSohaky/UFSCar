@@ -18,7 +18,7 @@ class Screen {
     sf::RenderWindow* window;
     sf::Event* event;
     bool* isAudioOn;
-    WINDOW_STATES* estadoJanela;
+    WINDOW_STATES* nextScreen;
 
   private:
 };

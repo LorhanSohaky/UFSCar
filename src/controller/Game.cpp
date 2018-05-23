@@ -10,8 +10,8 @@ Game::Game( const std::string titulo,
         new sf::RenderWindow( sf::VideoMode( largura, altura ), titulo, sf::Style::Close );
 
     gameRef->window->setFramerateLimit( limiteDeFrames );
-    gameRef->isAudioOn    = true;
-    gameRef->estadoJanela = MENU;
+    gameRef->isAudioOn  = true;
+    gameRef->nextScreen = MENU;
 
     gameRef->inputManager = new InputManager( &gameRef->event, gameRef->window );
 }
@@ -20,7 +20,7 @@ void Game::run() {
     ScreenMenu menu( gameRef );
 
     while( gameRef->window->isOpen() ) {
-        switch( gameRef->estadoJanela ) {
+        switch( gameRef->nextScreen ) {
             case MENU:
                 menu.update();
                 break;

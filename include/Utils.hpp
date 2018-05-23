@@ -13,7 +13,7 @@ struct GameData {
     sf::RenderWindow* window;
     sf::Event event;
     bool isAudioOn;
-    WINDOW_STATES estadoJanela;
+    WINDOW_STATES nextScreen;
 };
 
 typedef std::shared_ptr< GameData > GameRef;
