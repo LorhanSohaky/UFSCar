@@ -25,9 +25,12 @@
 			</Target>
 		</Build>
 		<Compiler>
+			<Add option="-O3" />
 			<Add option="-Wall" />
+			<Add option="-std=c++14" />
 		</Compiler>
 		<Unit filename="cb.bmp" />
+		<Unit filename="include/Collision.hpp" />
 		<Unit filename="include/Config.hpp" />
 		<Unit filename="include/FontManager.hpp" />
 		<Unit filename="include/Game.hpp" />
@@ -40,6 +43,7 @@
 		<Unit filename="include/Utils.hpp" />
 		<Unit filename="main.cpp" />
 		<Unit filename="src/controller/Game.cpp" />
+		<Unit filename="src/model/Collision.cpp" />
 		<Unit filename="src/model/FontManager.cpp" />
 		<Unit filename="src/model/InputManager.cpp" />
 		<Unit filename="src/model/MusicManager.cpp" />
