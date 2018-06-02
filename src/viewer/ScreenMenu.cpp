@@ -2,7 +2,7 @@
 #include "../../include/TextureManager.hpp"
 #include <iostream>
 
-ScreenMenu::ScreenMenu( GameRef gameRef )
+ScreenMenu::ScreenMenu( GameRef& gameRef )
     : Screen( gameRef ) {
     loadAssets();
 }
