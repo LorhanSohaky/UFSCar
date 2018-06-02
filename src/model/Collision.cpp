@@ -2,7 +2,8 @@
  * File:   collision.cpp
  * Author: Nick (original version), ahnonay (SFML2 compatibility)
  *
- * Modified indentation, include path and included function to check alpha != 0 at vector position
+ * Modified indentation, include path, included function to check alpha != 0 at vector position and
+ * included function to compare bounds
  */
 
 #include "../../include/Collision.hpp"
@@ -58,6 +59,10 @@ namespace Collision {
     };
 
     BitmaskManager Bitmasks;
+
+    bool SimpleTest( const sf::Sprite& Object1, const sf::Sprite& Object2 ) {
+        return Object1.getGlobalBounds().intersects( Object2.getGlobalBounds() );
+    }
 
     bool
     PixelPerfectTest( const sf::Sprite& Object1, const sf::Sprite& Object2, sf::Uint8 AlphaLimit ) {

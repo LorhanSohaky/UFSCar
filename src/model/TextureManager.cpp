@@ -5,7 +5,9 @@
 std::map< std::string, std::pair< std::string, std::unique_ptr< sf::Texture > > >
     TextureManager::texturesMap;
 
-sf::Texture& TextureManager::add( const std::string& alias, const std::string& filePath ) throw() {
+sf::Texture& TextureManager::add( const std::string& alias,
+                                  const std::string& filePath,
+                                  const bool createBitmask ) throw() {
     auto it = texturesMap.find( alias );
 
     if( it != texturesMap.end() ) {
@@ -14,7 +16,10 @@ sf::Texture& TextureManager::add( const std::string& alias, const std::string& f
 
     std::unique_ptr< sf::Texture > texture = std::make_unique< sf::Texture >();
     ;
-    if( !Collision::CreateTextureAndBitmask( *texture, DEFAULT_TEXTURE_PATH + filePath ) ) {
+    if( createBitmask &&
+        !Collision::CreateTextureAndBitmask( *texture, DEFAULT_TEXTURE_PATH + filePath ) ) {
+        throw;
+    } else if( !createBitmask && !texture->loadFromFile( DEFAULT_TEXTURE_PATH + filePath ) ) {
         throw;
     }
 

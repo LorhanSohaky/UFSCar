@@ -32,8 +32,8 @@ it freely, subject to the following restrictions:
  *
  * Created on 30 January 2009, 11:02
  *
- * Modified file extension, indentation, included SFML/Graphics, renamed include guards and included
- *  function to check alpha != 0 at vector position
+ * Modified file extension, indentation, included SFML/Graphics, renamed include guards, included
+ *  function to check alpha != 0 at vector position and included function to compare bounds
  */
 
 #ifndef COLLISION_HPP
@@ -42,6 +42,11 @@ it freely, subject to the following restrictions:
 #include <SFML/Graphics.hpp>
 
 namespace Collision {
+    //////
+    /// Test for a collision between two sprites by comparing the bounds values
+    //////
+    bool SimpleTest( const sf::Sprite& Object1, const sf::Sprite& Object2 );
+
     //////
     /// Test for a collision between two sprites by comparing the alpha values of overlapping pixels
     /// Supports scaling and rotation
