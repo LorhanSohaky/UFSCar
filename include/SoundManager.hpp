@@ -14,7 +14,7 @@ class SoundManager {
   public:
     SoundManager();
 
-    static sf::SoundBuffer& add( const std::string& alias, const std::string& filePath ) throw();
+    static sf::SoundBuffer& add( const std::string& alias, const std::string& filePath );
 
     static void remove( const std::string& alias );
 

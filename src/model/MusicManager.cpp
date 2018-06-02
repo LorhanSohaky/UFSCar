@@ -4,7 +4,7 @@
 std::map< std::string, std::pair< std::string, std::unique_ptr< sf::Music > > >
     MusicManager::musicsMap;
 
-sf::Music& MusicManager::add( const std::string& alias, const std::string& filePath ) throw() {
+sf::Music& MusicManager::add( const std::string& alias, const std::string& filePath ) {
     auto it = musicsMap.find( alias );
 
     if( it != musicsMap.end() ) {
@@ -13,6 +13,8 @@ sf::Music& MusicManager::add( const std::string& alias, const std::string& fileP
 
     std::unique_ptr< sf::Music > music = std::make_unique< sf::Music >();
     if( !music->openFromFile( DEFAULT_MUSIC_PATH + filePath ) ) {
+        std::string exception = "File " + ( DEFAULT_MUSIC_PATH + filePath ) + " not found!";
+        throw std::runtime_error( exception );
         throw;
     }
 

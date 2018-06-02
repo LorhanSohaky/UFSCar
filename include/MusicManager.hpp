@@ -14,7 +14,7 @@ class MusicManager {
   public:
     MusicManager();
 
-    static sf::Music& add( const std::string& alias, const std::string& filePath ) throw();
+    static sf::Music& add( const std::string& alias, const std::string& filePath );
 
     static void remove( const std::string& alias );
 

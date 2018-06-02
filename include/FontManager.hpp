@@ -13,7 +13,7 @@ class FontManager {
   public:
     FontManager();
 
-    static sf::Font& add( const std::string& alias, const std::string& filePath ) throw();
+    static sf::Font& add( const std::string& alias, const std::string& filePath );
 
     static void remove( const std::string& alias );
 

@@ -14,9 +14,8 @@ class TextureManager {
   public:
     TextureManager();
 
-    static sf::Texture& add( const std::string& alias,
-                             const std::string& filePath,
-                             const bool createBitmask = false ) throw();
+    static sf::Texture&
+    add( const std::string& alias, const std::string& filePath, const bool createBitmask = false );
 
     static void remove( const std::string& alias );
 
