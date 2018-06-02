@@ -2,7 +2,7 @@
 #include "../../include/ScreenMenu.hpp"
 #include "../../include/TextureManager.hpp"
 
-Game::Game( const std::string titulo,
+Game::Game( const std::string& titulo,
             const int largura,
             const int altura,
             const int limiteDeFrames ) {

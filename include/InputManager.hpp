@@ -13,10 +13,10 @@ class InputManager {
     InputManager( sf::Event* event, sf::RenderWindow* window );
 
     bool keyPressed( const sf::Event::KeyEvent key );
-    bool keyPressed( const std::vector< sf::Event::KeyEvent > keys );
+    bool keyPressed( const std::vector< sf::Event::KeyEvent >& keys );
 
     bool keyReleased( const sf::Event::KeyEvent key );
-    bool keyReleased( const std::vector< sf::Event::KeyEvent > keys );
+    bool keyReleased( const std::vector< sf::Event::KeyEvent >& keys );
 
     bool isSpriteClicked( const sf::Mouse::Button& button, const sf::Sprite& sprite );
 };

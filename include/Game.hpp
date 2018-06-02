@@ -7,7 +7,10 @@
 
 class Game {
   public:
-    Game( const std::string titulo, const int largura, const int altura, const int limiteDeFrames );
+    Game( const std::string& titulo,
+          const int largura,
+          const int altura,
+          const int limiteDeFrames );
     void run();
     ~Game();
 

@@ -10,7 +10,7 @@ bool InputManager::keyPressed( const sf::Event::KeyEvent key ) {
     return event->type == sf::Event::KeyPressed && event->key.code == key.code;
 }
 
-bool InputManager::keyPressed( const std::vector< sf::Event::KeyEvent > keys ) {
+bool InputManager::keyPressed( const std::vector< sf::Event::KeyEvent >& keys ) {
     for( sf::Event::KeyEvent key : keys ) {
         if( keyPressed( key ) ) {
             return true;
@@ -24,7 +24,7 @@ bool InputManager::keyReleased( const sf::Event::KeyEvent key ) {
     return event->type == sf::Event::KeyReleased && event->key.code == key.code;
 }
 
-bool InputManager::keyReleased( const std::vector< sf::Event::KeyEvent > keys ) {
+bool InputManager::keyReleased( const std::vector< sf::Event::KeyEvent >& keys ) {
     for( sf::Event::KeyEvent key : keys ) {
         if( keyReleased( key ) ) {
             return true;
