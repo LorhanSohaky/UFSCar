@@ -7,7 +7,7 @@
 
 class Screen {
   public:
-    Screen( GameRef& gameRef );
+    explicit Screen( GameRef& gameRef );
 
     virtual void loadAssets() = 0;
     virtual void draw()       = 0;

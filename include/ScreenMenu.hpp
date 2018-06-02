@@ -6,7 +6,7 @@
 
 class ScreenMenu : Screen {
   public:
-    ScreenMenu( GameRef& gameRef );
+    explicit ScreenMenu( GameRef& gameRef );
 
     void loadAssets();
     void draw();
