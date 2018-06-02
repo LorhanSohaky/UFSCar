@@ -1,6 +1,7 @@
 #ifndef SCREEN_HPP
 #define SCREEN_HPP
 
+#include "Collision.hpp"
 #include "Utils.hpp"
 #include <SFML/Graphics.hpp>
 
