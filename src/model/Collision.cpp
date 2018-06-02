@@ -17,7 +17,7 @@ namespace Collision {
             std::map< const sf::Texture*, sf::Uint8* >::const_iterator end = Bitmasks.end();
             for( std::map< const sf::Texture*, sf::Uint8* >::const_iterator iter = Bitmasks.begin();
                  iter != end;
-                 iter++ )
+                 ++iter )
                 delete[] iter->second;
         }
 
@@ -152,8 +152,9 @@ namespace Collision {
     class OrientedBoundingBox // Used in the BoundingBoxTest
     {
       public:
-        OrientedBoundingBox( const sf::Sprite& Object ) // Calculate the four points of the OBB from
-                                                        // a transformed (scaled, rotated...) sprite
+        explicit OrientedBoundingBox( const sf::Sprite& Object ) // Calculate the four points of the
+                                                                 // OBB from a transformed (scaled,
+                                                                 // rotated...) sprite
         {
             sf::Transform trans = Object.getTransform();
             sf::IntRect local   = Object.getTextureRect();
