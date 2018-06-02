@@ -1,5 +1,7 @@
 # Default SFML Project
 
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/4db299cecd414c118c65b273d23beae0)](https://www.codacy.com/app/LorhanSohaky/DefaultSFMLProject?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=LorhanSohaky/DefaultSFMLProject&amp;utm_campaign=Badge_Grade)
+
 Makefile, resource managers, input manager and folder structure for SFML development in C++.
 
 ### LICENSE
