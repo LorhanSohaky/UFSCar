@@ -15,7 +15,6 @@ sf::Music& MusicManager::add( const std::string& alias, const std::string& fileP
     if( !music->openFromFile( DEFAULT_MUSIC_PATH + filePath ) ) {
         std::string exception = "File " + ( DEFAULT_MUSIC_PATH + filePath ) + " not found!";
         throw std::runtime_error( exception );
-        throw;
     }
 
     musicsMap.insert( std::make_pair( alias, std::make_pair( filePath, std::move( music ) ) ) );
