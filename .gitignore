@@ -33,3 +33,7 @@
 
 # Dir
 bin/
+
+#CodeBlocks
+*.depend
+*.layout
