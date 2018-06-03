@@ -14,7 +14,7 @@ Makefile, resource managers, input manager and folder structure for SFML develop
 * Pixel perfect collision.
 
 ### DEPENDENCIES
-* SFML 2.4.2;
+* SFML 2.5.0;
 * g++ with support C++14;
 * Make;
 * Code Blocks (optional).
