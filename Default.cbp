@@ -13,22 +13,30 @@
 				<Option type="0" />
 				<Option compiler="gcc" />
 				<Compiler>
-					<Add option="-O2" />
+					<Add option="-O3" />
+					<Add option="-Wall" />
+					<Add option="-std=c++14" />
+					<Add option="-m32" />
+					<Add option="-DSFML_STATIC" />
 				</Compiler>
 				<Linker>
-					<Add option="-s" />
-					<Add library="sfml-audio" />
-					<Add library="sfml-graphics" />
-					<Add library="sfml-window" />
-					<Add library="sfml-system" />
+					<Add library="sfml-graphics-s" />
+					<Add library="freetype" />
+					<Add library="sfml-window-s" />
+					<Add library="opengl32" />
+					<Add library="gdi32" />
+					<Add library="sfml-audio-s" />
+					<Add library="openal32" />
+					<Add library="flac" />
+					<Add library="vorbisenc" />
+					<Add library="vorbisfile" />
+					<Add library="vorbis" />
+					<Add library="ogg" />
+					<Add library="sfml-system-s" />
+					<Add library="winmm" />
 				</Linker>
 			</Target>
 		</Build>
-		<Compiler>
-			<Add option="-O3" />
-			<Add option="-Wall" />
-			<Add option="-std=c++14" />
-		</Compiler>
 		<Unit filename="cb.bmp" />
 		<Unit filename="include/Collision.hpp" />
 		<Unit filename="include/Config.hpp" />
@@ -54,6 +62,7 @@
 		<Extensions>
 			<code_completion />
 			<debugger />
+			<envvars />
 		</Extensions>
 	</Project>
 </CodeBlocks_project_file>
