@@ -1,31 +1,20 @@
-# Default SFML Project
+# ED-T2
 
-[![Codacy Badge](https://api.codacy.com/project/badge/Grade/4db299cecd414c118c65b273d23beae0)](https://www.codacy.com/app/LorhanSohaky/DefaultSFMLProject?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=LorhanSohaky/DefaultSFMLProject&amp;utm_campaign=Badge_Grade)
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/03b1bf3f423c45b8bca50a92d006352a)](https://www.codacy.com/app/LorhanSohaky/ED-T2?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=LorhanSohaky/ED-T2&amp;utm_campaign=Badge_Grade)
 
-Makefile, resource managers, input manager and folder structure for SFML development in C++.
+Trabalho de estrutura de dados, utilizando a estrutura de lista. A estrutura inicial deste projeto foi retirada do [Default SFML Project](https://github.com/LorhanSohaky/DefaultSFMLProject).
 
-### LICENSE
-**MIT** [Read the license](LICENSE)
+### LICENSA
+**MIT** [Leia a licença](LICENSE)
 
-### FEATURES
-* Multiple Screens;
-* Manipulate multiple textures, sounds, fonts and musics;
-* Manipulate keys events and mouse clicks;
-* Pixel perfect collision.
 
-### DEPENDENCIES
+### DEPENDÊNCIAS
 * SFML 2.5.0;
-* g++ with support C++14;
+* g++ com suporte a C++14;
 * Make;
-* Code Blocks (optional).
+* Code Blocks (opcional).
 
-### COMPILER USED
-***g++ (Ubuntu 7.2.0-8ubuntu3.2) 7.2.0***
-
-### FOLDER STRUCTURE
-* `resources`: Contains images, sounds, musics and fonts files;
-* `src` folder: Contains source files;
-	* `controller` folder: Contains controllers files;
-	* `model` folder: Contains models files;
-	* `viewer` folder: Contains viewers files;
-* `include` folder: Contains headers files.
+### AUTORES
+* Fernanda Ferreira
+* Lorhan Sohaky
+* Sabrina Miranda
