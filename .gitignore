@@ -33,7 +33,11 @@
 
 # Dir
 bin/
+obj/
 
 #CodeBlocks
 *.depend
 *.layout
+
+# Visual Studio Code
+.vscode/
