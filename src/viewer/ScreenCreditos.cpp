@@ -8,13 +8,13 @@ ScreenCreditos::ScreenCreditos( GameRef& gameRef )
 }
 
 void ScreenCreditos::loadAssets() {
-    FontManager::add( "gnutypewriter", "gtw.ttf" );
+    FontManager::add( "RobotoCondensed", "roboto-condensed/RobotoCondensed-Regular.ttf" );
 
     for( unsigned int i = 0; i < lines.size(); i++ ) {
-        lines[ i ].setFont( FontManager::get( "gnutypewriter" ) );
+        lines[ i ].setFont( FontManager::get( "RobotoCondensed" ) );
         lines[ i ].setCharacterSize( 50 );
         lines[ i ].setFillColor( sf::Color::White );
-        lines[ i ].setOutlineColor( sf::Color::Red );
+        lines[ i ].setOutlineColor( sf::Color::Black );
         lines[ i ].setOutlineThickness( 3 );
     }
 
@@ -31,7 +31,7 @@ void ScreenCreditos::loadAssets() {
 void ScreenCreditos::init() {
     int y = WINDOW_HEIGHT;
 
-    // Centering text on the screen
+    // Centralizando texto na janela
     for( unsigned int i = 0; i < lines.size(); i++ ) {
         lines[ i ].move( 0, 0 );
         lines[ i ].setOrigin( lines[ i ].getLocalBounds().width / 2, 0 );
@@ -62,7 +62,7 @@ void ScreenCreditos::update() {
         lines[ i ].move( 0, -1.5f );
     }
 
-    // Stop when the last line is outside screen
+    // Para quando a última linha estiver fora da view
     if( lines[ lines.size() - 1 ].getPosition().y <
         -( lines[ lines.size() - 1 ].getGlobalBounds().height + 10 ) ) {
         init();
