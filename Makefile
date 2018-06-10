@@ -1,7 +1,7 @@
 ifeq ($(OS),Windows_NT)
-	name=Makefile.win
+	name=make-win.mk
 else
-	name=Makefile.nix
+	name=make-nix.mk
 endif
 
 ifeq ($(MAKECMDGOALS),)
