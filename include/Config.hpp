@@ -6,7 +6,7 @@
 #define DEFAULT_MUSIC_PATH "../resources/musics/"
 #define DEFAULT_FONT_PATH "../resources/fonts/"
 
-#define TITLE "Titulo Janela"
+#define TITLE "Snack Stack"
 
 #define WINDOW_HEIGHT 600
 #define WINDOW_WIDTH 800
