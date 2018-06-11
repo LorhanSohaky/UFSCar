@@ -13,7 +13,7 @@ class ScreenMenu : Screen {
     void update();
 
   private:
-    sf::Sprite sprite;
+    sf::Sprite background;
 };
 
 #endif

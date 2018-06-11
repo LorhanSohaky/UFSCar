@@ -8,10 +8,13 @@ ScreenMenu::ScreenMenu( GameRef& gameRef )
 }
 
 void ScreenMenu::loadAssets() {
+    TextureManager::add( "backgroundMenu", "menu.jpg" );
+
+    background.setTexture( TextureManager::get( "backgroundMenu" ) );
 }
 void ScreenMenu::draw() {
     window->clear();
-    window->draw( sprite );
+    window->draw( background );
     window->display();
 }
 void ScreenMenu::update() {
