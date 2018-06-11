@@ -16,7 +16,7 @@ class ScreenMenu : Screen {
     sf::Sprite background;
     sf::Sprite playButton;
     sf::Sprite creditsButton;
-    sf::Sprite soundButton;
+    sf::Sprite audioButton;
 };
 
 #endif
