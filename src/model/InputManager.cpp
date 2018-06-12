@@ -38,10 +38,13 @@ bool InputManager::isSpriteClicked( const sf::Mouse::Button& button, const sf::S
     if( sf::Mouse::isButtonPressed( button ) ) {
         sf::Vector2< float > vector( sf::Mouse::getPosition( *window ) );
 
-        if( Collision::VectorPerfectTest( sprite, vector ) ) {
-            return true;
-        }
+        return Collision::VectorPerfectTest( sprite, vector );
     }
 
     return false;
+}
+
+bool InputManager::isMouseOver( const sf::Sprite& sprite ) {
+    sf::Vector2< float > vector( sf::Mouse::getPosition( *window ) );
+    return Collision::VectorPerfectTest( sprite, vector );
 }
