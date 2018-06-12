@@ -44,9 +44,23 @@ void ScreenMenu::draw() {
     window->display();
 }
 void ScreenMenu::update() {
+    if( !*isAudioOn ) {
+        audioButton.setTexture( TextureManager::get( "audioButtonOff" ) );
+    }
+
     while( window->pollEvent( *event ) ) {
         if( event->type == sf::Event::Closed ) {
             window->close();
+        }
+
+        if( inputManager->isSpriteClicked( sf::Mouse::Button::Left, audioButton ) ) {
+            if( *isAudioOn ) {
+                audioButton.setTexture( TextureManager::get( "audioButtonOff" ) );
+                *isAudioOn = false;
+            } else {
+                audioButton.setTexture( TextureManager::get( "audioButtonOn" ) );
+                *isAudioOn = true;
+            }
         }
     }
 
