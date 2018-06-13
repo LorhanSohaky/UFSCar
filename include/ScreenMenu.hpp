@@ -20,6 +20,7 @@ class ScreenMenu : Screen {
     sf::Sprite audioButton;
 
     sf::Music* music;
+    sf::Sound clickSound;
 };
 
 #endif

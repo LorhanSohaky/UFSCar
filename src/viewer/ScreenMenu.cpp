@@ -1,6 +1,7 @@
 #include "../../include/ScreenMenu.hpp"
 #include "../../include/Config.hpp"
 #include "../../include/MusicManager.hpp"
+#include "../../include/SoundManager.hpp"
 #include "../../include/TextureManager.hpp"
 #include <iostream>
 
@@ -36,6 +37,8 @@ void ScreenMenu::loadAssets() {
 
     music = &MusicManager::add( "musicMenu", "menu.ogg" );
     music->setLoop( true );
+
+    clickSound.setBuffer( SoundManager::add( "clickSound", "choice.ogg" ) );
 }
 void ScreenMenu::draw() {
     window->clear();
@@ -67,20 +70,21 @@ void ScreenMenu::update() {
 
         // TODO: Mudar o cursor quando o mouse estiver em cima de um botão (C++)
         if( inputManager->isSpriteClicked( sf::Mouse::Button::Left, audioButton ) ) {
+            clickSound.play();
             if( *isAudioOn ) {
                 music->pause();
-                *isAudioOn = false;
-            } else {
-                *isAudioOn = true;
             }
+            *isAudioOn = !*isAudioOn;
         }
 
         if( inputManager->isSpriteClicked( sf::Mouse::Button::Left, playButton ) ) {
+            clickSound.play();
             music->stop();
             *nextScreen = JOGAR;
         }
 
         if( inputManager->isSpriteClicked( sf::Mouse::Button::Left, creditsButton ) ) {
+            clickSound.play();
             music->stop();
             *nextScreen = CREDITOS;
         }
