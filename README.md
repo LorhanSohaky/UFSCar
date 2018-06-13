@@ -39,3 +39,6 @@ O projeto segue o padrão _MVC_. Então `src/controller` contém os arquivos con
 * Makefile: Arquivo para facilitar a compilação. No Windows é feita a compilação estática, assim tornando mais fácil a execução do jogo;
 * Config: Contém configurações do jogo, tais como título e tamanho da janela; além de configurações dos managers, como em qual pasta buscar os arquivos;
 * Utils: Contém os parâmetros da "máquina de estado", como por exemplo qual é a próxima janela.
+
+### PILHA
+A estrutura pilha está sendo utilizada para empilhar os ingredientes que fazem parte do lanche, ou seja, se o lanche montado não corresponder com o lanche modelo o jogador perde.
