@@ -2,6 +2,7 @@
 #define SCREEN_MENU_HPP
 
 #include "Screen.hpp"
+#include <SFML/Audio.hpp>
 #include <SFML/Graphics.hpp>
 
 class ScreenMenu : Screen {
@@ -17,6 +18,8 @@ class ScreenMenu : Screen {
     sf::Sprite playButton;
     sf::Sprite creditsButton;
     sf::Sprite audioButton;
+
+    sf::Music* music;
 };
 
 #endif

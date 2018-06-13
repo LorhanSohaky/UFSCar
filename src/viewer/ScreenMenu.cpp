@@ -1,5 +1,6 @@
 #include "../../include/ScreenMenu.hpp"
 #include "../../include/Config.hpp"
+#include "../../include/MusicManager.hpp"
 #include "../../include/TextureManager.hpp"
 #include <iostream>
 
@@ -32,6 +33,9 @@ void ScreenMenu::loadAssets() {
     TextureManager::add( "audioButtonOn", "audio_on.png", true );
     TextureManager::add( "audioButtonOff", "audio_off.png", true );
     audioButton.setTexture( TextureManager::get( "audioButtonOn" ) );
+
+    music = &MusicManager::add( "musicMenu", "menu.ogg" );
+    music->setLoop( true );
 }
 void ScreenMenu::draw() {
     window->clear();
@@ -44,31 +48,40 @@ void ScreenMenu::draw() {
     window->display();
 }
 void ScreenMenu::update() {
-    // TODO: Mudar o cursor quando o mouse estiver em cima de um botão (C++)
+    if( *isAudioOn && music->getStatus() != sf::SoundSource::Status::Playing ) {
+        music->play();
+    }
+
     if( !*isAudioOn ) {
         audioButton.setTexture( TextureManager::get( "audioButtonOff" ) );
+
+    } else {
+        audioButton.setTexture( TextureManager::get( "audioButtonOn" ) );
     }
 
     while( window->pollEvent( *event ) ) {
         if( event->type == sf::Event::Closed ) {
+            music->stop();
             window->close();
         }
 
+        // TODO: Mudar o cursor quando o mouse estiver em cima de um botão (C++)
         if( inputManager->isSpriteClicked( sf::Mouse::Button::Left, audioButton ) ) {
             if( *isAudioOn ) {
-                audioButton.setTexture( TextureManager::get( "audioButtonOff" ) );
+                music->pause();
                 *isAudioOn = false;
             } else {
-                audioButton.setTexture( TextureManager::get( "audioButtonOn" ) );
                 *isAudioOn = true;
             }
         }
 
         if( inputManager->isSpriteClicked( sf::Mouse::Button::Left, playButton ) ) {
+            music->stop();
             *nextScreen = JOGAR;
         }
 
         if( inputManager->isSpriteClicked( sf::Mouse::Button::Left, creditsButton ) ) {
+            music->stop();
             *nextScreen = CREDITOS;
         }
     }
