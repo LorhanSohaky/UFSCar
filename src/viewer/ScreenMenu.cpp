@@ -44,6 +44,7 @@ void ScreenMenu::draw() {
     window->display();
 }
 void ScreenMenu::update() {
+    // TODO: Mudar o cursor quando o mouse estiver em cima de um botão (C++)
     if( !*isAudioOn ) {
         audioButton.setTexture( TextureManager::get( "audioButtonOff" ) );
     }
@@ -61,6 +62,14 @@ void ScreenMenu::update() {
                 audioButton.setTexture( TextureManager::get( "audioButtonOn" ) );
                 *isAudioOn = true;
             }
+        }
+
+        if( inputManager->isSpriteClicked( sf::Mouse::Button::Left, playButton ) ) {
+            *nextScreen = JOGAR;
+        }
+
+        if( inputManager->isSpriteClicked( sf::Mouse::Button::Left, creditsButton ) ) {
+            *nextScreen = CREDITOS;
         }
     }
 
