@@ -38,7 +38,8 @@ void ScreenMenu::loadAssets() {
     music = &MusicManager::add( "musicMenu", "menu.ogg" );
     music->setLoop( true );
 
-    clickSound.setBuffer( SoundManager::add( "clickSound", "choice.ogg" ) );
+    SoundManager::add( "clickSound", "choice.ogg" );
+    clickSound.setBuffer( SoundManager::get( "clickSound" ) );
 }
 void ScreenMenu::draw() {
     window->clear();
@@ -70,21 +71,25 @@ void ScreenMenu::update() {
 
         // TODO: Mudar o cursor quando o mouse estiver em cima de um botão (C++)
         if( inputManager->isSpriteClicked( sf::Mouse::Button::Left, audioButton ) ) {
-            clickSound.play();
             if( *isAudioOn ) {
+                clickSound.play();
                 music->pause();
             }
             *isAudioOn = !*isAudioOn;
         }
 
         if( inputManager->isSpriteClicked( sf::Mouse::Button::Left, playButton ) ) {
-            clickSound.play();
+            if( *isAudioOn ) {
+                clickSound.play();
+            }
             music->stop();
             *nextScreen = JOGAR;
         }
 
         if( inputManager->isSpriteClicked( sf::Mouse::Button::Left, creditsButton ) ) {
-            clickSound.play();
+            if( *isAudioOn ) {
+                clickSound.play();
+            }
             music->stop();
             *nextScreen = CREDITOS;
         }
