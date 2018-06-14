@@ -2,6 +2,7 @@
 #include "../../include/ScreenCreditos.hpp"
 #include "../../include/ScreenGanhou.hpp"
 #include "../../include/ScreenMenu.hpp"
+#include "../../include/ScreenPerdeu.hpp"
 #include "../../include/TextureManager.hpp"
 
 Game::Game( const std::string& titulo,
@@ -22,6 +23,7 @@ void Game::run() {
     ScreenMenu menu( gameRef );
     ScreenCreditos creditos( gameRef );
     ScreenGanhou ganhou( gameRef );
+    ScreenPerdeu perdeu( gameRef );
 
     while( gameRef->window->isOpen() ) {
         switch( gameRef->nextScreen ) {
@@ -33,6 +35,9 @@ void Game::run() {
                 break;
             case GANHOU:
                 ganhou.update();
+                break;
+            case PERDEU:
+                perdeu.update();
                 break;
             default:
                 menu.update();
