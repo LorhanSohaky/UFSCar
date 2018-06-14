@@ -2,6 +2,7 @@
 #define SCREEN_JOGO_HPP
 
 #include "Screen.hpp"
+#include <SFML/Audio.hpp>
 #include <SFML/Graphics.hpp>
 
 class ScreenJogo : Screen {
@@ -14,6 +15,7 @@ class ScreenJogo : Screen {
 
   private:
     sf::Sprite background;
+    sf::Music* music;
 };
 
 #endif
