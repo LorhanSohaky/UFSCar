@@ -1,5 +1,6 @@
 #include "../../include/Game.hpp"
 #include "../../include/ScreenCreditos.hpp"
+#include "../../include/ScreenGanhou.hpp"
 #include "../../include/ScreenMenu.hpp"
 #include "../../include/TextureManager.hpp"
 
@@ -12,7 +13,7 @@ Game::Game( const std::string& titulo,
 
     gameRef->window->setFramerateLimit( limiteDeFrames );
     gameRef->isAudioOn  = true;
-    gameRef->nextScreen = CREDITOS;
+    gameRef->nextScreen = MENU;
 
     gameRef->inputManager = new InputManager( &gameRef->event, gameRef->window );
 }
@@ -20,6 +21,7 @@ Game::Game( const std::string& titulo,
 void Game::run() {
     ScreenMenu menu( gameRef );
     ScreenCreditos creditos( gameRef );
+    ScreenGanhou ganhou( gameRef );
 
     while( gameRef->window->isOpen() ) {
         switch( gameRef->nextScreen ) {
@@ -28,6 +30,9 @@ void Game::run() {
                 break;
             case CREDITOS:
                 creditos.update();
+                break;
+            case GANHOU:
+                ganhou.update();
                 break;
             default:
                 menu.update();
