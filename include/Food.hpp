@@ -3,12 +3,15 @@
 
 #include <SFML/Graphics.hpp>
 
-class Food : sf::Sprite {
+class Food : sf::Drawable {
   public:
-    explicit Food( const sf::Texture& texture, const bool& comidaCorreta );
+    explicit Food( const sf::Texture& texture, const bool& comidaCerta );
 
-  private:
-    bool comidaCorreta;
+  protected:
+    void draw( sf::RenderTarget& target, sf::RenderStates states ) const;
+
+    bool comidaCerta;
+    sf::Sprite sprite;
 };
 
 #endif
