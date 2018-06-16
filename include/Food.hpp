@@ -3,7 +3,7 @@
 
 #include <SFML/Graphics.hpp>
 
-class Food : public sf::Drawable {
+class Food : public sf::Sprite {
   public:
     explicit Food( const sf::Texture& texture, const bool& comidaCerta );
 
