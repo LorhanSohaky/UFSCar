@@ -19,6 +19,7 @@ class InputManager {
     bool keyReleased( const std::vector< sf::Event::KeyEvent >& keys );
 
     bool isSpriteClicked( const sf::Mouse::Button& button, const sf::Sprite& sprite );
+    bool isMouseOver( const sf::Sprite& sprite );
 };
 
 #endif

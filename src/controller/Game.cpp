@@ -12,7 +12,7 @@ Game::Game( const std::string& titulo,
 
     gameRef->window->setFramerateLimit( limiteDeFrames );
     gameRef->isAudioOn  = true;
-    gameRef->nextScreen = CREDITOS;
+    gameRef->nextScreen = MENU;
 
     gameRef->inputManager = new InputManager( &gameRef->event, gameRef->window );
 }
