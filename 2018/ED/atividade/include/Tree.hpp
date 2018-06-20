@@ -32,6 +32,7 @@ class Tree {
 
     void rotateLeft( Node< T >** root );
     void rotateRight( Node< T >** root );
+    void doubleRotateLeft( Node< T >** root );
 
     Node< T >* searchByValue( Node< T >* const node, const T& value ) const;
 };
