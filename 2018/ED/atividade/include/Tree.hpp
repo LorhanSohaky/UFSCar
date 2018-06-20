@@ -30,6 +30,8 @@ class Tree {
 
     void insert( Node< T >** node, const int& key, const T& value );
 
+    void rotateLeft( Node< T >** root );
+
     Node< T >* searchByValue( Node< T >* const node, const T& value ) const;
 };
 

@@ -96,4 +96,14 @@ Node< T >* Tree< T >::searchByValue( Node< T >* const node, const T& value ) con
         return nullptr;
     }
 }
+
+template < class T >
+void Tree< T >::rotateLeft( Node< T >** root ) {
+    Node< T >* node  = ( *root )->right;
+    ( *root )->right = node->left;
+
+    node->left = *root;
+    *root      = node;
+}
+
 #endif
