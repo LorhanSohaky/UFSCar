@@ -18,7 +18,7 @@ int main() {
     tree.insert( 5, "balada" );
     std::cout << tree << std::endl;
 
-    std::cout << tree.search( 3 ) << std::endl;
+    std::cout << tree.searchByValue( "top" ) << std::endl;
 
     return 0;
 }
