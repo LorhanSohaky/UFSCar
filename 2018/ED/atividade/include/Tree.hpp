@@ -12,6 +12,7 @@ class Tree {
 
     void insert( const int& key, const T& value );
 
+    bool searchByKey( const int& key ) const;
     // Return key
     int searchByValue( const T& value ) const;
 

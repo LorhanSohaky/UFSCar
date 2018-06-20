@@ -19,6 +19,7 @@ int main() {
     std::cout << tree << std::endl;
 
     std::cout << tree.searchByValue( "top" ) << std::endl;
+    std::cout << tree.searchByKey( 3 ) << std::endl;
 
     return 0;
 }
