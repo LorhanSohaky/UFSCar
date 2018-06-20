@@ -8,6 +8,8 @@ template < class T >
 class Tree {
   public:
     explicit Tree();
+    ~Tree();
+
     void insert( const T value );
 
     // Display in-order
@@ -20,6 +22,7 @@ class Tree {
 
     std::ostream& display( std::ostream& out, Node< T >* node );
 
+    void destroy( Node< T >** node );
     void insert( Node< T >** node, T value );
 };
 

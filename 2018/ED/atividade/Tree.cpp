@@ -8,6 +8,22 @@ Tree< T >::Tree() {
 }
 
 template < class T >
+Tree< T >::~Tree() {
+    destroy( &( this->root ) );
+}
+
+template < class T >
+void Tree< T >::destroy( Node< T >** node ) {
+    if( *node != nullptr ) {
+        destroy( &( *node )->left );
+        destroy( &( *node )->right );
+        delete( *node );
+        node = nullptr;
+    }
+    return;
+}
+
+template < class T >
 std::ostream& Tree< T >::display( std::ostream& out, Node< T >* node ) {
     if( node != nullptr ) {
         display( out, node->left );
