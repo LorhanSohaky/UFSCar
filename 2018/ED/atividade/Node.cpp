@@ -1,11 +1,15 @@
-#include "include/Node.hpp"
+#ifdef NODE_HPP
 
-Node::Node( const int& value, Node* const left, Node* const right ) {
+template < class T >
+Node< T >::Node( const T value, Node* const left, Node* const right ) {
     this->value = value;
     this->left  = left;
     this->right = right;
 }
 
-int Node::getValue() const {
+template < class T >
+T Node< T >::getValue() const {
     return this->value;
 }
+
+#endif
