@@ -10,6 +10,7 @@ class Node {
 
     Node* left;
     Node* right;
+    int height;
 
   private:
     int key;
