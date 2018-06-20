@@ -10,6 +10,6 @@ int main() {
     std::cout << node->right << std::endl;
 
     Tree< int > tree = Tree< int >();
-    tree.push( 45 );
+    tree.insert( 45 );
     return 0;
 }

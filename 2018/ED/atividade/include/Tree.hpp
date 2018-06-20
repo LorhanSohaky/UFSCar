@@ -7,12 +7,12 @@ template < class T >
 class Tree {
   public:
     explicit Tree();
-    void push( const T value );
+    void insert( const T value );
 
   private:
     Node< T >* root;
 
-    void push( Node< T >** node, T value );
+    void insert( Node< T >** node, T value );
 };
 
 #include "../Tree.cpp"
