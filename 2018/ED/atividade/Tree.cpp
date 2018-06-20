@@ -34,22 +34,22 @@ std::ostream& Tree< T >::display( std::ostream& out, Node< T >* const node ) con
 }
 
 template < class T >
-void Tree< T >::insert( const T value ) {
-    insert( &( this->root ), value );
+void Tree< T >::insert( const int& key, const T& value ) {
+    insert( &( this->root ), key, value );
 }
 
 template < class T >
-void Tree< T >::insert( Node< T >** node, T value ) {
+void Tree< T >::insert( Node< T >** node, const int& key, const T& value ) {
     if( *node == nullptr ) {
-        *node = new Node< T >( value, nullptr, nullptr );
+        *node = new Node< T >( key, value, nullptr, nullptr );
         return;
 
-    } else if( value < ( *node )->getValue() ) {
-        insert( &( ( *node )->left ), value );
-    } else if( value > ( *node )->getValue() ) {
-        insert( &( ( *node )->right ), value );
+    } else if( key < ( *node )->getKey() ) {
+        insert( &( ( *node )->left ), key, value );
+    } else if( key > ( *node )->getKey() ) {
+        insert( &( ( *node )->right ), key, value );
     } else {
-        throw std::runtime_error( "Duplicate value" );
+        throw std::runtime_error( "Duplicate key" );
     }
 }
 

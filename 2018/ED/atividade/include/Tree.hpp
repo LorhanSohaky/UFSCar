@@ -10,7 +10,7 @@ class Tree {
     explicit Tree();
     ~Tree();
 
-    void insert( const T value );
+    void insert( const int& key, const T& value );
 
     // Display in-order
     friend std::ostream& operator<<( std::ostream& out, const Tree< T >& tree ) {
@@ -23,7 +23,7 @@ class Tree {
     std::ostream& display( std::ostream& out, Node< T >* const node ) const;
 
     void destroy( Node< T >** node );
-    void insert( Node< T >** node, T value );
+    void insert( Node< T >** node, const int& key, const T& value );
 };
 
 #include "../Tree.cpp"
