@@ -122,7 +122,17 @@ void Tree< T >::doubleRotateLeft( Node< T >** root ) {
     }
 
     rotateRight( ( *root )->right );
+    rotateLeft( root );
+}
+
+template < class T >
+void Tree< T >::doubleRotateRight( Node< T >** root ) {
+    if( *root == nullptr ) {
+        return;
+    }
+
     rotateLeft( ( *root )->left );
+    rotateRight( root );
 }
 
 #endif
