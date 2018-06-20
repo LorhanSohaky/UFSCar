@@ -13,14 +13,14 @@ class Tree {
     void insert( const T value );
 
     // Display in-order
-    friend std::ostream& operator<<( std::ostream& out, Tree< T >& tree ) {
+    friend std::ostream& operator<<( std::ostream& out, const Tree< T >& tree ) {
         return tree.display( out, tree.root );
     }
 
   private:
     Node< T >* root;
 
-    std::ostream& display( std::ostream& out, Node< T >* node );
+    std::ostream& display( std::ostream& out, Node< T >* const node ) const;
 
     void destroy( Node< T >** node );
     void insert( Node< T >** node, T value );

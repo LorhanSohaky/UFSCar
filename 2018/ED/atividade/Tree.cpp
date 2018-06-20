@@ -24,7 +24,7 @@ void Tree< T >::destroy( Node< T >** node ) {
 }
 
 template < class T >
-std::ostream& Tree< T >::display( std::ostream& out, Node< T >* node ) {
+std::ostream& Tree< T >::display( std::ostream& out, Node< T >* const node ) const {
     if( node != nullptr ) {
         display( out, node->left );
         out << node->getValue() << ' ';
