@@ -17,5 +17,8 @@ int main() {
     tree.insert( 4, "da" );
     tree.insert( 5, "balada" );
     std::cout << tree << std::endl;
+
+    std::cout << tree.search( 3 ) << std::endl;
+
     return 0;
 }

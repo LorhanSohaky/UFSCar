@@ -53,4 +53,22 @@ void Tree< T >::insert( Node< T >** node, const int& key, const T& value ) {
     }
 }
 
+template < class T >
+T Tree< T >::search( const int& key ) const {
+    Node< T >* node = this->root;
+    while( node != nullptr && key != node->getKey() ) {
+        if( key < node->getKey() ) {
+            node = node->left;
+        } else {
+            node = node->right;
+        }
+    }
+
+    if( node != nullptr ) {
+        return node->getValue();
+    } else {
+        throw std::runtime_error( "Invalid key" );
+    }
+}
+
 #endif

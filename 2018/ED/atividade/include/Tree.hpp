@@ -12,6 +12,8 @@ class Tree {
 
     void insert( const int& key, const T& value );
 
+    T search( const int& key ) const;
+
     // Display in-order
     friend std::ostream& operator<<( std::ostream& out, const Tree< T >& tree ) {
         return tree.display( out, tree.root );
