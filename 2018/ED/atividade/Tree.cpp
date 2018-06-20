@@ -106,4 +106,13 @@ void Tree< T >::rotateLeft( Node< T >** root ) {
     *root      = node;
 }
 
+template < class T >
+void Tree< T >::rotateRight( Node< T >** root ) {
+    Node< T >* node = ( *root )->left;
+    ( *root )->left = node->right;
+
+    node->right = *root;
+    *root       = node;
+}
+
 #endif
