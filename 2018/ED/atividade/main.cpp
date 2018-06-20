@@ -11,5 +11,8 @@ int main() {
 
     Tree< int > tree = Tree< int >();
     tree.insert( 45 );
+    tree.insert( 16 );
+    tree.insert( 55 );
+    std::cout << tree << std::endl;
     return 0;
 }

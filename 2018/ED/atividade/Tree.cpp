@@ -1,11 +1,20 @@
 #ifdef TREE_HPP
 
 #include <cstddef>
-#include <iostream>
 
 template < class T >
 Tree< T >::Tree() {
     this->root = nullptr;
+}
+
+template < class T >
+std::ostream& Tree< T >::display( std::ostream& out, Node< T >* node ) {
+    if( node != nullptr ) {
+        display( out, node->left );
+        out << node->getValue() << ' ';
+        display( out, node->right );
+    }
+    return out;
 }
 
 template < class T >
