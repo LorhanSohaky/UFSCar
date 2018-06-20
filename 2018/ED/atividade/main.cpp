@@ -8,6 +8,7 @@ int main() {
     std::cout << node->getValue() << std::endl;
     std::cout << node->left << std::endl;
     std::cout << node->right << std::endl;
+    delete node;
 
     Tree< std::string > tree = Tree< std::string >();
     tree.insert( 10, "!" );
