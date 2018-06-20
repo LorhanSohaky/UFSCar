@@ -1,4 +1,5 @@
 #include "include/Node.hpp"
+#include "include/Tree.hpp"
 #include <cstddef>
 #include <iostream>
 
@@ -7,5 +8,8 @@ int main() {
     std::cout << node->getValue() << std::endl;
     std::cout << node->left << std::endl;
     std::cout << node->right << std::endl;
+
+    Tree< int > tree = Tree< int >();
+    tree.push( 45 );
     return 0;
 }
