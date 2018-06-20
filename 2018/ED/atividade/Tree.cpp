@@ -10,16 +10,12 @@ Tree< T >::Tree() {
 
 template < class T >
 void Tree< T >::push( const T value ) {
-    if( this->root == nullptr ) {
-        this->root = new Node< T >( value, nullptr, nullptr );
-    } else {
-        push( &( this->root ), value );
-    }
+    push( &( this->root ), value );
 }
 
 template < class T >
 void Tree< T >::push( Node< T >** node, T value ) {
-    if( node == nullptr ) {
+    if( *node == nullptr ) {
         *node = new Node< T >( value, nullptr, nullptr );
         return;
 
