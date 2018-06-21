@@ -135,4 +135,17 @@ void Tree< T >::doubleRotateRight( Node< T >** root ) {
     rotateRight( root );
 }
 
+template < class T >
+int Tree< T >::factor( Node< T >* node ) {
+    if( node->left != nullptr && node->right != nullptr ) {
+        return node->left->height - node->right->height;
+    } else if( node->left != nullptr && node->right == nullptr ) {
+        return node->left->height - 0;
+    } else if( node->left == nullptr && node->right != nullptr ) {
+        return 0 - node->right->height;
+    } else {
+        return 0;
+    }
+}
+
 #endif

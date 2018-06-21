@@ -30,6 +30,8 @@ class Tree {
 
     void insert( Node< T >** node, const int& key, const T& value );
 
+    int factor( Node< T >* node );
+
     void rotateLeft( Node< T >** root );
     void rotateRight( Node< T >** root );
 
