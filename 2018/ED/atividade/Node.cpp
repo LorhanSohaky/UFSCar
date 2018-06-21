@@ -2,10 +2,11 @@
 
 template < class T >
 Node< T >::Node( const int key, const T value, Node* const left, Node* const right ) {
-    this->key   = key;
-    this->value = value;
-    this->left  = left;
-    this->right = right;
+    this->key    = key;
+    this->value  = value;
+    this->left   = left;
+    this->right  = right;
+    this->height = 0;
 }
 
 template < class T >
