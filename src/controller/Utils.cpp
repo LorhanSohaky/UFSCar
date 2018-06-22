@@ -36,23 +36,10 @@ std::vector< int > Utils::itensCertos = {ALFACE,
 std::vector< int > Utils::itensErrados = {BANANA, PEIXE, PIZZA, SUSHI};
 
 Food* Utils::sortearItemCerto() {
-    static std::vector< int > itens = {ALFACE,
-                                       BACON,
-                                       BIFE,
-                                       CEBOLA,
-                                       COGUMELO,
-                                       HAMBURGUER,
-                                       PEPERONI,
-                                       PICLES,
-                                       PIMENTAO,
-                                       QUEIJO,
-                                       SALMAO,
-                                       TOMATE};
+    static std::vector< int > itens = itensCertos;
 
     if( itens.empty() ) {
-        for( long unsigned int i = 0; i < itensCertos.size(); i++ ) {
-            itens.push_back( itensCertos[ i ] );
-        }
+        itens = itensCertos;
     }
 
     srand( time( NULL ) );
