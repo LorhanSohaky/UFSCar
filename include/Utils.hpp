@@ -11,7 +11,7 @@ class Utils {
     static std::vector< int > itensErrados;
 
     enum ITENS_CERTOS {
-        ALFACE = 1,
+        ALFACE = 0,
         BACON,
         BIFE,
         CEBOLA,
@@ -27,7 +27,7 @@ class Utils {
         TOMATE
     };
 
-    enum ITENS_ERRADOS { BANANA = 1, PEIXE, PIZZA, SUSHI };
+    enum ITENS_ERRADOS { BANANA = 0, PEIXE, PIZZA, SUSHI };
 
   public:
     static Food* sortearItemCerto();
