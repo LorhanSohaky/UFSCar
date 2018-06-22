@@ -1,21 +1,36 @@
 #ifndef UTILS_HPP
 #define UTILS_HPP
 
-#include "InputManager.hpp"
-#include <SFML/Graphics.hpp>
-#include <memory>
+#include "Food.hpp"
+#include <vector>
 
-enum WINDOW_STATES { MENU = 1, JOGAR, CREDITOS, GANHOU, PERDEU, FECHAR };
+class Utils {
+  private:
+    static std::vector< int > itensCertos;
 
-struct GameData {
-    InputManager* inputManager;
+    static std::vector< int > itensErrados;
 
-    sf::RenderWindow* window;
-    sf::Event event;
-    bool isAudioOn;
-    WINDOW_STATES nextScreen;
+    enum ITENS_CERTOS {
+        ALFACE = 1,
+        BACON,
+        BIFE,
+        CEBOLA,
+        COGUMELO,
+        HAMBURGUER,
+        PAO_INFERIOR,
+        PAO_SUPERIOR,
+        PEPERONI,
+        PICLES,
+        PIMENTAO,
+        QUEIJO,
+        SALMAO,
+        TOMATE
+    };
+
+    enum ITENS_ERRADOS { BANANA = 1, PEIXE, PIZZA, SUSHI };
+
+  public:
+    static Food* sortearItemCerto();
 };
-
-typedef std::shared_ptr< GameData > GameRef;
 
 #endif

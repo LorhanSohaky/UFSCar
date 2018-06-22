@@ -1,7 +1,7 @@
 #ifndef GAME_HPP
 #define GAME_HPP
 
-#include "Utils.hpp"
+#include "GameRef.hpp"
 
 #include <SFML/Graphics.hpp>
 
