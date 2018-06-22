@@ -1,13 +1,13 @@
-#ifndef SCREEN_MENU_HPP
-#define SCREEN_MENU_HPP
+#ifndef SCREEN_GANHOU_HPP
+#define SCREEN_GANHOU_HPP
 
 #include "Screen.hpp"
 #include <SFML/Audio.hpp>
 #include <SFML/Graphics.hpp>
 
-class ScreenMenu : Screen {
+class ScreenGanhou : Screen {
   public:
-    explicit ScreenMenu( GameRef& gameRef );
+    explicit ScreenGanhou( GameRef& gameRef );
 
     void loadAssets();
     void draw();
@@ -15,9 +15,7 @@ class ScreenMenu : Screen {
 
   private:
     sf::Sprite background;
-    sf::Sprite playButton;
-    sf::Sprite creditsButton;
-    sf::Sprite audioButton;
+    sf::Sprite menuButton;
 
     sf::Music* music;
     sf::Sound clickSound;

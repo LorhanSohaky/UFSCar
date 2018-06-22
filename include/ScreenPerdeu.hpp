@@ -1,13 +1,13 @@
-#ifndef SCREEN_MENU_HPP
-#define SCREEN_MENU_HPP
+#ifndef SCREEN_PERDEU_HPP
+#define SCREEN_PERDEU_HPP
 
 #include "Screen.hpp"
 #include <SFML/Audio.hpp>
 #include <SFML/Graphics.hpp>
 
-class ScreenMenu : Screen {
+class ScreenPerdeu : Screen {
   public:
-    explicit ScreenMenu( GameRef& gameRef );
+    explicit ScreenPerdeu( GameRef& gameRef );
 
     void loadAssets();
     void draw();
@@ -15,9 +15,7 @@ class ScreenMenu : Screen {
 
   private:
     sf::Sprite background;
-    sf::Sprite playButton;
-    sf::Sprite creditsButton;
-    sf::Sprite audioButton;
+    sf::Sprite menuButton;
 
     sf::Music* music;
     sf::Sound clickSound;
