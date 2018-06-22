@@ -1,5 +1,4 @@
 #include "../../include/Utils.hpp"
-
 #include "../../include/Alface.hpp"
 #include "../../include/Bacon.hpp"
 #include "../../include/Banana.hpp"

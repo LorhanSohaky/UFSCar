@@ -15,6 +15,7 @@ class ScreenJogo : Screen {
 
   private:
     sf::Sprite background;
+    sf::Sprite bar;
     sf::Music* music;
 };
 

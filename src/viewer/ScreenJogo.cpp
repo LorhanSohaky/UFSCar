@@ -11,13 +11,20 @@ void ScreenJogo::loadAssets() {
     TextureManager::add( "backgroundJogo", "jogo.jpg" );
     background.setTexture( TextureManager::get( "backgroundJogo" ) );
 
+    TextureManager::add( "barraFila", "fila_barra.png" );
+    bar.setTexture( TextureManager::get( "barraFila" ) );
+
     MusicManager::add( "musicJogar", "background.ogg" );
     music = &MusicManager::get( "musicJogar" );
 }
 void ScreenJogo::draw() {
+    bar.setPosition(640, 30);
+
     window->clear();
 
     window->draw( background );
+
+    window->draw( bar );
 
     window->display();
 }
