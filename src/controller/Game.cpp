@@ -1,5 +1,6 @@
 #include "../../include/Game.hpp"
 #include "../../include/ScreenCreditos.hpp"
+#include "../../include/ScreenJogo.hpp"
 #include "../../include/ScreenGanhou.hpp"
 #include "../../include/ScreenMenu.hpp"
 #include "../../include/ScreenPerdeu.hpp"
@@ -22,6 +23,7 @@ Game::Game( const std::string& titulo,
 void Game::run() {
     ScreenMenu menu( gameRef );
     ScreenCreditos creditos( gameRef );
+    ScreenJogo jogo( gameRef );
     ScreenGanhou ganhou( gameRef );
     ScreenPerdeu perdeu( gameRef );
 
@@ -33,6 +35,8 @@ void Game::run() {
             case CREDITOS:
                 creditos.update();
                 break;
+            case JOGAR:
+                jogo.update();
             case GANHOU:
                 ganhou.update();
                 break;

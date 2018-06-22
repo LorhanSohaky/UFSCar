@@ -2,7 +2,7 @@
 #define SCREEN_HPP
 
 #include "Collision.hpp"
-#include "Utils.hpp"
+#include "GameRef.hpp"
 #include <SFML/Graphics.hpp>
 
 class Screen {
