@@ -9,7 +9,6 @@ class Lanche : public Pilha {
   public:
     Lanche( const int tamanho );
 
-    bool isCompleto() const;
     bool faltaApenasPaoSuperior() const;
 
   private:

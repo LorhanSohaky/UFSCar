@@ -5,9 +5,6 @@ Lanche::Lanche( const int tamanho )
     tamanhoMaximo = tamanho;
 }
 
-bool Lanche::isCompleto() const {
-    return isCheia();
-}
 bool Lanche::faltaApenasPaoSuperior() const {
     return tamanhoMaximo - getTamanho() == 1;
 }
