@@ -17,14 +17,12 @@ class Utils {
     static std::vector< int > itensErrados;
 
     enum ITENS_CERTOS {
-        ALFACE = 0,
+        ALFACE,
         BACON,
         BIFE,
         CEBOLA,
         COGUMELO,
         HAMBURGUER,
-        PAO_INFERIOR,
-        PAO_SUPERIOR,
         PEPERONI,
         PICLES,
         PIMENTAO,
@@ -33,7 +31,7 @@ class Utils {
         TOMATE
     };
 
-    enum ITENS_ERRADOS { BANANA = 0, PEIXE, PIZZA, SUSHI };
+    enum ITENS_ERRADOS { BANANA, PEIXE, PIZZA, SUSHI };
 };
 
 #endif

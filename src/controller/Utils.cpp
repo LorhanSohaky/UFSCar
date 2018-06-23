@@ -18,6 +18,7 @@
 
 #include <cstdlib>
 #include <ctime>
+#include <iostream>
 
 std::vector< int > Utils::itensCertos = {ALFACE,
                                          BACON,
@@ -93,7 +94,8 @@ Food* Utils::sortearItemCerto() {
             return new Tomate();
             break;
         default:
-            throw std::runtime_error( "Ingrediente inválido" );
+            std::string msg = ( "Ingrediente inválido (itens certos) " + std::to_string( random ) );
+            throw std::runtime_error( msg );
     }
 }
 
@@ -121,6 +123,7 @@ Food* Utils::sortearItemErrado() {
             return new Sushi();
             break;
         default:
-            throw std::runtime_error( "Ingrediente inválido" );
+            throw std::runtime_error( "Ingrediente inválido (itens errados)" +
+                                      std::to_string( random ) );
     }
 }
