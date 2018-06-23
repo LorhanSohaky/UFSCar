@@ -37,6 +37,7 @@ void Game::run() {
                 break;
             case JOGAR:
                 jogo.update();
+                break;
             case GANHOU:
                 ganhou.update();
                 break;

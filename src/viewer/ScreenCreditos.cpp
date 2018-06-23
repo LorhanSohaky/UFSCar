@@ -11,7 +11,7 @@ ScreenCreditos::ScreenCreditos( GameRef& gameRef )
 }
 
 void ScreenCreditos::loadAssets() {
-    FontManager::add( "RobotoCondensed", "roboto-condensed/RobotoCondensed-Regular.ttf" );
+    FontManager::add( "RobotoCondensed", "roboto-condensed/RobotoCondensed-Bold.ttf" );
 
     for( unsigned int i = 0; i < lines.size(); i++ ) {
         lines[ i ].setFont( FontManager::get( "RobotoCondensed" ) );
@@ -72,7 +72,7 @@ void ScreenCreditos::update() {
         }
     }
     for( unsigned int i = 0; i < lines.size(); i++ ) {
-        lines[ i ].move( 0, -1.5f );
+        lines[ i ].move( 0, -2.8f );
     }
 
     // Para quando a última linha estiver fora da view
