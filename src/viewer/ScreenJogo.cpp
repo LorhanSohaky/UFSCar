@@ -4,9 +4,13 @@
 #include "../../include/TextureManager.hpp"
 #include "../../include/Utils.hpp"
 
+#define VELOCIDADE_QUEDA 30
+
 ScreenJogo::ScreenJogo( GameRef& gameRef )
     : Screen( gameRef ) {
     loadAssets();
+
+    caindo = false;
 }
 
 void ScreenJogo::loadAssets() {
@@ -43,6 +47,14 @@ void ScreenJogo::update() {
             music->stop();
             window->close();
         }
+
+        if( inputManager->keyPressed( sf::Keyboard::Space ) ) {
+            caindo = true;
+        }
+    }
+
+    if( caindo ) {
+        ingrediente->move( 0, VELOCIDADE_QUEDA );
     }
 
     draw();

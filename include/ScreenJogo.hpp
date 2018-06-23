@@ -19,6 +19,8 @@ class ScreenJogo : Screen {
     sf::Sprite bar;
     sf::Music* music;
     Food* ingrediente;
+
+    bool caindo;
 };
 
 #endif
