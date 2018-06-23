@@ -18,7 +18,7 @@ void ScreenJogo::loadAssets() {
     music = &MusicManager::get( "musicJogar" );
 }
 void ScreenJogo::draw() {
-    bar.setPosition(640, 30);
+    bar.setPosition( 640, 30 );
 
     window->clear();
 
