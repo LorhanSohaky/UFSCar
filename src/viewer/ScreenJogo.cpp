@@ -21,6 +21,8 @@ ScreenJogo::ScreenJogo( GameRef& gameRef )
     modelo = new Lanche( 4 );
 
     meu->empilhar( new PaoInferior() );
+    meu->setPosition( WINDOW_WIDTH / 2 - 50, WINDOW_HEIGHT - 85 );
+
     modelo->empilhar( new PaoInferior() );
 
     while( !modelo->faltaApenasPaoSuperior() ) {
@@ -57,6 +59,7 @@ void ScreenJogo::draw() {
     window->draw( background );
     window->draw( bar );
     window->draw( *modelo );
+    window->draw( *meu );
     window->draw( *ingrediente );
 
     window->display();
