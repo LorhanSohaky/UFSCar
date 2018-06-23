@@ -61,15 +61,13 @@ void ScreenJogo::update() {
     }
 
     if( movendoHorizontal ) {
-        if( ( ingrediente->getPosition().x ) < 0 ||
-            ( ingrediente->getPosition().x ) >=
-                ( WINDOW_WIDTH - ingrediente->getGlobalBounds().width ) ) {
+        if( Utils::isForaDaJanelaHorizontalmente( ingrediente ) ) {
             velocidadeHorizontal = -1 * velocidadeHorizontal;
         }
         ingrediente->move( velocidadeHorizontal, 0 );
 
     } else if( caindo ) {
-        if( ingrediente->getPosition().y + ingrediente->getGlobalBounds().height > WINDOW_HEIGHT ) {
+        if( Utils::isForaDaJanelaVerticalmente( ingrediente ) ) {
             caindo = false;
         } else {
             ingrediente->move( 0, VELOCIDADE_QUEDA );
