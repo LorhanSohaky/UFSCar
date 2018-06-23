@@ -1,6 +1,7 @@
 #ifndef SCREEN_JOGO_HPP
 #define SCREEN_JOGO_HPP
 
+#include "Food.hpp"
 #include "Screen.hpp"
 #include <SFML/Audio.hpp>
 #include <SFML/Graphics.hpp>
@@ -17,6 +18,7 @@ class ScreenJogo : Screen {
     sf::Sprite background;
     sf::Sprite bar;
     sf::Music* music;
+    Food* ingrediente;
 };
 
 #endif
