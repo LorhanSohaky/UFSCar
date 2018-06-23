@@ -5,7 +5,13 @@
 #include <vector>
 
 class Utils {
+  public:
+    static Food* sortearItemCerto();
+    static Food* sortearQualquerItem();
+
   private:
+    static Food* sortearItemErrado();
+
     static std::vector< int > itensCertos;
 
     static std::vector< int > itensErrados;
@@ -28,9 +34,6 @@ class Utils {
     };
 
     enum ITENS_ERRADOS { BANANA = 0, PEIXE, PIZZA, SUSHI };
-
-  public:
-    static Food* sortearItemCerto();
 };
 
 #endif

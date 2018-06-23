@@ -34,6 +34,17 @@ std::vector< int > Utils::itensCertos = {ALFACE,
 
 std::vector< int > Utils::itensErrados = {BANANA, PEIXE, PIZZA, SUSHI};
 
+Food* Utils::sortearQualquerItem() {
+    srand( time( NULL ) );
+    int random = rand() % 2;
+
+    if( random ) {
+        return sortearItemCerto();
+    } else {
+        return sortearItemErrado();
+    }
+}
+
 Food* Utils::sortearItemCerto() {
     static std::vector< int > itens = itensCertos;
 
@@ -80,6 +91,34 @@ Food* Utils::sortearItemCerto() {
             break;
         case TOMATE:
             return new Tomate();
+            break;
+        default:
+            throw std::runtime_error( "Ingrediente inválido" );
+    }
+}
+
+Food* Utils::sortearItemErrado() {
+    static std::vector< int > itens = itensErrados;
+
+    if( itens.empty() ) {
+        itens = itensErrados;
+    }
+
+    srand( time( NULL ) );
+    int random = rand() % itens.size();
+
+    switch( random ) {
+        case BANANA:
+            return new Banana();
+            break;
+        case PEIXE:
+            return new Peixe();
+            break;
+        case PIZZA:
+            return new Pizza();
+            break;
+        case SUSHI:
+            return new Sushi();
             break;
         default:
             throw std::runtime_error( "Ingrediente inválido" );
