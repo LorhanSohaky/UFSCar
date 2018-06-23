@@ -37,7 +37,6 @@
 				</Linker>
 			</Target>
 		</Build>
-		<Unit filename="cb.bmp" />
 		<Unit filename="include/Alface.hpp" />
 		<Unit filename="include/Bacon.hpp" />
 		<Unit filename="include/Banana.hpp" />
@@ -66,6 +65,7 @@
 		<Unit filename="include/Queijo.hpp" />
 		<Unit filename="include/Salmao.hpp" />
 		<Unit filename="include/Screen.hpp" />
+		<Unit filename="include/ScreenCompara.hpp" />
 		<Unit filename="include/ScreenCreditos.hpp" />
 		<Unit filename="include/ScreenGanhou.hpp" />
 		<Unit filename="include/ScreenJogo.hpp" />
@@ -108,6 +108,7 @@
 		<Unit filename="src/model/Screen.cpp" />
 		<Unit filename="src/model/Sushi.cpp" />
 		<Unit filename="src/model/Tomate.cpp" />
+		<Unit filename="src/viewer/ScreenCompara.cpp" />
 		<Unit filename="src/viewer/ScreenCreditos.cpp" />
 		<Unit filename="src/viewer/ScreenGanhou.cpp" />
 		<Unit filename="src/viewer/ScreenJogo.cpp" />

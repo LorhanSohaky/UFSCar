@@ -1,6 +1,7 @@
 #include "../../include/Game.hpp"
 #include "../../include/ScreenCreditos.hpp"
 #include "../../include/ScreenJogo.hpp"
+#include "../../include/ScreenCompara.hpp"
 #include "../../include/ScreenGanhou.hpp"
 #include "../../include/ScreenMenu.hpp"
 #include "../../include/ScreenPerdeu.hpp"
@@ -24,6 +25,7 @@ void Game::run() {
     ScreenMenu menu( gameRef );
     ScreenCreditos creditos( gameRef );
     ScreenJogo jogo( gameRef );
+    ScreenCompara compara( gameRef );
     ScreenGanhou ganhou( gameRef );
     ScreenPerdeu perdeu( gameRef );
 
@@ -37,6 +39,9 @@ void Game::run() {
                 break;
             case JOGAR:
                 jogo.update();
+                break;
+            case COMPARA:
+                compara.update();
                 break;
             case GANHOU:
                 ganhou.update();

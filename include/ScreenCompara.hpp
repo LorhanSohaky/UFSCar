@@ -1,13 +1,13 @@
-#ifndef SCREEN_JOGO_HPP
-#define SCREEN_JOGO_HPP
+#ifndef SCREEN_COMPARA_HPP
+#define SCREEN_COMPARA_HPP
 
 #include "Screen.hpp"
 #include <SFML/Audio.hpp>
 #include <SFML/Graphics.hpp>
 
-class ScreenJogo : Screen {
+class ScreenCompara : Screen {
   public:
-    explicit ScreenJogo( GameRef& gameRef );
+    explicit ScreenCompara( GameRef& gameRef );
 
     void loadAssets();
     void draw();
@@ -16,7 +16,8 @@ class ScreenJogo : Screen {
   private:
     sf::Sprite background;
     sf::Sprite barModel;
+    sf::Sprite barPlayer;
     sf::Music* music;
 };
 
-#endif
+#endif // SCREEN_COMPARA_HPP
