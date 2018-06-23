@@ -5,12 +5,15 @@
 #include "../../include/Utils.hpp"
 
 #define VELOCIDADE_QUEDA 30
+#define VELOCIDADE_HORIZONTAL 7
 
 ScreenJogo::ScreenJogo( GameRef& gameRef )
     : Screen( gameRef ) {
     loadAssets();
 
-    caindo = false;
+    caindo               = false;
+    movendoHorizontal    = true;
+    velocidadeHorizontal = VELOCIDADE_HORIZONTAL;
 }
 
 ScreenJogo::~ScreenJogo() {
@@ -35,9 +38,8 @@ void ScreenJogo::draw() {
     window->clear();
 
     window->draw( background );
-    window->draw( *ingrediente );
-
     window->draw( bar );
+    window->draw( *ingrediente );
 
     window->display();
 }
@@ -53,12 +55,30 @@ void ScreenJogo::update() {
         }
 
         if( inputManager->keyPressed( sf::Keyboard::Space ) ) {
-            caindo = true;
+            movendoHorizontal = false;
+            caindo            = true;
         }
     }
 
-    if( caindo ) {
-        ingrediente->move( 0, VELOCIDADE_QUEDA );
+    if( movendoHorizontal ) {
+        if( ( ingrediente->getPosition().x ) < 0 ||
+            ( ingrediente->getPosition().x ) >=
+                ( WINDOW_WIDTH - ingrediente->getGlobalBounds().width ) ) {
+            velocidadeHorizontal = -1 * velocidadeHorizontal;
+        }
+        ingrediente->move( velocidadeHorizontal, 0 );
+
+    } else if( caindo ) {
+        if( ingrediente->getPosition().y + ingrediente->getGlobalBounds().height > WINDOW_HEIGHT ) {
+            caindo = false;
+        } else {
+            ingrediente->move( 0, VELOCIDADE_QUEDA );
+        }
+    } else {
+        delete ingrediente;
+        ingrediente = Utils::sortearQualquerItem();
+        ingrediente->setPosition( WINDOW_WIDTH / 2 - ingrediente->getGlobalBounds().width / 2, 0 );
+        movendoHorizontal = true;
     }
 
     draw();

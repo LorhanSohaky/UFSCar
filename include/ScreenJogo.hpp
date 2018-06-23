@@ -22,6 +22,9 @@ class ScreenJogo : Screen {
     Food* ingrediente;
 
     bool caindo;
+
+    bool movendoHorizontal;
+    float velocidadeHorizontal;
 };
 
 #endif
