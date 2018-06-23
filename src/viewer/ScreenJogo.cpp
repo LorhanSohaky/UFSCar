@@ -13,6 +13,10 @@ ScreenJogo::ScreenJogo( GameRef& gameRef )
     caindo = false;
 }
 
+ScreenJogo::~ScreenJogo() {
+    delete ingrediente;
+}
+
 void ScreenJogo::loadAssets() {
     TextureManager::add( "backgroundJogo", "jogo.jpg" );
     background.setTexture( TextureManager::get( "backgroundJogo" ) );

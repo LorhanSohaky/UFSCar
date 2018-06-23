@@ -9,6 +9,7 @@
 class ScreenJogo : Screen {
   public:
     explicit ScreenJogo( GameRef& gameRef );
+    ~ScreenJogo();
 
     void loadAssets();
     void draw();
