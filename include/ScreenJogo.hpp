@@ -2,6 +2,7 @@
 #define SCREEN_JOGO_HPP
 
 #include "Food.hpp"
+#include "Lanche.hpp"
 #include "Screen.hpp"
 #include <SFML/Audio.hpp>
 #include <SFML/Graphics.hpp>
@@ -19,7 +20,10 @@ class ScreenJogo : Screen {
     sf::Sprite background;
     sf::Sprite bar;
     sf::Music* music;
+
     Food* ingrediente;
+    Lanche* meu;
+    Lanche* modelo;
 
     bool caindo;
 

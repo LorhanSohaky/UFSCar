@@ -1,6 +1,8 @@
 #include "../../include/ScreenJogo.hpp"
 #include "../../include/Config.hpp"
 #include "../../include/MusicManager.hpp"
+#include "../../include/PaoInferior.hpp"
+#include "../../include/PaoSuperior.hpp"
 #include "../../include/TextureManager.hpp"
 #include "../../include/Utils.hpp"
 
@@ -10,14 +12,29 @@
 ScreenJogo::ScreenJogo( GameRef& gameRef )
     : Screen( gameRef ) {
     loadAssets();
-
     caindo               = false;
     movendoHorizontal    = true;
     velocidadeHorizontal = VELOCIDADE_HORIZONTAL;
+
+    // TODO: Mudar para receber a lista de lanches
+    meu    = new Lanche( 4 );
+    modelo = new Lanche( 4 );
+
+    meu->empilhar( new PaoInferior() );
+    modelo->empilhar( new PaoInferior() );
+
+    while( !modelo->faltaApenasPaoSuperior() ) {
+        modelo->empilhar( Utils::sortearItemCerto() );
+    }
+
+    modelo->empilhar( new PaoSuperior() );
+    modelo->setPosition( 0, WINDOW_HEIGHT - 85 );
 }
 
 ScreenJogo::~ScreenJogo() {
     delete ingrediente;
+    delete meu;
+    delete modelo;
 }
 
 void ScreenJogo::loadAssets() {
@@ -39,6 +56,7 @@ void ScreenJogo::draw() {
 
     window->draw( background );
     window->draw( bar );
+    window->draw( *modelo );
     window->draw( *ingrediente );
 
     window->display();
