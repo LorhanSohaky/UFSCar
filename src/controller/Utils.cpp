@@ -53,50 +53,55 @@ Food* Utils::sortearItemCerto() {
         itens = itensCertos;
     }
 
+    Food* food;
+
     srand( time( NULL ) );
     int random = rand() % itens.size();
 
-    switch( random ) {
+    switch( itens[ random ] ) {
         case ALFACE:
-            return new Alface();
+            food = new Alface();
             break;
         case BACON:
-            return new Bacon();
+            food = new Bacon();
             break;
         case BIFE:
-            return new Bife();
+            food = new Bife();
             break;
         case CEBOLA:
-            return new Cebola();
+            food = new Cebola();
             break;
         case COGUMELO:
-            return new Cogumelo();
+            food = new Cogumelo();
             break;
         case HAMBURGUER:
-            return new Hamburguer();
+            food = new Hamburguer();
             break;
         case PEPERONI:
-            return new Peperoni();
+            food = new Peperoni();
             break;
         case PICLES:
-            return new Picles();
+            food = new Picles();
             break;
         case PIMENTAO:
-            return new Pimentao();
+            food = new Pimentao();
             break;
         case QUEIJO:
-            return new Queijo();
+            food = new Queijo();
             break;
         case SALMAO:
-            return new Salmao();
+            food = new Salmao();
             break;
         case TOMATE:
-            return new Tomate();
+            food = new Tomate();
             break;
         default:
             std::string msg = ( "Ingrediente inválido (itens certos) " + std::to_string( random ) );
             throw std::runtime_error( msg );
     }
+
+    itens.erase( itens.begin() + random );
+    return food;
 }
 
 Food* Utils::sortearItemErrado() {
@@ -106,24 +111,29 @@ Food* Utils::sortearItemErrado() {
         itens = itensErrados;
     }
 
+    Food* food;
+
     srand( time( NULL ) );
     int random = rand() % itens.size();
 
-    switch( random ) {
+    switch( itens[ random ] ) {
         case BANANA:
-            return new Banana();
+            food = new Banana();
             break;
         case PEIXE:
-            return new Peixe();
+            food = new Peixe();
             break;
         case PIZZA:
-            return new Pizza();
+            food = new Pizza();
             break;
         case SUSHI:
-            return new Sushi();
+            food = new Sushi();
             break;
         default:
             throw std::runtime_error( "Ingrediente inválido (itens errados)" +
                                       std::to_string( random ) );
     }
+
+    itens.erase( itens.begin() + random );
+    return food;
 }
