@@ -9,6 +9,9 @@ class Utils {
     static Food* sortearItemCerto();
     static Food* sortearQualquerItem();
 
+    static bool isForaDaJanelaHorizontalmente( const Food* ingrediente );
+    static bool isForaDaJanelaVerticalmente( const Food* ingrediente );
+
   private:
     static Food* sortearItemErrado();
 

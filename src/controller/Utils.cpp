@@ -5,6 +5,7 @@
 #include "../../include/Bife.hpp"
 #include "../../include/Cebola.hpp"
 #include "../../include/Cogumelo.hpp"
+#include "../../include/Config.hpp"
 #include "../../include/Hamburguer.hpp"
 #include "../../include/Peixe.hpp"
 #include "../../include/Peperoni.hpp"
@@ -136,4 +137,14 @@ Food* Utils::sortearItemErrado() {
 
     itens.erase( itens.begin() + random );
     return food;
+}
+
+bool Utils::isForaDaJanelaHorizontalmente( const Food* ingrediente ) {
+    return ingrediente->getPosition().x < 0 ||
+           ingrediente->getPosition().x >= ( WINDOW_WIDTH - ingrediente->getGlobalBounds().width );
+}
+
+bool Utils::isForaDaJanelaVerticalmente( const Food* ingrediente ) {
+    return ingrediente->getPosition().y < 0 ||
+           ( ingrediente->getPosition().y + ingrediente->getGlobalBounds().height > WINDOW_HEIGHT );
 }
