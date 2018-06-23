@@ -18,7 +18,7 @@ void Lanche::setPosition( float x, float y ) {
 
     vetor[ 0 ]->setPosition( x, y );
 
-    for( int i = 1; i < tamanho; i++ ) {
+    for( int i = 1; i < getTamanho(); i++ ) {
         vetor[ i ]->setPosition( x, vetor[ i - 1 ]->getPosition().y - INGREDIENTE_MARGIN );
     }
 }
