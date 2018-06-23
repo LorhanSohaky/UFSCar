@@ -11,6 +11,8 @@ class Lanche : public Pilha {
 
     bool faltaApenasPaoSuperior() const;
 
+    void setPosition( float x, float y );
+
   private:
     int tamanhoMaximo;
 };
