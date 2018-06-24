@@ -1,37 +1,43 @@
 #include "../../include/ScreenMostrar.hpp"
 #include "../../include/Config.hpp"
+#include "../../include/Lanche.hpp"
 #include "../../include/MusicManager.hpp"
+#include "../../include/PaoInferior.hpp"
+#include "../../include/PaoSuperior.hpp"
 #include "../../include/TextureManager.hpp"
+#include "../../include/Utils.hpp"
 
-ScreenMostrar::ScreenMostrar( GameRef& gameRef )
+ScreenMostrar::ScreenMostrar( GameRef& gameRef, Fila* fila )
     : Screen( gameRef ) {
+    this->fila = fila;
     loadAssets();
+
+    for( int i = 0; i < 5; i++ ) {
+        Lanche* lanche = new Lanche( 3 );
+        lanche->empilhar( new PaoInferior() );
+        while( !lanche->faltaApenasPaoSuperior() ) {
+            lanche->empilhar( Utils::sortearItemCerto() );
+        }
+        lanche->empilhar( new PaoSuperior() );
+        lanche->setPosition( i * 130, 100 );
+
+        fila->Insere( lanche );
+    }
 }
 
 void ScreenMostrar::loadAssets() {
     TextureManager::add( "backgroundJogo", "jogo.jpg" );
     background.setTexture( TextureManager::get( "backgroundJogo" ) );
 
-    TextureManager::add( "barraModelo", "barra_model.png" );
-    barModel.setTexture( TextureManager::get( "barraModelo" ) );
-
-    TextureManager::add( "barraJogador", "barra_player.png" );
-    barPlayer.setTexture( TextureManager::get( "barraJogador" ) );
-
     MusicManager::add( "musicJogar", "background.ogg" );
     music = &MusicManager::get( "musicJogar" );
+    music->setLoop( true );
 }
 void ScreenMostrar::draw() {
-    barModel.setPosition( -30, 30 );
-    barPlayer.setPosition( 80, 30 );
-
     window->clear();
 
     window->draw( background );
-
-    window->draw( barModel );
-
-    window->draw( barPlayer );
+    window->draw( *fila );
 
     window->display();
 }

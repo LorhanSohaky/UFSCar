@@ -1,13 +1,14 @@
 #ifndef SCREEN_MOSTRAR_HPP
 #define SCREEN_MOSTRAR_HPP
 
+#include "Fila.hpp"
 #include "Screen.hpp"
 #include <SFML/Audio.hpp>
 #include <SFML/Graphics.hpp>
 
 class ScreenMostrar : Screen {
   public:
-    explicit ScreenMostrar( GameRef& gameRef );
+    explicit ScreenMostrar( GameRef& gameRef, Fila* fila );
 
     void loadAssets();
     void draw();
@@ -15,9 +16,9 @@ class ScreenMostrar : Screen {
 
   private:
     sf::Sprite background;
-    sf::Sprite barModel;
-    sf::Sprite barPlayer;
     sf::Music* music;
+
+    Fila* fila;
 };
 
-#endif // SCREEN_COMPARA_HPP
+#endif
