@@ -1,6 +1,5 @@
 #include "../../include/ScreenMostrar.hpp"
 #include "../../include/Config.hpp"
-#include "../../include/Lanche.hpp"
 #include "../../include/MusicManager.hpp"
 #include "../../include/PaoInferior.hpp"
 #include "../../include/PaoSuperior.hpp"
@@ -19,10 +18,14 @@ ScreenMostrar::ScreenMostrar( GameRef& gameRef, Fila* fila )
             lanche->empilhar( Utils::sortearItemCerto() );
         }
         lanche->empilhar( new PaoSuperior() );
-        lanche->setPosition( i * 130, 100 );
+        lanche->setPosition( WINDOW_WIDTH + i * 130,
+                             WINDOW_HEIGHT / 2 - lanche->getTopo()->getGlobalBounds().height / 2 );
 
         fila->Insere( lanche );
     }
+
+    primeiro = fila->Retira();
+    fila->Insere( primeiro );
 }
 
 void ScreenMostrar::loadAssets() {
@@ -51,6 +54,13 @@ void ScreenMostrar::update() {
             music->stop();
             window->close();
         }
+    }
+
+    if( primeiro->getTopo()->getPosition().x > -WINDOW_WIDTH ) {
+        fila->move( -2, 0 );
+    } else {
+        music->stop();
+        *nextScreen = JOGAR;
     }
 
     draw();
