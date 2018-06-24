@@ -20,7 +20,7 @@ class ScreenJogo : Screen {
     void movimentar();
 
     sf::Sprite background;
-    sf::Sprite bar;
+    sf::Sprite barModel;
     sf::Music* music;
 
     Food* ingrediente;

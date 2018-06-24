@@ -45,9 +45,9 @@ void ScreenJogo::loadAssets() {
     TextureManager::add( "backgroundJogo", "jogo.jpg" );
     background.setTexture( TextureManager::get( "backgroundJogo" ) );
 
-    TextureManager::add( "barraFila", "fila_barra.png" );
-    bar.setTexture( TextureManager::get( "barraFila" ) );
-    bar.setPosition( 640, 30 );
+    TextureManager::add( "barraModelo", "barra_model.png" );
+    barModel.setTexture( TextureManager::get( "barraModelo" ) );
+    barModel.setPosition( 640, 30 );
 
     MusicManager::add( "musicJogar", "background.ogg" );
     music = &MusicManager::get( "musicJogar" );
@@ -59,7 +59,7 @@ void ScreenJogo::draw() {
     window->clear();
 
     window->draw( background );
-    window->draw( bar );
+    window->draw( barModel );
     window->draw( *modelo );
     window->draw( *meu );
     window->draw( *ingrediente );
