@@ -22,5 +22,15 @@ int main() {
     std::cout << tree.searchByValue( "top" ) << std::endl;
     std::cout << tree.searchByKey( 3 ) << std::endl;
 
+    std::cout << "\n\n";
+    Tree< char > tree2 = Tree< char >();
+
+    tree2.insert( 2, '2' );
+    tree2.insert( 1, '1' );
+    tree2.insert( 4, '4' );
+    tree2.insert( 3, '3' );
+    tree2.insert( 5, '5' );
+    std::cout << tree2 << std::endl;
+
     return 0;
 }
