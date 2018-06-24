@@ -1,6 +1,7 @@
 #ifdef TREE_HPP
 
 #include <cstddef>
+#include <cstdlib>
 
 int compare( const int left, const int right );
 
@@ -148,11 +149,11 @@ void Tree< T >::doubleRotateRight( Node< T >** root ) {
 template < class T >
 int Tree< T >::factor( Node< T >* node ) {
     if( node->left != nullptr && node->right != nullptr ) {
-        return node->left->height - node->right->height;
+        return abs( node->left->height - node->right->height );
     } else if( node->left != nullptr && node->right == nullptr ) {
-        return node->left->height - 0;
+        return abs( node->left->height - 0 );
     } else if( node->left == nullptr && node->right != nullptr ) {
-        return 0 - node->right->height;
+        return abs( 0 - node->right->height );
     } else {
         return 0;
     }
