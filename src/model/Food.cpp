@@ -6,6 +6,10 @@ Food::Food( const std::string alias, const std::string filePath, const bool& com
     this->comidaCerta = comidaCerta;
 }
 
+bool Food::getComidaCerta() const {
+    return comidaCerta;
+}
+
 void Food::draw( sf::RenderTarget& target, sf::RenderStates states ) const {
     target.draw( ( sf::Sprite ) * this, states );
 }
