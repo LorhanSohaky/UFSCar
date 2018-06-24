@@ -5,20 +5,27 @@
 #include <vector>
 
 class Utils {
+  public:
+    static Food* sortearItemCerto();
+    static Food* sortearQualquerItem();
+
+    static bool isForaDaJanelaHorizontalmente( const Food* ingrediente );
+    static bool isForaDaJanelaVerticalmente( const Food* ingrediente );
+
   private:
+    static Food* sortearItemErrado();
+
     static std::vector< int > itensCertos;
 
     static std::vector< int > itensErrados;
 
     enum ITENS_CERTOS {
-        ALFACE = 0,
+        ALFACE,
         BACON,
         BIFE,
         CEBOLA,
         COGUMELO,
         HAMBURGUER,
-        PAO_INFERIOR,
-        PAO_SUPERIOR,
         PEPERONI,
         PICLES,
         PIMENTAO,
@@ -27,10 +34,7 @@ class Utils {
         TOMATE
     };
 
-    enum ITENS_ERRADOS { BANANA = 0, PEIXE, PIZZA, SUSHI };
-
-  public:
-    static Food* sortearItemCerto();
+    enum ITENS_ERRADOS { BANANA, PEIXE, PIZZA, SUSHI };
 };
 
 #endif

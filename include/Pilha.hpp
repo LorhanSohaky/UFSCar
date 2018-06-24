@@ -16,7 +16,7 @@ class Pilha : public sf::Drawable {
     void empilhar( Food* elemento );
     Food* desempilhar();
 
-  private:
+  protected:
     void draw( sf::RenderTarget& target, sf::RenderStates states ) const;
 
     int tamanho;

@@ -5,6 +5,7 @@
 #include "../../include/Bife.hpp"
 #include "../../include/Cebola.hpp"
 #include "../../include/Cogumelo.hpp"
+#include "../../include/Config.hpp"
 #include "../../include/Hamburguer.hpp"
 #include "../../include/Peixe.hpp"
 #include "../../include/Peperoni.hpp"
@@ -18,6 +19,7 @@
 
 #include <cstdlib>
 #include <ctime>
+#include <iostream>
 
 std::vector< int > Utils::itensCertos = {ALFACE,
                                          BACON,
@@ -34,6 +36,17 @@ std::vector< int > Utils::itensCertos = {ALFACE,
 
 std::vector< int > Utils::itensErrados = {BANANA, PEIXE, PIZZA, SUSHI};
 
+Food* Utils::sortearQualquerItem() {
+    srand( time( NULL ) );
+    int random = rand() % 2;
+
+    if( random ) {
+        return sortearItemCerto();
+    } else {
+        return sortearItemErrado();
+    }
+}
+
 Food* Utils::sortearItemCerto() {
     static std::vector< int > itens = itensCertos;
 
@@ -41,47 +54,97 @@ Food* Utils::sortearItemCerto() {
         itens = itensCertos;
     }
 
+    Food* food;
+
     srand( time( NULL ) );
     int random = rand() % itens.size();
 
-    switch( random ) {
+    switch( itens[ random ] ) {
         case ALFACE:
-            return new Alface();
+            food = new Alface();
             break;
         case BACON:
-            return new Bacon();
+            food = new Bacon();
             break;
         case BIFE:
-            return new Bife();
+            food = new Bife();
             break;
         case CEBOLA:
-            return new Cebola();
+            food = new Cebola();
             break;
         case COGUMELO:
-            return new Cogumelo();
+            food = new Cogumelo();
             break;
         case HAMBURGUER:
-            return new Hamburguer();
+            food = new Hamburguer();
             break;
         case PEPERONI:
-            return new Peperoni();
+            food = new Peperoni();
             break;
         case PICLES:
-            return new Picles();
+            food = new Picles();
             break;
         case PIMENTAO:
-            return new Pimentao();
+            food = new Pimentao();
             break;
         case QUEIJO:
-            return new Queijo();
+            food = new Queijo();
             break;
         case SALMAO:
-            return new Salmao();
+            food = new Salmao();
             break;
         case TOMATE:
-            return new Tomate();
+            food = new Tomate();
             break;
         default:
-            throw std::runtime_error( "Ingrediente inválido" );
+            std::string msg = ( "Ingrediente inválido (itens certos) " + std::to_string( random ) );
+            throw std::runtime_error( msg );
     }
+
+    itens.erase( itens.begin() + random );
+    return food;
+}
+
+Food* Utils::sortearItemErrado() {
+    static std::vector< int > itens = itensErrados;
+
+    if( itens.empty() ) {
+        itens = itensErrados;
+    }
+
+    Food* food;
+
+    srand( time( NULL ) );
+    int random = rand() % itens.size();
+
+    switch( itens[ random ] ) {
+        case BANANA:
+            food = new Banana();
+            break;
+        case PEIXE:
+            food = new Peixe();
+            break;
+        case PIZZA:
+            food = new Pizza();
+            break;
+        case SUSHI:
+            food = new Sushi();
+            break;
+        default:
+            throw std::runtime_error( "Ingrediente inválido (itens errados)" +
+                                      std::to_string( random ) );
+    }
+
+    itens.erase( itens.begin() + random );
+    return food;
+}
+
+bool Utils::isForaDaJanelaHorizontalmente( const Food* ingrediente ) {
+    return ingrediente->getPosition().x < 0 ||
+           ingrediente->getPosition().x >= ( WINDOW_WIDTH - ingrediente->getGlobalBounds().width );
+}
+
+bool Utils::isForaDaJanelaVerticalmente( const Food* ingrediente ) {
+    return ingrediente->getPosition().y < 0 ||
+           ( ingrediente->getPosition().y + ingrediente->getGlobalBounds().height > WINDOW_HEIGHT );
 }
