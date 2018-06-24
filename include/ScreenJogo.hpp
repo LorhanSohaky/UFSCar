@@ -17,6 +17,8 @@ class ScreenJogo : Screen {
     void update();
 
   private:
+    void movimentar();
+
     sf::Sprite background;
     sf::Sprite bar;
     sf::Music* music;

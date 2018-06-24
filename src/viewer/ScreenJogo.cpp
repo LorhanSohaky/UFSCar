@@ -9,6 +9,8 @@
 #define VELOCIDADE_QUEDA 30
 #define VELOCIDADE_HORIZONTAL 7
 
+void setPosicaoInicial( Food* ingrediente );
+
 ScreenJogo::ScreenJogo( GameRef& gameRef )
     : Screen( gameRef ) {
     loadAssets();
@@ -81,6 +83,25 @@ void ScreenJogo::update() {
         }
     }
 
+    movimentar();
+
+    if( caindo && Collision::PixelPerfectTest( *ingrediente, *meu->getTopo() ) ) {
+        if( !ingrediente->getComidaCerta() ) {
+            movendoHorizontal = true;
+            caindo            = false;
+            delete ingrediente;
+            ingrediente = Utils::sortearQualquerItem();
+            setPosicaoInicial( ingrediente );
+
+            music->stop();
+            *nextScreen = PERDEU;
+        }
+    }
+
+    draw();
+}
+
+void ScreenJogo::movimentar() {
     if( movendoHorizontal ) {
         if( Utils::isForaDaJanelaHorizontalmente( ingrediente ) ) {
             velocidadeHorizontal = -1 * velocidadeHorizontal;
@@ -96,9 +117,11 @@ void ScreenJogo::update() {
     } else {
         delete ingrediente;
         ingrediente = Utils::sortearQualquerItem();
-        ingrediente->setPosition( WINDOW_WIDTH / 2 - ingrediente->getGlobalBounds().width / 2, 0 );
+        setPosicaoInicial( ingrediente );
         movendoHorizontal = true;
     }
+}
 
-    draw();
+void setPosicaoInicial( Food* ingrediente ) {
+    ingrediente->setPosition( WINDOW_WIDTH / 2 - ingrediente->getGlobalBounds().width / 2, 0 );
 }
