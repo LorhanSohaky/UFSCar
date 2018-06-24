@@ -32,5 +32,10 @@ int main() {
     tree2.insert( 5, '5' );
     std::cout << tree2 << std::endl;
 
+    tree2.remove( 4 );
+    std::cout << tree2 << std::endl;
+    tree2.remove( 2 );
+    std::cout << tree2 << std::endl;
+
     return 0;
 }
