@@ -85,17 +85,25 @@ void ScreenJogo::update() {
 
     movimentar();
 
-    if( caindo && Collision::PixelPerfectTest( *ingrediente, *meu->getTopo() ) ) {
-        if( !ingrediente->getComidaCerta() ) {
-            movendoHorizontal = true;
-            caindo            = false;
-            delete ingrediente;
-            ingrediente = Utils::sortearQualquerItem();
-            setPosicaoInicial( ingrediente );
-
-            music->stop();
-            *nextScreen = PERDEU;
+    if( caindo ) {
+        if( Collision::PixelPerfectTest( *ingrediente, *meu->getTopo() ) ) {
+            caindo = false;
+            if( !ingrediente->getComidaCerta() ) {
+                delete ingrediente;
+                music->stop();
+                *nextScreen = PERDEU;
+            } else {
+                ingrediente->setPosition( meu->getTopo()->getPosition().x,
+                                          meu->getTopo()->getPosition().y - INGREDIENTE_MARGIN );
+                meu->empilhar( ingrediente );
+            }
         }
+    } else if( meu->faltaApenasPaoSuperior() && ingrediente->getAlias() == "paoSuperior" &&
+               Utils::isForaDaJanelaVerticalmente( ingrediente ) ) {
+        caindo = false;
+        delete ingrediente;
+        music->stop();
+        *nextScreen = PERDEU;
     }
 
     draw();
@@ -115,8 +123,11 @@ void ScreenJogo::movimentar() {
             ingrediente->move( 0, VELOCIDADE_QUEDA );
         }
     } else {
-        delete ingrediente;
-        ingrediente = Utils::sortearQualquerItem();
+        if( meu->faltaApenasPaoSuperior() ) {
+            ingrediente = new PaoSuperior();
+        } else {
+            ingrediente = Utils::sortearQualquerItem();
+        }
         setPosicaoInicial( ingrediente );
         movendoHorizontal = true;
     }
