@@ -2,6 +2,7 @@
 #define FILA_HPP
 
 #include "Lanche.hpp"
+#include <SFML/Graphics.hpp>
 
 class Node {
   public:
@@ -11,7 +12,7 @@ class Node {
         : next( nullptr ){};
 };
 
-class Fila {
+class Fila : public sf::Drawable {
   private:
     Node* primeiro;
     Node* ultimo;
@@ -24,7 +25,7 @@ class Fila {
     void Insere( Lanche* info );
     Lanche* Retira();
     void Deleta();
-    void Print();
+    void draw( sf::RenderTarget& target, sf::RenderStates states ) const;
 };
 
 #endif

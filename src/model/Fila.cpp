@@ -1,7 +1,5 @@
 #include "../../include/Fila.hpp"
 
-#include <iostream>
-
 Fila::Fila() {
     primeiro = ultimo = nullptr;
     cont              = 0;
@@ -51,12 +49,10 @@ Lanche* Fila::Retira() {
         return 0;
 }
 
-void Fila::Print() {
-    Lanche* aux;
-
-    for( int i = 0; i < cont; i++ ) {
-        aux = this->Retira();
-        std::cout << aux << std::endl;
-        Insere( aux );
+void Fila::draw( sf::RenderTarget& target, sf::RenderStates states ) const {
+    Node* tmp = primeiro;
+    while( tmp != nullptr ) {
+        target.draw( *tmp->info, states );
+        tmp = tmp->next;
     }
 }
