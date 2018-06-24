@@ -1,39 +1,30 @@
 #ifndef FILA_HPP
 #define FILA_HPP
-#include <iostream>
-using namespace std;
 
-template <typename T>
+#include "Lanche.hpp"
+
 class Node {
-public:
-    T info;
-    Node<T>* next;
-    Node(): next(nullptr){};
+  public:
+    Lanche* info;
+    Node* next;
+    Node()
+        : next( nullptr ){};
 };
 
-template <typename T>
 class Fila {
-    
-private:
-    Node<T> *primeiro;
-    Node<T> *ultimo;
+  private:
+    Node* primeiro;
+    Node* ultimo;
     int cont;
 
-public:
+  public:
     Fila();
     ~Fila();
     bool Vazia() const;
-    void Insere(const T info);
-    T Retira();
+    void Insere( Lanche* info );
+    Lanche* Retira();
     void Deleta();
     void Print();
-    
 };
-
-template <typename T>
-Fila<T>::Fila(){
-    primeiro = ultimo = nullptr;
-    cont = 0;
-}
 
 #endif

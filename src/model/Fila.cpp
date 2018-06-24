@@ -1,62 +1,62 @@
 #include "../../include/Fila.hpp"
 
-template <typename T>
-Fila<T>::~Fila(){
-    Node<T> *temp;
-    while(primeiro != nullptr){
-     temp = primeiro->next;
-     delete primeiro;
-     primeiro = temp;
+#include <iostream>
+
+Fila::Fila() {
+    primeiro = ultimo = nullptr;
+    cont              = 0;
+}
+
+Fila::~Fila() {
+    Node* temp;
+    while( primeiro != nullptr ) {
+        temp = primeiro->next;
+        delete primeiro;
+        primeiro = temp;
     }
 }
-    
-template <typename T>
-bool Fila<T>::Vazia() const{
+
+bool Fila::Vazia() const {
     return primeiro == nullptr && ultimo == nullptr;
 }
 
-template <typename T>
-void Fila<T>::Insere(const T vinfo){
-    Node<T> *aux = new Node<T>;
+void Fila::Insere( Lanche* vinfo ) {
+    Node* aux = new Node;
     aux->info = vinfo;
     aux->next = nullptr;
     cont++;
-        
-    if(this->Vazia()){
-        primeiro = aux;
-        ultimo = primeiro;
+
+    if( this->Vazia() ) {
+        primeiro     = aux;
+        ultimo       = primeiro;
         ultimo->next = primeiro;
-    }
-    else{
+    } else {
         ultimo->next = aux;
-        ultimo = aux;
+        ultimo       = aux;
     }
 }
 
-template <typename T>
-T Fila<T>::Retira(){
-    T info;
-    Node<T> *temp = new Node<T>;
+Lanche* Fila::Retira() {
+    Lanche* info;
+    Node* temp = new Node;
 
-    if(!this->Vazia()){
-        info = primeiro->info;
-        temp = primeiro;
+    if( !this->Vazia() ) {
+        info     = primeiro->info;
+        temp     = primeiro;
         primeiro = primeiro->next;
         cont--;
         delete temp;
         return info;
-    }
-    else
-       return 0;
+    } else
+        return 0;
 }
 
-template <typename T>
-void Fila<T>::Print(){
-    T aux;
-    
-    for(int i=0; i<cont; i++){
+void Fila::Print() {
+    Lanche* aux;
+
+    for( int i = 0; i < cont; i++ ) {
         aux = this->Retira();
-        cout << aux << endl;
-        Insere(aux);
+        std::cout << aux << std::endl;
+        Insere( aux );
     }
 }
