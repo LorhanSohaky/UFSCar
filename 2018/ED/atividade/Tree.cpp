@@ -2,6 +2,8 @@
 
 #include <cstddef>
 
+int compare( const int left, const int right );
+
 template < class T >
 Tree< T >::Tree() {
     this->root = nullptr;
@@ -103,7 +105,11 @@ void Tree< T >::rotateLeft( Node< T >** root ) {
     ( *root )->right = node->left;
 
     node->left = *root;
-    *root      = node;
+
+    *root->height = compare( *root->left->height, *root->right->height ) + 1;
+    node->height  = compare( node->right->height, *root->height ) + 1;
+
+    *root = node;
 }
 
 template < class T >
@@ -112,7 +118,11 @@ void Tree< T >::rotateRight( Node< T >** root ) {
     ( *root )->left = node->right;
 
     node->right = *root;
-    *root       = node;
+
+    *root->height = compare( *root->left->height, *root->right->height ) + 1;
+    node->height  = compare( node->left->height, *root->height ) + 1;
+
+    *root = node;
 }
 
 template < class T >
@@ -121,7 +131,7 @@ void Tree< T >::doubleRotateLeft( Node< T >** root ) {
         return;
     }
 
-    rotateRight( ( *root )->right );
+    rotateRight( &( *root )->right );
     rotateLeft( root );
 }
 
@@ -131,7 +141,7 @@ void Tree< T >::doubleRotateRight( Node< T >** root ) {
         return;
     }
 
-    rotateLeft( ( *root )->left );
+    rotateLeft( &( *root )->left );
     rotateRight( root );
 }
 
@@ -145,6 +155,14 @@ int Tree< T >::factor( Node< T >* node ) {
         return 0 - node->right->height;
     } else {
         return 0;
+    }
+}
+
+int compare( const int left, const int right ) {
+    if( left > right ) {
+        return left;
+    } else {
+        return right;
     }
 }
 
