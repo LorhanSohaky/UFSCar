@@ -1,6 +1,5 @@
 #include "../../include/Lanche.hpp"
-
-#define INGREDIENTE_MARGIN 15
+#include "../../include/Config.hpp"
 
 Lanche::Lanche( const int tamanho )
     : Pilha( tamanho ) {
