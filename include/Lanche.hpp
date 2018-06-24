@@ -10,6 +10,7 @@ class Lanche : public Pilha {
     Lanche( const int tamanho );
 
     bool faltaApenasPaoSuperior() const;
+    Food* getTopo() const;
 
     void setPosition( float x, float y );
 

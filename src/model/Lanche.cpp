@@ -11,6 +11,10 @@ bool Lanche::faltaApenasPaoSuperior() const {
     return tamanhoMaximo - getTamanho() == 1;
 }
 
+Food* Lanche::getTopo() const {
+    return vetor[ getTamanho() - 1 ];
+}
+
 void Lanche::setPosition( float x, float y ) {
     if( isVazia() ) {
         return;
