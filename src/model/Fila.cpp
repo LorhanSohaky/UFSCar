@@ -64,3 +64,7 @@ void Fila::move( float x, float y ) {
         tmp = tmp->next;
     }
 }
+
+int Fila::getPositionX() {
+    return primeiro->info->getTopo()->getPosition().x;
+}
