@@ -4,6 +4,8 @@
 #include <cstdlib>
 
 int compare( const int left, const int right );
+template < class T >
+int heightNode( Node< T >* node );
 
 template < class T >
 Tree< T >::Tree() {
@@ -46,14 +48,30 @@ void Tree< T >::insert( Node< T >** node, const int& key, const T& value ) {
     if( *node == nullptr ) {
         *node = new Node< T >( key, value, nullptr, nullptr );
         return;
-
     } else if( key < ( *node )->getKey() ) {
         insert( &( ( *node )->left ), key, value );
+        if( factor( *node ) >= 2 ) {
+            if( key < ( *node )->left->getKey() ) {
+                rotateRight( node );
+            } else {
+                doubleRotateRight( node );
+            }
+        }
     } else if( key > ( *node )->getKey() ) {
         insert( &( ( *node )->right ), key, value );
+        if( factor( *node ) >= 2 ) {
+            if( key > ( *node )->right->getKey() ) {
+                rotateLeft( node );
+            } else {
+                doubleRotateLeft( node );
+            }
+        }
     } else {
         throw std::runtime_error( "Duplicate key" );
     }
+
+    ( *node )->height =
+        compare( heightNode( ( *node )->left ), heightNode( ( *node )->right ) ) + 1;
 }
 
 template < class T >
@@ -107,8 +125,9 @@ void Tree< T >::rotateLeft( Node< T >** root ) {
 
     node->left = *root;
 
-    *root->height = compare( *root->left->height, *root->right->height ) + 1;
-    node->height  = compare( node->right->height, *root->height ) + 1;
+    ( *root )->height =
+        compare( heightNode( ( *root )->left ), heightNode( ( *root )->right ) ) + 1;
+    node->height = compare( heightNode( node->right ), ( *root )->height ) + 1;
 
     *root = node;
 }
@@ -120,8 +139,9 @@ void Tree< T >::rotateRight( Node< T >** root ) {
 
     node->right = *root;
 
-    *root->height = compare( *root->left->height, *root->right->height ) + 1;
-    node->height  = compare( node->left->height, *root->height ) + 1;
+    ( *root )->height =
+        compare( heightNode( ( *root )->left ), heightNode( ( *root )->right ) ) + 1;
+    node->height = compare( heightNode( node->left ), ( *root )->height ) + 1;
 
     *root = node;
 }
@@ -148,15 +168,7 @@ void Tree< T >::doubleRotateRight( Node< T >** root ) {
 
 template < class T >
 int Tree< T >::factor( Node< T >* node ) {
-    if( node->left != nullptr && node->right != nullptr ) {
-        return abs( node->left->height - node->right->height );
-    } else if( node->left != nullptr && node->right == nullptr ) {
-        return abs( node->left->height - 0 );
-    } else if( node->left == nullptr && node->right != nullptr ) {
-        return abs( 0 - node->right->height );
-    } else {
-        return 0;
-    }
+    return abs( heightNode( node->left ) - heightNode( node->right ) );
 }
 
 int compare( const int left, const int right ) {
@@ -164,6 +176,15 @@ int compare( const int left, const int right ) {
         return left;
     } else {
         return right;
+    }
+}
+
+template < class T >
+int heightNode( Node< T >* node ) {
+    if( node == nullptr ) {
+        return -1;
+    } else {
+        return node->height;
     }
 }
 
