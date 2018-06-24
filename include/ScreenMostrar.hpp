@@ -2,7 +2,6 @@
 #define SCREEN_MOSTRAR_HPP
 
 #include "Fila.hpp"
-#include "Lanche.hpp"
 #include "Screen.hpp"
 #include <SFML/Audio.hpp>
 #include <SFML/Graphics.hpp>
@@ -20,7 +19,6 @@ class ScreenMostrar : Screen {
     sf::Music* music;
 
     Fila* fila;
-    Lanche* primeiro;
 };
 
 #endif

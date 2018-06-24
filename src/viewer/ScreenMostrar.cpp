@@ -1,5 +1,6 @@
 #include "../../include/ScreenMostrar.hpp"
 #include "../../include/Config.hpp"
+#include "../../include/Lanche.hpp"
 #include "../../include/MusicManager.hpp"
 #include "../../include/PaoInferior.hpp"
 #include "../../include/PaoSuperior.hpp"
@@ -23,9 +24,6 @@ ScreenMostrar::ScreenMostrar( GameRef& gameRef, Fila* fila )
 
         fila->Insere( lanche );
     }
-
-    primeiro = fila->Retira();
-    fila->Insere( primeiro );
 }
 
 void ScreenMostrar::loadAssets() {
@@ -56,7 +54,7 @@ void ScreenMostrar::update() {
         }
     }
 
-    if( primeiro->getTopo()->getPosition().x > -WINDOW_WIDTH ) {
+    if( fila->getPositionX() > -WINDOW_WIDTH ) {
         fila->move( -2, 0 );
     } else {
         music->stop();
