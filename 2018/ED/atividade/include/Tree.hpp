@@ -11,6 +11,7 @@ class Tree {
     ~Tree();
 
     void insert( const int& key, const T& value );
+    void remove( const int& key );
 
     bool searchByKey( const int& key ) const;
     // Return key
@@ -29,6 +30,7 @@ class Tree {
     void destroy( Node< T >** node );
 
     void insert( Node< T >** node, const int& key, const T& value );
+    void remove( Node< T >** node, const int& key );
 
     int factor( Node< T >* node );
 

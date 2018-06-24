@@ -4,8 +4,12 @@
 #include <cstdlib>
 
 int compare( const int left, const int right );
+
 template < class T >
 int heightNode( Node< T >* node );
+
+template < class T >
+Node< T >* searchSmallerNode( Node< T >* node );
 
 template < class T >
 Tree< T >::Tree() {
@@ -72,6 +76,63 @@ void Tree< T >::insert( Node< T >** node, const int& key, const T& value ) {
 
     ( *node )->height =
         compare( heightNode( ( *node )->left ), heightNode( ( *node )->right ) ) + 1;
+}
+
+template < class T >
+void Tree< T >::remove( const int& key ) {
+    remove( &( this->root ), key );
+}
+
+template < class T >
+void Tree< T >::remove( Node< T >** node, const int& key ) {
+    if( *node == nullptr ) {
+        throw std::runtime_error( "Invalid key" );
+    } else if( key < ( *node )->getKey() ) {
+        remove( &( ( *node )->left ), key );
+        if( factor( *node ) >= 2 ) {
+            if( heightNode( ( *node )->right->left ) <= heightNode( ( *node )->right->right ) ) {
+                rotateLeft( node );
+            } else {
+                doubleRotateLeft( node );
+            }
+        }
+    } else if( key > ( *node )->getKey() ) {
+        remove( &( ( *node )->right ), key );
+        if( factor( *node ) >= 2 ) {
+            if( heightNode( ( *node )->left->right ) <= heightNode( ( *node )->left->left ) ) {
+                rotateRight( node );
+            } else {
+                doubleRotateRight( node );
+            }
+        }
+    } else {
+        if( ( *node )->left == nullptr || ( *node )->right == nullptr ) {
+            Node< T >* oldNode = ( *node );
+
+            if( ( *node )->left != nullptr ) {
+                *node = ( *node )->left;
+            } else {
+                *node = ( *node )->right;
+            }
+            delete oldNode;
+        } else {
+            Node< T >* tmp     = searchSmallerNode( ( *node )->right );
+            Node< T >* oldNode = *node;
+
+            ( *node ) =
+                new Node< T >( tmp->getKey(), tmp->getValue(), oldNode->left, oldNode->right );
+            delete oldNode;
+
+            remove( &( *node )->right, ( *node )->getKey() );
+            if( factor( ( *node ) ) >= 2 ) {
+                if( heightNode( ( *node )->left->right ) <= heightNode( ( *node )->left->left ) ) {
+                    rotateRight( node );
+                } else {
+                    doubleRotateRight( node );
+                }
+            }
+        }
+    }
 }
 
 template < class T >
@@ -186,6 +247,16 @@ int heightNode( Node< T >* node ) {
     } else {
         return node->height;
     }
+}
+
+template < class T >
+Node< T >* searchSmallerNode( Node< T >* node ) {
+    Node< T >* tmp = node;
+    while( tmp->left != nullptr ) {
+        tmp = tmp->left;
+    }
+
+    return tmp;
 }
 
 #endif
