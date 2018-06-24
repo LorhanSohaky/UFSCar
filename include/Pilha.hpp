@@ -16,6 +16,8 @@ class Pilha : public sf::Drawable {
     void empilhar( Food* elemento );
     Food* desempilhar();
 
+    void move( float x, float y );
+
   protected:
     void draw( sf::RenderTarget& target, sf::RenderStates states ) const;
 

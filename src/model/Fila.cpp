@@ -56,3 +56,11 @@ void Fila::draw( sf::RenderTarget& target, sf::RenderStates states ) const {
         tmp = tmp->next;
     }
 }
+
+void Fila::move( float x, float y ) {
+    Node* tmp = primeiro;
+    while( tmp != nullptr ) {
+        tmp->info->move( x, y );
+        tmp = tmp->next;
+    }
+}

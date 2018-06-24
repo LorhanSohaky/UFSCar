@@ -54,3 +54,9 @@ void Pilha::draw( sf::RenderTarget& target, sf::RenderStates states ) const {
         target.draw( (sf::Sprite)*vetor[ i ], states );
     }
 }
+
+void Pilha::move( float x, float y ) {
+    for( int i = 0; i < getTamanho(); i++ ) {
+        vetor[ i ]->move( x, y );
+    }
+}

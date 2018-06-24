@@ -26,6 +26,7 @@ class Fila : public sf::Drawable {
     Lanche* Retira();
     void Deleta();
     void draw( sf::RenderTarget& target, sf::RenderStates states ) const;
+    void move( float x, float y );
 };
 
 #endif
