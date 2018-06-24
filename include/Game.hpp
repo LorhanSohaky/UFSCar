@@ -1,6 +1,7 @@
 #ifndef GAME_HPP
 #define GAME_HPP
 
+#include "Fila.hpp"
 #include "GameRef.hpp"
 
 #include <SFML/Graphics.hpp>
@@ -16,6 +17,7 @@ class Game {
 
   private:
     GameRef gameRef = std::make_shared< GameData >();
+    Fila* fila;
 };
 
 #endif

@@ -20,6 +20,8 @@ Game::Game( const std::string& titulo,
     gameRef->nextScreen = MOSTRAR;
 
     gameRef->inputManager = new InputManager( &gameRef->event, gameRef->window );
+
+    fila = new Fila();
 }
 
 void Game::run() {
@@ -29,7 +31,7 @@ void Game::run() {
     ScreenCompara compara( gameRef );
     ScreenGanhou ganhou( gameRef );
     ScreenPerdeu perdeu( gameRef );
-    ScreenMostrar mostrar( gameRef );
+    ScreenMostrar mostrar( gameRef, fila );
 
     while( gameRef->window->isOpen() ) {
         switch( gameRef->nextScreen ) {
@@ -63,4 +65,5 @@ void Game::run() {
 Game::~Game() {
     delete gameRef->window;
     delete gameRef->inputManager;
+    delete fila;
 }
