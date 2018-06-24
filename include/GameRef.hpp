@@ -5,7 +5,7 @@
 #include <SFML/Graphics.hpp>
 #include <memory>
 
-enum WINDOW_STATES { MENU = 1, JOGAR, COMPARA, CREDITOS, GANHOU, PERDEU, FECHAR };
+enum WINDOW_STATES { MENU = 1, JOGAR, COMPARA, CREDITOS, GANHOU, PERDEU, FECHAR, MOSTRAR };
 
 struct GameData {
     InputManager* inputManager;

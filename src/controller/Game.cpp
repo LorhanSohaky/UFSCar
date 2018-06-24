@@ -1,9 +1,10 @@
 #include "../../include/Game.hpp"
-#include "../../include/ScreenCreditos.hpp"
-#include "../../include/ScreenJogo.hpp"
 #include "../../include/ScreenCompara.hpp"
+#include "../../include/ScreenCreditos.hpp"
 #include "../../include/ScreenGanhou.hpp"
+#include "../../include/ScreenJogo.hpp"
 #include "../../include/ScreenMenu.hpp"
+#include "../../include/ScreenMostrar.hpp"
 #include "../../include/ScreenPerdeu.hpp"
 #include "../../include/TextureManager.hpp"
 
@@ -16,7 +17,7 @@ Game::Game( const std::string& titulo,
 
     gameRef->window->setFramerateLimit( limiteDeFrames );
     gameRef->isAudioOn  = true;
-    gameRef->nextScreen = MENU;
+    gameRef->nextScreen = MOSTRAR;
 
     gameRef->inputManager = new InputManager( &gameRef->event, gameRef->window );
 }
@@ -28,6 +29,7 @@ void Game::run() {
     ScreenCompara compara( gameRef );
     ScreenGanhou ganhou( gameRef );
     ScreenPerdeu perdeu( gameRef );
+    ScreenMostrar mostrar( gameRef );
 
     while( gameRef->window->isOpen() ) {
         switch( gameRef->nextScreen ) {
@@ -48,6 +50,9 @@ void Game::run() {
                 break;
             case PERDEU:
                 perdeu.update();
+                break;
+            case MOSTRAR:
+                mostrar.update();
                 break;
             default:
                 menu.update();
