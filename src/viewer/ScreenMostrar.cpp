@@ -55,7 +55,7 @@ void ScreenMostrar::update() {
     }
 
     if( fila->getPositionX() > -WINDOW_WIDTH ) {
-        fila->move( -2, 0 );
+        fila->move( -5, 0 );
     } else {
         music->stop();
         *nextScreen = JOGAR;

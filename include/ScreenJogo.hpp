@@ -1,6 +1,7 @@
 #ifndef SCREEN_JOGO_HPP
 #define SCREEN_JOGO_HPP
 
+#include "Fila.hpp"
 #include "Food.hpp"
 #include "Lanche.hpp"
 #include "Screen.hpp"
@@ -9,7 +10,7 @@
 
 class ScreenJogo : Screen {
   public:
-    explicit ScreenJogo( GameRef& gameRef );
+    explicit ScreenJogo( GameRef& gameRef, Fila* fila, Fila* minha );
     ~ScreenJogo();
 
     void loadAssets();
@@ -18,6 +19,7 @@ class ScreenJogo : Screen {
 
   private:
     void movimentar();
+    bool comparar();
 
     sf::Sprite background;
     sf::Sprite barModel;
@@ -26,6 +28,9 @@ class ScreenJogo : Screen {
     Food* ingrediente;
     Lanche* meu;
     Lanche* modelo;
+
+    Fila* fila;
+    Fila* minha;
 
     bool caindo;
 
