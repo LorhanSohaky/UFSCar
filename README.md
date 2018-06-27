@@ -2,7 +2,7 @@
 
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/03b1bf3f423c45b8bca50a92d006352a)](https://www.codacy.com/app/LorhanSohaky/ED-T2?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=LorhanSohaky/ED-T2&amp;utm_campaign=Badge_Grade)
 
-Trabalho de estrutura de dados, utilizando a estrutura de lista. A estrutura inicial deste projeto foi retirada do [Default SFML Project](https://github.com/LorhanSohaky/DefaultSFMLProject).
+Trabalho de estrutura de dados, utilizando a estrutura de fila. A estrutura inicial deste projeto foi retirada do [Default SFML Project](https://github.com/LorhanSohaky/DefaultSFMLProject).
 
 ### LICENSA
 **MIT** [Leia a licença](LICENSE)
@@ -43,3 +43,7 @@ O projeto segue o padrão _MVC_. Então `src/controller` contém os arquivos con
 
 ### PILHA
 A estrutura pilha está sendo utilizada para empilhar os ingredientes que fazem parte do lanche, ou seja, se o lanche montado não corresponder com o lanche modelo o jogador perde.
+
+
+### FILA
+A estrutura fila está sendo utilizada enfileirar os lanches que devem ser montados, ou seja, se os lanches montados não estiverem na mesma ordem que os lanches modelos o jogador perde.
