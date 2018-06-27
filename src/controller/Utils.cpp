@@ -38,7 +38,7 @@ std::vector< int > Utils::itensCertos = {ALFACE,
 
 std::vector< int > Utils::itensErrados = {BANANA, PEIXE, PIZZA, SUSHI};
 
-static void limparFila( Fila* fila ) {
+void Utils::limparFila( Fila* fila ) {
     while( !fila->Vazia() ) {
         Lanche* lanche = fila->Retira();
 
