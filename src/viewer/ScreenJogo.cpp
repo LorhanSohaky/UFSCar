@@ -119,6 +119,12 @@ void ScreenJogo::update() {
     draw();
 
     if( meuLanche->getTamanho() == modeloLanche->getTamanho() ) {
+        if( velocidadeHorizontal > 0 ) {
+            velocidadeHorizontal += 1;
+        } else {
+            velocidadeHorizontal -= 1;
+        }
+
         filaMinha->Insere( meuLanche );
         if( !filaModelo->Vazia() ) {
             modeloLanche = nullptr;
