@@ -14,11 +14,11 @@ ScreenMostrar::ScreenMostrar( GameRef& gameRef, Fila* fila )
 
     for( int i = 0; i < 5; i++ ) {
         Lanche* lanche = new Lanche( 3 );
-        lanche->empilhar( new PaoInferior() );
+        lanche->inserir( new PaoInferior() );
         while( !lanche->faltaApenasPaoSuperior() ) {
-            lanche->empilhar( Utils::sortearItemCerto() );
+            lanche->inserir( Utils::sortearItemCerto() );
         }
-        lanche->empilhar( new PaoSuperior() );
+        lanche->inserir( new PaoSuperior() );
         lanche->setPosition( WINDOW_WIDTH + i * 130,
                              WINDOW_HEIGHT / 2 - lanche->getTopo()->getGlobalBounds().height / 2 );
 

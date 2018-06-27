@@ -28,7 +28,7 @@ ScreenJogo::ScreenJogo( GameRef& gameRef, Fila* fila, Fila* minha )
     modelo = nullptr;
 
     meu = new Lanche( 3 );
-    meu->empilhar( new PaoInferior() );
+    meu->inserir( new PaoInferior() );
     meu->setPosition( WINDOW_WIDTH / 2 - 50, WINDOW_HEIGHT - 85 );
 }
 
@@ -106,7 +106,7 @@ void ScreenJogo::update() {
             } else {
                 ingrediente->setPosition( meu->getTopo()->getPosition().x,
                                           meu->getTopo()->getPosition().y - INGREDIENTE_MARGIN );
-                meu->empilhar( ingrediente );
+                meu->inserir( ingrediente );
             }
         }
     } else if( meu->faltaApenasPaoSuperior() && ingrediente->getAlias() == "paoSuperior" &&
@@ -144,8 +144,8 @@ bool ScreenJogo::comparar() {
             if( meu->isVazia() ) {
                 break;
             }
-            Food* lancheMeu    = meu->desempilhar();
-            Food* lancheModelo = modelo->desempilhar();
+            Food* lancheMeu    = meu->remover();
+            Food* lancheModelo = modelo->remover();
             while( lancheMeu->getPosition().y > WINDOW_HEIGHT / 2 ) {
                 lancheMeu->move( 0, -MOVE_STACK_UP_VELOCITY );
                 lancheModelo->move( 0, -MOVE_STACK_UP_VELOCITY );

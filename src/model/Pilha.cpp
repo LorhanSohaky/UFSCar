@@ -28,7 +28,7 @@ int Pilha::getTamanho() const {
     return topo + 1;
 }
 
-void Pilha::empilhar( Food* elemento ) {
+void Pilha::empilhar( Food* const elemento ) {
     if( isCheia() ) {
         std::string exception = "Pilha cheia\n";
         throw std::runtime_error( exception );
@@ -47,16 +47,4 @@ Food* Pilha::desempilhar() {
     topo--;
 
     return vetor[ topo + 1 ];
-}
-
-void Pilha::draw( sf::RenderTarget& target, sf::RenderStates states ) const {
-    for( int i = 0; i < getTamanho(); i++ ) {
-        target.draw( (sf::Sprite)*vetor[ i ], states );
-    }
-}
-
-void Pilha::move( float x, float y ) {
-    for( int i = 0; i < getTamanho(); i++ ) {
-        vetor[ i ]->move( x, y );
-    }
 }
