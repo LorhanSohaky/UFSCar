@@ -41,7 +41,7 @@ void Game::run() {
     ScreenMenu menu( gameRef );
     ScreenCreditos creditos( gameRef );
     ScreenJogo jogo( gameRef, filaModelo, filaMeu );
-    ScreenCompara compara( gameRef );
+    ScreenCompara compara( gameRef, filaComparacao, filaMeu );
     ScreenGanhou ganhou( gameRef );
     ScreenPerdeu perdeu( gameRef );
     ScreenMostrar mostrar( gameRef, filaModelo );

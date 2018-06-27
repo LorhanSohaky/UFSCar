@@ -3,8 +3,16 @@
 #include "MusicManager.hpp"
 #include "TextureManager.hpp"
 
-ScreenCompara::ScreenCompara( GameRef& gameRef )
+#include <iostream>
+
+ScreenCompara::ScreenCompara( GameRef& gameRef, Fila* modeloFila, Fila* minhaFila )
     : Screen( gameRef ) {
+    this->modeloFila   = modeloFila;
+    this->minhaFila    = minhaFila;
+    this->remover      = true;
+    this->lancheModelo = nullptr;
+    this->lancheMeu    = nullptr;
+
     loadAssets();
 }
 
@@ -12,32 +20,42 @@ void ScreenCompara::loadAssets() {
     TextureManager::add( "backgroundJogo", "jogo.jpg" );
     background.setTexture( TextureManager::get( "backgroundJogo" ) );
 
-    TextureManager::add( "barraModelo", "barra_model.png" );
-    barModel.setTexture( TextureManager::get( "barraModelo" ) );
-
-    TextureManager::add( "barraJogador", "barra_player.png" );
-    barPlayer.setTexture( TextureManager::get( "barraJogador" ) );
-
     MusicManager::add( "musicJogar", "background.ogg" );
     music = &MusicManager::get( "musicJogar" );
 }
 void ScreenCompara::draw() {
-    barModel.setPosition(-30, 30);
-    barPlayer.setPosition(80,30);
-
     window->clear();
 
     window->draw( background );
+    if( lancheMeu != nullptr ) {
+        window->draw( *lancheMeu );
+    }
 
-    window->draw( barModel );
-
-    window->draw( barPlayer );
+    if( lancheModelo != nullptr ) {
+        window->draw( *lancheModelo );
+    }
 
     window->display();
 }
 void ScreenCompara::update() {
     if( *isAudioOn && music->getStatus() != sf::SoundSource::Status::Playing ) {
         music->play();
+    }
+
+    if( remover ) {
+        if( modeloFila->Vazia() ) {
+            std::cout << "terminou" << std::endl;
+            music->stop();
+            *nextScreen = GANHOU;
+        } else {
+            std::cout << "Nao vazia" << std::endl;
+            lancheModelo = modeloFila->Retira();
+            lancheModelo->setPosition( -100, 150 );
+
+            lancheMeu = minhaFila->Retira();
+            lancheMeu->setPosition( -100, 250 );
+            remover = false;
+        }
     }
 
     while( window->pollEvent( *event ) ) {
@@ -48,4 +66,37 @@ void ScreenCompara::update() {
     }
 
     draw();
+    if( lancheMeu != nullptr ) {
+        if( lancheMeu->getPosotion().x < ( WINDOW_WIDTH / 2 - 50 ) ) {
+            lancheMeu->move( 3, 0 );
+            lancheModelo->move( 3, 0 );
+        } else {
+            std::cout << "Entrou" << std::endl;
+            while( !lancheMeu->isVazia() && !lancheModelo->isVazia() ) {
+                Food* foodModelo = lancheModelo->remover();
+                Food* foodMeu    = lancheMeu->remover();
+
+                std::cout << "AAA:"
+                          << ( foodMeu->getAlias().compare( foodModelo->getAlias() ) != 0 )
+                          << std::endl;
+
+                if( foodMeu->getAlias().compare( foodModelo->getAlias() ) != 0 ) {
+                    // TODO remover todos elementos
+                    music->stop();
+                    *nextScreen = PERDEU;
+
+                    break;
+                } else {
+                    delete foodMeu;
+                    delete foodModelo;
+                }
+            }
+            std::cout << "Saiuu" << std::endl;
+
+            lancheMeu    = nullptr;
+            lancheModelo = nullptr;
+
+            remover = true;
+        }
+    }
 }
