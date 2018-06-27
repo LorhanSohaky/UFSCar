@@ -7,6 +7,8 @@
 #include "Cogumelo.hpp"
 #include "Config.hpp"
 #include "Hamburguer.hpp"
+#include "PaoInferior.hpp"
+#include "PaoSuperior.hpp"
 #include "Peixe.hpp"
 #include "Peperoni.hpp"
 #include "Picles.hpp"
@@ -137,6 +139,19 @@ Food* Utils::sortearItemErrado() {
 
     itens.erase( itens.begin() + random );
     return food;
+}
+
+Lanche* Utils::criarLancheAleatorio( const int tamanho ) {
+    Lanche* lanche = new Lanche( tamanho );
+
+    lanche->inserir( new PaoInferior() );
+    while( !lanche->faltaApenasPaoSuperior() ) {
+        lanche->inserir( Utils::sortearItemCerto() );
+    }
+
+    lanche->inserir( new PaoSuperior() );
+
+    return lanche;
 }
 
 bool Utils::isForaDaJanelaHorizontalmente( const Food* ingrediente ) {

@@ -2,12 +2,14 @@
 #define UTILS_HPP
 
 #include "Food.hpp"
+#include "Lanche.hpp"
 #include <vector>
 
 class Utils {
   public:
     static Food* sortearItemCerto();
     static Food* sortearQualquerItem();
+    static Lanche* criarLancheAleatorio( const int tamanho );
 
     static bool isForaDaJanelaHorizontalmente( const Food* ingrediente );
     static bool isForaDaJanelaVerticalmente( const Food* ingrediente );

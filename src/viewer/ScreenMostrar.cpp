@@ -2,8 +2,6 @@
 #include "Config.hpp"
 #include "Lanche.hpp"
 #include "MusicManager.hpp"
-#include "PaoInferior.hpp"
-#include "PaoSuperior.hpp"
 #include "TextureManager.hpp"
 #include "Utils.hpp"
 
@@ -13,12 +11,7 @@ ScreenMostrar::ScreenMostrar( GameRef& gameRef, Fila* fila )
     loadAssets();
 
     for( int i = 0; i < 5; i++ ) {
-        Lanche* lanche = new Lanche( 3 );
-        lanche->inserir( new PaoInferior() );
-        while( !lanche->faltaApenasPaoSuperior() ) {
-            lanche->inserir( Utils::sortearItemCerto() );
-        }
-        lanche->inserir( new PaoSuperior() );
+        Lanche* lanche = Utils::criarLancheAleatorio( 3 );
         lanche->setPosition( WINDOW_WIDTH + i * 130,
                              WINDOW_HEIGHT / 2 - lanche->getTopo()->getGlobalBounds().height / 2 );
 
