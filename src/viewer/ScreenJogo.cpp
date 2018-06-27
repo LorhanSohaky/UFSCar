@@ -81,6 +81,12 @@ void ScreenJogo::update() {
         modeloLanche->setPosition( 0, WINDOW_HEIGHT - 85 );
     }
 
+    if( meuLanche == nullptr ) {
+        meuLanche = new Lanche( 3 );
+        meuLanche->inserir( new PaoInferior() );
+        meuLanche->setPosition( WINDOW_WIDTH / 2 - 50, WINDOW_HEIGHT - 85 );
+    }
+
     while( window->pollEvent( *event ) ) {
         if( inputManager->keyPressed( sf::Keyboard::Space ) ) {
             movendoHorizontal = false;
@@ -95,6 +101,7 @@ void ScreenJogo::update() {
             caindo = false;
             if( !ingrediente->getComidaCerta() ) {
                 delete ingrediente;
+                ingrediente = nullptr;
                 music->stop();
                 *nextScreen = PERDEU;
             } else {
@@ -103,90 +110,31 @@ void ScreenJogo::update() {
                                               INGREDIENTE_MARGIN );
                 meuLanche->inserir( ingrediente );
             }
+        } else if( meuLanche->faltaApenasPaoSuperior() &&
+                   ingrediente->getAlias() == "paoSuperior" &&
+                   Utils::isForaDaJanelaVerticalmente( ingrediente ) ) {
+            caindo = false;
+            delete ingrediente;
+            ingrediente = nullptr;
+            music->stop();
+            *nextScreen = PERDEU;
         }
-    } else if( meuLanche->faltaApenasPaoSuperior() && ingrediente->getAlias() == "paoSuperior" &&
-               Utils::isForaDaJanelaVerticalmente( ingrediente ) ) {
-        caindo = false;
-        delete ingrediente;
-        music->stop();
-        *nextScreen = PERDEU;
     }
 
     draw();
 
     if( meuLanche->getTamanho() == modeloLanche->getTamanho() ) {
-        if( comparar() ) {
-            if( !filaModelo->Vazia() ) {
-                modeloLanche      = nullptr;
-                caindo            = false;
-                movendoHorizontal = true;
-            } else {
-                music->stop();
-                *nextScreen = GANHOU;
-            }
-        }
-    }
-}
-
-bool ScreenJogo::comparar() {
-    bool comparando = true;
-
-    while( comparando ) {
-        if( !modeloLanche->getTopo()->getGlobalBounds().intersects(
-                meuLanche->getTopo()->getGlobalBounds() ) ) {
-            modeloLanche->move( MOVE_STACK_RIGHT_VELOCITY, 0 );
+        filaMinha->Insere( meuLanche );
+        if( !filaModelo->Vazia() ) {
+            modeloLanche = nullptr;
+            meuLanche    = nullptr;
         } else {
-            if( meuLanche->isVazia() ) {
-                break;
-            }
-            Food* lancheMeu    = meuLanche->remover();
-            Food* lancheModelo = modeloLanche->remover();
-            while( lancheMeu->getPosition().y > WINDOW_HEIGHT / 2 ) {
-                lancheMeu->move( 0, -MOVE_STACK_UP_VELOCITY );
-                lancheModelo->move( 0, -MOVE_STACK_UP_VELOCITY );
-
-                while( window->pollEvent( *event ) ) {
-                    if( event->type == sf::Event::Closed ) {
-                        music->stop();
-                        window->close();
-                    }
-                }
-
-                window->clear();
-
-                window->draw( background );
-
-                if( !modeloLanche->isVazia() ) {
-                    window->draw( *modeloLanche );
-                    window->draw( *meuLanche );
-                }
-
-                window->draw( *lancheMeu );
-                window->draw( *lancheModelo );
-
-                window->display();
-            }
-
-            if( lancheMeu->getAlias().compare( lancheModelo->getAlias() ) != 0 ) {
-                std::cout << "Diferentes" << std::endl;
-                ingrediente = nullptr;
-                delete lancheMeu;
-                delete lancheModelo;
-
-                music->stop();
-                *nextScreen = PERDEU;
-                return false;
-            } else {
-                delete lancheMeu;
-                ingrediente = nullptr;
-                delete lancheModelo;
-            }
+            delete ingrediente;
+            ingrediente = nullptr;
+            music->stop();
+            *nextScreen = COMPARA;
         }
-
-        draw();
     }
-
-    return true;
 }
 
 void ScreenJogo::movimentar() {

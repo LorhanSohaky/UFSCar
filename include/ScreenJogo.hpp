@@ -19,7 +19,6 @@ class ScreenJogo : Screen {
 
   private:
     void movimentar();
-    bool comparar();
 
     sf::Sprite background;
     sf::Sprite barModel;
