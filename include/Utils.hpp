@@ -1,6 +1,7 @@
 #ifndef UTILS_HPP
 #define UTILS_HPP
 
+#include "Fila.hpp"
 #include "Food.hpp"
 #include "Lanche.hpp"
 #include <vector>
@@ -13,6 +14,8 @@ class Utils {
 
     static bool isForaDaJanelaHorizontalmente( const Food* ingrediente );
     static bool isForaDaJanelaVerticalmente( const Food* ingrediente );
+
+    static void limparFila( Fila* fila );
 
   private:
     static std::vector< int > itensCertos;

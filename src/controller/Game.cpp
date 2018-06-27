@@ -78,6 +78,8 @@ void Game::run() {
 Game::~Game() {
     delete gameRef->window;
     delete gameRef->inputManager;
+    Utils::limparFila( filaModelo );
+    Utils::limparFila( filaMeu );
     delete filaModelo;
     delete filaMeu;
 }

@@ -38,6 +38,18 @@ std::vector< int > Utils::itensCertos = {ALFACE,
 
 std::vector< int > Utils::itensErrados = {BANANA, PEIXE, PIZZA, SUSHI};
 
+static void limparFila( Fila* fila ) {
+    while( !fila->Vazia() ) {
+        Lanche* lanche = fila->Retira();
+
+        while( !lanche->isVazia() ) {
+            Food* food = lanche->remover();
+            delete food;
+        }
+        delete lanche;
+    }
+}
+
 Food* Utils::sortearQualquerItem() {
     static std::vector< int > itens;
 
