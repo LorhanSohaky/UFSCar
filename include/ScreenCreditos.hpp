@@ -20,8 +20,6 @@ class ScreenCreditos : Screen {
     sf::Sprite background;
     sf::Music* music;
 
-    bool isPlayingMusic;
-
     std::array< sf::Text, 5 > lines;
 };
 
