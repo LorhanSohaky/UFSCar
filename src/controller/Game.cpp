@@ -1,12 +1,12 @@
-#include "../../include/Game.hpp"
-#include "../../include/ScreenCompara.hpp"
-#include "../../include/ScreenCreditos.hpp"
-#include "../../include/ScreenGanhou.hpp"
-#include "../../include/ScreenJogo.hpp"
-#include "../../include/ScreenMenu.hpp"
-#include "../../include/ScreenMostrar.hpp"
-#include "../../include/ScreenPerdeu.hpp"
-#include "../../include/TextureManager.hpp"
+#include "Game.hpp"
+#include "ScreenCompara.hpp"
+#include "ScreenCreditos.hpp"
+#include "ScreenGanhou.hpp"
+#include "ScreenJogo.hpp"
+#include "ScreenMenu.hpp"
+#include "ScreenMostrar.hpp"
+#include "ScreenPerdeu.hpp"
+#include "TextureManager.hpp"
 
 Game::Game( const std::string& titulo,
             const int largura,

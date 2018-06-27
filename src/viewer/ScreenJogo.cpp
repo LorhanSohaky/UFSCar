@@ -1,10 +1,10 @@
-#include "../../include/ScreenJogo.hpp"
-#include "../../include/Config.hpp"
-#include "../../include/MusicManager.hpp"
-#include "../../include/PaoInferior.hpp"
-#include "../../include/PaoSuperior.hpp"
-#include "../../include/TextureManager.hpp"
-#include "../../include/Utils.hpp"
+#include "ScreenJogo.hpp"
+#include "Config.hpp"
+#include "MusicManager.hpp"
+#include "PaoInferior.hpp"
+#include "PaoSuperior.hpp"
+#include "TextureManager.hpp"
+#include "Utils.hpp"
 
 #include <iostream>
 

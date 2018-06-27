@@ -1,5 +1,5 @@
-#include "../../include/InputManager.hpp"
-#include "../../include/Collision.hpp"
+#include "InputManager.hpp"
+#include "Collision.hpp"
 
 InputManager::InputManager( sf::Event* event, sf::RenderWindow* window ) {
     this->event  = event;

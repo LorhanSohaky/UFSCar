@@ -1,8 +1,8 @@
-#include "../../include/ScreenGanhou.hpp"
-#include "../../include/Config.hpp"
-#include "../../include/MusicManager.hpp"
-#include "../../include/SoundManager.hpp"
-#include "../../include/TextureManager.hpp"
+#include "ScreenGanhou.hpp"
+#include "Config.hpp"
+#include "MusicManager.hpp"
+#include "SoundManager.hpp"
+#include "TextureManager.hpp"
 
 ScreenGanhou::ScreenGanhou( GameRef& gameRef )
     : Screen( gameRef ) {

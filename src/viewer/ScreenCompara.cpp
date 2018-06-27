@@ -1,7 +1,7 @@
-#include "../../include/ScreenCompara.hpp"
-#include "../../include/Config.hpp"
-#include "../../include/MusicManager.hpp"
-#include "../../include/TextureManager.hpp"
+#include "ScreenCompara.hpp"
+#include "Config.hpp"
+#include "MusicManager.hpp"
+#include "TextureManager.hpp"
 
 ScreenCompara::ScreenCompara( GameRef& gameRef )
     : Screen( gameRef ) {

@@ -1,11 +1,11 @@
-#include "../../include/ScreenMostrar.hpp"
-#include "../../include/Config.hpp"
-#include "../../include/Lanche.hpp"
-#include "../../include/MusicManager.hpp"
-#include "../../include/PaoInferior.hpp"
-#include "../../include/PaoSuperior.hpp"
-#include "../../include/TextureManager.hpp"
-#include "../../include/Utils.hpp"
+#include "ScreenMostrar.hpp"
+#include "Config.hpp"
+#include "Lanche.hpp"
+#include "MusicManager.hpp"
+#include "PaoInferior.hpp"
+#include "PaoSuperior.hpp"
+#include "TextureManager.hpp"
+#include "Utils.hpp"
 
 ScreenMostrar::ScreenMostrar( GameRef& gameRef, Fila* fila )
     : Screen( gameRef ) {

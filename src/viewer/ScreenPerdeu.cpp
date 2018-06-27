@@ -1,8 +1,8 @@
-#include "../../include/ScreenPerdeu.hpp"
-#include "../../include/Config.hpp"
-#include "../../include/MusicManager.hpp"
-#include "../../include/SoundManager.hpp"
-#include "../../include/TextureManager.hpp"
+#include "ScreenPerdeu.hpp"
+#include "Config.hpp"
+#include "MusicManager.hpp"
+#include "SoundManager.hpp"
+#include "TextureManager.hpp"
 
 ScreenPerdeu::ScreenPerdeu( GameRef& gameRef )
     : Screen( gameRef ) {

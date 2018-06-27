@@ -1,8 +1,8 @@
-#include "../../include/ScreenMenu.hpp"
-#include "../../include/Config.hpp"
-#include "../../include/MusicManager.hpp"
-#include "../../include/SoundManager.hpp"
-#include "../../include/TextureManager.hpp"
+#include "ScreenMenu.hpp"
+#include "Config.hpp"
+#include "MusicManager.hpp"
+#include "SoundManager.hpp"
+#include "TextureManager.hpp"
 #include <iostream>
 
 ScreenMenu::ScreenMenu( GameRef& gameRef )

@@ -1,5 +1,5 @@
-#include "../../include/Lanche.hpp"
-#include "../../include/Config.hpp"
+#include "Lanche.hpp"
+#include "Config.hpp"
 
 Lanche::Lanche( const int tamanho )
     : Pilha( tamanho ) {

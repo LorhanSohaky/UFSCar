@@ -1,4 +1,4 @@
-#include "../../include/Pilha.hpp"
+#include "Pilha.hpp"
 
 Pilha::Pilha( const int tamanho ) {
     if( !( tamanho > 0 ) ) {

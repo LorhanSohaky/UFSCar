@@ -1,5 +1,5 @@
-#include "include/Config.hpp"
-#include "include/Game.hpp"
+#include "Config.hpp"
+#include "Game.hpp"
 
 int main() {
     Game game( TITLE, WINDOW_WIDTH, WINDOW_HEIGHT, FRAME_LIMIT );

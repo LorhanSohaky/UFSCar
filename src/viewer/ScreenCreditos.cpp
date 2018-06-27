@@ -1,8 +1,8 @@
-#include "../../include/ScreenCreditos.hpp"
-#include "../../include/Config.hpp"
-#include "../../include/FontManager.hpp"
-#include "../../include/MusicManager.hpp"
-#include "../../include/TextureManager.hpp"
+#include "ScreenCreditos.hpp"
+#include "Config.hpp"
+#include "FontManager.hpp"
+#include "MusicManager.hpp"
+#include "TextureManager.hpp"
 
 ScreenCreditos::ScreenCreditos( GameRef& gameRef )
     : Screen( gameRef ) {
