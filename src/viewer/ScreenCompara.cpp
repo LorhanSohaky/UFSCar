@@ -44,11 +44,9 @@ void ScreenCompara::update() {
 
     if( remover ) {
         if( modeloFila->Vazia() ) {
-            std::cout << "terminou" << std::endl;
             music->stop();
             *nextScreen = GANHOU;
         } else {
-            std::cout << "Nao vazia" << std::endl;
             lancheModelo = modeloFila->Retira();
             lancheModelo->setPosition( -100, 150 );
 
@@ -71,17 +69,11 @@ void ScreenCompara::update() {
             lancheMeu->move( 3, 0 );
             lancheModelo->move( 3, 0 );
         } else {
-            std::cout << "Entrou" << std::endl;
             while( !lancheMeu->isVazia() && !lancheModelo->isVazia() ) {
                 Food* foodModelo = lancheModelo->remover();
                 Food* foodMeu    = lancheMeu->remover();
 
-                std::cout << "AAA:"
-                          << ( foodMeu->getAlias().compare( foodModelo->getAlias() ) != 0 )
-                          << std::endl;
-
                 if( foodMeu->getAlias().compare( foodModelo->getAlias() ) != 0 ) {
-                    // TODO remover todos elementos
                     music->stop();
                     *nextScreen = PERDEU;
 
@@ -91,7 +83,9 @@ void ScreenCompara::update() {
                     delete foodModelo;
                 }
             }
-            std::cout << "Saiuu" << std::endl;
+
+            delete lancheMeu;
+            delete lancheModelo;
 
             lancheMeu    = nullptr;
             lancheModelo = nullptr;
