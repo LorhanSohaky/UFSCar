@@ -15,14 +15,14 @@ class Utils {
     static bool isForaDaJanelaVerticalmente( const Food* ingrediente );
 
   private:
-    static Food* sortearItemErrado();
-
     static std::vector< int > itensCertos;
 
     static std::vector< int > itensErrados;
 
+    enum ITENS_ERRADOS { BANANA, PEIXE, PIZZA, SUSHI };
+
     enum ITENS_CERTOS {
-        ALFACE,
+        ALFACE = 4, // 4 por ser a quantidade de itens errados
         BACON,
         BIFE,
         CEBOLA,
@@ -35,8 +35,6 @@ class Utils {
         SALMAO,
         TOMATE
     };
-
-    enum ITENS_ERRADOS { BANANA, PEIXE, PIZZA, SUSHI };
 };
 
 #endif
