@@ -16,6 +16,7 @@ class Lanche : public sf::Drawable, public Pilha {
     Food* getTopo() const;
 
     void setPosition( const float x, const float y );
+    sf::Vector2f getPosotion();
     void move( const float x, const float y );
 
     void draw( sf::RenderTarget& target, sf::RenderStates states ) const;

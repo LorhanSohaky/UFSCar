@@ -52,3 +52,7 @@ void Lanche::move( const float x, const float y ) {
         vetor[ i ]->move( x, y );
     }
 }
+
+sf::Vector2f Lanche::getPosotion() {
+    return topo->getPosition();
+}
