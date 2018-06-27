@@ -19,7 +19,7 @@ Game::Game( const std::string& titulo,
 
     gameRef->window->setFramerateLimit( limiteDeFrames );
     gameRef->isAudioOn  = true;
-    gameRef->nextScreen = JOGAR;
+    gameRef->nextScreen = MENU;
 
     gameRef->inputManager = new InputManager( &gameRef->event, gameRef->window );
 
@@ -27,8 +27,8 @@ Game::Game( const std::string& titulo,
     filaComparacao = new Fila();
     filaMeu        = new Fila();
 
-    for( int i = 0; i < 2; i++ ) {
-        Lanche* lanche = Utils::criarLancheAleatorio( 3 );
+    for( int i = 0; i < 5; i++ ) {
+        Lanche* lanche = Utils::criarLancheAleatorio( 4 );
         lanche->setPosition( WINDOW_WIDTH + i * 130,
                              WINDOW_HEIGHT / 2 - lanche->getTopo()->getGlobalBounds().height / 2 );
 
