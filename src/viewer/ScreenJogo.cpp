@@ -26,10 +26,7 @@ ScreenJogo::ScreenJogo( GameRef& gameRef, Fila* fila, Fila* minha )
     this->filaModelo     = fila;
 
     modeloLanche = nullptr;
-
-    meuLanche = new Lanche( 3 );
-    meuLanche->inserir( new PaoInferior() );
-    meuLanche->setPosition( WINDOW_WIDTH / 2 - 50, WINDOW_HEIGHT - 85 );
+    meuLanche    = nullptr;
 }
 
 ScreenJogo::~ScreenJogo() {
@@ -87,7 +84,7 @@ void ScreenJogo::update() {
     }
 
     if( meuLanche == nullptr ) {
-        meuLanche = new Lanche( 3 );
+        meuLanche = new Lanche( modeloLanche->getTamanho() );
         meuLanche->inserir( new PaoInferior() );
         meuLanche->setPosition( WINDOW_WIDTH / 2 - 50, WINDOW_HEIGHT - 85 );
     }
