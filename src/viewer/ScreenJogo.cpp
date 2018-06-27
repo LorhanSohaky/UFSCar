@@ -127,7 +127,6 @@ void ScreenJogo::update() {
             modeloLanche = nullptr;
             meuLanche    = nullptr;
         } else {
-            delete ingrediente;
             ingrediente = nullptr;
             music->stop();
             *nextScreen = COMPARA;
