@@ -22,20 +22,18 @@ ScreenJogo::ScreenJogo( GameRef& gameRef, Fila* fila, Fila* minha )
     caindo               = false;
     movendoHorizontal    = true;
     velocidadeHorizontal = VELOCIDADE_HORIZONTAL;
-    this->fila           = fila;
-    this->minha          = minha;
+    this->filaMinha      = minha;
+    this->filaModelo     = fila;
 
-    modelo = nullptr;
+    modeloLanche = nullptr;
 
-    meu = new Lanche( 3 );
-    meu->inserir( new PaoInferior() );
-    meu->setPosition( WINDOW_WIDTH / 2 - 50, WINDOW_HEIGHT - 85 );
+    meuLanche = new Lanche( 3 );
+    meuLanche->inserir( new PaoInferior() );
+    meuLanche->setPosition( WINDOW_WIDTH / 2 - 50, WINDOW_HEIGHT - 85 );
 }
 
 ScreenJogo::~ScreenJogo() {
     delete ingrediente;
-    delete meu;
-    delete modelo;
 }
 
 void ScreenJogo::loadAssets() {
@@ -63,13 +61,9 @@ void ScreenJogo::draw() {
     window->clear();
 
     window->draw( background );
-    if( !modelo->isVazia() ) {
-        window->draw( *modelo );
-    }
 
-    if( !meu->isVazia() ) {
-        window->draw( *meu );
-    }
+    window->draw( *modeloLanche );
+    window->draw( *meuLanche );
 
     if( ingrediente != nullptr ) {
         window->draw( *ingrediente );
@@ -82,9 +76,9 @@ void ScreenJogo::update() {
         music->play();
     }
 
-    if( modelo == nullptr ) {
-        modelo = fila->Retira();
-        modelo->setPosition( 0, WINDOW_HEIGHT - 85 );
+    if( modeloLanche == nullptr ) {
+        modeloLanche = filaModelo->Retira();
+        modeloLanche->setPosition( 0, WINDOW_HEIGHT - 85 );
     }
 
     while( window->pollEvent( *event ) ) {
@@ -97,19 +91,20 @@ void ScreenJogo::update() {
     movimentar();
 
     if( caindo ) {
-        if( Collision::PixelPerfectTest( *ingrediente, *meu->getTopo() ) ) {
+        if( Collision::PixelPerfectTest( *ingrediente, *meuLanche->getTopo() ) ) {
             caindo = false;
             if( !ingrediente->getComidaCerta() ) {
                 delete ingrediente;
                 music->stop();
                 *nextScreen = PERDEU;
             } else {
-                ingrediente->setPosition( meu->getTopo()->getPosition().x,
-                                          meu->getTopo()->getPosition().y - INGREDIENTE_MARGIN );
-                meu->inserir( ingrediente );
+                ingrediente->setPosition( meuLanche->getTopo()->getPosition().x,
+                                          meuLanche->getTopo()->getPosition().y -
+                                              INGREDIENTE_MARGIN );
+                meuLanche->inserir( ingrediente );
             }
         }
-    } else if( meu->faltaApenasPaoSuperior() && ingrediente->getAlias() == "paoSuperior" &&
+    } else if( meuLanche->faltaApenasPaoSuperior() && ingrediente->getAlias() == "paoSuperior" &&
                Utils::isForaDaJanelaVerticalmente( ingrediente ) ) {
         caindo = false;
         delete ingrediente;
@@ -119,10 +114,10 @@ void ScreenJogo::update() {
 
     draw();
 
-    if( meu->getTamanho() == modelo->getTamanho() ) {
+    if( meuLanche->getTamanho() == modeloLanche->getTamanho() ) {
         if( comparar() ) {
-            if( !fila->Vazia() ) {
-                modelo            = nullptr;
+            if( !filaModelo->Vazia() ) {
+                modeloLanche      = nullptr;
                 caindo            = false;
                 movendoHorizontal = true;
             } else {
@@ -137,15 +132,15 @@ bool ScreenJogo::comparar() {
     bool comparando = true;
 
     while( comparando ) {
-        if( !modelo->getTopo()->getGlobalBounds().intersects(
-                meu->getTopo()->getGlobalBounds() ) ) {
-            modelo->move( MOVE_STACK_RIGHT_VELOCITY, 0 );
+        if( !modeloLanche->getTopo()->getGlobalBounds().intersects(
+                meuLanche->getTopo()->getGlobalBounds() ) ) {
+            modeloLanche->move( MOVE_STACK_RIGHT_VELOCITY, 0 );
         } else {
-            if( meu->isVazia() ) {
+            if( meuLanche->isVazia() ) {
                 break;
             }
-            Food* lancheMeu    = meu->remover();
-            Food* lancheModelo = modelo->remover();
+            Food* lancheMeu    = meuLanche->remover();
+            Food* lancheModelo = modeloLanche->remover();
             while( lancheMeu->getPosition().y > WINDOW_HEIGHT / 2 ) {
                 lancheMeu->move( 0, -MOVE_STACK_UP_VELOCITY );
                 lancheModelo->move( 0, -MOVE_STACK_UP_VELOCITY );
@@ -161,9 +156,9 @@ bool ScreenJogo::comparar() {
 
                 window->draw( background );
 
-                if( !modelo->isVazia() ) {
-                    window->draw( *modelo );
-                    window->draw( *meu );
+                if( !modeloLanche->isVazia() ) {
+                    window->draw( *modeloLanche );
+                    window->draw( *meuLanche );
                 }
 
                 window->draw( *lancheMeu );
@@ -208,7 +203,7 @@ void ScreenJogo::movimentar() {
             ingrediente->move( 0, VELOCIDADE_QUEDA );
         }
     } else {
-        if( meu->faltaApenasPaoSuperior() ) {
+        if( meuLanche->faltaApenasPaoSuperior() ) {
             ingrediente = new PaoSuperior();
         } else {
             ingrediente = Utils::sortearQualquerItem();
