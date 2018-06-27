@@ -83,7 +83,7 @@ void ScreenMenu::update() {
                 clickSound.play();
             }
             music->stop();
-            *nextScreen = JOGAR;
+            *nextScreen = MOSTRAR;
         }
 
         if( inputManager->isSpriteClicked( sf::Mouse::Button::Left, creditsButton ) ) {
