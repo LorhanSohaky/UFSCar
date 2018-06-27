@@ -1,4 +1,6 @@
 #include "Game.hpp"
+#include "Utils.hpp"
+#include "Config.hpp"
 #include "ScreenCompara.hpp"
 #include "ScreenCreditos.hpp"
 #include "ScreenGanhou.hpp"
@@ -23,6 +25,14 @@ Game::Game( const std::string& titulo,
 
     filaModelo = new Fila();
     filaMeu    = new Fila();
+
+    for( int i = 0; i < 5; i++ ) {
+        Lanche* lanche = Utils::criarLancheAleatorio( 3 );
+        lanche->setPosition( WINDOW_WIDTH + i * 130,
+                             WINDOW_HEIGHT / 2 - lanche->getTopo()->getGlobalBounds().height / 2 );
+
+        filaModelo->Insere( lanche );
+    }
 }
 
 void Game::run() {

@@ -9,14 +9,6 @@ ScreenMostrar::ScreenMostrar( GameRef& gameRef, Fila* fila )
     : Screen( gameRef ) {
     this->fila = fila;
     loadAssets();
-
-    for( int i = 0; i < 5; i++ ) {
-        Lanche* lanche = Utils::criarLancheAleatorio( 3 );
-        lanche->setPosition( WINDOW_WIDTH + i * 130,
-                             WINDOW_HEIGHT / 2 - lanche->getTopo()->getGlobalBounds().height / 2 );
-
-        fila->Insere( lanche );
-    }
 }
 
 void ScreenMostrar::loadAssets() {
