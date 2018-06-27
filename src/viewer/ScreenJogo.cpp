@@ -51,13 +51,6 @@ void ScreenJogo::loadAssets() {
     ingrediente->setPosition( WINDOW_WIDTH / 2 - ingrediente->getGlobalBounds().width / 2, 0 );
 }
 void ScreenJogo::draw() {
-    while( window->pollEvent( *event ) ) {
-        if( event->type == sf::Event::Closed ) {
-            music->stop();
-            window->close();
-        }
-    }
-
     window->clear();
 
     window->draw( background );
@@ -72,6 +65,18 @@ void ScreenJogo::draw() {
     window->display();
 }
 void ScreenJogo::update() {
+    while( window->pollEvent( *event ) ) {
+        if( event->type == sf::Event::Closed ) {
+            music->stop();
+            window->close();
+        }
+
+        if( inputManager->keyPressed( sf::Keyboard::Space ) ) {
+            movendoHorizontal = false;
+            caindo            = true;
+        }
+    }
+
     if( *isAudioOn && music->getStatus() != sf::SoundSource::Status::Playing ) {
         music->play();
     }
@@ -85,13 +90,6 @@ void ScreenJogo::update() {
         meuLanche = new Lanche( 3 );
         meuLanche->inserir( new PaoInferior() );
         meuLanche->setPosition( WINDOW_WIDTH / 2 - 50, WINDOW_HEIGHT - 85 );
-    }
-
-    while( window->pollEvent( *event ) ) {
-        if( inputManager->keyPressed( sf::Keyboard::Space ) ) {
-            movendoHorizontal = false;
-            caindo            = true;
-        }
     }
 
     movimentar();
