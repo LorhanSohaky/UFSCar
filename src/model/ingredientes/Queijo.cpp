@@ -1,4 +1,4 @@
-#include "../../include/Queijo.hpp"
+#include "Queijo.hpp"
 
 Queijo::Queijo()
     : Food( "queijo", "foods/queijo.png", true ) {

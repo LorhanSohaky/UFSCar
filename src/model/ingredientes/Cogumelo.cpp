@@ -1,4 +1,4 @@
-#include "../../include/Cogumelo.hpp"
+#include "Cogumelo.hpp"
 
 Cogumelo::Cogumelo()
     : Food( "cogumelo", "foods/cogumelo.png", true ) {

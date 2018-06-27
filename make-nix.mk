@@ -6,7 +6,7 @@ OBJDIR = obj
 BINDIR = bin
 
 IDIR = -I./include
-SOURCES_PATH = *.cpp src/model/*.cpp src/viewer/*.cpp src/controller/*.cpp
+SOURCES_PATH = *.cpp src/model/*.cpp src/model/ingredientes/*.cpp src/viewer/*.cpp src/controller/*.cpp
 
 CXXFLAGS = -Wall -std=c++14 -O3 $(IDIR)
 LIBS = -lsfml-audio -lsfml-graphics -lsfml-window -lsfml-system

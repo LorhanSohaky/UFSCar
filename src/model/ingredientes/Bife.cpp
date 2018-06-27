@@ -1,4 +1,4 @@
-#include "../../include/Bife.hpp"
+#include "Bife.hpp"
 
 Bife::Bife()
     : Food( "bife", "foods/bife.png", true ) {
