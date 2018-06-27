@@ -11,7 +11,7 @@ class Pilha {
     int getTamanho() const;
 
   protected:
-    Pilha( const int tamanho );
+    explicit Pilha( const int tamanho );
     ~Pilha();
 
     void empilhar( Food* const elemento );

@@ -7,7 +7,7 @@
 
 class Lanche : public sf::Drawable, public Pilha {
   public:
-    Lanche( const int tamanho );
+    explicit Lanche( const int tamanho );
 
     void inserir( Food* const ingrediente );
     Food* remover();
