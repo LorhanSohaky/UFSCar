@@ -19,6 +19,7 @@ class Game {
     GameRef gameRef = std::make_shared< GameData >();
     Fila* filaModelo;
     Fila* filaMeu;
+    Fila* filaComparacao;
 };
 
 #endif

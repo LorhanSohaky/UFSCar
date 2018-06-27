@@ -6,10 +6,13 @@
 
 class Node {
   public:
+    Node() {
+        next = nullptr;
+        info = nullptr;
+    }
+
     Lanche* info;
     Node* next;
-    Node()
-        : next( nullptr ){};
 };
 
 class Fila : public sf::Drawable {

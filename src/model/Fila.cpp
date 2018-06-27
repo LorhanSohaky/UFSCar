@@ -1,4 +1,4 @@
-#include "../../include/Fila.hpp"
+#include "Fila.hpp"
 
 Fila::Fila() {
     primeiro = ultimo = nullptr;
@@ -15,7 +15,7 @@ Fila::~Fila() {
 }
 
 bool Fila::Vazia() const {
-    return primeiro == nullptr && ultimo == nullptr;
+    return primeiro == nullptr;
 }
 
 void Fila::Insere( Lanche* vinfo ) {

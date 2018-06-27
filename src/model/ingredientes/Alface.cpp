@@ -1,4 +1,4 @@
-#include "../../include/Alface.hpp"
+#include "Alface.hpp"
 
 Alface::Alface()
     : Food( "alface", "foods/alface.png", true ) {

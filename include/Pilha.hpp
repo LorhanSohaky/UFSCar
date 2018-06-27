@@ -4,22 +4,18 @@
 #include "Food.hpp"
 #include <SFML/Graphics.hpp>
 
-class Pilha : public sf::Drawable {
+class Pilha {
   public:
-    Pilha( const int tamanho );
-    ~Pilha();
-
     bool isVazia() const;
     bool isCheia() const;
     int getTamanho() const;
 
-    void empilhar( Food* elemento );
-    Food* desempilhar();
-
-    void move( float x, float y );
-
   protected:
-    void draw( sf::RenderTarget& target, sf::RenderStates states ) const;
+    explicit Pilha( const int tamanho );
+    ~Pilha();
+
+    void empilhar( Food* const elemento );
+    Food* desempilhar();
 
     int tamanho;
     int topo;

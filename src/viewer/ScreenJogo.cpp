@@ -1,10 +1,10 @@
-#include "../../include/ScreenJogo.hpp"
-#include "../../include/Config.hpp"
-#include "../../include/MusicManager.hpp"
-#include "../../include/PaoInferior.hpp"
-#include "../../include/PaoSuperior.hpp"
-#include "../../include/TextureManager.hpp"
-#include "../../include/Utils.hpp"
+#include "ScreenJogo.hpp"
+#include "Config.hpp"
+#include "MusicManager.hpp"
+#include "PaoInferior.hpp"
+#include "PaoSuperior.hpp"
+#include "TextureManager.hpp"
+#include "Utils.hpp"
 
 #include <iostream>
 
@@ -22,20 +22,15 @@ ScreenJogo::ScreenJogo( GameRef& gameRef, Fila* fila, Fila* minha )
     caindo               = false;
     movendoHorizontal    = true;
     velocidadeHorizontal = VELOCIDADE_HORIZONTAL;
-    this->fila           = fila;
-    this->minha          = minha;
+    this->filaMinha      = minha;
+    this->filaModelo     = fila;
 
-    modelo = nullptr;
-
-    meu = new Lanche( 3 );
-    meu->empilhar( new PaoInferior() );
-    meu->setPosition( WINDOW_WIDTH / 2 - 50, WINDOW_HEIGHT - 85 );
+    modeloLanche = nullptr;
+    meuLanche    = nullptr;
 }
 
 ScreenJogo::~ScreenJogo() {
     delete ingrediente;
-    delete meu;
-    delete modelo;
 }
 
 void ScreenJogo::loadAssets() {
@@ -53,23 +48,12 @@ void ScreenJogo::loadAssets() {
     ingrediente->setPosition( WINDOW_WIDTH / 2 - ingrediente->getGlobalBounds().width / 2, 0 );
 }
 void ScreenJogo::draw() {
-    while( window->pollEvent( *event ) ) {
-        if( event->type == sf::Event::Closed ) {
-            music->stop();
-            window->close();
-        }
-    }
-
     window->clear();
 
     window->draw( background );
-    if( !modelo->isVazia() ) {
-        window->draw( *modelo );
-    }
 
-    if( !meu->isVazia() ) {
-        window->draw( *meu );
-    }
+    window->draw( *modeloLanche );
+    window->draw( *meuLanche );
 
     if( ingrediente != nullptr ) {
         window->draw( *ingrediente );
@@ -78,120 +62,79 @@ void ScreenJogo::draw() {
     window->display();
 }
 void ScreenJogo::update() {
-    if( *isAudioOn && music->getStatus() != sf::SoundSource::Status::Playing ) {
-        music->play();
-    }
-
-    if( modelo == nullptr ) {
-        modelo = fila->Retira();
-        modelo->setPosition( 0, WINDOW_HEIGHT - 85 );
-    }
-
     while( window->pollEvent( *event ) ) {
+        if( event->type == sf::Event::Closed ) {
+            music->stop();
+            window->close();
+        }
+
         if( inputManager->keyPressed( sf::Keyboard::Space ) ) {
             movendoHorizontal = false;
             caindo            = true;
         }
     }
 
+    if( *isAudioOn && music->getStatus() != sf::SoundSource::Status::Playing ) {
+        music->play();
+    }
+
+    if( modeloLanche == nullptr ) {
+        modeloLanche = filaModelo->Retira();
+        modeloLanche->setPosition( 0, WINDOW_HEIGHT - 85 );
+    }
+
+    if( meuLanche == nullptr ) {
+        meuLanche = new Lanche( modeloLanche->getTamanho() );
+        meuLanche->inserir( new PaoInferior() );
+        meuLanche->setPosition( WINDOW_WIDTH / 2 - 50, WINDOW_HEIGHT - 85 );
+    }
+
     movimentar();
 
     if( caindo ) {
-        if( Collision::PixelPerfectTest( *ingrediente, *meu->getTopo() ) ) {
+        if( Collision::PixelPerfectTest( *ingrediente, *meuLanche->getTopo() ) ) {
             caindo = false;
             if( !ingrediente->getComidaCerta() ) {
                 delete ingrediente;
+                ingrediente = nullptr;
                 music->stop();
                 *nextScreen = PERDEU;
             } else {
-                ingrediente->setPosition( meu->getTopo()->getPosition().x,
-                                          meu->getTopo()->getPosition().y - INGREDIENTE_MARGIN );
-                meu->empilhar( ingrediente );
+                ingrediente->setPosition( meuLanche->getTopo()->getPosition().x,
+                                          meuLanche->getTopo()->getPosition().y -
+                                              INGREDIENTE_MARGIN );
+                meuLanche->inserir( ingrediente );
             }
+        } else if( meuLanche->faltaApenasPaoSuperior() &&
+                   ingrediente->getAlias() == "paoSuperior" &&
+                   Utils::isForaDaJanelaVerticalmente( ingrediente ) ) {
+            caindo = false;
+            delete ingrediente;
+            ingrediente = nullptr;
+            music->stop();
+            *nextScreen = PERDEU;
         }
-    } else if( meu->faltaApenasPaoSuperior() && ingrediente->getAlias() == "paoSuperior" &&
-               Utils::isForaDaJanelaVerticalmente( ingrediente ) ) {
-        caindo = false;
-        delete ingrediente;
-        music->stop();
-        *nextScreen = PERDEU;
     }
 
     draw();
 
-    if( meu->getTamanho() == modelo->getTamanho() ) {
-        if( comparar() ) {
-            if( !fila->Vazia() ) {
-                modelo            = nullptr;
-                caindo            = false;
-                movendoHorizontal = true;
-            } else {
-                music->stop();
-                *nextScreen = GANHOU;
-            }
-        }
-    }
-}
-
-bool ScreenJogo::comparar() {
-    bool comparando = true;
-
-    while( comparando ) {
-        if( !modelo->getTopo()->getGlobalBounds().intersects(
-                meu->getTopo()->getGlobalBounds() ) ) {
-            modelo->move( MOVE_STACK_RIGHT_VELOCITY, 0 );
+    if( meuLanche->getTamanho() == modeloLanche->getTamanho() ) {
+        if( velocidadeHorizontal > 0 ) {
+            velocidadeHorizontal += 1;
         } else {
-            if( meu->isVazia() ) {
-                break;
-            }
-            Food* lancheMeu    = meu->desempilhar();
-            Food* lancheModelo = modelo->desempilhar();
-            while( lancheMeu->getPosition().y > WINDOW_HEIGHT / 2 ) {
-                lancheMeu->move( 0, -MOVE_STACK_UP_VELOCITY );
-                lancheModelo->move( 0, -MOVE_STACK_UP_VELOCITY );
-
-                while( window->pollEvent( *event ) ) {
-                    if( event->type == sf::Event::Closed ) {
-                        music->stop();
-                        window->close();
-                    }
-                }
-
-                window->clear();
-
-                window->draw( background );
-
-                if( !modelo->isVazia() ) {
-                    window->draw( *modelo );
-                    window->draw( *meu );
-                }
-
-                window->draw( *lancheMeu );
-                window->draw( *lancheModelo );
-
-                window->display();
-            }
-
-            if( lancheMeu->getAlias().compare( lancheModelo->getAlias() ) != 0 ) {
-                std::cout << "Diferentes" << std::endl;
-                ingrediente = nullptr;
-                delete lancheMeu;
-                delete lancheModelo;
-
-                music->stop();
-                *nextScreen = PERDEU;
-                return false;
-            } else {
-                delete lancheMeu;
-                ingrediente = nullptr;
-                delete lancheModelo;
-            }
+            velocidadeHorizontal -= 1;
         }
 
-        draw();
+        filaMinha->Insere( meuLanche );
+        if( !filaModelo->Vazia() ) {
+            modeloLanche = nullptr;
+            meuLanche    = nullptr;
+        } else {
+            ingrediente = nullptr;
+            music->stop();
+            *nextScreen = COMPARA;
+        }
     }
-
-    return true;
 }
 
 void ScreenJogo::movimentar() {
@@ -208,7 +151,7 @@ void ScreenJogo::movimentar() {
             ingrediente->move( 0, VELOCIDADE_QUEDA );
         }
     } else {
-        if( meu->faltaApenasPaoSuperior() ) {
+        if( meuLanche->faltaApenasPaoSuperior() ) {
             ingrediente = new PaoSuperior();
         } else {
             ingrediente = Utils::sortearQualquerItem();

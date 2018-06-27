@@ -1,12 +1,14 @@
-#include "../../include/Game.hpp"
-#include "../../include/ScreenCompara.hpp"
-#include "../../include/ScreenCreditos.hpp"
-#include "../../include/ScreenGanhou.hpp"
-#include "../../include/ScreenJogo.hpp"
-#include "../../include/ScreenMenu.hpp"
-#include "../../include/ScreenMostrar.hpp"
-#include "../../include/ScreenPerdeu.hpp"
-#include "../../include/TextureManager.hpp"
+#include "Game.hpp"
+#include "Config.hpp"
+#include "ScreenCompara.hpp"
+#include "ScreenCreditos.hpp"
+#include "ScreenGanhou.hpp"
+#include "ScreenJogo.hpp"
+#include "ScreenMenu.hpp"
+#include "ScreenMostrar.hpp"
+#include "ScreenPerdeu.hpp"
+#include "TextureManager.hpp"
+#include "Utils.hpp"
 
 Game::Game( const std::string& titulo,
             const int largura,
@@ -17,19 +19,29 @@ Game::Game( const std::string& titulo,
 
     gameRef->window->setFramerateLimit( limiteDeFrames );
     gameRef->isAudioOn  = true;
-    gameRef->nextScreen = MOSTRAR;
+    gameRef->nextScreen = MENU;
 
     gameRef->inputManager = new InputManager( &gameRef->event, gameRef->window );
 
-    filaModelo = new Fila();
-    filaMeu    = new Fila();
+    filaModelo     = new Fila();
+    filaComparacao = new Fila();
+    filaMeu        = new Fila();
+
+    for( int i = 0; i < 5; i++ ) {
+        Lanche* lanche = Utils::criarLancheAleatorio( 4 );
+        lanche->setPosition( WINDOW_WIDTH + i * 130,
+                             WINDOW_HEIGHT / 2 - lanche->getTopo()->getGlobalBounds().height / 2 );
+
+        filaModelo->Insere( lanche );
+        filaComparacao->Insere( lanche );
+    }
 }
 
 void Game::run() {
     ScreenMenu menu( gameRef );
     ScreenCreditos creditos( gameRef );
     ScreenJogo jogo( gameRef, filaModelo, filaMeu );
-    ScreenCompara compara( gameRef );
+    ScreenCompara compara( gameRef, filaComparacao, filaMeu );
     ScreenGanhou ganhou( gameRef );
     ScreenPerdeu perdeu( gameRef );
     ScreenMostrar mostrar( gameRef, filaModelo );
@@ -66,6 +78,8 @@ void Game::run() {
 Game::~Game() {
     delete gameRef->window;
     delete gameRef->inputManager;
+    Utils::limparFila( filaModelo );
+    Utils::limparFila( filaMeu );
     delete filaModelo;
     delete filaMeu;
 }

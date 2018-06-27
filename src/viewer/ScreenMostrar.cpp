@@ -1,29 +1,14 @@
-#include "../../include/ScreenMostrar.hpp"
-#include "../../include/Config.hpp"
-#include "../../include/Lanche.hpp"
-#include "../../include/MusicManager.hpp"
-#include "../../include/PaoInferior.hpp"
-#include "../../include/PaoSuperior.hpp"
-#include "../../include/TextureManager.hpp"
-#include "../../include/Utils.hpp"
+#include "ScreenMostrar.hpp"
+#include "Config.hpp"
+#include "Lanche.hpp"
+#include "MusicManager.hpp"
+#include "TextureManager.hpp"
+#include "Utils.hpp"
 
 ScreenMostrar::ScreenMostrar( GameRef& gameRef, Fila* fila )
     : Screen( gameRef ) {
     this->fila = fila;
     loadAssets();
-
-    for( int i = 0; i < 5; i++ ) {
-        Lanche* lanche = new Lanche( 3 );
-        lanche->empilhar( new PaoInferior() );
-        while( !lanche->faltaApenasPaoSuperior() ) {
-            lanche->empilhar( Utils::sortearItemCerto() );
-        }
-        lanche->empilhar( new PaoSuperior() );
-        lanche->setPosition( WINDOW_WIDTH + i * 130,
-                             WINDOW_HEIGHT / 2 - lanche->getTopo()->getGlobalBounds().height / 2 );
-
-        fila->Insere( lanche );
-    }
 }
 
 void ScreenMostrar::loadAssets() {

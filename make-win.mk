@@ -7,7 +7,7 @@ IDIR = -I./include -I$(SFMLDIR)\include
 CXXFLAGS = -Wall -std=c++14 -O3 -DSFML_STATIC $(IDIR)
 LIBS = -L$(SFMLDIR)\lib -m32 -lsfml-graphics-s -lfreetype -lsfml-window-s -lopengl32 -lgdi32 -lsfml-audio-s -lopenal32 -lflac -lvorbisenc -lvorbisfile -lvorbis -logg -lsfml-system-s -lwinmm -mwindows
 
-SOURCES_PATH = *.cpp src/model/*.cpp src/viewer/*.cpp src/controller/*.cpp
+SOURCES_PATH = *.cpp src/model/*.cpp src/model/ingredientes/*.cpp src/viewer/*.cpp src/controller/*.cpp
 
 define listar_os_sources
 	$(foreach source,$1,$(wildcard $(source)))

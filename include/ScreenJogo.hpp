@@ -19,18 +19,17 @@ class ScreenJogo : Screen {
 
   private:
     void movimentar();
-    bool comparar();
 
     sf::Sprite background;
     sf::Sprite barModel;
     sf::Music* music;
 
     Food* ingrediente;
-    Lanche* meu;
-    Lanche* modelo;
+    Lanche* meuLanche;
+    Lanche* modeloLanche;
 
-    Fila* fila;
-    Fila* minha;
+    Fila* filaModelo;
+    Fila* filaMinha;
 
     bool caindo;
 

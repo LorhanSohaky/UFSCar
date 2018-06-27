@@ -1,7 +1,7 @@
-#include "../../include/Food.hpp"
-#include "../../include/TextureManager.hpp"
+#include "Food.hpp"
+#include "TextureManager.hpp"
 
-Food::Food( const std::string alias, const std::string filePath, const bool& comidaCerta )
+Food::Food( const std::string& alias, const std::string filePath, const bool& comidaCerta )
     : Sprite( TextureManager::add( alias, filePath, true ) ) {
     this->alias       = alias;
     this->comidaCerta = comidaCerta;

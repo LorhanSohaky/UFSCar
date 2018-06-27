@@ -6,7 +6,7 @@
  * included function to compare bounds
  */
 
-#include "../../include/Collision.hpp"
+#include "Collision.hpp"
 #include <iostream>
 #include <map>
 

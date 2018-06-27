@@ -5,7 +5,7 @@
 
 class Food : public sf::Sprite {
   public:
-    explicit Food( const std::string alias, const std::string filePath, const bool& comidaCerta );
+    explicit Food( const std::string& alias, const std::string filePath, const bool& comidaCerta );
 
     bool getComidaCerta() const;
     std::string getAlias() const;

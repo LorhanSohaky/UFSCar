@@ -1,5 +1,5 @@
-#include "../../include/FontManager.hpp"
-#include "../../include/Config.hpp"
+#include "FontManager.hpp"
+#include "Config.hpp"
 
 std::map< std::string, std::pair< std::string, std::unique_ptr< sf::Font > > >
     FontManager::fontsMap;

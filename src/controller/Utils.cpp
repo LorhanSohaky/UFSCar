@@ -1,21 +1,23 @@
-#include "../../include/Utils.hpp"
-#include "../../include/Alface.hpp"
-#include "../../include/Bacon.hpp"
-#include "../../include/Banana.hpp"
-#include "../../include/Bife.hpp"
-#include "../../include/Cebola.hpp"
-#include "../../include/Cogumelo.hpp"
-#include "../../include/Config.hpp"
-#include "../../include/Hamburguer.hpp"
-#include "../../include/Peixe.hpp"
-#include "../../include/Peperoni.hpp"
-#include "../../include/Picles.hpp"
-#include "../../include/Pimentao.hpp"
-#include "../../include/Pizza.hpp"
-#include "../../include/Queijo.hpp"
-#include "../../include/Salmao.hpp"
-#include "../../include/Sushi.hpp"
-#include "../../include/Tomate.hpp"
+#include "Utils.hpp"
+#include "Alface.hpp"
+#include "Bacon.hpp"
+#include "Banana.hpp"
+#include "Bife.hpp"
+#include "Cebola.hpp"
+#include "Cogumelo.hpp"
+#include "Config.hpp"
+#include "Hamburguer.hpp"
+#include "PaoInferior.hpp"
+#include "PaoSuperior.hpp"
+#include "Peixe.hpp"
+#include "Peperoni.hpp"
+#include "Picles.hpp"
+#include "Pimentao.hpp"
+#include "Pizza.hpp"
+#include "Queijo.hpp"
+#include "Salmao.hpp"
+#include "Sushi.hpp"
+#include "Tomate.hpp"
 
 #include <cstdlib>
 #include <ctime>
@@ -36,15 +38,94 @@ std::vector< int > Utils::itensCertos = {ALFACE,
 
 std::vector< int > Utils::itensErrados = {BANANA, PEIXE, PIZZA, SUSHI};
 
-Food* Utils::sortearQualquerItem() {
-    srand( time( NULL ) );
-    int random = rand() % 2;
+void Utils::limparFila( Fila* fila ) {
+    while( !fila->Vazia() ) {
+        Lanche* lanche = fila->Retira();
 
-    if( random ) {
-        return sortearItemCerto();
-    } else {
-        return sortearItemErrado();
+        while( !lanche->isVazia() ) {
+            Food* food = lanche->remover();
+            delete food;
+        }
+        delete lanche;
     }
+}
+
+Food* Utils::sortearQualquerItem() {
+    static std::vector< int > itens;
+
+    if( itens.empty() ) {
+        std::vector< int > tmp = itensCertos;
+
+        if( tmp.size() > itensErrados.size() ) {
+            tmp.insert( tmp.end(), itensErrados.begin(), itensErrados.end() );
+        } else {
+            tmp.insert( itensErrados.end(), tmp.begin(), tmp.end() );
+        }
+        itens = tmp;
+    }
+
+    Food* food;
+
+    srand( time( NULL ) );
+    int random = rand() % itens.size();
+
+    switch( itens[ random ] ) {
+        case ALFACE:
+            food = new Alface();
+            break;
+        case BACON:
+            food = new Bacon();
+            break;
+        case BIFE:
+            food = new Bife();
+            break;
+        case CEBOLA:
+            food = new Cebola();
+            break;
+        case COGUMELO:
+            food = new Cogumelo();
+            break;
+        case HAMBURGUER:
+            food = new Hamburguer();
+            break;
+        case PEPERONI:
+            food = new Peperoni();
+            break;
+        case PICLES:
+            food = new Picles();
+            break;
+        case PIMENTAO:
+            food = new Pimentao();
+            break;
+        case QUEIJO:
+            food = new Queijo();
+            break;
+        case SALMAO:
+            food = new Salmao();
+            break;
+        case TOMATE:
+            food = new Tomate();
+            break;
+        case BANANA:
+            food = new Banana();
+            break;
+        case PEIXE:
+            food = new Peixe();
+            break;
+        case PIZZA:
+            food = new Pizza();
+            break;
+        case SUSHI:
+            food = new Sushi();
+            break;
+        default:
+            std::string msg =
+                ( "Ingrediente inválido (qualquer item) " + std::to_string( random ) );
+            throw std::runtime_error( msg );
+    }
+
+    itens.erase( itens.begin() + random );
+    return food;
 }
 
 Food* Utils::sortearItemCerto() {
@@ -105,38 +186,17 @@ Food* Utils::sortearItemCerto() {
     return food;
 }
 
-Food* Utils::sortearItemErrado() {
-    static std::vector< int > itens = itensErrados;
+Lanche* Utils::criarLancheAleatorio( const int tamanho ) {
+    Lanche* lanche = new Lanche( tamanho );
 
-    if( itens.empty() ) {
-        itens = itensErrados;
+    lanche->inserir( new PaoInferior() );
+    while( !lanche->faltaApenasPaoSuperior() ) {
+        lanche->inserir( Utils::sortearItemCerto() );
     }
 
-    Food* food;
+    lanche->inserir( new PaoSuperior() );
 
-    srand( time( NULL ) );
-    int random = rand() % itens.size();
-
-    switch( itens[ random ] ) {
-        case BANANA:
-            food = new Banana();
-            break;
-        case PEIXE:
-            food = new Peixe();
-            break;
-        case PIZZA:
-            food = new Pizza();
-            break;
-        case SUSHI:
-            food = new Sushi();
-            break;
-        default:
-            throw std::runtime_error( "Ingrediente inválido (itens errados)" +
-                                      std::to_string( random ) );
-    }
-
-    itens.erase( itens.begin() + random );
-    return food;
+    return lanche;
 }
 
 bool Utils::isForaDaJanelaHorizontalmente( const Food* ingrediente ) {

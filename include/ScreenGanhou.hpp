@@ -15,7 +15,6 @@ class ScreenGanhou : Screen {
 
   private:
     sf::Sprite background;
-    sf::Sprite menuButton;
 
     sf::Music* music;
     sf::Sound clickSound;
