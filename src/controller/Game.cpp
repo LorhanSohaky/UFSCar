@@ -1,5 +1,4 @@
 #include "Game.hpp"
-#include "Utils.hpp"
 #include "Config.hpp"
 #include "ScreenCompara.hpp"
 #include "ScreenCreditos.hpp"
@@ -9,6 +8,7 @@
 #include "ScreenMostrar.hpp"
 #include "ScreenPerdeu.hpp"
 #include "TextureManager.hpp"
+#include "Utils.hpp"
 
 Game::Game( const std::string& titulo,
             const int largura,
@@ -23,8 +23,9 @@ Game::Game( const std::string& titulo,
 
     gameRef->inputManager = new InputManager( &gameRef->event, gameRef->window );
 
-    filaModelo = new Fila();
-    filaMeu    = new Fila();
+    filaModelo     = new Fila();
+    filaComparacao = new Fila();
+    filaMeu        = new Fila();
 
     for( int i = 0; i < 5; i++ ) {
         Lanche* lanche = Utils::criarLancheAleatorio( 3 );
