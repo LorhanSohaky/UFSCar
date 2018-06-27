@@ -15,7 +15,7 @@ Fila::~Fila() {
 }
 
 bool Fila::Vazia() const {
-    return primeiro == nullptr && ultimo == nullptr;
+    return primeiro == nullptr;
 }
 
 void Fila::Insere( Lanche* vinfo ) {
