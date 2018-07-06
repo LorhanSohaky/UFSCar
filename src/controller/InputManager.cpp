@@ -1,17 +1,17 @@
-#include "../../include/InputManager.hpp"
-#include "../../include/Collision.hpp"
+#include "InputManager.hpp"
+#include "Collision.hpp"
 
 InputManager::InputManager( sf::Event* event, sf::RenderWindow* window ) {
     this->event  = event;
     this->window = window;
 }
 
-bool InputManager::keyPressed( const sf::Event::KeyEvent key ) {
-    return event->type == sf::Event::KeyPressed && event->key.code == key.code;
+bool InputManager::keyPressed( const sf::Keyboard::Key& key ) {
+    return event->type == sf::Event::KeyPressed && sf::Keyboard::isKeyPressed( key );
 }
 
-bool InputManager::keyPressed( const std::vector< sf::Event::KeyEvent >& keys ) {
-    for( sf::Event::KeyEvent key : keys ) {
+bool InputManager::keyPressed( const std::vector< sf::Keyboard::Key >& keys ) {
+    for( sf::Keyboard::Key key : keys ) {
         if( keyPressed( key ) ) {
             return true;
         }
@@ -20,12 +20,12 @@ bool InputManager::keyPressed( const std::vector< sf::Event::KeyEvent >& keys ) 
     return false;
 }
 
-bool InputManager::keyReleased( const sf::Event::KeyEvent key ) {
-    return event->type == sf::Event::KeyReleased && event->key.code == key.code;
+bool InputManager::keyReleased( const sf::Keyboard::Key& key ) {
+    return event->type == sf::Event::KeyReleased && !sf::Keyboard::isKeyPressed( key );
 }
 
-bool InputManager::keyReleased( const std::vector< sf::Event::KeyEvent >& keys ) {
-    for( sf::Event::KeyEvent key : keys ) {
+bool InputManager::keyReleased( const std::vector< sf::Keyboard::Key >& keys ) {
+    for( sf::Keyboard::Key key : keys ) {
         if( keyReleased( key ) ) {
             return true;
         }
@@ -38,10 +38,13 @@ bool InputManager::isSpriteClicked( const sf::Mouse::Button& button, const sf::S
     if( sf::Mouse::isButtonPressed( button ) ) {
         sf::Vector2< float > vector( sf::Mouse::getPosition( *window ) );
 
-        if( Collision::VectorPerfectTest( sprite, vector ) ) {
-            return true;
-        }
+        return Collision::VectorPerfectTest( sprite, vector );
     }
 
     return false;
+}
+
+bool InputManager::isMouseOver( const sf::Sprite& sprite ) {
+    sf::Vector2< float > vector( sf::Mouse::getPosition( *window ) );
+    return Collision::VectorPerfectTest( sprite, vector );
 }

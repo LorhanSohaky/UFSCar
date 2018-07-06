@@ -6,7 +6,7 @@
  * included function to compare bounds
  */
 
-#include "../../include/Collision.hpp"
+#include "Collision.hpp"
 #include <iostream>
 #include <map>
 
@@ -106,9 +106,10 @@ namespace Collision {
         if( Object1.getGlobalBounds().contains( Vector ) ) {
             sf::Uint8* mask1 = Bitmasks.GetMask( Object1.getTexture() );
 
-            if( Bitmasks.GetPixel(
-                    mask1, Object1.getTexture(), (int)( Vector.x ), (int)( Vector.y ) ) >
-                AlphaLimit ) {
+            if( Bitmasks.GetPixel( mask1,
+                                   Object1.getTexture(),
+                                   Vector.x - Object1.getGlobalBounds().left,
+                                   Vector.y - Object1.getGlobalBounds().top ) > AlphaLimit ) {
                 return true;
             }
         }

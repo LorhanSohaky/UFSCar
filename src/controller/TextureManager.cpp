@@ -1,6 +1,6 @@
-#include "../../include/TextureManager.hpp"
-#include "../../include/Collision.hpp"
-#include "../../include/Config.hpp"
+#include "TextureManager.hpp"
+#include "Collision.hpp"
+#include "Config.hpp"
 #include <stdexcept>
 
 std::map< std::string, std::pair< std::string, std::unique_ptr< sf::Texture > > >
