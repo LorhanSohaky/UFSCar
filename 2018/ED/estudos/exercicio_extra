@@ -1,0 +1,29 @@
+adicionar( Fila *fila, Pessoa pessoa, bool *deuCerto ){
+	se ( !cheia( fila )){
+		*deuCerto = false;
+	} senao {
+		se ( pessoa.idade >= 50 ){
+			adicionarPrioritario( fila, pessoa, deuCerto );
+		} senao {
+			adicionarFim( fila, pessoa, deuCerto );
+		}
+	}
+
+}
+
+adicionarPrioritario( Fila *fila, Pessoa pessoa, bool *deuCerto ){
+	Pessoa *prox = fila->primeiro;
+	Pessoa *ant;
+	while( prox!= NULL && prox.idade > pessoa.idade ){
+		ant = prox;
+		prox = prox->proximo;
+	}
+
+	ant -> proximo = pessoa;
+	pessoa -> proximo = prox;
+}
+
+adicionarFim( Fila *fila, Pessoa pessoa, bool *deuCerto ){
+	fila -> ultimo.proximo = pessoa;
+	fila -> ultimo = pessoa;
+}
