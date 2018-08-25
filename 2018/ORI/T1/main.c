@@ -22,10 +22,12 @@ typedef struct {
 
 void escreverArquivo( const char *nomeArquivo, const unsigned int quantidadeRegistros );
 void buscarRA( const char *nomeArquivo, const char *ra );
+void gerarList( const char *nomeArquivo );
 
 unsigned int calcularTamanhoRegistro( const Registro registro );
 void escreverBloco( FILE *arquivo, char *bloco, const unsigned short int quantidadeBytes );
 LittleEndian toLittleEndian( const unsigned short int numero );
+unsigned short int revertLittleEndian( const LittleEndian little );
 
 int main( int argc, char const *argv[] ) {
     char nomeArquivo[ 21 ];
@@ -44,6 +46,8 @@ int main( int argc, char const *argv[] ) {
 
         buscarRA( nomeArquivo, ra );
     }
+
+    gerarList( nomeArquivo );
 
     return 0;
 }
@@ -146,6 +150,66 @@ void buscarRA( const char *nomeArquivo, const char *ra ) {
     fclose( arquivoSaida );
 }
 
+void gerarList( const char *nomeArquivo ) {
+    char nomeArquivoEntradaComExtensao[ 25 ];
+    char nomeArquivoSaidaComExtensao[ 25 ];
+
+    strcpy( nomeArquivoEntradaComExtensao, nomeArquivo );
+    strcpy( nomeArquivoSaidaComExtensao, nomeArquivo );
+    strcat( nomeArquivoEntradaComExtensao, ".dat" );
+    strcat( nomeArquivoSaidaComExtensao, ".lst" );
+
+    FILE *arquivoEntrada = fopen( nomeArquivoEntradaComExtensao, "rb" );
+    FILE *arquivoSaida   = fopen( nomeArquivoSaidaComExtensao, "w" );
+
+    if( !arquivoEntrada ) {
+        fprintf( stderr, "Erro ao abrir o arquivo %s!\n", nomeArquivoEntradaComExtensao );
+        exit( EXIT_FAILURE );
+    }
+
+    if( !arquivoSaida ) {
+        fprintf( stderr, "Erro ao criar o arquivo %s!\n", nomeArquivoSaidaComExtensao );
+        exit( EXIT_FAILURE );
+    }
+
+    char bloco[ BLOCK_SIZE ];
+    unsigned int quantidadeBlocos = 0;
+    while( fread( bloco, sizeof( bloco ), 1, arquivoEntrada ) ) {
+        unsigned int quantidadeRegistros = 0;
+
+        LittleEndian little;
+        little.number[ 0 ] = bloco[ MAX_BYTES ];
+        little.number[ 1 ] = bloco[ MAX_BYTES + 1 ];
+
+        unsigned short int tamanhoBloco = revertLittleEndian( little );
+        fprintf( arquivoSaida, "Bloco %d (%d bytes)\n", quantidadeBlocos, tamanhoBloco );
+
+        char *posicao = NULL;
+        while( ( posicao = strchr( bloco, END_FIELD ) ) ) {
+            *posicao = ':';
+        }
+
+        posicao = bloco;
+        while( posicao = strchr( posicao, END_RECORD ) ) {
+            posicao += 1;
+            quantidadeRegistros++;
+        }
+
+        bloco[ MAX_BYTES ] = '\0';
+
+        fprintf( arquivoSaida, "%s%d registros", bloco, quantidadeRegistros );
+
+        if( !feof( arquivoEntrada ) ) {
+            fprintf( arquivoSaida, "\n" );
+        }
+
+        quantidadeBlocos++;
+    }
+
+    fclose( arquivoEntrada );
+    fclose( arquivoSaida );
+}
+
 unsigned int calcularTamanhoRegistro( const Registro registro ) {
     unsigned int tamanhoRegistro = strlen( registro.ra ) + strlen( registro.nome ) +
                                    strlen( registro.curso ) + strlen( registro.ano );
@@ -169,4 +233,11 @@ LittleEndian toLittleEndian( const unsigned short int numero ) {
     little.number[ 1 ] = primeiroByte;
 
     return little;
+}
+
+unsigned short int revertLittleEndian( const LittleEndian little ) {
+    unsigned short int primeiroByte = ( little.number[ 1 ] & 0xFF ) << 8;
+    unsigned short int segundoByte  = little.number[ 0 ] & 0xFF;
+
+    return primeiroByte | segundoByte;
 }
