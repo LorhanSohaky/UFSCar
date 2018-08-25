@@ -26,17 +26,24 @@ typedef struct {
     char number[ 2 ];
 } LittleEndian;
 
+void escreverArquivo( const char *nomeArquivo, const unsigned int quantidadeRegistros );
+
 unsigned int calcularTamanhoRegistro( const Registro registro );
 void escreverBloco( FILE *arquivo, char *bloco, const unsigned short int quantidadeBytes );
 LittleEndian toLittleEndian( const unsigned short int numero );
 
 int main( int argc, char const *argv[] ) {
     char nomeArquivo[ 21 ];
-    unsigned int quantidadeRegistros = 0;
+    unsigned int quantidadeRegistros;
 
     scanf( "%s%d", nomeArquivo, &quantidadeRegistros );
     strcat( nomeArquivo, ".dat" );
 
+    escreverArquivo( nomeArquivo, quantidadeRegistros );
+    return 0;
+}
+
+void escreverArquivo( const char *nomeArquivo, const unsigned int quantidadeRegistros ) {
     FILE *arquivo = fopen( nomeArquivo, "w" );
 
     if( !arquivo ) {
@@ -46,8 +53,8 @@ int main( int argc, char const *argv[] ) {
 
     char bloco[ 512 ];
     Registro registro;
-
     unsigned int quantidadeBytes = 0;
+
     for( unsigned int i = 0; i < quantidadeRegistros; i++ ) {
         scanf( "%s ", registro.ra );
         scanf( "%[^\n] ", registro.nome );
@@ -78,8 +85,6 @@ int main( int argc, char const *argv[] ) {
     escreverBloco( arquivo, bloco, quantidadeBytes );
 
     fclose( arquivo );
-
-    return 0;
 }
 
 unsigned int calcularTamanhoRegistro( const Registro registro ) {
