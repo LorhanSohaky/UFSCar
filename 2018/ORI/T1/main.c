@@ -1,17 +1,11 @@
-/*
-    Tamanho máximo do nome do arquivo?
-    Os campo têm até 200 caracteres válidos? Poq se for isso os vetores
-    precisam ser do tamanh 201 para o \0
-
-    Quando não é possível colocar num bloco, devo completar o bloco com quais caracteres?
-*/
-
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 
 #define BLOCK_SIZE 512
 #define MAX_BYTES ( 512 - 2 ) // 512 - 2 bytes little-endian
+#define END_FIELD 0x0D
+#define END_RECORD 0x0A
 
 #define ADITIONAL_BYTES 5
 
@@ -27,6 +21,7 @@ typedef struct {
 } LittleEndian;
 
 void escreverArquivo( const char *nomeArquivo, const unsigned int quantidadeRegistros );
+void buscarRA( const char *nomeArquivo, const char *ra );
 
 unsigned int calcularTamanhoRegistro( const Registro registro );
 void escreverBloco( FILE *arquivo, char *bloco, const unsigned short int quantidadeBytes );
@@ -37,21 +32,36 @@ int main( int argc, char const *argv[] ) {
     unsigned int quantidadeRegistros;
 
     scanf( "%s%d", nomeArquivo, &quantidadeRegistros );
-    strcat( nomeArquivo, ".dat" );
 
     escreverArquivo( nomeArquivo, quantidadeRegistros );
+
+    char ra[ 7 ];
+
+    while( scanf( " %s", ra ) ) {
+        if( strcmp( ra, "0" ) == 0 ) {
+            break;
+        }
+
+        buscarRA( nomeArquivo, ra );
+    }
+
     return 0;
 }
 
 void escreverArquivo( const char *nomeArquivo, const unsigned int quantidadeRegistros ) {
-    FILE *arquivo = fopen( nomeArquivo, "w" );
+    char nomeArquivoComExtensao[ 25 ];
+
+    strcpy( nomeArquivoComExtensao, nomeArquivo );
+    strcat( nomeArquivoComExtensao, ".dat" );
+
+    FILE *arquivo = fopen( nomeArquivoComExtensao, "wb" );
 
     if( !arquivo ) {
-        fprintf( stderr, "Erro ao criar o arquivo!\n" );
+        fprintf( stderr, "Erro ao criar o arquivo %s!\n", nomeArquivoComExtensao );
         exit( EXIT_FAILURE );
     }
 
-    char bloco[ 512 ];
+    char bloco[ BLOCK_SIZE ];
     Registro registro;
     unsigned int quantidadeBytes = 0;
 
@@ -71,20 +81,69 @@ void escreverArquivo( const char *nomeArquivo, const unsigned int quantidadeRegi
         sprintf( &bloco[ quantidadeBytes ],
                  "%s%c%s%c%s%c%s%c%c",
                  registro.ra,
-                 0x0D,
+                 END_FIELD,
                  registro.nome,
-                 0x0D,
+                 END_FIELD,
                  registro.curso,
-                 0x0D,
+                 END_FIELD,
                  registro.ano,
-                 0x0D,
-                 0x0A );
+                 END_FIELD,
+                 END_RECORD );
         quantidadeBytes += tamanhoRegistro;
     }
 
     escreverBloco( arquivo, bloco, quantidadeBytes );
 
     fclose( arquivo );
+}
+
+void buscarRA( const char *nomeArquivo, const char *ra ) {
+    char nomeArquivoEntradaComExtensao[ 25 ];
+    char nomeArquivoSaidaComExtensao[ 25 ];
+
+    strcpy( nomeArquivoEntradaComExtensao, nomeArquivo );
+    strcpy( nomeArquivoSaidaComExtensao, nomeArquivo );
+    strcat( nomeArquivoEntradaComExtensao, ".dat" );
+    strcat( nomeArquivoSaidaComExtensao, ".out" );
+
+    FILE *arquivoEntrada = fopen( nomeArquivoEntradaComExtensao, "rb" );
+    FILE *arquivoSaida   = fopen( nomeArquivoSaidaComExtensao, "a" );
+
+    if( !arquivoEntrada ) {
+        fprintf( stderr, "Erro ao abrir o arquivo %s!\n", nomeArquivoEntradaComExtensao );
+        exit( EXIT_FAILURE );
+    }
+
+    if( !arquivoSaida ) {
+        fprintf( stderr, "Erro ao criar o arquivo %s!\n", nomeArquivoSaidaComExtensao );
+        exit( EXIT_FAILURE );
+    }
+
+    char bloco[ BLOCK_SIZE ];
+    char *inicioRegistro = NULL;
+    do {
+        fread( bloco, sizeof( bloco ), 1, arquivoEntrada );
+        inicioRegistro = strstr( bloco, ra );
+    } while( !inicioRegistro && !feof( arquivoEntrada ) );
+
+    if( inicioRegistro ) {
+        char *finalRegistro = strchr( inicioRegistro, END_RECORD );
+        *finalRegistro      = '\0';
+
+        char *finalCampo = strchr( inicioRegistro, END_FIELD );
+        while( finalCampo ) {
+            *finalCampo = ':';
+            finalCampo  = strchr( inicioRegistro, END_FIELD );
+        }
+        *finalRegistro         = '\n';
+        *( finalRegistro + 1 ) = '\0';
+        fprintf( arquivoSaida, "%s", inicioRegistro );
+    } else {
+        fprintf( arquivoSaida, "*\n" );
+    }
+
+    fclose( arquivoEntrada );
+    fclose( arquivoSaida );
 }
 
 unsigned int calcularTamanhoRegistro( const Registro registro ) {
