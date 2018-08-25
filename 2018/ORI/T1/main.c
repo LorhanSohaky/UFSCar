@@ -26,6 +26,7 @@ typedef struct {
     char number[ 2 ];
 } LittleEndian;
 
+unsigned int calcularTamanhoRegistro( const Registro registro );
 void escreverBloco( FILE *arquivo, char *bloco, const unsigned short int quantidadeBytes );
 LittleEndian toLittleEndian( const unsigned short int numero );
 
@@ -53,10 +54,7 @@ int main( int argc, char const *argv[] ) {
         scanf( "%s ", registro.curso );
         scanf( "%s ", registro.ano );
 
-        unsigned int tamanhoRegistro = strlen( registro.ra ) + strlen( registro.nome ) +
-                                       strlen( registro.curso ) + strlen( registro.ano );
-        tamanhoRegistro *= sizeof( char );
-        tamanhoRegistro += ADITIONAL_BYTES;
+        unsigned int tamanhoRegistro = calcularTamanhoRegistro( registro );
 
         if( quantidadeBytes + tamanhoRegistro > MAX_BYTES ) {
             escreverBloco( arquivo, bloco, quantidadeBytes );
@@ -82,6 +80,14 @@ int main( int argc, char const *argv[] ) {
     fclose( arquivo );
 
     return 0;
+}
+
+unsigned int calcularTamanhoRegistro( const Registro registro ) {
+    unsigned int tamanhoRegistro = strlen( registro.ra ) + strlen( registro.nome ) +
+                                   strlen( registro.curso ) + strlen( registro.ano );
+    tamanhoRegistro *= sizeof( char );
+    tamanhoRegistro += ADITIONAL_BYTES;
+    return tamanhoRegistro;
 }
 
 void escreverBloco( FILE *arquivo, char *bloco, const unsigned short int quantidadeBytes ) {
