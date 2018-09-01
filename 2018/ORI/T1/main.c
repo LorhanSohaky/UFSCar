@@ -135,12 +135,12 @@ void buscarRA( const char *nomeArquivo, const char *ra ) {
         *finalRegistro      = '\0';
 
         char *finalCampo = strchr( inicioRegistro, END_FIELD );
-        while( finalCampo ) {
+        while( finalCampo && finalCampo < finalRegistro - 1 ) {
             *finalCampo = ':';
             finalCampo  = strchr( inicioRegistro, END_FIELD );
         }
-        *finalRegistro         = '\n';
-        *( finalRegistro + 1 ) = '\0';
+        *finalCampo            = '\n';
+        *finalRegistro         = '\0';
         fprintf( arquivoSaida, "%s", inicioRegistro );
     } else {
         fprintf( arquivoSaida, "*\n" );
@@ -226,7 +226,7 @@ void escreverBloco( FILE *arquivo, char *bloco, const unsigned short int quantid
 
 LittleEndian toLittleEndian( const unsigned short int numero ) {
     unsigned short int primeiroByte = ( numero & 0xFF00 ) >> 8; // 0xFF00 = 11111111 00000000
-    unsigned short int segundoByte  = ( numero & 0xFF );        // 0xFF = 00000000 11111111
+    unsigned short int segundoByte  = ( numero & 0xFF );        // 0xFF   = 00000000 11111111
 
     LittleEndian little;
     little.number[ 0 ] = segundoByte;
