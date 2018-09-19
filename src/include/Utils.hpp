@@ -1,0 +1,6 @@
+#ifndef UTILS_HPP
+#define UTILS_HPP
+
+enum WINDOW_STATES { MENU = 1, JOGAR, CREDITOS, GANHOU, PERDEU, FECHAR };
+
+#endif
