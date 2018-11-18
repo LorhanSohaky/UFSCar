@@ -1,4 +1,4 @@
-#include <math.h>
+
 #include <stdbool.h>
 #include <stdio.h>
 #include <stdlib.h>
@@ -10,12 +10,9 @@
 int ordenar( const char *nomeBase );
 bool existeArquivo( const char *nomeArquivo );
 int ordenar_por_intercalacao_balanceada( const char *nomeBase, int quantidadeArquivos );
-int abrirArquivos( FILE **arquivosEntrada,
-                   FILE **arquivosSaida,
-                   const char *nomeBase,
-                   char *nomeArquivo,
-                   int quantidadeArquivos );
-void selectionSort( int *vetor, int tamanho );
+int contarRegistros( FILE **arquivosEntrada, int quantidadeArquivos );
+
+void selectionSort( int vetor[ MAX_REGISTROS_POR_ARQUIVO ], int tamanho );
 
 int main( int argc, char const *argv[] ) {
     if( argc != 2 ) {
@@ -65,34 +62,69 @@ bool existeArquivo( const char *nomeArquivo ) {
 }
 
 int ordenar_por_intercalacao_balanceada( const char *nomeBase, int quantidadeArquivos ) {
-    FILE **arquivosEntrada = malloc( quantidadeArquivos * sizeof( FILE * ) );
-    FILE **arquivosSaida   = malloc( quantidadeArquivos * sizeof( FILE * ) );
-    char *nomeArquivo      = malloc( strlen( nomeBase + MAX_ARQUIVOS ) * sizeof( char ) );
+    FILE *arquivosEntrada[ MAX_ARQUIVOS ];
+    FILE *arquivosSaida[ MAX_ARQUIVOS ];
+    int buffer[ MAX_ARQUIVOS ][ MAX_REGISTROS_POR_ARQUIVO ];
+    char *nomeArquivo = malloc( strlen( nomeBase + MAX_ARQUIVOS ) * sizeof( char ) );
     // TODO: Verificar erros de alocação
 
+    // ABRINDO ARQUIVOS
     for( int i = 0; i < quantidadeArquivos; i++ ) {
         sprintf( nomeArquivo, "%s%d", nomeBase, i );
-        arquivosEntrada[ i ] = fopen( nomeArquivo, "rb" );
+        arquivosEntrada[ i ] = fopen( nomeArquivo, "rb+" );
         // TODO: Verificar erros de alocação e liberar memória
     }
 
     for( int i = 0; i < quantidadeArquivos; i++ ) {
         sprintf( nomeArquivo, "%s%d", nomeBase, i + quantidadeArquivos );
-        arquivosSaida[ i ] = fopen( nomeArquivo, "wb" );
+        arquivosSaida[ i ] = fopen( nomeArquivo, "wb+" );
         // TODO: Verificar erros de alocação e liberar memória
     }
 
-    float totalRegistros = 0;
+    float totalRegistros          = contarRegistros( arquivosEntrada, quantidadeArquivos );
+    int lidoAtual[ MAX_ARQUIVOS ] = {0};
 
+    int totalPassos =
+        4; // TODO: mudar para
+           // teto(log10(totalRegistros/(quantidadeArquivos*MAX_REGISTROS_POR_ARQUIVO))/log10(2*quantidadeArquivos))
+    int lidoTotal = 0;
+
+    // Pegando os registros dos arquivos de entrada e ordenando
     for( int i = 0; i < quantidadeArquivos; i++ ) {
-        fseek( arquivosEntrada[ i ], 0, SEEK_END );
-        totalRegistros += ftell( arquivosEntrada[ 0 ] ) / sizeof( int );
-        rewind( arquivosEntrada[ 0 ] );
+        lidoAtual[ i ] =
+            fread( &buffer[ i ], MAX_REGISTROS_POR_ARQUIVO, sizeof( int ), arquivosEntrada[ i ] );
+        lidoTotal += lidoAtual[ i ];
+        selectionSort( buffer[ i ], lidoAtual[ i ] );
     }
 
-    for( int i = 0;
-         i < ceil( log10( totalRegistros / quantidadeArquivos ) / log10( quantidadeArquivos * 2 ) );
-         i++ ) {
+    int indices[ MAX_ARQUIVOS ] = {0};
+
+    while( lidoTotal > 0 ) {
+        int min = -1;
+
+        // inicializa min
+        for( int i = 0; i < quantidadeArquivos; i++ ) {
+            if( lidoAtual[ i ] > 0 ) {
+                min = i;
+                break;
+            }
+        }
+
+        if( min == -1 ) {
+            break;
+        }
+
+        for( int i = 0; i < quantidadeArquivos; i++ ) {
+            if( buffer[ min ][ indices[ min ] ] > buffer[ i ][ indices[ i ] ] ) {
+                min = i;
+            }
+        }
+
+        fwrite( &buffer[ min ][ indices[ min ] ], 1, sizeof( int ), arquivosSaida[ 0 ] );
+        printf( "min:%d %d\n", min, buffer[ min ][ indices[ min ] ] );
+        indices[ min ]++;
+        lidoAtual[ min ]--;
+        lidoTotal--;
     }
 
     // TODO ordenar
@@ -103,7 +135,17 @@ int ordenar_por_intercalacao_balanceada( const char *nomeBase, int quantidadeArq
     return EXIT_SUCCESS;
 }
 
-void selectionSort( int *vetor, int tamanho ) {
+int contarRegistros( FILE **arquivosEntrada, int quantidadeArquivos ) {
+    int totalRegistros = 0;
+    for( int i = 0; i < quantidadeArquivos; i++ ) {
+        fseek( arquivosEntrada[ i ], 0, SEEK_END );
+        totalRegistros += ftell( arquivosEntrada[ i ] ) / sizeof( int );
+        rewind( arquivosEntrada[ i ] );
+    }
+    return totalRegistros;
+}
+
+void selectionSort( int vetor[ MAX_REGISTROS_POR_ARQUIVO ], int tamanho ) {
     int i, j, min, aux;
     for( i = 0; i < tamanho - 1; i++ ) {
         min = i;
