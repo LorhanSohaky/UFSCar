@@ -93,14 +93,22 @@ int intercalar( const char *nomeBase, int quantidadeArquivos ) {
         arquivosEntrada[ i ] = fopen( nomeArquivo, "rb" );
         if( arquivosEntrada[ i ] == NULL ) {
             fprintf( stderr, "Problema na abertura do arquivo %s\n", nomeArquivo );
-            // TODO: Verificar erros de alocação e liberar memória
+            for( int j = 0; j < i; j++ ) {
+                fclose( arquivosEntrada[ j ] );
+            }
+            free( nomeArquivo );
+            return EXIT_FAILURE;
         }
     }
 
     arquivoSaida = fopen( nomeBase, "wb" );
     if( arquivoSaida == NULL ) {
         fprintf( stderr, "Problema na abertura do arquivo %s\n", nomeBase );
-        // TODO: Verificar erros de alocação e liberar memória
+        for( int i = 0; i < quantidadeArquivos; i++ ) {
+            fclose( arquivosEntrada[ i ] );
+        }
+        free( nomeArquivo );
+        return EXIT_FAILURE;
     }
 
     while( !leuTodosOsArquivosPorCompleto( arquivosEntrada, quantidadeArquivos ) ) {
