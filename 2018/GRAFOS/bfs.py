@@ -40,7 +40,7 @@ def main():
 
     print(A.edges)
 
-    nx.draw(A, with_labels=True, pos=nx.random_layout(A))
+    nx.draw_spring(A, with_labels=True)
     plt.savefig("grafo_bfs.png")
 
 

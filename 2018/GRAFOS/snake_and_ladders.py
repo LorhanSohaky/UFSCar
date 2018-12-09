@@ -1,7 +1,6 @@
 import numpy as np
 import networkx as nx
 import matplotlib.pyplot as plt
-#pip install scipy
 
 
 def criar_grafo(maximo):
@@ -81,8 +80,7 @@ def main():
         print('As distribuições estacionárias obtidas são diferentes')
 
 
-    nx.draw(grafo, with_labels=True,pos=nx.random_layout(grafo))
+    nx.draw_spring(grafo, with_labels=True)
     plt.savefig("grafo_snake.png")
-    plt.show()
     
 main()
