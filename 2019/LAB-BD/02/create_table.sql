@@ -15,7 +15,7 @@ CREATE TABLE Agencia(
     nrobanco int,
     cidade varchar(100),
 
-    CONSTRAINT FK_BANCO FOREIGN KEY(nrobanco) REFERENCES Banco(nrobanco),
+    CONSTRAINT FK_BANCO_AGENCIA FOREIGN KEY(nrobanco) REFERENCES Banco(nrobanco),
     CONSTRAINT PK_AGENCIA PRIMARY KEY(nroagencia,nrobanco)
 );
 
@@ -25,7 +25,7 @@ CREATE TABLE Conta(
     nrobanco int,
     gerente varchar(200),
 
-    CONSTRAINT FK_AGENCIA FOREIGN KEY(nroagencia, nrobanco) REFERENCES Agencia(nroagencia, nrobanco),
+    CONSTRAINT FK_AGENCIA_CONTA FOREIGN KEY(nroagencia, nrobanco) REFERENCES Agencia(nroagencia, nrobanco),
     CONSTRAINT PK_CONTA PRIMARY KEY(nroconta, nrobanco, nroagencia)
 );
 
@@ -35,7 +35,7 @@ CREATE TABLE Corrente(
     nrobanco int,
     limite float,
 
-    CONSTRAINT FK_CONTA FOREIGN KEY(nroconta, nroagencia, nrobanco) REFERENCES Conta(nroconta, nroagencia, nrobanco),
+    CONSTRAINT FK_CONTA_CORRENTE FOREIGN KEY(nroconta, nroagencia, nrobanco) REFERENCES Conta(nroconta, nroagencia, nrobanco),
     CONSTRAINT PK_CORRENTE PRIMARY KEY(nroconta, nroagencia, nrobanco)
 );
 
@@ -45,7 +45,7 @@ CREATE TABLE Poupanca(
     nrobanco int,
     aniversario Date,
 
-    CONSTRAINT FK_CONTA FOREIGN KEY(nroconta, nroagencia, nrobanco) REFERENCES Conta(nroconta, nroagencia, nrobanco),
+    CONSTRAINT FK_CONTA_POUPANCA FOREIGN KEY(nroconta, nroagencia, nrobanco) REFERENCES Conta(nroconta, nroagencia, nrobanco),
     CONSTRAINT PK_POUPANCA PRIMARY KEY(nroconta, nroagencia, nrobanco)
 );
 
@@ -63,10 +63,10 @@ CREATE TABLE ClienteConta(
     nroconta int,
     nroagencia int,
     nrobanco int,
-    titular,
+    titular varchar(100),
 
-    CONSTRAINT FK_CONTA FOREIGN KEY(nroconta, nroagencia, nrobanco) REFERENCES Conta(nroconta, nroagencia, nrobanco),
-    CONSTRAINT FK_CLIENTE FOREIGN KEY(cpf) REFERENCES Cliente(cpf),
+    CONSTRAINT FK_CONTA_CLIENTECONTA FOREIGN KEY(nroconta, nroagencia, nrobanco) REFERENCES Conta(nroconta, nroagencia, nrobanco),
+    CONSTRAINT FK_CLIENTE_CLIENTECONTA FOREIGN KEY(cpf) REFERENCES Cliente(cpf),
     CONSTRAINT PK_CLIENTECONTA PRIMARY KEY(cpf, nroconta, nroagencia, nrobanco)
 );
 
@@ -76,8 +76,8 @@ CREATE TABLE Correntista(
     nroagencia int,
     nrobanco int,
 
-    CONSTRAINT FK_CONTA FOREIGN KEY(nroconta, nroagencia, nrobanco) REFERENCES Conta(nroconta, nroagencia, nrobanco),
-    CONSTRAINT FK_CLIENTE FOREIGN KEY(cpf) REFERENCES Cliente(cpf),
+    CONSTRAINT FK_CONTA_CORRENTISTA FOREIGN KEY(nroconta, nroagencia, nrobanco) REFERENCES Conta(nroconta, nroagencia, nrobanco),
+    CONSTRAINT FK_CLIENTE_CORRENTISTA FOREIGN KEY(cpf) REFERENCES Cliente(cpf),
     CONSTRAINT PK_CORRENTISTA PRIMARY KEY(cpf, nroconta, nroagencia, nrobanco)
 );
 
@@ -88,8 +88,8 @@ CREATE TABLE Movimentacao(
     nroagencia int,
     nrobanco int,
     valor float,
-    tipo varchar(50);
+    tipo varchar(50),
 
-    CONSTRAINT FK_CORRENTISTA FOREIGN KEY(cpf, nroconta, nroagencia, nrobanco) REFERENCES Correntista(cpf, nroconta, nroagencia, nrobanco),
+    CONSTRAINT FK_CORRENTISTA_MOVIMENTACAO FOREIGN KEY(cpf, nroconta, nroagencia, nrobanco) REFERENCES Correntista(cpf, nroconta, nroagencia, nrobanco),
     CONSTRAINT PK_MOVIMENTACAO PRIMARY KEY(datahora, nroconta, nroagencia, nrobanco)
 );
