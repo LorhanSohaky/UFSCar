@@ -35,7 +35,36 @@ test(minus1):-
     L==[10].
 
 test(conta_atomos1) :-
-    conta_atomos([a, b, Z,[a, x], [5,x], [x], par(c,d)],[4.6, 5, w, [], F, b, [], par(c,d), [], par(1,2)], L),
-    L==[[a, 2], [x, 3], [4.6, 1],[w,1],[[], 3], [par(1,2), 1]].
+    L1 = [a, b, Z,[a, x], [5,x], [x], par(c,d)],
+    L2 = [4.6, 5, w, [], F, b, [], par(c,d), [], par(1,2)],
+    conta_atomos(L1,L2, L3),
+    nl(),
+    write('L1 = '),
+    write(L1),
+    nl(),
+    write('L2 = '),
+    write(L2),
+    nl(),
+    write('resultado = '),
+    write(L3),
+    nl(),
+    L3==[[a, 2], [x, 3], [4.6, 1],[w,1],[[], 3], [par(1,2), 1]].
+
+
+test(conta_atomos2) :-
+    L1 = [a, b, Z,[a,b, x], [5,x], [x], xxt(c,d)],
+    L2 = [100, 5, w, [], F, b, [], x1t(casa,ads), [], acdc(1,2)],
+    conta_atomos(L1,L2, L3),
+    nl(),
+    write('L1 = '),
+    write(L1),
+    nl(),
+    write('L2 = '),
+    write(L2),
+    nl(),
+    write('resultado = '),
+    write(L3),
+    nl(),
+    L3==[[a,2],[x,3],[xxt(c,d),1],[100,1],[w,1],[x1t(casa,ads),1],[[],3],[acdc(1,2),1]].
 
 :- end_tests(lists).
