@@ -59,7 +59,7 @@ conta_atomos(L1, L2, Lout) :-
     normalize(L2, M2),
     minus(M1, M2, O1),
     minus(M2, M1, O2),
-    append(O1, O2, O3),
+    concat(O1, O2, O3),
     removeRepeated(O3, P1),
     countList(P1, O3, Lout).
 
