@@ -13,21 +13,18 @@ test(normalize1) :-
     normalize([1, [2], [3, [4]], 5, [6, [7, [8], 9]], 10], L),
     L==[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].
 
-test(removeVar1) :-
-    removeVar([1,A,B,3,0,Z], L),
-    L==[1,3,0].
-
-test(removeVar2) :-
-    removeVar([1,2,3,3,0,1], L),
-    L==[1,2,3,3,0,1].
-
 
 test(intersection1) :-
-    intersection([0,1,2,3,4,6], [1,2,3,4,5,6],L),
-    L==[1,2,3,4,6].
+    intersection([0, 1, 2, 3, 4, 6], [1, 2, 3, 4, 5, 6], L),
+    L==[1, 2, 3, 4, 6].
 
 test(intersection2) :-
-    intersection([1,2,3,3,3,3,4,5,6,7], [1,2,3,4,5,6],L),
-    L==[1,2,3,3,3,3,4,5,6].
+    intersection([1, 2, 3, 3, 3, 3, 4, 5, 6, 7], [1, 2, 3, 4, 5, 6], L),
+    L==[1, 2, 3, 3, 3, 3, 4, 5, 6].
+
+test(removeRepeated1) :-
+    removeRepeated([1, 2, 2, 2, 2, 3, 3, 4, 5, 3, 3], L),
+    write(L),
+    L==[1, 2, 4, 5, 3].
 
 :- end_tests(lists).
