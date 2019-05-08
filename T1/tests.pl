@@ -24,7 +24,10 @@ test(intersection2) :-
 
 test(removeRepeated1) :-
     removeRepeated([1, 2, 2, 2, 2, 3, 3, 4, 5, 3, 3], L),
-    write(L),
     L==[1, 2, 4, 5, 3].
+
+test(countList1) :-
+    countList([1, 2, 3, 4, 5], [1, 1, 1, 1, 1, 1, 2, 2, 2, 4, 1, 3, 6, 8, 4, 5, 7, 1, 3, 5], L),
+    L==[[1, 8], [2, 3], [3, 2], [4, 2], [5, 2]].
 
 :- end_tests(lists).

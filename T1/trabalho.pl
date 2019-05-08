@@ -37,3 +37,16 @@ removeRepeated([X|Y], [X|Z]) :-
     removeRepeated(Y, Z), !.
 removeRepeated([_|Y], Z) :-
     removeRepeated(Y, Z).
+
+countItem(_, [], 0) :- !.
+countItem(X, [X|Y], Z) :-
+    countItem(X, Y, W),
+    Z is W+1, !.
+countItem(X, [_|Y], Z) :-
+    countItem(X, Y, Z), !.
+
+countList([], L2, []) :-
+    is_list(L2), !.
+countList([X|Y], L2, [[X, Z]|W]) :-
+    countItem(X, L2, Z),
+    countList(Y, L2, W), !.
