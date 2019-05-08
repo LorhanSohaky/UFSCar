@@ -57,7 +57,7 @@ countList([X|Y], L2, [[X, Z]|W]) :-
 
 minus([], _, []) :- !.
 minus([X|Y], Z, [X|W]) :-
-    not(member(X, Z)),
+    not(in(X, Z)),
     minus(Y, Z, W), !.
 minus([_|Y], Z, W) :-
     minus(Y, Z, W).
