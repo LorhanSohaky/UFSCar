@@ -13,9 +13,13 @@ test(normalize1) :-
     normalize([1, [2], [3, [4]], 5, [6, [7, [8], 9]], 10], L),
     L==[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].
 
+test(removeItem1) :-
+    removeItem(3, [1, 2, 3, 4, 5, 6, 3, 1, 10, 4, 3], L),
+    L==[1, 2, 4, 5, 6, 1, 10, 4].
+
 test(removeRepeated1) :-
     removeRepeated([1, 2, 2, 2, 2, 3, 3, 4, 5, 3, 3], L),
-    L==[1, 2, 4, 5, 3].
+    L==[1, 2, 3, 4, 5].
 
 test(countList1) :-
     countList([1, 2, 3, 4, 5], [1, 1, 1, 1, 1, 1, 2, 2, 2, 4, 1, 3, 6, 8, 4, 5, 7, 1, 3, 5], L),
@@ -56,6 +60,6 @@ test(conta_atomos2) :-
     write('resultado = '),
     write(L3),
     nl(),
-    L3==[[a,2],[x,3],[xxt(c,d),1],[100,1],[w,1],[x1t(casa,ads),1],[[],3],[acdc(1,2),1]].
+    L3==[[a,2],[x,3],[xxt(c,d),1],[100,1],[w,1],[[],3],[x1t(casa,ads),1],[acdc(1,2),1]].
 
 :- end_tests(lists).

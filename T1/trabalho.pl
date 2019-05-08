@@ -27,11 +27,18 @@ in(X, [X|_]) :- !.
 in(X, [_|Y]) :-
     in(X, Y).
 
+removeItem(_, [], []) :- !.
+removeItem(X, [X|Y], Z) :-
+    removeItem(X, Y, Z), !.
+removeItem(X, [Y|Z], [Y|W]) :-
+    removeItem(X, Z, W), !.
+
 removeRepeated([], []) :- !.
+removeRepeated([X|Y], [X|W]) :-
+    in(X, Y),
+    removeItem(X, Y, Z),
+    removeRepeated(Z, W), !.
 removeRepeated([X|Y], [X|Z]) :-
-    not(in(X, Y)),
-    removeRepeated(Y, Z), !.
-removeRepeated([_|Y], Z) :-
     removeRepeated(Y, Z).
 
 countItem(_, [], 0) :- !.
