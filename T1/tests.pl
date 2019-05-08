@@ -21,4 +21,13 @@ test(removeVar2) :-
     removeVar([1,2,3,3,0,1], L),
     L==[1,2,3,3,0,1].
 
+
+test(intersection1) :-
+    intersection([0,1,2,3,4,6], [1,2,3,4,5,6],L),
+    L==[1,2,3,4,6].
+
+test(intersection2) :-
+    intersection([1,2,3,3,3,3,4,5,6,7], [1,2,3,4,5,6],L),
+    L==[1,2,3,3,3,3,4,5,6].
+
 :- end_tests(lists).

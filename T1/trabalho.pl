@@ -24,3 +24,15 @@ removeVar([X|Y], [X|Z]) :-
     removeVar(Y, Z), !.
 removeVar([_|Y], Z) :-
     removeVar(Y, Z).
+
+
+in(X, [X|_]) :- !.
+in(X, [_|Y]) :-
+    in(X, Y).
+
+intersection([], _, []) :- !.
+intersection([X|Y], Z, [X|W]) :-
+    in(X, Z),
+    intersection(Y, Z, W), !.
+intersection([_|Y], Z, W) :-
+    intersection(Y, Z, W).
