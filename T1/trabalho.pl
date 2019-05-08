@@ -71,3 +71,9 @@ conta_atomos(L1, L2, Lout) :-
     append(O1, O2, O3),
     removeRepeated(O3, P1),
     countList(P1, O3, Lout).
+
+main :-
+    read(L1),
+    read(L2),
+    conta_atomos(L1, L2, L3),
+    write(L3).
