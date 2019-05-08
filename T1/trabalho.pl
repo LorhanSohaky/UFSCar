@@ -2,7 +2,6 @@
 % Para cada uma das listas executar:
 %    normalizar(L1,Resultado) -> resultando numa lista sem sublistas e sem variáveis
 % Pegando o resultado das execuções anterioes:
-%    interseccao(L1,L2, LResultado) -> isso irá remover os itens que estão em ambas as listas, mas se um item aparecer mais de uma vez em somente uma delas, ele irá aparecer no resultado
 %    minus(L1,LResultado,R1) -> R1 será tudo de L1 que não está em L2
 %    minus(L2,LResultado,R2) -> R2 será tudo de L2 que não está em L1
 %    append(R1,R2,R3) -> R3 será tudo que não está na intersecção de L1 com L2
@@ -27,13 +26,6 @@ normalize([_|Y], Z) :-
 in(X, [X|_]) :- !.
 in(X, [_|Y]) :-
     in(X, Y).
-
-intersection([], _, []) :- !.
-intersection([X|Y], Z, [X|W]) :-
-    in(X, Z),
-    intersection(Y, Z, W), !.
-intersection([_|Y], Z, W) :-
-    intersection(Y, Z, W).
 
 removeRepeated([], []) :- !.
 removeRepeated([X|Y], [X|Z]) :-
@@ -65,9 +57,8 @@ minus([_|Y], Z, W) :-
 conta_atomos(L1, L2, Lout) :-
     normalize(L1, M1),
     normalize(L2, M2),
-    intersection(M1, M2, N2),
-    minus(M1, N2, O1),
-    minus(M2, N2, O2),
+    minus(M1, M2, O1),
+    minus(M2, M1, O2),
     append(O1, O2, O3),
     removeRepeated(O3, P1),
     countList(P1, O3, Lout).

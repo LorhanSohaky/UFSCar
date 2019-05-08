@@ -13,15 +13,6 @@ test(normalize1) :-
     normalize([1, [2], [3, [4]], 5, [6, [7, [8], 9]], 10], L),
     L==[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].
 
-
-test(intersection1) :-
-    intersection([0, 1, 2, 3, 4, 6], [1, 2, 3, 4, 5, 6], L),
-    L==[1, 2, 3, 4, 6].
-
-test(intersection2) :-
-    intersection([1, 2, 3, 3, 3, 3, 4, 5, 6, 7], [1, 2, 3, 4, 5, 6], L),
-    L==[1, 2, 3, 3, 3, 3, 4, 5, 6].
-
 test(removeRepeated1) :-
     removeRepeated([1, 2, 2, 2, 2, 3, 3, 4, 5, 3, 3], L),
     L==[1, 2, 4, 5, 3].
