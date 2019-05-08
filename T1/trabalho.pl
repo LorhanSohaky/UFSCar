@@ -17,3 +17,10 @@ normalize([X|Y], Z) :-
     normalize(L, Z), !.
 normalize([X|Y], [X|Z]) :-
     normalize(Y, Z).
+
+removeVar([], []) :- !.
+removeVar([X|Y], [X|Z]) :-
+    not(var(X)),
+    removeVar(Y, Z), !.
+removeVar([_|Y], Z) :-
+    removeVar(Y, Z).
