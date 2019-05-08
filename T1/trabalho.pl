@@ -30,3 +30,10 @@ intersection([X|Y], Z, [X|W]) :-
     intersection(Y, Z, W), !.
 intersection([_|Y], Z, W) :-
     intersection(Y, Z, W).
+
+removeRepeated([], []) :- !.
+removeRepeated([X|Y], [X|Z]) :-
+    not(in(X, Y)),
+    removeRepeated(Y, Z), !.
+removeRepeated([_|Y], Z) :-
+    removeRepeated(Y, Z).
