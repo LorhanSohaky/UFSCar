@@ -32,3 +32,38 @@ Nome: (('a' ..'z') | ('A' ..'Z') | '_') (
 		| ('0' ..'9')
 		| '_'
 	)*;
+
+  listavar : var (',' var)*;
+
+	var :  Nome
+  | expprefixo '[' exp ']'
+  | expprefixo '.' Nome ;
+
+	listadenomes : Nome (',' Nome)* ;
+
+	listaexp : (exp ',')* exp;
+
+	exp :  'nil'
+  | 'false'
+  | 'true'
+  | Numero
+  | Cadeia
+  | '...'
+  | funcao
+  | expprefixo
+  | construtortabela
+  | exp opbin exp
+  | opunaria exp;
+
+	expprefixo : var
+  | chamadadefuncao
+  | '(' exp ')';
+
+	chamadadefuncao :  expprefixo args
+  | expprefixo ':' Nome args;
+
+	args :  '(' (listaexp)? ')'
+  | construtortabela
+  | Cadeia;
+
+	funcao : function corpodafuncao;
