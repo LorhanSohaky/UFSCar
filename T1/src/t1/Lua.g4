@@ -4,66 +4,63 @@ grammar Lua;
    public static String grupo="740951 743602 743586";
 }
 
-programa: trecho EOF;
+//"::==> ":" {regra} => (regra)* [regra] => (regra)?
 
-trecho: (comando (';')?)* (ultimocomando (';')?)?;
-bloco: trecho;
+programa: trecho EOF; //Regra principal
+
+trecho: (comando (';')?)* (ultimocomando (';')?)?; // Sequência de comandos
+bloco: trecho; // É uma lista de comandos
 comando:
-	listavar '=' listaexp
+	listavar '=' listaexp // Atribuindo expressões a uma lista de variáveis
 	| chamadadefuncao
 	| 'do' bloco 'end'
-	| 'while' exp 'do' bloco 'end'
-	| 'repeat' bloco 'until' exp
+	| 'while' exp 'do' bloco 'end' // Laço de repecição enquanto
+	| 'repeat' bloco 'until' exp // Laço de repecição repita até
 	| 'if' exp 'then' bloco ('elseif' exp 'then' bloco)* (
 		'else' bloco
-	)? 'end'
-	| 'for' Nome '=' exp ',' exp (',' exp)? 'do' bloco 'end'
-	| 'for' listadenomes 'in' listaexp 'do' bloco 'end'
-	| 'function' nomedafuncao corpodafuncao
-	| 'local' 'function' Nome corpodafuncao
-	| 'local' listadenomes ('=' listaexp)?;
+	)? 'end' // Comando condicional
+	| 'for' Nome '=' exp ',' exp (',' exp)? 'do' bloco 'end' // Laço de repetição para numérica
+	| 'for' listadenomes 'in' listaexp 'do' bloco 'end' // Laço de repetição para genérica
+	| 'function' nomedafuncao corpodafuncao // Declaração da função
+	| 'local' 'function' Nome corpodafuncao // Declaração local da função
+	| 'local' listadenomes ('=' listaexp)?; // Atribuição local das expressões à lista de variáveis
 
-ultimocomando: 'return' (listaexp)? | 'break';
-nomedafuncao: Nome ('.' Nome)* (':' Nome)?;
+ultimocomando:
+	'return' (listaexp)? // Para retorno de função
+	| 'break'; //Para terminar um laço de repetição
+nomedafuncao: // Declaração do nome da função
+	Nome ('.' Nome)* (':' Nome)?;
 
-Nome: (('a' ..'z') | ('A' ..'Z') | '_') (
-		('a' ..'z')
-		| ('A' ..'Z')
-		| ('0' ..'9')
-		| '_'
-	)*;
+fragment Caracter: ('a' ..'z') | ('A' ..'Z') | '_';
+fragment Num: ('0' ..'9');
 
-  listavar : var (',' var)*;
+Nome: Caracter (Caracter | Num)*; // Sequência válida de nomes
 
-	var :  Nome
-  | expprefixo '[' exp ']'
-  | expprefixo '.' Nome ;
+listavar: var (',' var)*;
 
-	listadenomes : Nome (',' Nome)* ;
+var: Nome | expprefixo '[' exp ']' | expprefixo '.' Nome;
 
-	listaexp : (exp ',')* exp;
+listadenomes: Nome (',' Nome)*;
 
-	exp :  'nil'
-  | 'false'
-  | 'true'
-  | Numero
-  | Cadeia
-  | '...'
-  | funcao
-  | expprefixo
-  | construtortabela
-  | exp opbin exp
-  | opunaria exp;
+listaexp: (exp ',')* exp;
 
-	expprefixo : var
-  | chamadadefuncao
-  | '(' exp ')';
+exp:
+	'nil'
+	| 'false'
+	| 'true'
+	| Numero
+	| Cadeia
+	| '...'
+	| funcao
+	| expprefixo
+	| construtortabela
+	| exp opbin exp
+	| opunaria exp;
 
-	chamadadefuncao :  expprefixo args
-  | expprefixo ':' Nome args;
+expprefixo: var | chamadadefuncao | '(' exp ')';
 
-	args :  '(' (listaexp)? ')'
-  | construtortabela
-  | Cadeia;
+chamadadefuncao: expprefixo args | expprefixo ':' Nome args;
 
-	funcao : function corpodafuncao;
+args: '(' (listaexp)? ')' | construtortabela | Cadeia;
+
+funcao: function corpodafuncao;
