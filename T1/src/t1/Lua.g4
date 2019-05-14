@@ -36,15 +36,15 @@ fragment Num: ('0' ..'9');
 
 Nome: Caracter (Caracter | Num)*; // Sequência válida de nomes
 
-listavar: var (',' var)*;
+listavar: var (',' var)*; // lista de variaveis
 
-var: Nome | expprefixo '[' exp ']' | expprefixo '.' Nome;
+var: Nome | expprefixo '[' exp ']' | expprefixo '.' Nome; // Declaração de variavel locais, globais e campos de tabelas
 
-listadenomes: Nome (',' Nome)*;
+listadenomes: Nome (',' Nome)*; //lista de nomes
 
-listaexp: (exp ',')* exp;
+listaexp: (exp ',')* exp;//lista de expressões
 
-exp:
+exp: //expressões básicas
 	'nil'
 	| 'false'
 	| 'true'
@@ -59,8 +59,10 @@ exp:
 
 expprefixo: var | chamadadefuncao | '(' exp ')';
 
-chamadadefuncao: expprefixo args | expprefixo ':' Nome args;
+chamadadefuncao: expprefixo args | expprefixo ':' Nome args;  
 
-args: '(' (listaexp)? ')' | construtortabela | Cadeia;
+args: '(' (listaexp)? ')' | construtortabela | Cadeia; //argumentos para funções, tabelas e cadeias
 
-funcao: function corpodafuncao;
+funcao: function corpodafuncao; //declarar uma função
+
+Cadeia: '\'' * ~('\'') '\''; //cadeia de caracteres envoltas por aspas simples
