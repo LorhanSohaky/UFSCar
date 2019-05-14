@@ -4,7 +4,7 @@ grammar Lua;
    public static String grupo="740951 743602 743586";
 }
 
-//"::==> ":" {regra} => (regra)* [regra] => (regra)?
+//":=> ":" {regra} => (regra)* [regra] => (regra)?
 
 programa: trecho EOF; //Regra principal
 
@@ -42,15 +42,16 @@ var: Nome | expprefixo '[' exp ']' | expprefixo '.' Nome; // Declaração de var
 
 listadenomes: Nome (',' Nome)*; //lista de nomes
 
-listaexp: (exp ',')* exp;//lista de expressões
+listaexp: (exp ',')* exp;  //lista de expressões
 
 exp: //expressões básicas
 	'nil'
 	| 'false'
 	| 'true'
-	| Numero
 	| Cadeia
 	| '...'
+        | Num
+        | Decimal
 	| funcao
 	| expprefixo
 	| construtortabela
@@ -63,6 +64,30 @@ chamadadefuncao: expprefixo args | expprefixo ':' Nome args;
 
 args: '(' (listaexp)? ')' | construtortabela | Cadeia; //argumentos para funções, tabelas e cadeias
 
-funcao: function corpodafuncao; //declarar uma função
+funcao: 'function' corpodafuncao; //declarar uma função
 
 Cadeia: '\'' * ~('\'') '\''; //cadeia de caracteres envoltas por aspas simples
+
+corpodafuncao : '(' (listapar)? ')' bloco 'end';
+
+listapar : listadenomes (',' '...')? | '...';
+
+construtortabela : '{' (listadecampos)? '}';
+
+listadecampos : campo (separadordecampos campo)* (separadordecampos)?;
+
+campo : '[' exp ']' '=' exp | Nome '=' exp | exp;
+
+separadordecampos : ',' | ';';
+
+opbin : '+' | '-' | '*' | '/' | '^' | '%' | '..' | 
+         '<' | '<=' | '>' | '>=' | '==' | '~=' | 
+         'and' | 'or';
+
+opunaria : '-' | 'not' | '#';
+
+Comentario: '--' .*? '\n' -> skip;
+
+Decimal: Num+ '.' (Num*)?;
+
+Format: ('\n' | '\t' | '\r' | ' ') -> skip;
