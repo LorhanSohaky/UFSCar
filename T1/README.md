@@ -33,7 +33,11 @@ Todo item de `L1` que não pertence à `L2` é adicionado à `L3`, ou seja, é r
 Verifica se `X` pertence à `List`.
 
 ## `removeRepeated(L1, L2)`
-Remove os itens repetidos de `L1` e armazena o resultado em `L2`.
+Remove os itens repetidos de `L1` e armazena o resultado em `L2`. O `removeItem(X, List,Lout)` é utilizado para remover cada item repetido de `L1` e guardar em `L2`.
+
+### `removeItem(X, List,Lout)`
+Remove toda ocorrencia de `X` da lista `List` e armazena o resultado em `Lout`.
+
 
 ## `countList(L1, L2, L3)`
 Conta a quantidade de vezes que os itens de `L1` aparecem na lista `L2` e o resultado é armazenado em `L3` no formato `[[item1,quantidade], [item2,quantidade], ...]`. O predicado `countItem(X, List, Count)` é usado para calcular a quantidade de vezes que um determinado item de `L1` aparece na lista `L2`.
