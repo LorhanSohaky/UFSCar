@@ -38,11 +38,14 @@ Nome: Caracter (Caracter | Num)*; // Sequência válida de nomes
 
 listavar: var (',' var)*; // lista de variaveis
 
-var: Nome | expprefixo '[' exp ']' | expprefixo '.' Nome; // Declaração de variavel locais, globais e campos de tabelas
+var:
+	Nome
+	| expprefixo '[' exp ']'
+	| expprefixo '.' Nome; // Declaração de variavel locais, globais e campos de tabelas
 
 listadenomes: Nome (',' Nome)*; //lista de nomes
 
-listaexp: (exp ',')* exp;  //lista de expressões
+listaexp: (exp ',')* exp; //lista de expressões
 
 exp: //expressões básicas
 	'nil'
@@ -50,8 +53,8 @@ exp: //expressões básicas
 	| 'true'
 	| Cadeia
 	| '...'
-        | Num
-        | Decimal
+	| Num
+	| Decimal
 	| funcao
 	| expprefixo
 	| construtortabela
@@ -60,31 +63,49 @@ exp: //expressões básicas
 
 expprefixo: var | chamadadefuncao | '(' exp ')';
 
-chamadadefuncao: expprefixo args | expprefixo ':' Nome args;  
+chamadadefuncao: expprefixo args | expprefixo ':' Nome args;
 
-args: '(' (listaexp)? ')' | construtortabela | Cadeia; //argumentos para funções, tabelas e cadeias
+args:
+	'(' (listaexp)? ')'
+	| construtortabela
+	| Cadeia; //argumentos para funções, tabelas e cadeias
 
 funcao: 'function' corpodafuncao; //declarar uma função
 
-Cadeia: '\'' * ~('\'') '\''; //cadeia de caracteres envoltas por aspas simples
+Cadeia:
+	'\''* ~('\'') '\''; //cadeia de caracteres envoltas por aspas simples
 
-corpodafuncao : '(' (listapar)? ')' bloco 'end';
+corpodafuncao: '(' (listapar)? ')' bloco 'end';
 
-listapar : listadenomes (',' '...')? | '...';
+listapar: listadenomes (',' '...')? | '...';
 
-construtortabela : '{' (listadecampos)? '}';
+construtortabela: '{' (listadecampos)? '}';
 
-listadecampos : campo (separadordecampos campo)* (separadordecampos)?;
+listadecampos:
+	campo (separadordecampos campo)* (separadordecampos)?;
 
-campo : '[' exp ']' '=' exp | Nome '=' exp | exp;
+campo: '[' exp ']' '=' exp | Nome '=' exp | exp;
 
-separadordecampos : ',' | ';';
+separadordecampos: ',' | ';';
 
-opbin : '+' | '-' | '*' | '/' | '^' | '%' | '..' | 
-         '<' | '<=' | '>' | '>=' | '==' | '~=' | 
-         'and' | 'or';
+opbin:
+	'+'
+	| '-'
+	| '*'
+	| '/'
+	| '^'
+	| '%'
+	| '..'
+	| '<'
+	| '<='
+	| '>'
+	| '>='
+	| '=='
+	| '~='
+	| 'and'
+	| 'or';
 
-opunaria : '-' | 'not' | '#';
+opunaria: '-' | 'not' | '#';
 
 Comentario: '--' .*? '\n' -> skip;
 
