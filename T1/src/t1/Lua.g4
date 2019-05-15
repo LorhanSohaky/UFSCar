@@ -4,8 +4,6 @@ grammar Lua;
    public static String grupo="740951 743602 743586";
 }
 
-//":=> ":" {regra} => (regra)* [regra] => (regra)?
-
 programa: trecho EOF; //Regra principal
 
 trecho: (comando (';')?)* (ultimocomando (';')?)?; // Sequência de comandos
@@ -19,31 +17,31 @@ comando:
 	| 'if' exp 'then' bloco ('elseif' exp 'then' bloco)* (
 		'else' bloco
 	)? 'end' // Comando condicional
-	| 'for' Nome '=' exp ',' exp (',' exp)? 'do' bloco 'end' // Laço de repetição para numérica
+	| 'for' nomeVar '=' exp ',' exp (',' exp)? 'do' bloco 'end' // Laço de repetição para numérica
 	| 'for' listadenomes 'in' listaexp 'do' bloco 'end' // Laço de repetição para genérica
 	| 'function' nomedafuncao corpodafuncao // Declaração da função
-	| 'local' 'function' Nome corpodafuncao // Declaração local da função
+	| 'local' 'function' nomeFuncao corpodafuncao // Declaração local da função
 	| 'local' listadenomes ('=' listaexp)?; // Atribuição local das expressões à lista de variáveis
 
 ultimocomando:
 	'return' (listaexp)? // Para retorno de função
 	| 'break'; //Para terminar um laço de repetição
 nomedafuncao: // Declaração do nome da função
-	Nome ('.' Nome)* (':' Nome)?;
+	nomeFuncao ('.' nomeFuncao)* (':' nomeFuncao)?;
 
 fragment Caracter: ('a' ..'z') | ('A' ..'Z') | '_';
-fragment Num: ('0' ..'9');
+fragment Numero: ('0' ..'9');
 
-Nome: Caracter (Caracter | Num)*; // Sequência válida de nomes
+Nome: Caracter (Caracter | Numero)*; // Sequência válida de nomes
 
 listavar: var (',' var)*; // lista de variaveis
 
 var:
-	Nome
+	nomeVar
 	| expprefixo '[' exp ']'
-	| expprefixo '.' Nome; // Declaração de variavel locais, globais e campos de tabelas
+	| expprefixo '.' nomeVar; // Declaração de variavel locais, globais e campos de tabelas
 
-listadenomes: Nome (',' Nome)*; //lista de nomes
+listadenomes: nomeVar (',' nomeVar)*; //lista de nomes
 
 listaexp: (exp ',')* exp; //lista de expressões
 
@@ -63,7 +61,9 @@ exp: //expressões básicas
 
 expprefixo: var | chamadadefuncao | '(' exp ')';
 
-chamadadefuncao: expprefixo args | expprefixo ':' Nome args;
+chamadadefuncao:
+	expprefixo args
+	| expprefixo ':' nomeFuncao args;
 
 args:
 	'(' (listaexp)? ')'
@@ -73,7 +73,7 @@ args:
 funcao: 'function' corpodafuncao; //declarar uma função
 
 Cadeia:
-	'\''* ~('\'') '\''; //cadeia de caracteres envoltas por aspas simples
+	'\'' (~('\'' | '\n'))* '\''; //cadeia de caracteres envoltas por aspas simples
 
 corpodafuncao: '(' (listapar)? ')' bloco 'end';
 
@@ -84,7 +84,7 @@ construtortabela: '{' (listadecampos)? '}';
 listadecampos:
 	campo (separadordecampos campo)* (separadordecampos)?;
 
-campo: '[' exp ']' '=' exp | Nome '=' exp | exp;
+campo: '[' exp ']' '=' exp | nomeVar '=' exp | exp;
 
 separadordecampos: ',' | ';';
 
@@ -109,6 +109,13 @@ opunaria: '-' | 'not' | '#';
 
 Comentario: '--' .*? '\n' -> skip;
 
-Decimal: Num+ '.' (Num*)?;
+Decimal: Numero+ ('.' Numero+)?;
+Num: Decimal;
+
+nomeVar:
+	Nome {TabelaDeSimbolos.adicionarSimbolo($Nome.text, Tipo.VARIAVEL);};
+
+nomeFuncao:
+	Nome {TabelaDeSimbolos.adicionarSimbolo($Nome.text, Tipo.FUNCAO);};
 
 Format: ('\n' | '\t' | '\r' | ' ') -> skip;
