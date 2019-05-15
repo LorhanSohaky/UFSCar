@@ -46,22 +46,20 @@ listadenomes: nomeVar (',' nomeVar)*; //lista de nomes
 listaexp: (exp ',')* exp; //lista de expressões
 
 exp: //expressões básicas
-	 exp2 opbin exp
-   | exp2;
+	'nil'
+	| 'false'
+	| 'true'
+	| Cadeia
+	| '...'
+	| Num
+	| Decimal
+	| funcao
+	| expprefixo
+	| construtortabela
+	| exp opbin exp
+	| opunaria exp;
 
-exp2:
-  'nil'
-  | 'false'
-  | 'true'
-  | Cadeia
-  | '...'
-  | Num
-  | Decimal
-  | funcao
-  | expprefixo
-  | construtortabela
-  | opunaria exp;
-
+//Define o prefixo de uma expressão
 expprefixo: nomeVar
 | expprefixo '[' exp ']'
 | expprefixo '.' nomeVar
