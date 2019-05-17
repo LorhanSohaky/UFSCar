@@ -9,6 +9,7 @@ IDIR = -I./src/utils
 SOURCES_PATH = src/*.c src/utils/*.c
 
 CFLAGS = -Wall -O3 $(IDIR)
+LIBFLAGS=-pthread 
 
 
 define listar_os_sources
@@ -47,7 +48,7 @@ $(OBJDIR)/%.o: %.c
 	$(CC) $(CFLAGS) -c -o $@ $<
 
 compile: $(OBJS)
-	$(CC) -o $(BINDIR)/$(OUT) $^ $(CFLAGS)
+	$(CC) -o $(BINDIR)/$(OUT) $^ $(CFLAGS) $(LIBFLAGS)
 
 run: install
 	@cd $(BINDIR) && ./$(OUT)
