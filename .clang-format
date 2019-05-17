@@ -1,0 +1,122 @@
+#Linguagem de programação
+Language:        Cpp
+
+#Opções padrões de formatação (estilos)
+BasedOnStyle:  LLVM
+
+#Alinhamento dos argumentos de uma função
+AlignAfterOpenBracket:  Align
+
+#Alinhamento dos operadores de atribuição consecutivos
+AlignConsecutiveAssignments: true
+
+#Alinhamento da declaração dos tipos
+#AlignConsecutiveDeclarations: true
+
+#Alinha a esquerda
+AlignEscapedNewlinesLeft: true
+
+#Alinha operandos de uma expressão
+AlignOperands:   true
+
+#Alinha os comentários consecutivos à direita
+AlignTrailingComments: true
+
+#Coloca todos os parâmetros de uma declaração(função) na linha de baixo
+AllowAllParametersOfDeclarationOnNextLine: false
+
+#Quando um bloco de código {} é pequeno, o código é colocado em uma linha
+AllowShortBlocksOnASingleLine: false
+
+#Quando um switch case é curto, o caso é colocado em uma linha
+AllowShortCaseLabelsOnASingleLine: false
+
+#Quando uma função é curta, o código fica em uma única linha
+AllowShortFunctionsOnASingleLine: true
+
+#Quando um if é curto fica tudo em uma única linha
+AllowShortIfStatementsOnASingleLine: false
+
+#Laço de repetição pequeno em uma única linha
+AllowShortLoopsOnASingleLine: false
+
+#Quebra de linha apos definição do tipo de retorno da função
+AlwaysBreakAfterDefinitionReturnType: false
+
+#Quebra de linha apos declaração de templates
+AlwaysBreakTemplateDeclarations: true
+
+#Quebra de linha em string
+AlwaysBreakBeforeMultilineStrings: false
+
+#Quando falso os argumentos de uma chamada de função serão alinhados na mesma linha ou nas linhas seguintes
+BinPackArguments: false
+
+#Quando falso os parâmetros de função serão alinhados na mesma linha ou nas linhas seguintes
+BinPackParameters: false
+
+#Quebra de linha após operadores binários(+)
+BreakBeforeBinaryOperators: false
+
+#Quebra de linha em operadores ternários
+BreakBeforeTernaryOperators: true
+
+#Quebra de linha no construtor
+BreakConstructorInitializersBeforeComma: true
+
+#Quebra de linha de inicialização do contrutor quando muito grande
+ConstructorInitializerAllOnOneLineOrOnePerLine: false
+
+#Quebra a linha para strings muito grandes
+BreakStringLiterals: true
+
+#Edentação do namespace
+NamespaceIndentation: All
+
+# Limite de colunas (formatação horizontal - clean code)
+ColumnLimit: 100
+
+#Alinhamento dos case
+IndentCaseLabels: true
+
+#Número de colunas de endentação
+IndentWidth: 4
+
+#Número do máximo de linhas vazias
+MaxEmptyLinesToKeep: 1
+
+#Espaço dentro dos parenteses
+SpacesInParentheses: true
+
+#Permite o espaço no começo do bloco de código {
+KeepEmptyLinesAtTheStartOfBlocks: false
+
+#Alinhamento do ponteiro
+PointerAlignment: Right
+
+#Espaçamento entre o código e o comentário
+SpacesBeforeTrailingComments: 1
+
+#Formatação das chaves {}
+BreakBeforeBraces: Attach
+
+#Espaço dentro dos colchetes []
+SpacesInSquareBrackets: true
+
+#Espaço dentro de parenteses vazios
+SpaceInEmptyParentheses: false
+
+#Espaço antes do operador de atribuição
+SpaceBeforeAssignmentOperators: true
+
+#Colunas para endentação de continuidade
+ContinuationIndentWidth: 4
+
+#Espaço antes do parentese
+SpaceBeforeParens: Never
+
+#Espaçamento entre <>
+SpacesInAngles:  true
+
+#Usar tab
+UseTab: ForIndentation
