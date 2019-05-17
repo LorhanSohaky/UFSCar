@@ -8,6 +8,10 @@
 pthread_t hackers[ MAX_HACKERS ];
 pthread_t serfs[ MAX_SERFS ];
 
+pthread_mutex_t mutex;
+
+int NUM_TEST = 0;
+
 void create_threads();
 void join_threads();
 void *doSomething( void *args );
@@ -55,8 +59,11 @@ void join_threads() {
 }
 
 void *doSomething( void *args ) {
-    printf( "Ola %ld\n", (long int)args );
+    pthread_mutex_lock( &mutex );
+    // Região critica
+    NUM_TEST++;
+    printf( "Ola %ld %d\n", (long int)args, NUM_TEST );
     fflush( stdout );
+    pthread_mutex_unlock( &mutex );
     return NULL;
 }
-
