@@ -1,6 +1,7 @@
 #include <pthread.h>
 #include <stdio.h>
 #include <stdlib.h>
+#include <semaphore.h>
 
 #define MAX_HACKERS 4
 #define MAX_SERFS 4
@@ -10,16 +11,32 @@ pthread_t serfs[ MAX_SERFS ];
 
 pthread_mutex_t mutex;
 
+sem_t hacker_queue;
+sem_t serf_queue;
+
 int NUM_TEST = 0;
+
+void init_semaphores();
 
 void create_threads();
 void join_threads();
 void *doSomething( void *args );
 
+void destroy_semaphores();
+
 int main() {
+	init_semaphores();
+
 	create_threads();
 	join_threads();
+
+	destroy_semaphores();
 	return 0;
+}
+
+void init_semaphores(){
+	sem_init(&hacker_queue, 0, MAX_HACKERS);
+	sem_init(&hacker_queue, 0, MAX_SERFS);
 }
 
 void create_threads() {
@@ -68,4 +85,9 @@ void *doSomething( void *args ) {
 	//End critical region
 	pthread_mutex_unlock( &mutex );
 	return NULL;
+}
+
+void destroy_semaphores(){
+	sem_destroy(&hacker_queue);
+	sem_destroy(&serf_queue);
 }
