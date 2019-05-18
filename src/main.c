@@ -10,6 +10,7 @@ pthread_t hackers[ MAX_HACKERS ];
 pthread_t serfs[ MAX_SERFS ];
 
 pthread_mutex_t mutex;
+sem_t barrier;
 
 sem_t hacker_queue;
 sem_t serf_queue;
@@ -37,6 +38,7 @@ int main() {
 void init_semaphores(){
 	sem_init(&hacker_queue, 0, MAX_HACKERS);
 	sem_init(&hacker_queue, 0, MAX_SERFS);
+	sem_init(&barrier, 0, 0);
 }
 
 void create_threads() {
@@ -90,4 +92,5 @@ void *doSomething( void *args ) {
 void destroy_semaphores(){
 	sem_destroy(&hacker_queue);
 	sem_destroy(&serf_queue);
+	sem_destroy(&barrier);
 }
