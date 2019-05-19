@@ -2,16 +2,17 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <semaphore.h>
+#include <stdbool.h>
 
 #define MAX_HACKERS 4
 #define MAX_SERFS 4
+#define MAX_THREADS_PER_BOAT 4
 
 pthread_t hackers[ MAX_HACKERS ];
 pthread_t serfs[ MAX_SERFS ];
-unsigned int captain = 0;
 
 pthread_mutex_t mutex;
-sem_t barrier;
+pthread_barrier_t barrier , barrier2, barrier3;
 
 sem_t hacker_queue;
 sem_t serf_queue;
@@ -35,6 +36,9 @@ void destroy_semaphores();
 
 int main() {
 	pthread_mutex_init(&mutex,NULL);
+	pthread_barrier_init( &barrier, NULL, MAX_THREADS_PER_BOAT );
+	pthread_barrier_init( &barrier2, NULL, MAX_THREADS_PER_BOAT );
+	pthread_barrier_init( &barrier3, NULL, MAX_THREADS_PER_BOAT );
 
 	init_semaphores();
 
@@ -42,13 +46,16 @@ int main() {
 	join_threads();
 
 	destroy_semaphores();
+	pthread_barrier_destroy( &barrier );
+	pthread_barrier_destroy( &barrier2 );
+	pthread_barrier_destroy( &barrier3 );
+
 	return 0;
 }
 
 void init_semaphores(){
-	sem_init(&hacker_queue, 0, MAX_HACKERS);
-	sem_init(&hacker_queue, 0, MAX_SERFS);
-	sem_init(&barrier, 0, 0);
+	sem_init( &hacker_queue, 0, MAX_HACKERS );
+	sem_init( &hacker_queue, 0, MAX_SERFS) ;
 }
 
 void create_threads() {
@@ -90,86 +97,107 @@ void join_threads() {
 }
 
 void *hacker_do_something( void *args ) {
-	pthread_mutex_lock( &mutex );
-	unsigned int my_number = (long int)args;
-	hackers_on_board++;
+	while( true ){
+		pthread_mutex_lock( &mutex );
+		unsigned int my_number = (long int)args;
+		bool is_captain = false;
+		hackers_on_board++;
 
-	if ( hackers_on_board == 4 ) {
-		for( int i = 0; i < 4; i++ ) {
-			sem_post( &hacker_queue );
+		if ( hackers_on_board == MAX_THREADS_PER_BOAT ) {
+			for( int i = 0; i < MAX_THREADS_PER_BOAT; i++ ) {
+				sem_post( &hacker_queue );
+			}
+			hackers_on_board = 0;
+			is_captain = true;
+			printf( "H Captain1 %d\n", my_number );
+		} else if ( hackers_on_board == MAX_THREADS_PER_BOAT / 2 && serfs_on_board >= MAX_THREADS_PER_BOAT / 2 ) {
+			for ( int i = 0; i < MAX_THREADS_PER_BOAT / 2; i++ ) {
+				sem_post( &hacker_queue );
+			}
+			for ( int i = 0; i < MAX_THREADS_PER_BOAT / 2; i++ ) {
+				sem_post( &serf_queue );
+			}
+			serfs_on_board -= MAX_THREADS_PER_BOAT / 2;
+			hackers_on_board = 0;
+			is_captain = true;
+			printf( "H Captain2 %d\n", my_number );
+		} else {
+			pthread_mutex_unlock( &mutex );
 		}
-		captain = my_number;
-	} else if ( hackers_on_board == 2 && serfs_on_board >= 2 ) {
-		for ( int i = 0; i < 2; i++ ) {
-			sem_post( &hacker_queue );
-		}
-		for ( int i = 0; i < 2; i++ ) {
-			sem_post( &serf_queue );
-		}
-		serfs_on_board -= 2;
-		hackers_on_board = 0;
-		
-		captain = my_number;
-	} else {
-		pthread_mutex_unlock( &mutex );
-		captain = 0;
-	}
 
-	sem_wait( &hacker_queue );
-	board( "Hacker", my_number );
-	sem_wait( &barrier );
+		sem_wait( &hacker_queue );
+		board( "Hacker", my_number );
+		pthread_barrier_wait( &barrier );
 
-	printf("Hacker %d passed the barrier\n", my_number);
-	fflush(stdout);
-
-	if ( my_number == captain ) {
-		row_boat( "Hacker", my_number );
-		printf( "---------------------------------------------------------\n" );
+		printf( "Hacker %d passed the barrier\n", my_number );
 		fflush(stdout);
-		pthread_mutex_unlock( &mutex );
-	}
 
+		pthread_barrier_wait( &barrier2 );
+		if ( is_captain ) {
+			row_boat( "Hacker", my_number );
+			printf( "H%d capitao chegou\n", my_number );
+			printf( "---------------------------------------------------------\n" );
+			fflush(stdout);
+			pthread_barrier_wait( &barrier3 );
+			pthread_mutex_unlock( &mutex );
+		} else {
+			printf( "H%d esperando capitao\n", my_number );
+			pthread_barrier_wait( &barrier3 );
+		}
+		printf( "H%d Fim\n", my_number );
+	}
 	return NULL;
 }
 
 void *serf_do_something( void *args ) {
-	pthread_mutex_lock( &mutex );
-	unsigned int my_number = (long int)args;
-	serfs_on_board++;
+	while( true ){
+		pthread_mutex_lock( &mutex );
+		unsigned int my_number = (long int)args;
+		bool is_captain = false;
+		serfs_on_board++;
 
-	if ( serfs_on_board == 4 ) {
-		for( int i = 0; i < 4; i++ ) {
-			sem_post( &serf_queue );
+		if ( serfs_on_board == MAX_THREADS_PER_BOAT ) {
+			for( int i = 0; i < MAX_THREADS_PER_BOAT; i++ ) {
+				sem_post( &serf_queue );
+			}
+			serfs_on_board = 0;
+			is_captain = true;
+			printf( "S Captain1 %d\n", my_number );
+		} else if ( serfs_on_board == MAX_THREADS_PER_BOAT / 2 && hackers_on_board >= MAX_THREADS_PER_BOAT / 2 ) {
+			for ( int i = 0; i < MAX_THREADS_PER_BOAT / 2; i++ ) {
+				sem_post( &serf_queue );
+			}
+			for ( int i = 0; i < MAX_THREADS_PER_BOAT / 2; i++ ) {
+				sem_post( &hacker_queue );
+			}
+			hackers_on_board -= MAX_THREADS_PER_BOAT / 2;
+			serfs_on_board = 0;
+			is_captain = true;
+			printf( "S Captain2 %d\n", my_number );
+		} else {
+			pthread_mutex_unlock( &mutex );
 		}
-		captain = my_number;
-	} else if ( serfs_on_board == 2 && hackers_on_board >= 2 ) {
-		for ( int i = 0; i < 2; i++ ) {
-			sem_post( &serf_queue );
-		}
-		for ( int i = 0; i < 2; i++ ) {
-			sem_post( &hacker_queue );
-		}
-		hackers_on_board -= 2;
-		serfs_on_board = 0;
-		
-		captain = my_number;
-	} else {
-		pthread_mutex_unlock( &mutex );
-		captain = 0;
-	}
 
-	sem_wait( &serf_queue );
-	board( "Serf", my_number );
-	sem_wait( &barrier );
+		sem_wait( &serf_queue );
+		board( "Serf", my_number );
+		pthread_barrier_wait( &barrier );
 
-	printf("Serf %d passed the barrier\n", my_number);
-	fflush(stdout);
-
-	if ( captain == my_number ) {
-		row_boat( "Serf", my_number );
-		printf( "---------------------------------------------------------\n" );
+		printf( "Serf %d passed the barrier\n", my_number );
 		fflush(stdout);
-		pthread_mutex_unlock( &mutex );
+
+		pthread_barrier_wait( &barrier2 );
+		if ( is_captain ) {
+			row_boat( "Serf", my_number );
+			printf( "S%d capitao chegou\n", my_number );
+			printf( "---------------------------------------------------------\n" );
+			fflush(stdout);
+			pthread_barrier_wait( &barrier3 );
+			pthread_mutex_unlock( &mutex );
+		} else {
+			printf( "S%d esperando capitao\n", my_number );
+			pthread_barrier_wait( &barrier3 );
+		}
+		printf( "S%d Fim\n", my_number );
 	}
 	return NULL;
 }
@@ -177,8 +205,6 @@ void *serf_do_something( void *args ) {
 void board( const char *string, const unsigned int number ) {
 	printf( "%s \t %d on board\n", string, number );
 	fflush( stdout );
-
-	sem_post( &barrier );
 }
 
 void row_boat( const char *string, const unsigned int number ) {
@@ -189,5 +215,4 @@ void row_boat( const char *string, const unsigned int number ) {
 void destroy_semaphores(){
 	sem_destroy(&hacker_queue);
 	sem_destroy(&serf_queue);
-	sem_destroy(&barrier);
 }
