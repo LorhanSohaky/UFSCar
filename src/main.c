@@ -46,7 +46,6 @@ void row_boat( const char *string, const unsigned int number );
 
 void destroy_semaphores();
 
-void get_to_starting_barrier( const char *string, const unsigned int number );
 void get_to_barrier( const char *string, const unsigned int number );
 
 int main() {
@@ -132,7 +131,6 @@ void *hacker_do_something( void *args ) {
                 sem_post( &hacker_queue );
             }
             hackers = 0;
-            //printf("I got a hacker captain. 4 hackers on boat\n");
             is_captain = true;
         } else if ( hackers == MAX_THREADS_PER_BOAT / 2 && serfs >= MAX_THREADS_PER_BOAT / 2 ) {
             for ( int i = 0; i < MAX_THREADS_PER_BOAT / 2; i++ ) {
@@ -152,8 +150,7 @@ void *hacker_do_something( void *args ) {
         sem_wait( &hacker_queue );
 
         board( "Hacker", my_number );
-        //get_to_barrier("Hacker", my_number);
-        pthread_barrier_wait( &_barrier );
+        get_to_barrier("Hacker", my_number);
 
         
         if ( is_captain ) {
@@ -198,9 +195,7 @@ void *serf_do_something( void *args ) {
         sem_wait( &serf_queue );
 
         board( "Serf", my_number );
-
-        pthread_barrier_wait( &_barrier );
-        //get_to_barrier("Serf", my_number);
+        get_to_barrier("Serf", my_number);
 
         
         if ( is_captain ) {
@@ -231,23 +226,6 @@ void destroy_semaphores(){
     pthread_barrier_destroy(&_barrier);
 }
 
-void get_to_starting_barrier( const char *string, const unsigned int number ) {
-    int result;
-    char err_msg[LEN];
-    /*barreira para esperar todas as threads chegarem antes de começarmos*/
-    pthread_mutex_lock( &mutex );
-    printf( "%s %d got to the starting barrier\n", string, number);
-    fflush(stdout);
-    pthread_mutex_unlock( &mutex );
-    result=pthread_barrier_wait( &_barrier );
-    if(result>0) {
-        strerror_r(result,err_msg,LEN);
-        printf("Th %u - erro em barrier_wait: %s\n",number,err_msg);
-    }
-    /**********************************************************************/
-
-}
-
 void get_to_barrier( const char *string, const unsigned int number ) {
     int result;
     char err_msg[LEN];
@@ -256,5 +234,4 @@ void get_to_barrier( const char *string, const unsigned int number ) {
         strerror_r(result,err_msg,LEN);
         printf("Th %u - erro em barrier_wait: %s\n",number,err_msg);
     }
-
 }
