@@ -66,7 +66,7 @@ void init_barrier() {
 
 void init_semaphores() {
 	sem_init( &hacker_queue, 0, MAX_HACKERS );
-	sem_init( &hacker_queue, 0, MAX_SERFS );
+	sem_init( &serf_queue, 0, MAX_SERFS );
 	init_barrier();
 }
 
@@ -122,7 +122,7 @@ void *hacker_do_something( void *args ) {
 			}
 			hackers	= 0;
 			is_captain = true;
-			//printf( "H Captain1 %d\n", my_number );
+			// printf( "H Captain1 %d\n", my_number );
 		} else if( hackers == MAX_THREADS_PER_BOAT / 2 && serfs >= MAX_THREADS_PER_BOAT / 2 ) {
 			for( int i = 0; i < MAX_THREADS_PER_BOAT / 2; i++ ) {
 				sem_post( &hacker_queue );
@@ -133,7 +133,7 @@ void *hacker_do_something( void *args ) {
 			serfs -= MAX_THREADS_PER_BOAT / 2;
 			hackers	= 0;
 			is_captain = true;
-			//printf( "H Captain2 %d\n", my_number );
+			// printf( "H Captain2 %d\n", my_number );
 		} else {
 			pthread_mutex_unlock( &mutex );
 		}
@@ -188,7 +188,7 @@ void *serf_do_something( void *args ) {
 			hackers -= MAX_THREADS_PER_BOAT / 2;
 			serfs	  = 0;
 			is_captain = true;
-			//printf( "S Captain2 %d\n", my_number );
+			// printf( "S Captain2 %d\n", my_number );
 		} else {
 			pthread_mutex_unlock( &mutex );
 		}
