@@ -73,8 +73,8 @@ void init_barrier(){
 }
 
 void init_semaphores(){
-    sem_init( &hacker_queue, 0, MAX_HACKERS );
-    sem_init( &serf_queue, 0, MAX_SERFS) ;
+    sem_init( &hacker_queue, 0, 0 );
+    sem_init( &serf_queue, 0, 0) ;
     init_barrier();
 }
 
@@ -132,6 +132,7 @@ void *hacker_do_something( void *args ) {
                 sem_post( &hacker_queue );
             }
             hackers = 0;
+            //printf("I got a hacker captain. 4 hackers on boat\n");
             is_captain = true;
         } else if ( hackers == MAX_THREADS_PER_BOAT / 2 && serfs >= MAX_THREADS_PER_BOAT / 2 ) {
             for ( int i = 0; i < MAX_THREADS_PER_BOAT / 2; i++ ) {
@@ -149,8 +150,10 @@ void *hacker_do_something( void *args ) {
         }
 
         sem_wait( &hacker_queue );
+
         board( "Hacker", my_number );
-        get_to_barrier("Hacker", my_number);
+        //get_to_barrier("Hacker", my_number);
+        pthread_barrier_wait( &_barrier );
 
         
         if ( is_captain ) {
@@ -158,7 +161,8 @@ void *hacker_do_something( void *args ) {
             printf( "---------------------------------------------------------\n" );
             fflush(stdout);
             pthread_mutex_unlock( &mutex );
-        }        sleep(5);
+        }        
+        sleep(5);
     }
     return NULL;
 }
@@ -192,8 +196,11 @@ void *serf_do_something( void *args ) {
         }
 
         sem_wait( &serf_queue );
+
         board( "Serf", my_number );
-        get_to_barrier("Serf", my_number);
+
+        pthread_barrier_wait( &_barrier );
+        //get_to_barrier("Serf", my_number);
 
         
         if ( is_captain ) {
