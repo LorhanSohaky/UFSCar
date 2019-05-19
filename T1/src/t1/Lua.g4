@@ -73,27 +73,27 @@ chamadadefuncao:
 args:
 	'(' (listaexp)? ')'
 	| construtortabela
-	| Cadeia; //argumentos para funções, tabelas e cadeias
+	| Cadeia; //Passa argumentos para funções por listas, tabelas ou cadeias
 
 funcao: 'function' corpodafuncao; //declarar uma função
 
 Cadeia:
 	'\'' (~('\'' | '\n'))* '\''; //cadeia de caracteres envoltas por aspas simples
 
-corpodafuncao: '(' (listapar)? ')' bloco 'end';
+corpodafuncao: '(' (listapar)? ')' bloco 'end'; //Determina lista de parametros passados à função e seu fim (end)
 
-listapar: listadenomes (',' '...')? | '...';
+listapar: listadenomes (',' '...')? | '...'; //Lista de parâmetros
 
-construtortabela: '{' (listadecampos)? '}';
+construtortabela: '{' (listadecampos)? '}'; //Lista de campos que será passada como argumento. Exemplo: f{campos} = f({campos})
 
-listadecampos:
+listadecampos: //Lista de campos
 	campo (separadordecampos campo)* (separadordecampos)?;
 
-campo: '[' exp ']' '=' exp | nomeVar '=' exp | exp;
+campo: '[' exp ']' '=' exp | nomeVar '=' exp | exp; //Definição de campo (espaço que é preenchido por pelo menos uma exp)
 
-separadordecampos: ',' | ';';
+separadordecampos: ',' | ';'; //Delimitador de campos
 
-opbin:
+opbin: //Operadores binários
 	'+'
 	| '-'
 	| '*'
@@ -110,9 +110,9 @@ opbin:
 	| 'and'
 	| 'or';
 
-opunaria: '-' | 'not' | '#';
+opunaria: '-' | 'not' | '#'; //Operadores unários
 
-Comentario: '--' .*? '\n' -> skip;
+Comentario: '--' .*? '\n' -> skip; //Ignora comentários de linha única (denotados por '--')
 
 Decimal: Numero+ ('.' Numero+)?;
 Num: Decimal;
@@ -123,4 +123,4 @@ nomeVar:
 nomeFuncao:
 	Nome {TabelaDeSimbolos.adicionarSimbolo($Nome.text, Tipo.FUNCAO);};
 
-Format: ('\n' | '\t' | '\r' | ' ') -> skip;
+Format: ('\n' | '\t' | '\r' | ' ') -> skip; //Ignora whitespaces e indentações
