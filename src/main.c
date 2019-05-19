@@ -74,7 +74,7 @@ void init_barrier(){
 
 void init_semaphores(){
     sem_init( &hacker_queue, 0, MAX_HACKERS );
-    sem_init( &hacker_queue, 0, MAX_SERFS) ;
+    sem_init( &serf_queue, 0, MAX_SERFS) ;
     init_barrier();
 }
 
