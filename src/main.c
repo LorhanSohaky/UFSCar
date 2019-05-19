@@ -122,19 +122,6 @@ void join_threads() {
 
 void *hacker_do_something( void *args ) {
     while( true ){
-
-        //get_to_starting_barrier("Hacker",(unsigned long)args);
-        /*barreira para esperar todas as threads chegarem antes de começarmos
-          pthread_mutex_lock( &mutex );
-          printf("Hacker %lu got in the barrier\n", (unsigned long)args);
-          fflush(stdout);
-          pthread_mutex_unlock( &mutex );
-          result=pthread_barrier_wait(&_barrier);
-          if(result>0) {
-          strerror_r(result,err_msg,LEN);
-          printf("Th %ld - erro em barrier_wait: %s\n",(long)args,err_msg);
-          }
-         **********************************************************************/
         pthread_mutex_lock( &mutex );
         unsigned int my_number = (long int)args;
         bool is_captain = false;
@@ -146,7 +133,6 @@ void *hacker_do_something( void *args ) {
             }
             hackers = 0;
             is_captain = true;
-            //printf( "H Captain1 %d\n", my_number );
         } else if ( hackers == MAX_THREADS_PER_BOAT / 2 && serfs >= MAX_THREADS_PER_BOAT / 2 ) {
             for ( int i = 0; i < MAX_THREADS_PER_BOAT / 2; i++ ) {
                 sem_post( &hacker_queue );
@@ -157,7 +143,6 @@ void *hacker_do_something( void *args ) {
             serfs -= MAX_THREADS_PER_BOAT / 2;
             hackers = 0;
             is_captain = true;
-            //printf( "H Captain2 %d\n", my_number );
         } else {
             is_captain = false;
             pthread_mutex_unlock( &mutex );
@@ -165,47 +150,21 @@ void *hacker_do_something( void *args ) {
 
         sem_wait( &hacker_queue );
         board( "Hacker", my_number );
-        //pthread_barrier_wait( &barrier );
         get_to_barrier("Hacker", my_number);
 
-        /*
-           printf( "Hacker %d passed the barrier\n", my_number );
-           fflush(stdout);*/
-
-        //pthread_barrier_wait( &barrier2 );
+        
         if ( is_captain ) {
             row_boat( "Hacker", my_number );
-            //printf( "H%d capitao chegou\n", my_number );
             printf( "---------------------------------------------------------\n" );
             fflush(stdout);
-            //pthread_barrier_wait( &barrier3 );
             pthread_mutex_unlock( &mutex );
-        } else {
-            //printf( "H%d esperando capitao\n", my_number );
-            //pthread_barrier_wait( &barrier3 );
-        }
-        //printf( "H%d Fim\n", my_number );
-        sleep(5);
+        }        sleep(5);
     }
     return NULL;
 }
 
 void *serf_do_something( void *args ) {
     while( true ){
-        //get_to_starting_barrier("Serf",(unsigned long)args);
-        /*barreira para esperar todas as threads chegarem antes de começarmos
-          pthread_mutex_lock( &mutex );
-          printf("Serf %lu got in the barrier\n", (unsigned long)args);
-          fflush(stdout);
-          pthread_mutex_unlock( &mutex );
-          result=pthread_barrier_wait(&_barrier);
-          if(result>0) {
-          strerror_r(result,err_msg,LEN);
-          printf("Th %ld - erro em barrier_wait: %s\n",(long)args,err_msg);
-          }
-         **********************************************************************/
-
-        //get_to_starting_barrier("Serf",(unsigned long)args);
         pthread_mutex_lock( &mutex );
         unsigned int my_number = (long int)args;
         bool is_captain = false;
@@ -217,7 +176,6 @@ void *serf_do_something( void *args ) {
             }
             serfs = 0;
             is_captain = true;
-            //printf( "S Captain1 %d\n", my_number );
         } else if ( serfs == MAX_THREADS_PER_BOAT / 2 && hackers >= MAX_THREADS_PER_BOAT / 2 ) {
             for ( int i = 0; i < MAX_THREADS_PER_BOAT / 2; i++ ) {
                 sem_post( &serf_queue );
@@ -228,7 +186,6 @@ void *serf_do_something( void *args ) {
             hackers -= MAX_THREADS_PER_BOAT / 2;
             serfs = 0;
             is_captain = true;
-            //printf( "S Captain2 %d\n", my_number );
         } else {
             is_captain = false;
             pthread_mutex_unlock( &mutex );
@@ -236,26 +193,15 @@ void *serf_do_something( void *args ) {
 
         sem_wait( &serf_queue );
         board( "Serf", my_number );
-        //pthread_barrier_wait( &barrier );
         get_to_barrier("Serf", my_number);
 
-        /*
-           printf( "Serf %d passed the barrier\n", my_number );
-           fflush(stdout);*/
-
-        //pthread_barrier_wait( &barrier2 );
+        
         if ( is_captain ) {
             row_boat( "Serf", my_number );
-            //printf( "S%d capitao chegou\n", my_number );
             printf( "---------------------------------------------------------\n" );
             fflush(stdout);
-            //pthread_barrier_wait( &barrier3 );
             pthread_mutex_unlock( &mutex );
-        } else {
-            //printf( "S%d esperando capitao\n", my_number );
-            //pthread_barrier_wait( &barrier3 );
         }
-        //printf( "S%d Fim\n", my_number );
         sleep(5);
     }
     return NULL;
@@ -298,14 +244,10 @@ void get_to_starting_barrier( const char *string, const unsigned int number ) {
 void get_to_barrier( const char *string, const unsigned int number ) {
     int result;
     char err_msg[LEN];
-    /*barreira para esperar todas as threads chegarem antes de começarmos*/
-    //printf( "%s %d got to the starting barrier\n", string, number);
-    //fflush(stdout);
     result=pthread_barrier_wait( &_barrier );
     if(result>0) {
         strerror_r(result,err_msg,LEN);
         printf("Th %u - erro em barrier_wait: %s\n",number,err_msg);
     }
-    /**********************************************************************/
 
 }
