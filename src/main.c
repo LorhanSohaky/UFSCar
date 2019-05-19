@@ -38,7 +38,6 @@ void row_boat( const char *string, const unsigned int number );
 
 void destroy_semaphores();
 
-void get_to_starting_barrier( const char *string, const unsigned int number );
 void get_to_barrier( const char *string, const unsigned int number );
 
 int main() {
@@ -64,10 +63,10 @@ void init_barrier() {
 	pthread_barrier_init( &_barrier, NULL, MAX_THREADS_PER_BOAT );
 }
 
-void init_semaphores() {
-	sem_init( &hacker_queue, 0, MAX_HACKERS );
-	sem_init( &serf_queue, 0, MAX_SERFS );
-	init_barrier();
+void init_semaphores(){
+    sem_init( &hacker_queue, 0, 0 );
+    sem_init( &serf_queue, 0, 0) ;
+    init_barrier();
 }
 
 void create_threads() {
@@ -110,113 +109,93 @@ void join_threads() {
 }
 
 void *hacker_do_something( void *args ) {
-	while( true ) {
-		pthread_mutex_lock( &mutex );
-		unsigned int my_number  = (long int)args;
-		bool		 is_captain = false;
-		hackers++;
+    while( true ){
+        pthread_mutex_lock( &mutex );
+        unsigned int my_number = (long int)args;
+        bool is_captain = false;
+        hackers++;
 
-		if( hackers == MAX_THREADS_PER_BOAT ) {
-			for( int i = 0; i < MAX_THREADS_PER_BOAT; i++ ) {
-				sem_post( &hacker_queue );
-			}
-			hackers	= 0;
-			is_captain = true;
-			// printf( "H Captain1 %d\n", my_number );
-		} else if( hackers == MAX_THREADS_PER_BOAT / 2 && serfs >= MAX_THREADS_PER_BOAT / 2 ) {
-			for( int i = 0; i < MAX_THREADS_PER_BOAT / 2; i++ ) {
-				sem_post( &hacker_queue );
-			}
-			for( int i = 0; i < MAX_THREADS_PER_BOAT / 2; i++ ) {
-				sem_post( &serf_queue );
-			}
-			serfs -= MAX_THREADS_PER_BOAT / 2;
-			hackers	= 0;
-			is_captain = true;
-			// printf( "H Captain2 %d\n", my_number );
-		} else {
-			pthread_mutex_unlock( &mutex );
-		}
+        if ( hackers == MAX_THREADS_PER_BOAT ) {
+            for( int i = 0; i < MAX_THREADS_PER_BOAT; i++ ) {
+                sem_post( &hacker_queue );
+            }
+            hackers = 0;
+            is_captain = true;
+        } else if ( hackers == MAX_THREADS_PER_BOAT / 2 && serfs >= MAX_THREADS_PER_BOAT / 2 ) {
+            for ( int i = 0; i < MAX_THREADS_PER_BOAT / 2; i++ ) {
+                sem_post( &hacker_queue );
+            }
+            for ( int i = 0; i < MAX_THREADS_PER_BOAT / 2; i++ ) {
+                sem_post( &serf_queue );
+            }
+            serfs -= MAX_THREADS_PER_BOAT / 2;
+            hackers = 0;
+            is_captain = true;
+        } else {
+            is_captain = false;
+            pthread_mutex_unlock( &mutex );
+        }
 
-		sem_wait( &hacker_queue );
-		board( "Hacker", my_number );
-		// pthread_barrier_wait( &barrier );
-		get_to_barrier( "Hacker", my_number );
+        sem_wait( &hacker_queue );
 
-		/*
-		   printf( "Hacker %d passed the barrier\n", my_number );
-		   fflush(stdout);*/
+        board( "Hacker", my_number );
+        get_to_barrier("Hacker", my_number);
 
-		// pthread_barrier_wait( &barrier2 );
-		if( is_captain ) {
-			// pthread_barrier_wait( &barrier3 );
-			row_boat( "Hacker", my_number );
-			// printf( "H%d capitao chegou\n", my_number );
-			printf( "---------------------------------------------------------\n" );
-			fflush( stdout );
-			pthread_mutex_unlock( &mutex );
-		} else {
-			// printf( "H%d esperando capitao\n", my_number );
-			// pthread_barrier_wait( &barrier3 );
-		}
-		// printf( "H%d Fim\n", my_number );
-	}
-	return NULL;
+        
+        if ( is_captain ) {
+            row_boat( "Hacker", my_number );
+            printf( "---------------------------------------------------------\n" );
+            fflush(stdout);
+            pthread_mutex_unlock( &mutex );
+        }        
+        sleep(5);
+    }
+    return NULL;
 }
 
 void *serf_do_something( void *args ) {
-	while( true ) {
-		pthread_mutex_lock( &mutex );
-		unsigned int my_number  = (long int)args;
-		bool		 is_captain = false;
-		serfs++;
+    while( true ){
+        pthread_mutex_lock( &mutex );
+        unsigned int my_number = (long int)args;
+        bool is_captain = false;
+        serfs++;
 
-		if( serfs == MAX_THREADS_PER_BOAT ) {
-			for( int i = 0; i < MAX_THREADS_PER_BOAT; i++ ) {
-				sem_post( &serf_queue );
-			}
-			serfs	  = 0;
-			is_captain = true;
-			// printf( "S Captain1 %d\n", my_number );
-		} else if( serfs == MAX_THREADS_PER_BOAT / 2 && hackers > MAX_THREADS_PER_BOAT / 2 ) {
-			for( int i = 0; i < MAX_THREADS_PER_BOAT / 2; i++ ) {
-				sem_post( &serf_queue );
-			}
-			for( int i = 0; i < MAX_THREADS_PER_BOAT / 2; i++ ) {
-				sem_post( &hacker_queue );
-			}
-			hackers -= MAX_THREADS_PER_BOAT / 2;
-			serfs	  = 0;
-			is_captain = true;
-			// printf( "S Captain2 %d\n", my_number );
-		} else {
-			pthread_mutex_unlock( &mutex );
-		}
+        if ( serfs == MAX_THREADS_PER_BOAT ) {
+            for( int i = 0; i < MAX_THREADS_PER_BOAT; i++ ) {
+                sem_post( &serf_queue );
+            }
+            serfs = 0;
+            is_captain = true;
+        } else if ( serfs == MAX_THREADS_PER_BOAT / 2 && hackers >= MAX_THREADS_PER_BOAT / 2 ) {
+            for ( int i = 0; i < MAX_THREADS_PER_BOAT / 2; i++ ) {
+                sem_post( &serf_queue );
+            }
+            for ( int i = 0; i < MAX_THREADS_PER_BOAT / 2; i++ ) {
+                sem_post( &hacker_queue );
+            }
+            hackers -= MAX_THREADS_PER_BOAT / 2;
+            serfs = 0;
+            is_captain = true;
+        } else {
+            is_captain = false;
+            pthread_mutex_unlock( &mutex );
+        }
 
-		sem_wait( &serf_queue );
-		board( "Serf", my_number );
-		// pthread_barrier_wait( &barrier );
-		get_to_barrier( "Serf", my_number );
+        sem_wait( &serf_queue );
 
-		/*
-		   printf( "Serf %d passed the barrier\n", my_number );
-		   fflush(stdout);*/
+        board( "Serf", my_number );
+        get_to_barrier("Serf", my_number);
 
-		// pthread_barrier_wait( &barrier2 );
-		if( is_captain ) {
-			// pthread_barrier_wait( &barrier3 );
-			row_boat( "Serf", my_number );
-			// printf( "S%d capitao chegou\n", my_number );
-			printf( "---------------------------------------------------------\n" );
-			fflush( stdout );
-			pthread_mutex_unlock( &mutex );
-		} else {
-			// printf( "S%d esperando capitao\n", my_number );
-			// pthread_barrier_wait( &barrier3 );
-		}
-		// printf( "S%d Fim\n", my_number );
-	}
-	return NULL;
+        
+        if ( is_captain ) {
+            row_boat( "Serf", my_number );
+            printf( "---------------------------------------------------------\n" );
+            fflush(stdout);
+            pthread_mutex_unlock( &mutex );
+        }
+        sleep(5);
+    }
+    return NULL;
 }
 
 void board( const char *string, const unsigned int number ) {
@@ -236,32 +215,12 @@ void destroy_semaphores() {
 	pthread_barrier_destroy( &_barrier );
 }
 
-void get_to_starting_barrier( const char *string, const unsigned int number ) {
-	int  result;
-	char err_msg[LEN];
-	/*barreira para esperar todas as threads chegarem antes de começarmos*/
-	pthread_mutex_lock( &mutex );
-	printf( "%s %d got to the starting barrier\n", string, number );
-	fflush( stdout );
-	pthread_mutex_unlock( &mutex );
-	result = pthread_barrier_wait( &_barrier );
-	if( result > 0 ) {
-		strerror_r( result, err_msg, LEN );
-		printf( "Th %u - erro em barrier_wait: %s\n", number, err_msg );
-	}
-	/**********************************************************************/
-}
-
 void get_to_barrier( const char *string, const unsigned int number ) {
-	int  result;
-	char err_msg[LEN];
-	/*barreira para esperar todas as threads chegarem antes de começarmos*/
-	// printf( "%s %d got to the starting barrier\n", string, number);
-	// fflush(stdout);
-	result = pthread_barrier_wait( &_barrier );
-	if( result > 0 ) {
-		strerror_r( result, err_msg, LEN );
-		printf( "Th %u - erro em barrier_wait: %s\n", number, err_msg );
-	}
-	/**********************************************************************/
+    int result;
+    char err_msg[LEN];
+    result=pthread_barrier_wait( &_barrier );
+    if(result>0) {
+        strerror_r(result,err_msg,LEN);
+        printf("Th %u - erro em barrier_wait: %s\n",number,err_msg);
+    }
 }
