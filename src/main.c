@@ -42,12 +42,12 @@ void destroy_semaphores_and_barrier();
 void get_to_barrier( const char *string, const unsigned int number );
 
 int main() {
-    printf( "******************************\n" );
-    printf( "*Problema da travessia do rio*\n" );
-    printf( "******************************\n\n" );
-    printf( "Hackers e Serfs serão representados por threads\n" );
-    printf( "Número de hackers:\t%d\n", MAX_HACKERS );
-    printf( "Número de serfs:\t%d\n", MAX_SERFS );
+    printf( "************************\n" );
+    printf( "*River Crossing Problem*\n" );
+    printf( "************************\n\n" );
+    printf( "Hackers and Serfs will be represented by threads\n" );
+    printf( "Number of hackers:\t%d\n", MAX_HACKERS );
+    printf( "Number of serfs:\t%d\n", MAX_SERFS );
     pthread_mutex_init( &mutex,NULL );
 	init_semaphores();
     sleep(5);
