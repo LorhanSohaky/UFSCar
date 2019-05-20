@@ -49,6 +49,10 @@ void destroy_semaphores();
 void get_to_barrier( const char *string, const unsigned int number );
 
 int main() {
+    printf("Problema da travessia do rio\n\n");
+    printf("Hackers e Serfs serão representados por threads\n");
+    printf("Número de hackers:\t%d\n", MAX_HACKERS);
+    printf("Número de serfs:\t%d\n", MAX_SERFS);
     pthread_mutex_init(&mutex,NULL);
     pthread_barrier_init( &barrier, NULL, MAX_THREADS_PER_BOAT );
     pthread_barrier_init( &barrier2, NULL, MAX_THREADS_PER_BOAT );
