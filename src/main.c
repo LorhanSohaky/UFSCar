@@ -16,7 +16,7 @@ pthread_t hackers_t[MAX_HACKERS];
 pthread_t serfs_t[MAX_SERFS];
 
 pthread_mutex_t   mutex;
-pthread_barrier_t _barrier, barrier, barrier2, barrier3;
+pthread_barrier_t barrier;
 
 sem_t hacker_queue;
 sem_t serf_queue;
@@ -36,7 +36,7 @@ void *serf_do_something( void *args );
 void board( const char *string, const unsigned int number );
 void row_boat( const char *string, const unsigned int number );
 
-void destroy_semaphores();
+void destroy_semaphores_and_barrier();
 
 void get_to_barrier( const char *string, const unsigned int number );
 
@@ -46,25 +46,18 @@ int main() {
     printf( "Número de hackers:\t%d\n", MAX_HACKERS );
     printf( "Número de serfs:\t%d\n", MAX_SERFS );
     pthread_mutex_init( &mutex,NULL );
-    pthread_barrier_init( &barrier, NULL, MAX_THREADS_PER_BOAT );
-    pthread_barrier_init( &barrier2, NULL, MAX_THREADS_PER_BOAT );
-    pthread_barrier_init( &barrier3, NULL, MAX_THREADS_PER_BOAT );
-
 	init_semaphores();
 
 	create_threads();
 	join_threads();
 
-	destroy_semaphores();
-	pthread_barrier_destroy( &barrier );
-	pthread_barrier_destroy( &barrier2 );
-	pthread_barrier_destroy( &barrier3 );
+	destroy_semaphores_and_barrier();
 
 	return 0;
 }
 
 void init_barrier() {
-	pthread_barrier_init( &_barrier, NULL, MAX_THREADS_PER_BOAT );
+	pthread_barrier_init( &barrier, NULL, MAX_THREADS_PER_BOAT );
 }
 
 void init_semaphores() {
@@ -211,16 +204,16 @@ void row_boat( const char *string, const unsigned int number ) {
 	fflush( stdout );
 }
 
-void destroy_semaphores() {
+void destroy_semaphores_and_barrier() {
 	sem_destroy( &hacker_queue );
 	sem_destroy( &serf_queue );
-	pthread_barrier_destroy( &_barrier );
+	pthread_barrier_destroy( &barrier );
 }
 
 void get_to_barrier( const char *string, const unsigned int number ) {
 	int  result;
 	char err_msg[LEN];
-	result = pthread_barrier_wait( &_barrier );
+	result = pthread_barrier_wait( &barrier );
 	if( result > 0 ) {
 		strerror_r( result, err_msg, LEN );
 		printf( "Th %u - erro em barrier_wait: %s\n", number, err_msg );
