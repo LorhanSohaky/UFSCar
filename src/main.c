@@ -23,7 +23,7 @@ sem_t serf_queue;
 
 unsigned int hackers = 0;
 unsigned int serfs   = 0;
-unsigned int sail    = 0;
+unsigned int sail	= 0;
 
 unsigned long int ID_NUMBER = 0;
 
@@ -42,15 +42,15 @@ void destroy_semaphores_and_barrier();
 void get_to_barrier( const char *string, const unsigned int number );
 
 int main() {
-    printf( "************************\n" );
-    printf( "*River Crossing Problem*\n" );
-    printf( "************************\n\n" );
-    printf( "Hackers and Serfs will be represented by threads\n" );
-    printf( "Number of hackers:\t%d\n", MAX_HACKERS );
-    printf( "Number of serfs:\t%d\n", MAX_SERFS );
-    pthread_mutex_init( &mutex,NULL );
+	printf( "************************\n" );
+	printf( "*River Crossing Problem*\n" );
+	printf( "************************\n\n" );
+	printf( "Hackers and Serfs will be represented by threads\n" );
+	printf( "Number of hackers:\t%d\n", MAX_HACKERS );
+	printf( "Number of serfs:\t%d\n", MAX_SERFS );
+	pthread_mutex_init( &mutex, NULL );
 	init_semaphores();
-    sleep(5);
+	sleep( 5 );
 
 	create_threads();
 	join_threads();
@@ -114,7 +114,7 @@ void *hacker_do_something( void *args ) {
 		pthread_mutex_lock( &mutex );
 		unsigned int my_number  = (long int)args;
 		bool		 is_captain = false;
-        int condition;
+		int			 condition;
 		hackers++;
 
 		if( hackers == MAX_THREADS_PER_BOAT ) {
@@ -123,22 +123,22 @@ void *hacker_do_something( void *args ) {
 			}
 			hackers	= 0;
 			is_captain = true;
-            condition = 0;
+			condition  = 0;
 		} else if( hackers == MAX_THREADS_PER_BOAT / 2 && serfs >= MAX_THREADS_PER_BOAT / 2 ) {
-            condition = 0;
+			condition = 0;
 			for( int i = 0; i < MAX_THREADS_PER_BOAT / 2; i++ ) {
 				sem_post( &hacker_queue );
 			}
 			for( int i = 0; i < MAX_THREADS_PER_BOAT / 2; i++ ) {
 				sem_post( &serf_queue );
 			}
-            if( serfs > 2 ) {
-                condition = 1;
-            }
+			if( serfs > 2 ) {
+				condition = 1;
+			}
 			serfs -= MAX_THREADS_PER_BOAT / 2;
 			hackers	= 0;
 			is_captain = true;
-            condition++;
+			condition++;
 		} else {
 			is_captain = false;
 			pthread_mutex_unlock( &mutex );
@@ -151,17 +151,17 @@ void *hacker_do_something( void *args ) {
 
 		if( is_captain ) {
 			row_boat( "Hacker", my_number );
-            if( !condition ) {
-                printf( "Hackers available:\t%d\n", MAX_HACKERS - 4 );
-                printf( "Serfs available:\t%d\n", MAX_SERFS );
-            } else if( condition == 1 ) {
-                printf( "Hackers available:\t%d\n", MAX_HACKERS - 2 );
-                printf( "Serfs available:\t%d\n", MAX_SERFS - 2 );
-            } else {
-                printf("!Warning!\nThere were more than 2 serfs waiting, 1 could not sail.\n");
-                printf( "Hackers available:\t%d\n", MAX_HACKERS - 2 );
-                printf( "Serfs available:\t%d\n", MAX_SERFS - 2 );
-            }
+			if( !condition ) {
+				printf( "Hackers available:\t%d\n", MAX_HACKERS - 4 );
+				printf( "Serfs available:\t%d\n", MAX_SERFS );
+			} else if( condition == 1 ) {
+				printf( "Hackers available:\t%d\n", MAX_HACKERS - 2 );
+				printf( "Serfs available:\t%d\n", MAX_SERFS - 2 );
+			} else {
+				printf( "!Warning!\nThere were more than 2 serfs waiting, 1 could not sail.\n" );
+				printf( "Hackers available:\t%d\n", MAX_HACKERS - 2 );
+				printf( "Serfs available:\t%d\n", MAX_SERFS - 2 );
+			}
 			printf( "---------------------------------------------------------\n" );
 			fflush( stdout );
 			pthread_mutex_unlock( &mutex );
@@ -176,7 +176,7 @@ void *serf_do_something( void *args ) {
 		pthread_mutex_lock( &mutex );
 		unsigned int my_number  = (long int)args - MAX_HACKERS;
 		bool		 is_captain = false;
-        int condition;
+		int			 condition;
 		serfs++;
 
 		if( serfs == MAX_THREADS_PER_BOAT ) {
@@ -185,23 +185,23 @@ void *serf_do_something( void *args ) {
 			}
 			serfs	  = 0;
 			is_captain = true;
-            condition = 0;
+			condition  = 0;
 		} else if( serfs == MAX_THREADS_PER_BOAT / 2 && hackers >= MAX_THREADS_PER_BOAT / 2 ) {
-            condition = 0;
+			condition = 0;
 			for( int i = 0; i < MAX_THREADS_PER_BOAT / 2; i++ ) {
 				sem_post( &serf_queue );
 			}
 			for( int i = 0; i < MAX_THREADS_PER_BOAT / 2; i++ ) {
 				sem_post( &hacker_queue );
 			}
-            if( hackers > 2 ) {
-                condition = 1;
-            }
+			if( hackers > 2 ) {
+				condition = 1;
+			}
 
 			hackers -= MAX_THREADS_PER_BOAT / 2;
 			serfs	  = 0;
 			is_captain = true;
-            condition++;
+			condition++;
 		} else {
 			is_captain = false;
 			pthread_mutex_unlock( &mutex );
@@ -214,17 +214,17 @@ void *serf_do_something( void *args ) {
 
 		if( is_captain ) {
 			row_boat( "Serf", my_number );
-            if( !condition ) {
-                printf( "Hackers available:\t%d\n", MAX_HACKERS );
-                printf( "Serfs available:\t%d\n", MAX_SERFS - 4 );
-            } else if ( condition == 1 ){
-                printf( "Hackers available:\t%d\n", MAX_HACKERS - 2 );
-                printf( "Serfs available:\t%d\n", MAX_SERFS - 2 );
-            } else {
-                printf( "Hackers available:\t%d\n", MAX_HACKERS - 2 );
-                printf( "Serfs available:\t%d\n", MAX_SERFS - 2 );
-                printf( "!Warning!\nThere were more than 2 hackers waiting, 1 could not sail.\n");
-            }
+			if( !condition ) {
+				printf( "Hackers available:\t%d\n", MAX_HACKERS );
+				printf( "Serfs available:\t%d\n", MAX_SERFS - 4 );
+			} else if( condition == 1 ) {
+				printf( "Hackers available:\t%d\n", MAX_HACKERS - 2 );
+				printf( "Serfs available:\t%d\n", MAX_SERFS - 2 );
+			} else {
+				printf( "Hackers available:\t%d\n", MAX_HACKERS - 2 );
+				printf( "Serfs available:\t%d\n", MAX_SERFS - 2 );
+				printf( "!Warning!\nThere were more than 2 hackers waiting, 1 could not sail.\n" );
+			}
 			printf( "---------------------------------------------------------\n" );
 			fflush( stdout );
 			pthread_mutex_unlock( &mutex );
@@ -241,7 +241,7 @@ void board( const char *string, const unsigned int number ) {
 
 void row_boat( const char *string, const unsigned int number ) {
 	printf( "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n" );
-    printf( "Sail no. #%u\n", ++sail );
+	printf( "Sail no. #%u\n", ++sail );
 	printf( "%s \t %d got the oars\n", string, number );
 	fflush( stdout );
 }
