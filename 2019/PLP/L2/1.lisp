@@ -1,0 +1,10 @@
+(defun reversa (lista)
+	(cond	((null lista) NILL)
+			((null  (cdr lista)) lista)
+			(t (append (reversa(cdr lista )) (list (car lista))))
+	)
+)
+
+(defun palindromize(lista)
+	(append lista (reversa lista))
+)

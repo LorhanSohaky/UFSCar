@@ -1,0 +1,6 @@
+(defun apaga (E L)
+	(do ((aux L (cdr aux)) (res '()))
+		((null aux) res)
+		(when (not (equal (car aux) E)) (setq res (append res (list (car aux)))))
+	)
+)

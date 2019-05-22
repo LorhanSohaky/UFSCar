@@ -1,0 +1,7 @@
+(defun troca (E F L)
+	(cond	((null L) nil)
+			((listp (car L)) (cons (troca E F (car L)) (troca E F (cdr L))))
+			((equal (car L) E) (cons F (troca E F (cdr L))))
+			(t (cons (car L) (troca E F (cdr L))))
+	)
+)
