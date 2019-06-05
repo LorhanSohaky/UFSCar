@@ -58,5 +58,13 @@ public class LuazinhaSemanticAnalyzer extends LuazinhaBaseVisitor<Void> {
 //    }
     
 
-
+    public Void visitComandoFunction(LuazinhaParser.ComandoFunctionContext ctx){
+        pilhaDeTabelas.empilhar(new TabelaDeSimbolos(ctx.nomedafuncao().nome));
+        
+        super.visitComandoFunction(ctx);
+        
+        pilhaDeTabelas.desempilhar();
+        return null;
+        
+    }
 }
