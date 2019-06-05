@@ -67,4 +67,15 @@ public class LuazinhaSemanticAnalyzer extends LuazinhaBaseVisitor<Void> {
         return null;
         
     }
+    
+    public Void visitListavar(LuazinhaParser.ListavarContext ctx){
+        TabelaDeSimbolos tabela= pilhaDeTabelas.topo();
+        
+        tabela.adicionarSimbolos(ctx.nomes,"variavel");
+
+        super.visitListavar(ctx);
+        return null;
+        
+    }
+    
 }
