@@ -71,6 +71,8 @@ public class LuazinhaSemanticAnalyzer extends LuazinhaBaseVisitor<Void> {
     public Void visitListavar(LuazinhaParser.ListavarContext ctx){
         TabelaDeSimbolos tabela= pilhaDeTabelas.topo();
         
+        // TODO talvez precise verificar se uma das variáveis existe num dos escopos acima
+        
         tabela.adicionarSimbolos(ctx.nomes,"variavel");
 
         super.visitListavar(ctx);
