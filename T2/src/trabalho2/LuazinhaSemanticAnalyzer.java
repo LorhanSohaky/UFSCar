@@ -80,4 +80,13 @@ public class LuazinhaSemanticAnalyzer extends LuazinhaBaseVisitor<Void> {
         
     }
     
+    public Void visitListaParListaDeNomes(LuazinhaParser.ListaParListaDeNomesContext ctx){
+       TabelaDeSimbolos tabela= pilhaDeTabelas.topo();
+        
+        tabela.adicionarSimbolos(ctx.listadenomes().nomes,"parametro");
+
+        super.visitListaParListaDeNomes(ctx);
+        return null;
+    }
+    
 }
