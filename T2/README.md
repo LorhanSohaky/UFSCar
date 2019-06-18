@@ -48,4 +48,4 @@ Recebe como entrada uma lista `Lista`, desparentiza a lista usando a função `D
 ```
 
 # Resultado dos testes
-![Casos de testes](prints/teste1.jpg)
+![Casos de testes](prints/teste1.png)
