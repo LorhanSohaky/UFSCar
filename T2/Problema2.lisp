@@ -1,5 +1,7 @@
 (defun esta-em (A Lista)
-        (equal (cadar (last Lista)) A))
+        (cond ((null Lista) nil)
+            ((not (null (cdr Lista))) (esta-em A (cdr Lista)))
+            ((equal (cadar Lista) A) A)))
 
 (defun Conta (Lista)
     (do ((Aux Lista (cdr Aux)) (res ()))
