@@ -3,7 +3,7 @@ Aluno | R.A.
 Lorhan Sohaky | 740951
 Thaís Dordan | 743596
 # Problema 1
-### Algoritmo Geral
+## Algoritmo Geral
 
 A ideia para resolver o problema proposto é:
 
@@ -11,16 +11,16 @@ A ideia para resolver o problema proposto é:
 2. Contar a quantidade de vezes que cada elemento aparece na lista desparentizada
 3. Produzir uma saída da seguinte maneira `((Átomo1 Quantidade1) (Átomo2 Quantidade2) ...)`
 
-#### `Desparentiza (Lista)`
-Recebe como entrada uma lista `Lista` e move todos os subníveis desse lista para o primeiro nível. Retorna uma lista com todos os elementos no primeiro nível.
+### `Desparentiza (Lista)`
+Recebe como entrada uma lista `Lista` e move todos os subníveis dessa lista para o primeiro nível. Retorna uma lista com todos os elementos no primeiro nível.
 
-#### `esta-em (A Lista)`
-Recebe como entrada um átomo `A` e uma lista `Lista` da seguinte maneira `((Átomo1 Quantidade1) (Átomo2 Quantidade2) ...)` e verifica se esse átomo está na lista. Retorna `true` para caso o elemento esteja na lista e `nil` caso contrário.
+### `esta-em (A Lista)`
+Recebe como entrada um átomo `A` e uma lista `Lista` da seguinte maneira `((Átomo1 Quantidade1) (Átomo2 Quantidade2) ...)` e verifica se esse átomo está na lista. Retorna `t` para caso o elemento esteja na lista e `nil` caso contrário.
 
-#### `Conta (Lista)`
+### `Conta (Lista)`
 Recebe como entrada uma lista `Lista`, desparentiza a lista usando a função `Desparentiza` e logo após, para cada átomo dessa lista, conta quantas vezes ele aparece na mesma. Retorna uma lista no formato `((Átomo1 Quantidade1) (Átomo2 Quantidade2) ...)`. Antes de realizar a contagem, verifica se o átomo da `Lista` já está na lista de saída, utlizando a função `esta-em`.
 
-### Código implementado
+## Código implementado
 ```lisp
 (defun Desparentiza (Lista)
     (cond ((null Lista) nil)
@@ -47,11 +47,11 @@ Recebe como entrada uma lista `Lista`, desparentiza a lista usando a função `D
                             (setq R (+ R 1))))))))))))
 ```
 
-# Resultado dos testes
+## Resultado dos testes
 ![Casos de testes](prints/teste1.png)
 
 # Problema 2
-### Algoritmo Geral
+## Algoritmo Geral
 
 A ideia para resolver o problema proposto é:
 
@@ -59,13 +59,13 @@ A ideia para resolver o problema proposto é:
 2. Verificar se o último elemento da lista produzida é igual ao elemento atual
 3. Produzir uma saída da seguinte maneira `((Quantidade1 Elemento1) (Quantidade2 Elemento2) ...)`
 
-#### `esta-em (A Lista)`
-Recebe como entrada um elemento `A`, tanto átomo como lista, e uma lista `Lista` da seguinte maneira `((Quantidade1 Elemento1) (Quantidade2 Elemento2) ...)` e verifica se esse elemento é igual ao último elemento da lista. Retorna `true` para caso o elemento `A` seja igual ao último elemento da lista de saída e `nil` caso contrário. Essa função é utilizada para evitar que o mesmo elemento consecutivo seja contabilizado e produzido na saída.
+### `esta-em (A Lista)`
+Recebe como entrada um elemento `A`, tanto átomo como lista, e uma lista `Lista` da seguinte maneira `((Quantidade1 Elemento1) (Quantidade2 Elemento2) ...)` e verifica se esse elemento é igual ao último elemento da lista. Retorna `t` para caso o elemento `A` seja igual ao último elemento da lista de saída e `nil` caso contrário. Essa função é utilizada para evitar que o mesmo elemento consecutivo seja contabilizado e produzido na saída.
 
-#### `Conta (Lista)`
+### `Conta (Lista)`
 Recebe como entrada uma lista `Lista` e, para cada elemento dessa lista, conta quantas vezes ele aparece em sequência. Retorna uma lista no formato `((Quantidade1 Elemento1) (Quantidade2 Elemento2) ...)`. Antes de realizar a contagem, verifica se o elemento da `Lista` é igual ao último elemento da lista de saída, utlizando a função `esta-em`.
 
-### Código implementado
+## Código implementado
 ```lisp
 (defun esta-em (A Lista)
         (equal (cadar (last Lista)) A))
@@ -81,5 +81,5 @@ Recebe como entrada uma lista `Lista` e, para cada elemento dessa lista, conta q
                         (setq R (+ R 1))))  (car Aux))))))))
 ```
 
-# Resultado dos testes
+## Resultado dos testes
 ![Casos de testes](prints/teste2.png)
