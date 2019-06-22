@@ -5,20 +5,22 @@
  */
 package trabalho2;
 
+import java.util.List;
+
 /**
  *
  * @author daniellucredio
  */
 public class LuazinhaSemanticAnalyzer extends LuazinhaBaseVisitor<Void> {
-    // Não esqueça de colocar os RAs do seu grupo na variável a seguir    
-    public static String grupo = "740951 743602 743586"; 
+    // Não esqueça de colocar os RAs do seu grupo na variável a seguir
+    public static String grupo = "740951 743602 743586";
 
     PilhaDeTabelas pilhaDeTabelas = new PilhaDeTabelas();
 
     @Override
     public Void visitPrograma(LuazinhaParser.ProgramaContext ctx) {
         pilhaDeTabelas.empilhar(new TabelaDeSimbolos("global"));
-        
+
         // A chamada a seguir invoca o comportamento padrão,
         // que é o de visitar todos os filhos
         super.visitPrograma(ctx);
@@ -34,13 +36,13 @@ public class LuazinhaSemanticAnalyzer extends LuazinhaBaseVisitor<Void> {
         // a visitação deve ser explicitamente controlada pelo programador.
 
         pilhaDeTabelas.desempilhar();
-        
+
         // Deve haver "return null" no final de cada método, devido
         // à verificação de tipos genéricos do Java. Como não estamos
         // utilizando tipo de retorno, não é necessário.
         return null;
     }
-    
+
     // Não é necessário sobrescrever um determinado método visitante
     // se a única coisa que ele faz é visitar os filhos, sem nenhuma
     // ação adicional. O exemplo a seguir serve apenas para ilustrar
@@ -49,44 +51,77 @@ public class LuazinhaSemanticAnalyzer extends LuazinhaBaseVisitor<Void> {
 //    public Void visitBloco(LuazinhaParser.BlocoContext ctx) {
 //        // desnecessário, pois a única coisa que ele faz é visitar os filhos!
 //        super.visitBloco(ctx);
-//        
+//
 //        // desnecessário, pois a única coisa que ele faz é visitar os filhos
 //        // (obs, aqui chamando outro visitante ao invés do super)
 //        visitTrecho(ctx.trecho());
-//        
+//
 //        return null;
 //    }
-    
+
 
     public Void visitComandoFunction(LuazinhaParser.ComandoFunctionContext ctx){
         pilhaDeTabelas.empilhar(new TabelaDeSimbolos(ctx.nomedafuncao().nome));
-        
+
         super.visitComandoFunction(ctx);
-        
+
         pilhaDeTabelas.desempilhar();
         return null;
-        
-    }
-    
-    public Void visitListavar(LuazinhaParser.ListavarContext ctx){
-        TabelaDeSimbolos tabela= pilhaDeTabelas.topo();
-        
-        // TODO talvez precise verificar se uma das variáveis existe num dos escopos acima
-        
-        tabela.adicionarSimbolos(ctx.nomes,"variavel");
 
-        super.visitListavar(ctx);
-        return null;
-        
     }
-    
+
+    public Void visitListavar(LuazinhaParser.ListavarContext ctx){
+        for (String nome : ctx.nomes) {
+            if (!pilhaDeTabelas.existeSimbolo(nome)) {
+                pilhaDeTabelas.topo().adicionarSimbolo(nome, "variavel");
+            }
+        }
+        return super.visitChildren(ctx);
+
+    }
+
     public Void visitListaParListaDeNomes(LuazinhaParser.ListaParListaDeNomesContext ctx){
        TabelaDeSimbolos tabela= pilhaDeTabelas.topo();
-        
+
         tabela.adicionarSimbolos(ctx.listadenomes().nomes,"parametro");
 
         super.visitListaParListaDeNomes(ctx);
         return null;
     }
-    
+
+    public Void visitComandoFor1(LuazinhaParser.ComandoFor1Context ctx){
+        //Empilha uma nova tabela de simbolos, representando o escopo do for
+        pilhaDeTabelas.empilhar(new TabelaDeSimbolos("for"));
+
+        //Adiciona o nome da variavel do for na tabela
+        pilhaDeTabelas.topo().adicionarSimbolo(ctx.NOME().toString(), "variavel");
+
+        super.visitChildren(ctx);
+        pilhaDeTabelas.desempilhar();
+        return null;
+    }
+    public Void visitComandoFor2(LuazinhaParser.ComandoFor2Context ctx){
+        //Empilha uma nova tabela de simbolos, representando o escopo do for
+        pilhaDeTabelas.empilhar(new TabelaDeSimbolos("for"));
+
+        //Adiciona o nome das variaveis do for na tabela
+        for(String nome : ctx.listadenomes().nomes){
+            pilhaDeTabelas.topo().adicionarSimbolo(nome, "variavel");
+        }
+
+        super.visitChildren(ctx);
+        pilhaDeTabelas.desempilhar();
+        return null;
+    }
+    @Override
+    public Void visitComandoLocalAtribuicao(LuazinhaParser.ComandoLocalAtribuicaoContext ctx){
+        List<String> nomes = ctx.listadenomes().nomes;
+        super.visitListaexp(ctx.listaexp());
+        for(String var : nomes){
+            pilhaDeTabelas.topo().adicionarSimbolo(var, "variavel");
+        }
+
+        return null;
+    }
+
 }
