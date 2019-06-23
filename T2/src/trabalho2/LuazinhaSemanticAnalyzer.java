@@ -106,7 +106,8 @@ public class LuazinhaSemanticAnalyzer extends LuazinhaBaseVisitor<Void> {
         super.visitListaParListaDeNomes(ctx);
         return null;
     }
-
+    
+    //Comando for1 = 'for' NOME '=' exp ',' exp (',' exp)? 'do' bloco 'end'
     @Override
     public Void visitComandoFor1(LuazinhaParser.ComandoFor1Context ctx){
         //Empilha uma nova tabela de simbolos, representando o escopo do for
@@ -114,12 +115,13 @@ public class LuazinhaSemanticAnalyzer extends LuazinhaBaseVisitor<Void> {
 
         //Adiciona o nome da variavel do for na tabela
         pilhaDeTabelas.topo().adicionarSimbolo(ctx.NOME().toString(), "variavel");
-
+        
         super.visitChildren(ctx);
         pilhaDeTabelas.desempilhar();
         return null;
     }
     
+    //Comando for2 = 'for' listadenomes 'in' listaexp 'do' bloco 'end'
     @Override
     public Void visitComandoFor2(LuazinhaParser.ComandoFor2Context ctx){
         //Empilha uma nova tabela de simbolos, representando o escopo do for
@@ -141,11 +143,14 @@ public class LuazinhaSemanticAnalyzer extends LuazinhaBaseVisitor<Void> {
         return null;
     }
     
+    // Para atribuição local. 'local' listadenomes ('=' listaexp)? 
     @Override
     public Void visitComandoLocalAtribuicao(LuazinhaParser.ComandoLocalAtribuicaoContext ctx){
+        //Pega todos os nomes da atribuição
         List<String> nomes = ctx.listadenomes().nomes;
-        super.visitListaexp(ctx.listaexp());
+        super.visitListaexp(ctx.listaexp()); // explora a lista de expressoes
         for(String var : nomes){
+            //Adiciona cada nome como uma variável na pilha de tabelas
             pilhaDeTabelas.topo().adicionarSimbolo(var, "variavel");
         }
 
