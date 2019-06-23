@@ -63,6 +63,11 @@ public class LuazinhaSemanticAnalyzer extends LuazinhaBaseVisitor<Void> {
     @Override
     public Void visitComandoFunction(LuazinhaParser.ComandoFunctionContext ctx) {
         pilhaDeTabelas.empilhar(new TabelaDeSimbolos(ctx.nomedafuncao().nome));
+        
+        if(ctx.nomedafuncao().metodo){
+            TabelaDeSimbolos tabela= pilhaDeTabelas.topo();
+            tabela.adicionarSimbolo("self","parametro");
+        }
 
         super.visitComandoFunction(ctx);
 
