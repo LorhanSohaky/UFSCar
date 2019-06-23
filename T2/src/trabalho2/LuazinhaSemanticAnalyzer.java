@@ -60,7 +60,8 @@ public class LuazinhaSemanticAnalyzer extends LuazinhaBaseVisitor<Void> {
 //    }
 
 
-    public Void visitComandoFunction(LuazinhaParser.ComandoFunctionContext ctx){
+    @Override
+    public Void visitComandoFunction(LuazinhaParser.ComandoFunctionContext ctx) {
         pilhaDeTabelas.empilhar(new TabelaDeSimbolos(ctx.nomedafuncao().nome));
 
         super.visitComandoFunction(ctx);
@@ -69,7 +70,23 @@ public class LuazinhaSemanticAnalyzer extends LuazinhaBaseVisitor<Void> {
         return null;
 
     }
+    
+    /*Sem este override, o comportamento padrao de ComandoAtribuicao seria visitar primeiro ListaVar, o lado esquerdo da atribuiçao,
+    e depois Listaexp, o lado direito. O problema com esta abordagem é nos casos onde uma variavel esta sendo inicializada referenciando a si propria
+    , por exemplo, x = x+1. Na abordagem padrao, o lado esquerdo seria visitado primeiro, e a variavel x amarrada ao escopo mais proximo. O lado
+    direito da atribuiçao seria visitado logo apos e nao encontraria erro por x estar na pilha de tabelas.
+    Portanto, para detectar que a variavel esta sendo inicializada com uma variavel nao amarrada, basta inverter a ordem de visita e x nao mais seria
+    considerada uma variavel amarrada na pilha de tabelas.
+    */
+    @Override
+    public Void visitComandoAtribuicao(LuazinhaParser.ComandoAtribuicaoContext ctx) {
+        visitListaexp(ctx.listaexp());
+        visitListavar(ctx.listavar());
+        
+        return null;
+    }
 
+    @Override
     public Void visitListavar(LuazinhaParser.ListavarContext ctx){
         for (String nome : ctx.nomes) {
             if (!pilhaDeTabelas.existeSimbolo(nome)) {
@@ -80,6 +97,7 @@ public class LuazinhaSemanticAnalyzer extends LuazinhaBaseVisitor<Void> {
 
     }
 
+    @Override
     public Void visitListaParListaDeNomes(LuazinhaParser.ListaParListaDeNomesContext ctx){
        TabelaDeSimbolos tabela= pilhaDeTabelas.topo();
 
@@ -89,6 +107,7 @@ public class LuazinhaSemanticAnalyzer extends LuazinhaBaseVisitor<Void> {
         return null;
     }
 
+    @Override
     public Void visitComandoFor1(LuazinhaParser.ComandoFor1Context ctx){
         //Empilha uma nova tabela de simbolos, representando o escopo do for
         pilhaDeTabelas.empilhar(new TabelaDeSimbolos("for"));
@@ -100,19 +119,28 @@ public class LuazinhaSemanticAnalyzer extends LuazinhaBaseVisitor<Void> {
         pilhaDeTabelas.desempilhar();
         return null;
     }
+    
+    @Override
     public Void visitComandoFor2(LuazinhaParser.ComandoFor2Context ctx){
         //Empilha uma nova tabela de simbolos, representando o escopo do for
         pilhaDeTabelas.empilhar(new TabelaDeSimbolos("for"));
-
-        //Adiciona o nome das variaveis do for na tabela
+        
+        /*Visitando Listaexp antes de listavar para ter certeza de que as variaveis em listavar ja foram
+        propriamente amarradas anteriormente */
+        visitListaexp(ctx.listaexp());
+        
+        //Caso sim, os nomes das variaveis do 'for' sao adicionados à tabela
         for(String nome : ctx.listadenomes().nomes){
             pilhaDeTabelas.topo().adicionarSimbolo(nome, "variavel");
         }
-
-        super.visitChildren(ctx);
+        
+        // Basta visitar o resto dos filhos na ordem padrao da regra
+        visitListadenomes(ctx.listadenomes());
+        visitBloco(ctx.bloco());
         pilhaDeTabelas.desempilhar();
         return null;
     }
+    
     @Override
     public Void visitComandoLocalAtribuicao(LuazinhaParser.ComandoLocalAtribuicaoContext ctx){
         List<String> nomes = ctx.listadenomes().nomes;
@@ -121,6 +149,18 @@ public class LuazinhaSemanticAnalyzer extends LuazinhaBaseVisitor<Void> {
             pilhaDeTabelas.topo().adicionarSimbolo(var, "variavel");
         }
 
+        return null;
+    }
+    
+    @Override
+    public Void visitExpPrefixo2Var(LuazinhaParser.ExpPrefixo2VarContext ctx) {
+        
+        /* Aqui ocorre a checagem da existência da variavel sendo visitada na pilha de tabelas*/
+        if(!pilhaDeTabelas.existeSimbolo(ctx.var().nome)) {
+            //Caso nao esteja presente, é impresso o erro contendo a variavel em questao e sua posicao no texto.
+            Mensagens.erroVariavelNaoExiste(ctx.var().linha, ctx.var().coluna, ctx.var().nome);
+        }
+        super.visitChildren(ctx);
         return null;
     }
 
