@@ -1,0 +1,25 @@
+(defun Desparentiza (Lista)
+    (cond ((null Lista) nil)
+        ((or (not (listp (car Lista))) (null (car Lista))) 
+            (if (listp (car Lista)) 
+                (cons () (Desparentiza (cdr Lista))) 
+            (cons (car Lista) (Desparentiza (cdr Lista)))))
+        (t (append (Desparentiza (car Lista)) (Desparentiza (cdr Lista))))))
+        
+(defun esta-em (A Lista)
+    (cond ((null Lista) nil)
+        ((equal (caar Lista) A) t)
+        (t (esta-em A (cdr Lista)))))
+
+(defun Conta (Lista)
+    (progn (setq Lista (Desparentiza Lista))
+        (do ((Aux Lista (cdr Aux)) (res ()))
+            ((null Aux) res)
+            (if (not (esta-em (car Aux) res))
+                (setq res (append res (list (list (car Aux) 
+                    (do ((Aux2 Aux (cdr Aux2)) (R 0))
+                        ((null Aux2) R)
+                        (if (equal (car Aux) (car Aux2))
+                            (setq R (+ R 1))))))))))))
+
+
