@@ -382,3 +382,37 @@ tmpfs                                         778M   56K  778M   1% /run/user/60
               total       usada       livre    compart.  buff/cache  disponível
 Mem.:       7958852     2070848     3143820      433984     2744184     5014676
 Swap:       2097148           0     2097148
+
+
+
+# Questionário
+
+Quando interagindo com um programa shell em linha de comando, o sinal "|" representa um pipe, que deve ser usado para a comunicação entre processos, redirecionando seus arquivos STDOUT e STDIN.
+	Verdadeiro
+
+Para o shell, jobs são programas iniciados a partir da sessão corrente e que podem ser direcionados para execução em foreground, com o comando fg, ou para background, com o comando bg.
+	Verdadeiro
+
+Um pipe é um mecanismo de comunicação entre processos, utilizando o sistema de arquivos locais.
+	Falso
+
+Numa sessão do shell, o comando ps pode ser usado para identificação dos processos existentes no sistema e seus estados de execução.
+	Verdadeiro
+
+O comando chmod serve para alterar as permissões de acesso a arquivos e diretórios.
+	Verdadeiro
+
+Ao ativar a execução de processos em comandos para o shell, o sinal ">", como em "prog > arq <enter>", serve para a solicitação do redirecionamento da saída de dados, associada a STDOUT.
+	Verdadeiro
+
+Usando uma aplicação de terminal, o pressionamento de <ctrl>+z gera o envio do sinal SIGTSTP para o processo em foreground.
+	Verdadeiro
+
+Numa sessão de shell, se o comando "chmod 644 arq" for executado pelo dono do arquivo arq, ajusta-se as permissões do arquivo com direitos de leitura e escrita para o dono do arquivo e leitura para todos os demais usuários.
+	Verdadeiro
+
+Usando uma aplicação de terminal, o pressionamento de <ctrl>+c gera o envio do sinal SIGTQUIT para o processo em foreground.
+	Verdadeiro
+
+O sinal SIGTERM é o sinal padrão enviado pelo comando kill, o que normalmente faz com que o processo a recebê-lo seja terminado.
+	Verdadeiro
