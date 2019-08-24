@@ -1,4 +1,5 @@
 const sizeOfPixel = 32;
+const whiteColor = 16777215;
 
 const numberOfColumns  = Math.floor(Math.max(document.documentElement.clientWidth, window.innerWidth || 0) / sizeOfPixel);
 const numberOfLines = Math.floor(Math.max(document.documentElement.clientHeight, window.innerHeight || 0) / sizeOfPixel);
@@ -10,6 +11,7 @@ start();
 
 function start() {
   createViewPortDataStructure();
+  createDataToPlot();
 
   setInterval(renderViewPort, 500);
 }
@@ -25,20 +27,16 @@ function createViewPortDataStructure() {
 
 
 function renderViewPort() {
-  const numberOfPixels = numberOfLines * numberOfColumns;
+  drawOnViewPort();
 
-  for (let i = 0; i < 100; i++) {
-    randomIndex = Math.round(Math.random() * (numberOfPixels - 1));
-    randomColor = Math.round(Math.random() * 16777215);
-    matriz[randomIndex] = randomColor;
-  }
+  const numberOfPixels = numberOfLines * numberOfColumns;
 
   let html = '<table cellpadding="0" cellspacing="0">';
 
   for (let row = numberOfLines - 1; row >= 0; row--) {
     html += '<tr>';
 
-    for (let column = numberOfColumns - 1; column >= 0; column--) {
+    for (let column = 0; column < numberOfColumns; column++) {
       const pixelIndex = column + ( numberOfColumns * row );
       const color = matriz[pixelIndex];
       
@@ -75,4 +73,23 @@ function decimalColorToHexadecimalColor(number) {
   hexColor = template.substring(0,7 - hexColor.length) + hexColor;
  
   return hexColor;
+}
+
+function createDataToPlot() {
+  for (let i = 0; i < numberOfLines; i++) {
+    dataToPlot.push([]);
+
+    for (let j = 0; j < numberOfColumns; j++) {
+      dataToPlot[i][j] = 0;
+    }
+  }
+}
+
+function drawOnViewPort() {
+  for (let row = 0; row < numberOfLines; row++) {
+    for (let colum = 0; colum < numberOfColumns; colum++) {
+      const pixelIndex = colum + (row * numberOfColumns);
+      matriz[pixelIndex] = dataToPlot[row][colum];
+    }
+  }
 }
