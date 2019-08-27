@@ -1,0 +1,102 @@
+1) Escrever um Hello Word e executar
+
+#include <stdio.h>
+
+int main(){
+	printf("Hello World\n");
+	return 0;
+}
+
+2) Verificar o arquivo hello com o comando file
+
+hello: ELF 64-bit LSB shared object, x86-64, version 1 (SYSV), dynamically linked, interpreter /lib64/l, for GNU/Linux 3.2.0, BuildID[sha1]=b81324de07b1e009d810f1a7474a0e7ad6ef69f9, not stripped
+
+3) Compilar o hello word estaticamente e executar, além de verificar o arquivo com o comando file
+
+gcc hello.c -static
+
+3.1) Verificar também as bibliotecas utilizadas com ldd
+
+não é um executável dinâmico
+
+a.out: ELF 64-bit LSB executable, x86-64, version 1 (GNU/Linux), statically linked, for GNU/Linux 3.2.0, BuildID[sha1]=9618a960c9da1f76b26bbaffe04dc1c62542b47d, not stripped
+
+4) Fazer alguns testes com a math.h e verificar a execução com strace e ltrace
+
+
+execve("./a.out", ["./a.out"], 0x7ffdd339ca10 /* 57 vars */) = 0
+brk(NULL)                               = 0x263b000
+brk(0x263c1c0)                          = 0x263c1c0
+arch_prctl(ARCH_SET_FS, 0x263b880)      = 0
+uname({sysname="Linux", nodename="l3m3", ...}) = 0
+readlink("/proc/self/exe", "/home/bcc/740951/git/UFSCar/2019"..., 4096) = 48
+brk(0x265d1c0)                          = 0x265d1c0
+brk(0x265e000)                          = 0x265e000
+access("/etc/ld.so.nohwcap", F_OK)      = -1 ENOENT (No such file or directory)
+fstat(1, {st_mode=S_IFREG|0644, st_size=534, ...}) = 0
+fstat(0, {st_mode=S_IFCHR|0620, st_rdev=makedev(136, 0), ...}) = 0
+read(0, "3\n", 1024)                    = 2
+write(1, "Hello World\n1.73\n", 17Hello World
+1.73
+)     = 17
+lseek(0, -1, SEEK_CUR)                  = -1 ESPIPE (Illegal seek)
+exit_group(0)                           = ?
++++ exited with 0 +++
+
+
+Hello World
+0.00
+
+5) Depurar o programa passo a passo com GBD, Sugestão: incluir um for loop
+
+GNU gdb (Ubuntu 8.1-0ubuntu3) 8.1.0.20180409-git
+Copyright (C) 2018 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.  Type "show copying"
+and "show warranty" for details.
+This GDB was configured as "x86_64-linux-gnu".
+Type "show configuration" for configuration details.
+For bug reporting instructions, please see:
+<http://www.gnu.org/software/gdb/bugs/>.
+Find the GDB manual and other documentation resources online at:
+<http://www.gnu.org/software/gdb/documentation/>.
+For help, type "help".
+Type "apropos word" to search for commands related to "word"...
+Lendo símbolos de ./a.out...concluído.
+(gdb) break main
+Ponto de parada 1 at 0x642: file hello.c, line 5.
+(gdb) r
+Starting program: /home/bcc/740951/git/UFSCar/2019/SO2/aula3/a.out 
+
+Breakpoint 1, main () at hello.c:5
+5		printf("Hello World\n");
+(gdb) n
+7		for(int i=0; i<3;i++){
+(gdb) n
+8			printf("AAAAAAAAAAAAA\n");
+(gdb) n
+7		for(int i=0; i<3;i++){
+(gdb) n
+8			printf("AAAAAAAAAAAAA\n");
+(gdb) n
+7		for(int i=0; i<3;i++){
+(gdb) n
+8			printf("AAAAAAAAAAAAA\n");
+(gdb) n
+7		for(int i=0; i<3;i++){
+(gdb) n
+10		return 0;
+(gdb) n
+11	}
+(gdb) n
+__libc_start_main (main=0x55555555463a <main>, argc=1, argv=0x7fffffffe598, init=<optimized out>, fini=<optimized out>, rtld_fini=<optimized out>, stack_end=0x7fffffffe588)
+    at ../csu/libc-start.c:344
+(gdb) n
+Hello World
+AAAAAAAAAAAAA
+AAAAAAAAAAAAA
+AAAAAAAAAAAAA
+[Inferior 1 (process 16966) exited normally]
+(gdb) n
+(gdb) q

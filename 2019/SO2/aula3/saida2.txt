@@ -1,0 +1,51 @@
+GNU gdb (Ubuntu 8.1-0ubuntu3) 8.1.0.20180409-git
+Copyright (C) 2018 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.  Type "show copying"
+and "show warranty" for details.
+This GDB was configured as "x86_64-linux-gnu".
+Type "show configuration" for configuration details.
+For bug reporting instructions, please see:
+<http://www.gnu.org/software/gdb/bugs/>.
+Find the GDB manual and other documentation resources online at:
+<http://www.gnu.org/software/gdb/documentation/>.
+For help, type "help".
+Type "apropos word" to search for commands related to "word"...
+Lendo símbolos de ./a.out...concluído.
+(gdb) break main
+Ponto de parada 1 at 0x642: file hello.c, line 5.
+(gdb) r
+Starting program: /home/bcc/740951/git/UFSCar/2019/SO2/aula3/a.out 
+
+Breakpoint 1, main () at hello.c:5
+5		printf("Hello World\n");
+(gdb) n
+7		for(int i=0; i<3;i++){
+(gdb) n
+8			printf("AAAAAAAAAAAAA\n");
+(gdb) n
+7		for(int i=0; i<3;i++){
+(gdb) n
+8			printf("AAAAAAAAAAAAA\n");
+(gdb) n
+7		for(int i=0; i<3;i++){
+(gdb) n
+8			printf("AAAAAAAAAAAAA\n");
+(gdb) n
+7		for(int i=0; i<3;i++){
+(gdb) n
+10		return 0;
+(gdb) n
+11	}
+(gdb) n
+__libc_start_main (main=0x55555555463a <main>, argc=1, argv=0x7fffffffe598, init=<optimized out>, fini=<optimized out>, rtld_fini=<optimized out>, stack_end=0x7fffffffe588)
+    at ../csu/libc-start.c:344
+(gdb) n
+Hello World
+AAAAAAAAAAAAA
+AAAAAAAAAAAAA
+AAAAAAAAAAAAA
+[Inferior 1 (process 16966) exited normally]
+(gdb) n
+(gdb) q
