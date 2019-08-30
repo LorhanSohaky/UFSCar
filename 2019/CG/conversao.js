@@ -1,8 +1,14 @@
 const sizeOfPixel = 32;
 const whiteColor = 16777215;
 
-const numberOfColumns  = Math.floor(Math.max(document.documentElement.clientWidth, window.innerWidth || 0) / sizeOfPixel);
-const numberOfLines = Math.floor(Math.max(document.documentElement.clientHeight, window.innerHeight || 0) / sizeOfPixel);
+const minWidth  = Math.floor(Math.max(document.documentElement.clientWidth, window.innerWidth || 0) / sizeOfPixel);
+const minHeight = Math.floor(Math.max(document.documentElement.clientHeight, window.innerHeight || 0) / sizeOfPixel);
+
+const minPixelSize = Math.min(minWidth,minHeight);
+
+const numberOfColumns = minPixelSize;
+const numberOfLines = minPixelSize;
+
 const matriz=[];
 
 let dataToPlot = [];
@@ -13,8 +19,9 @@ function start() {
   createViewPortDataStructure();
   createDataToPlot();
 
-  setInterval(renderViewPort, 500);
+  renderViewPort();
 }
+
 
 function createViewPortDataStructure() {
   const numberOfPixels = numberOfLines * numberOfColumns;
@@ -22,11 +29,10 @@ function createViewPortDataStructure() {
   for (let i = 0; i < numberOfPixels; i++) {
       matriz[i] = 0;
   }
-
 }
 
 
-function renderViewPort() {
+async function renderViewPort() {
   drawOnViewPort();
 
   const numberOfPixels = numberOfLines * numberOfColumns;
@@ -39,9 +45,9 @@ function renderViewPort() {
     for (let column = 0; column < numberOfColumns; column++) {
       const pixelIndex = column + ( numberOfColumns * row );
       const color = matriz[pixelIndex];
-      
+
       const colorString = decimalColorToHexadecimalColor(color);
-      
+
       html += `<td class="pixel" style="width:${sizeOfPixel}px;height:${sizeOfPixel}px;background-color: ${colorString}">`;
       html += '</td>';
     }
@@ -71,7 +77,7 @@ function decimalColorToHexadecimalColor(number) {
   let hexColor = integerNumber.toString(16);
 
   hexColor = template.substring(0,7 - hexColor.length) + hexColor;
- 
+
   return hexColor;
 }
 
@@ -92,4 +98,34 @@ function drawOnViewPort() {
       matriz[pixelIndex] = dataToPlot[row][colum];
     }
   }
+}
+
+function drawLine(p1,p2) {
+    const dX = p2.x - p1.x;
+    const dY = p2.y - p1.y;
+
+    if( dX != 0 ) {
+        const m = dY/dX;
+        let e = m - 0.5;
+        let i = p1.x;
+        let j = p1.y;
+
+        for( k = 0; k< dX; k++ ){
+            dataToPlot[j][i] = whiteColor;
+            while( e > 0){
+                j++;
+                e = e-1;
+            }
+            i++;
+            e = e+m;
+        }
+    }else{
+        for (k = 0; k < dY; k++){
+            if (p1.y+k < numberOfLines && p1.x < numberOfColumns){
+                dataToPlot[p1.y+k][p1.x] = whiteColor;
+            }
+        }
+    }
+
+    renderViewPort();
 }
