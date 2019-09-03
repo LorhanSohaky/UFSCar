@@ -1,0 +1,43 @@
+1) Interrupções externas e internas geram o desvio do fluxo de instrução de um processador para endereços pré-configurados. Assim,na ocorrência de uma interrupção, o SO transfere o processador para a execução do código apropriado.
+
+Falso
+
+2) Chamadas de sistema de sistemas Unix geralmente retornam o valor -1 em caso de erro, sendo o código do estado da última chamada salvo numa variável global do programa, chamada errno.
+
+Verdadeiro
+
+3) Em sistemas operacionais do tipo Unix, para cada processo é mantida uma estrutura de dados correspondente ao seu vetor de arquivos abertos.
+
+Verdadeiro
+
+4) A chamada de sistema nice() é usada para ajustar a prioridade estática atual de um processo, de acordo com um incremento passado como parâmetro.
+
+Verdadeiro
+
+5) A chamada vfork(), existente em sistemas do tipo Unix, solicita a criação de um processo sem que as áreas de memória do processo pai sejam copiadas para o processo filho. Desta forma, evita-se atrasos quando quando o processo filho deve ser usado para a execução de outro código através da chamada exec().
+
+Verdadeiro
+
+6) Uma aplicação pode ter seu código dividido entre vários processos, criados em tempo de execução. Uma das formas de saber qual foi o resultado da execução de um processo filho é através da chamada wait(), que bloqueia o processo pai à espera da conclusão de um processo filho. Ao retornar da chamada, o processo pai obtém o PID do processo filho terminado um valor com o estado de sua conclusão.
+
+Verdadeiro
+
+7) A criação de processos em sistemas do tipo Unix é tipicamente feita através da chamada fork, que gera uma cópia do processo atual. O processo filho tem identificador 0, tal como retornado pela chamada.
+
+Falso
+
+8) A existência das chamadas de sistema getrusage() e setrlimit(), indica que o SO não apenas concede o uso dos recursos computacionais gerenciados, como memória e CPU, mas também contabiliza suas utilizações e pode limitar seus usos pelos processos.
+
+Verdadeiro
+
+9) Para escrever mensagens no terminal, a implementação de comandos como "printf" comumente precisa apenas escrever as sequências de bytes no arquivo cujas informações de controle são mantidas na posição 1 do vetor de arquivos abertos do processo.
+
+Verdadeiro
+
+10) A chamada de sistema exec() duplica o processo atual, fazendo com que a cópia (processo filho) execute o código contido no arquivo especificado como parâmetro da chamada.
+
+Falso
+
+11) Uma das formas de executar uma chamada de sistema é através da instrução de interrupção, cujo tratamento pelo processador é semelhante ao realizado por uma interrupção externa.
+
+Verdadeiro
