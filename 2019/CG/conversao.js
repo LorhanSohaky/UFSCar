@@ -18,8 +18,7 @@ start();
 function start() {
   createViewPortDataStructure();
   createDataToPlot();
-
-  renderViewPort();
+  createTable();
 }
 
 
@@ -31,36 +30,53 @@ function createViewPortDataStructure() {
   }
 }
 
+function createTable(){
+    const numberOfPixels = numberOfLines * numberOfColumns;
+
+    let html = '<table cellpadding="0" cellspacing="0">';
+
+    for (let row = numberOfLines - 1; row >= 0; row--) {
+      html += '<tr>';
+
+      for (let column = 0; column < numberOfColumns; column++) {
+        const pixelIndex = column + ( numberOfColumns * row );
+        const color = matriz[pixelIndex];
+
+        const colorString = decimalColorToHexadecimalColor(color);
+
+        html += `<td class="pixel" id="${pixelIndex}" style="width:${sizeOfPixel}px;height:${sizeOfPixel}px;background-color: ${colorString}">`;
+        html += '</td>';
+      }
+
+      html += '</tr>';
+    }
+
+    html += '</table>';
+
+
+    let root = document.getElementById('root');
+
+    root.innerHTML = html;
+}
+
 
 async function renderViewPort() {
   drawOnViewPort();
 
   const numberOfPixels = numberOfLines * numberOfColumns;
-
-  let html = '<table cellpadding="0" cellspacing="0">';
-
-  for (let row = numberOfLines - 1; row >= 0; row--) {
-    html += '<tr>';
-
-    for (let column = 0; column < numberOfColumns; column++) {
-      const pixelIndex = column + ( numberOfColumns * row );
-      const color = matriz[pixelIndex];
-
-      const colorString = decimalColorToHexadecimalColor(color);
-
-      html += `<td class="pixel" style="width:${sizeOfPixel}px;height:${sizeOfPixel}px;background-color: ${colorString}">`;
-      html += '</td>';
-    }
-
-    html += '</tr>';
+  
+ 
+  let elements = matriz.map((item,index) =>{if(item!=0) return index}).filter(item => item != null);
+  
+  function logArrayElements(element, index, array) {
+    const color = matriz[element];
+    const colorString = decimalColorToHexadecimalColor(color);
+    
+    let item= document.getElementById(`${element}`);
+    item.style =`width:${elements}px;height:${sizeOfPixel}px;background-color: ${colorString}`;
   }
-
-  html += '</table>';
-
-
-  let root = document.getElementById('root');
-
-  root.innerHTML = html;
+  
+  elements.forEach(logArrayElements);
 }
 
 function decimalColorToHexadecimalColor(number) {
