@@ -13,6 +13,7 @@ int main(){
 
         
 	while(1){
+		printf("> ");
 		scanf(" %[^\n]",command);
 		if(strcmp(command,"q")==0){
 			break;
