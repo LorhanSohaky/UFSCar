@@ -97,6 +97,8 @@ bufferdevice *CreateBuffer(int, int);
 /* Funções para conversão matricial e preenchimento de objetos */
 int DrawViewPort(viewport *, bufferdevice *, int);
 int DrawLine(point *, point *, window *, viewport *, bufferdevice *, int);
+int DrawLine2(point *p1, point *p2, window *win, viewport *port,
+              bufferdevice *dev, int color);
 int DrawObject(object *, window *, viewport *, bufferdevice *, int);
 
 /* Construção das matrizes homogêneas para as operações lineares */

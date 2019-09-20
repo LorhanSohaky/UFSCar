@@ -247,6 +247,48 @@ int DrawLine(point *p1, point *p2, window *win, viewport *port,
   return 1;
 }
 
+// Usando algoritmo de Bresenham
+int DrawLine2(point *p1, point *p2, window *win, viewport *port,
+              bufferdevice *dev, int color) {
+  float a, b;
+  int i, j, aux;
+  point *pn1, *pd1, *pn2, *pd2;
+
+  pn1 = Sru2Srn(p1, win);
+  pd1 = Srn2Srd(pn1, port);
+  pn2 = Sru2Srn(p2, win);
+  pd2 = Srn2Srd(pn2, port);
+
+  float dX = pd2->x - pd1->x;
+  float dY = pd2->y - pd1->y;
+
+  i = pd1->x;
+  j = pd1->y;
+
+  if (dX != 0) {
+    float m = dY / dX;
+    float e = m - 0.5;
+
+    for (int k = 0; k < dX; k++) {
+
+      dev->buffer[(port->ymin + port->ymax - j) * dev->MaxX + i] = color;
+      while (e > 0) {
+        j++;
+        e = e - 1;
+      }
+      i++;
+      e = e + m;
+    }
+  } else {
+    while (j < pd2->y) {
+      dev->buffer[(port->ymin + port->ymax - j) * dev->MaxX + i] = color;
+      j++;
+    }
+  }
+
+  return 1;
+}
+
 int DrawObject(object *ob, window *win, viewport *port, bufferdevice *dev,
                int color) {
 
