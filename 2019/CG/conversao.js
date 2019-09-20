@@ -64,18 +64,18 @@ async function renderViewPort() {
   drawOnViewPort();
 
   const numberOfPixels = numberOfLines * numberOfColumns;
-  
- 
+
+
   let elements = matriz.map((item,index) =>{if(item!=0) return index}).filter(item => item != null);
-  
+
   function logArrayElements(element, index, array) {
     const color = matriz[element];
     const colorString = decimalColorToHexadecimalColor(color);
-    
+
     let item= document.getElementById(`${element}`);
     item.style =`width:${elements}px;height:${sizeOfPixel}px;background-color: ${colorString}`;
   }
-  
+
   elements.forEach(logArrayElements);
 }
 
@@ -116,6 +116,7 @@ function drawOnViewPort() {
   }
 }
 
+//Usado o algoritmo Bresenham
 function drawLine(p1,p2) {
     const dX = p2.x - p1.x;
     const dY = p2.y - p1.y;
@@ -139,6 +140,46 @@ function drawLine(p1,p2) {
         for (k = 0; k < dY; k++){
             if (p1.y+k < numberOfLines && p1.x < numberOfColumns){
                 dataToPlot[p1.y+k][p1.x] = whiteColor;
+            }
+        }
+    }
+
+    renderViewPort();
+}
+
+// Função do material de exemplo
+function drawLine2(p1,p2) {
+    const dX = p2.x - p1.x;
+    const dY = p2.y - p1.y;
+
+    let j = p1.y
+    let i = p1.x
+
+    if (dX == 0) {
+        while (j < p2.y) {
+            dataToPlot[j][p1.x] = whiteColor
+           j++;
+        }
+    } else {
+        const a = dY/dX;
+        const b = p1.y - a*p1.x;
+        while (i < p2.x) {
+            dataToPlot[j][i] = whiteColor
+            let aux = j;
+            j = Math.round(a*(++i) + b);
+
+            if (j > aux) {
+                while (aux < j) {
+                    dataToPlot[aux][i] = whiteColor
+                    aux++;
+                }
+            }
+
+            if (j < aux) {
+                while (aux > j) {
+                    dataToPlot[aux][i] = whiteColor
+                    aux--;
+                }
             }
         }
     }
