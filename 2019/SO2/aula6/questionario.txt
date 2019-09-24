@@ -1,0 +1,29 @@
+1) O comando chmod serve para alterar as permissões de acesso a arquivos e diretórios.
+	Verdadeiro
+
+2) Numa sessão do shell, o comando ps pode ser usado para identificação dos processos existentes no sistema e seus estados de execução.
+	Verdadeiro
+
+3) Um pipe é um mecanismo de comunicação entre processos, que utiliza o sistema de arquivos locais para escrita e leitura de dados.
+	Falso
+
+4) Estando um programa parado na sessão de shell corrente, os comandos fg e bg causam o envio do sinal SIGCONT para esse processo.
+	Verdadeiro
+
+5) O envio de sinais para processos é feito através da identificação de seus PIDs, embora alguns programas permitam a seleção de processos a partir de seus nomes ou outros atributos.
+	Verdadeiro
+
+6) Num sistema Unix, cada processo é identificado unicamente através de seu PID. Já o identificador PPID indica o PID do processo pai desse processo.
+	Verdadeiro
+
+7) Os atributos  r w x r _ x _ _ x  associados a um arquivo indicam que apenas o dono deste arquivo pode executá-lo.
+	Falso
+
+8) Usando uma aplicação de terminal, o pressionamento de <ctrl>+z gera o envio do sinal SIGTSTP para o processo em foreground.
+	Verdadeiro
+
+9) Estando um programa executando em foreground, o pressionamento de <Ctrl>+c normalmente faz com que este programa seja interrompido / terminado.
+	Verdadeiro
+
+10) A entrada e saída de dados de um programa num terminal está associada às 3 primeiras posições do vetor de arquivos abertos mantido pelo SO para este programa.
+	Verdadeiro
