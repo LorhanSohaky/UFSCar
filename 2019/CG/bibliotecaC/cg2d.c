@@ -354,10 +354,41 @@ int DrawObject(object *ob, window *win, viewport *port, bufferdevice *dev,
     }
 
     if ((InWin(p1, win)) && (InWin(p2, win)))
-      DrawLine(p1, p2, win, port, dev, color);
+      DrawLine2(p1, p2, win, port, dev, color);
   }
 
   return 1;
+}
+
+void ScanLine(bufferdevice *dev) {
+	int open = 0;
+	int color = 0;
+	int col = -1;
+	for(int y = 0; y < dev->MaxY; y++) {
+		open  = 0;
+		color = 0;
+		col = -1;
+		for (int x = 0; x < dev->MaxX; x++) {
+			int devColor = dev->buffer[y*dev->MaxX+x];
+
+			if (open) {
+				if (devColor == 0) {
+					dev->buffer[y*dev->MaxX+x] = color;
+				} else if (devColor == color && col + 1 == x) {
+					open = 0;
+				} else {
+					color = devColor;
+					col = x;
+				}
+			} else {
+				if (devColor > 0) {
+					color = devColor;
+					open = 1;
+					col = x;
+				}
+			}
+		}
+	}
 }
 
 matrix *SetRotMatrix(float theta) {

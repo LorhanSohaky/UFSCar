@@ -114,3 +114,5 @@ object *TransObj(object *, matrix *);
 
 /* Visualiza o buffer (SRD) no monitor virtual */
 int Dump2PIPE(bufferdevice *, palette *);
+
+void ScanLine(bufferdevice *dev);
