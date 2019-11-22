@@ -52,3 +52,5 @@ matrix3d *gerarMatrizDeDeslocamento(const float dX, const float dY, const float 
 matrix3d *gerarMatrizDeEscala(const float sX, const float sY, const float sZ);
 matrix3d *gerarMatrizDeProjecaoPerspectiva(const float Zvp, const float Zcp);
 matrix3d *gerarMatrizDeRotacao(const float anguloEmGraus,const EIXO eixoDeRotacao);
+
+void TransformacaoLinear(matrix3d * W, object3d* objeto);

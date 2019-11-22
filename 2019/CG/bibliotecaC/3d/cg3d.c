@@ -285,6 +285,14 @@ matrix3d *gerarMatrizDeRotacao(const float anguloEmGraus,const EIXO eixoDeRotaca
   return p;
 }
 
+void TransformacaoLinear(matrix3d * W, object3d* objeto){
+  for(int i = 0; i < objeto->numbers_of_faces; i++){
+    for(int j = 0; j < objeto->faces[i].numbers_of_points; j++){
+      objeto->faces[i].points[j] = *LinearTransf3d(W, &(objeto->faces[i].points[j]));
+    }
+  }
+}
+
 point3d * LinearTransf3d(matrix3d * W, point3d * u) {
  point3d * p;
   
