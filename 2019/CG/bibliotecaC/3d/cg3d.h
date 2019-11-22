@@ -6,6 +6,8 @@ Universidade Federal de São Carlos
 
 #include "cg2d.h"
 
+typedef enum {X,Y,Z} EIXO;
+
 typedef struct HPoint3D {
   float x,
         y,

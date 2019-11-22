@@ -5,6 +5,8 @@ Universidade Federal de São Carlos
 */
 #include "cg3d.h"
 
+#include<math.h>
+
 point3d * VectorProduct3d(point3d * u, point3d * v) {
  point3d * w;
  w = (point3d *) malloc(sizeof(point3d));
@@ -202,6 +204,80 @@ matrix3d *gerarMatrizDeProjecaoPerspectiva(const float Zvp, const float Zcp) {
   p->a42 = 0;
   p->a43 = 1 / (Zvp-Zcp);
   p->a44 = -Zcp / (Zvp-Zcp);
+  
+  return p;
+}
+
+matrix3d *gerarMatrizDeRotacao(const float angulo,const EIXO eixoDeRotacao) {
+  matrix3d * p;
+  p = (matrix3d *) malloc(sizeof(matrix3d));
+
+  switch(eixoDeRotacao) {
+    case X:
+      p->a11 = 1;
+      p->a12 = 0;
+      p->a13 = 0;
+      p->a14 = 0;
+
+      p->a21 = 0;
+      p->a22 = cos(angulo);
+      p->a23 = -sin(angulo);
+      p->a24 = 0;
+
+      p->a31 = 0;
+      p->a32 = sin(angulo);
+      p->a33 = cos(angulo);
+      p->a34 = 0;
+
+      p->a41 = 0;
+      p->a42 = 0;
+      p->a43 = 0;
+      p->a44 = 1;
+      break;
+    case Y:
+      p->a11 = cos(angulo);
+      p->a12 = 0;
+      p->a13 = sin(angulo);
+      p->a14 = 0;
+
+      p->a21 = 0;
+      p->a22 = 1;
+      p->a23 = 0;
+      p->a24 = 0;
+
+      p->a31 = -sin(angulo);
+      p->a32 = 0;
+      p->a33 = cos(angulo);
+      p->a34 = 0;
+
+      p->a41 = 0;
+      p->a42 = 0;
+      p->a43 = 0;
+      p->a44 = 1;
+      break;
+    case Z:
+    default:
+      p->a11 = cos(angulo);
+      p->a12 = -sin(angulo);
+      p->a13 = 0;
+      p->a14 = 0;
+
+      p->a21 = sin(angulo);
+      p->a22 = cos(angulo);
+      p->a23 = 0;
+      p->a24 = 0;
+
+      p->a31 = 0;
+      p->a32 = 0;
+      p->a33 = 1;
+      p->a34 = 0;
+
+      p->a41 = 0;
+      p->a42 = 0;
+      p->a43 = 0;
+      p->a44 = 1;
+      break;
+  }
   
   return p;
 }
