@@ -7,6 +7,8 @@ Universidade Federal de São Carlos
 
 #include<math.h>
 
+#define graus2Radianos(angulo) (angulo * M_PI / 180.0)
+
 point3d * VectorProduct3d(point3d * u, point3d * v) {
  point3d * w;
  w = (point3d *) malloc(sizeof(point3d));
@@ -208,7 +210,8 @@ matrix3d *gerarMatrizDeProjecaoPerspectiva(const float Zvp, const float Zcp) {
   return p;
 }
 
-matrix3d *gerarMatrizDeRotacao(const float angulo,const EIXO eixoDeRotacao) {
+matrix3d *gerarMatrizDeRotacao(const float anguloEmGraus,const EIXO eixoDeRotacao) {
+  float angulo = graus2Radianos(anguloEmGraus);
   matrix3d * p;
   p = (matrix3d *) malloc(sizeof(matrix3d));
 
