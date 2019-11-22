@@ -47,3 +47,5 @@ object * ParalProjFaces(object3d *);
 object * PerspProjFaces(object3d *, float, float);
 
 matrix3d *gerarMatrizDeDeslocamento(const float dX, const float dY, const float dZ);
+matrix3d *gerarMatrizDeEscala(const float sX, const float sY, const float sZ);
+matrix3d *gerarMatrizDeProjecaoPerspectiva(const float Zvp, const float Zcp);

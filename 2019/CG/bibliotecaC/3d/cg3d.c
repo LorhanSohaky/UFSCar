@@ -154,6 +154,58 @@ matrix3d *gerarMatrizDeDeslocamento(const float dX, const float dY, const float 
   return p;
 }
 
+matrix3d *gerarMatrizDeEscala(const float sX, const float sY, const float sZ) {
+  matrix3d * p;
+  p = (matrix3d *) malloc(sizeof(matrix3d));
+  p->a11 = sX;
+  p->a12 = 0;
+  p->a13 = 0;
+  p->a14 = 0;
+
+  p->a21 = 0;
+  p->a22 = sY;
+  p->a23 = 0;
+  p->a24 = 0;
+
+  p->a31 = 0;
+  p->a32 = 0;
+  p->a33 = sZ;
+  p->a34 = 0;
+
+  p->a41 = 0;
+  p->a42 = 0;
+  p->a43 = 0;
+  p->a44 = 1;
+  
+  return p;
+}
+
+matrix3d *gerarMatrizDeProjecaoPerspectiva(const float Zvp, const float Zcp) {
+  matrix3d * p;
+  p = (matrix3d *) malloc(sizeof(matrix3d));
+  p->a11 = 1;
+  p->a12 = 0;
+  p->a13 = 0;
+  p->a14 = 0;
+
+  p->a21 = 0;
+  p->a22 = 1;
+  p->a23 = 0;
+  p->a24 = 0;
+
+  p->a31 = 0;
+  p->a32 = 0;
+  p->a33 = Zvp / (Zvp-Zcp);
+  p->a34 = (-Zvp*Zcp) / (Zvp-Zcp);
+
+  p->a41 = 0;
+  p->a42 = 0;
+  p->a43 = 1 / (Zvp-Zcp);
+  p->a44 = -Zcp / (Zvp-Zcp);
+  
+  return p;
+}
+
 point3d * LinearTransf3d(matrix3d * W, point3d * u) {
  point3d * p;
   
