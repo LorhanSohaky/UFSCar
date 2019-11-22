@@ -128,6 +128,32 @@ int SetObject3D(face * fc, object3d * ob) {
   return 0;
   }
 
+matrix3d *gerarMatrizDeDeslocamento(const float dX, const float dY, const float dZ) {
+  matrix3d * p;
+  p = (matrix3d *) malloc(sizeof(matrix3d));
+  p->a11 = 1;
+  p->a12 = 0;
+  p->a13 = 0;
+  p->a14 = dX;
+
+  p->a21 = 0;
+  p->a22 = 1;
+  p->a23 = 0;
+  p->a24 = dY;
+
+  p->a31 = 0;
+  p->a32 = 0;
+  p->a33 = 1;
+  p->a34 = dZ;
+
+  p->a41 = 0;
+  p->a42 = 0;
+  p->a43 = 0;
+  p->a44 = 1;
+  
+  return p;
+}
+
 point3d * LinearTransf3d(matrix3d * W, point3d * u) {
  point3d * p;
   

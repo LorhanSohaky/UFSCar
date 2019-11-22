@@ -46,3 +46,4 @@ object3d * ConvertObjectBase(point3d *, point3d *, point3d *, object3d *);
 object * ParalProjFaces(object3d *);
 object * PerspProjFaces(object3d *, float, float);
 
+matrix3d *gerarMatrizDeDeslocamento(const float dX, const float dY, const float dZ);

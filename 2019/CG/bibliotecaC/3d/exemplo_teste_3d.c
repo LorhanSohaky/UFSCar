@@ -67,7 +67,7 @@ int main(void) {
 
  Normal = SetNormal(-1, 0, 0);
  ViewUp = SetViewUp(0, 1, 0);
- Observador = SetObserver(100, -50, 0);
+ Observador = SetObserver(5, 0, 0);
  
  ob = ConvertObjectBase(Normal,ViewUp,Observador,objeto);
  
