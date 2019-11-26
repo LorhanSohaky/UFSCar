@@ -1,3 +1,3 @@
 #!/bin/bash
 
-ghc orcamento.hs comandos/comandos.dominio.hs
+ghc orcamento.hs comandos/comandos.dominio.hs && ./orcamento
