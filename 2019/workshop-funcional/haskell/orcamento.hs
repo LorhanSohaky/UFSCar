@@ -1,3 +1,9 @@
+import Orcamento.Comandos.Dominio
+
 main = do
-  putStrLn "Oi!"
-  putStrLn "Oi!"
+  processarComandos
+
+processarComandos = do
+  linha <- getLine
+  print (identificarComando linha)
+  processarComandos
