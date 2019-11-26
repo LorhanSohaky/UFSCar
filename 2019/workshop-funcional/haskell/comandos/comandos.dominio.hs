@@ -31,3 +31,25 @@ module Orcamento.Comandos.Dominio
         Right $ Detalhar idNo protocolo []
       _ -> Left "Comando desconhecido!"
 
+  condensar :: IDNo -> No -> Either String No
+  condensar idNo no = 
+    case no of
+      (Folha idNo' _) | idNo' == idNo ->
+        Left "Nó já condensado!"
+      (Folha _ _) ->
+        Right no
+      (Intermediario idNo' filhos) | idNo' == idNo ->
+        Right $ Folha idNo' (valorDos filhos)
+      (Intermediario _ filhos) ->
+        case (mapM (condensar idNo') filhos) of
+          Right filhos' -> Right $ Intermediario idNo' filhos'
+          Left msg -> Left msg
+
+  valorDos :: [No] -> Float
+  valorDos [] = 0
+  valorDos (x:xs) =
+    let somaDosXs = valorDos xs
+    in case x of
+      Folha _ valor -> valor + somaDosXs
+      Intermediario _ filhos -> (valorDos filhos) + somaDosXs
+    
