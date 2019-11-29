@@ -23,23 +23,29 @@ int main( void ) {
 	SetColor( 0, 0, 1, palheta );
 
 	face *fQuadrado, *fTriangulo;
-	fQuadrado  = CreateFace( 4 );
-	fTriangulo = CreateFace( 3 );
+	fQuadrado = CreateFace( 4 );
 	SetPointFace( 1.0, 5.0, 0.0, 1, fQuadrado );
 	SetPointFace( 5.0, 5.0, 0.0, 1, fQuadrado );
 	SetPointFace( 5.0, 1.0, 0.0, 1, fQuadrado );
 	SetPointFace( 1.0, 1.0, 0.0, 1, fQuadrado );
 
+	fTriangulo = CreateFace( 3 );
+	SetPointFace( -3.0, 0.0, 0.0, 1, fTriangulo );
+	SetPointFace( -0.9, -5.1, 0.0, 1, fTriangulo );
+	SetPointFace( -5.1, -5.1, 0.0, 1, fTriangulo );
+
 	object *casa;
 
 	object3d *objQuadrado, *objQuadradoBase;
-	objQuadrado = CreateObject3D( 1 );
+	objQuadrado = CreateObject3D( 2 );
 	SetObject3D( fQuadrado, objQuadrado );
+	SetObject3D( fTriangulo, objQuadrado );
 
 	objQuadradoBase = ConvertObjectBase( Normal, ViewUp, Observador, objQuadrado );
 	casa			= PerspProjFaces( objQuadradoBase, 0, -60 );
 
 	DrawObject( &casa[0], janela, porta, dispositivo, 3 );
+	DrawObject( &casa[1], janela, porta, dispositivo, 3 );
 
 	Dump2PIPE( dispositivo, palheta );
 
