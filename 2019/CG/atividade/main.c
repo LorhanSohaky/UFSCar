@@ -64,6 +64,39 @@ object3d *desenharTeto() {
 	return objTeto;
 }
 
+object3d *desenharCorpo() {
+	face *	f1, *f2, *f3, *f4, *f5;
+	matrix3d *m1, *m2, *m3, *m4, *m5, *m6, *m7;
+
+	m1 = gerarMatrizDeDeslocamento( -6, -10.1, 0 );
+	m2 = gerarMatrizDeDeslocamento( -6, -10.1, 100 );
+	m3 = gerarMatrizDeDeslocamento( -4, -10.0, 20 );
+	m4 = gerarMatrizDeEscala( 20, 1.05, 1 );
+	m5 = gerarMatrizDeRotacao( 90, Y );
+
+	f1 = CreateFace( 4 );
+	criarQuadrado( f1 );
+	TransformacaoLinearFace( m1, f1 );
+
+	f2 = CreateFace( 4 );
+	criarQuadrado( f2 );
+	TransformacaoLinearFace( m2, f2 );
+
+	f3 = CreateFace( 4 );
+	criarQuadrado( f3 );
+	TransformacaoLinearFace( m3, f3 );
+	TransformacaoLinearFace( m4, f3 );
+	TransformacaoLinearFace( m5, f3 );
+
+	object3d *objTeto;
+	objTeto = CreateObject3D( 3 );
+	SetObject3D( f1, objTeto );
+	SetObject3D( f2, objTeto );
+	SetObject3D( f3, objTeto );
+
+	return objTeto;
+}
+
 int main( void ) {
 	bufferdevice *dispositivo;
 	window *	  janela;
@@ -111,15 +144,24 @@ int main( void ) {
 
 	object *  teto;
 	object3d *objTetoBase, *objTeto;
-	objTeto = desenharTeto();
 
+	objTeto		= desenharTeto();
 	objTetoBase = ConvertObjectBase( Normal, ViewUp, Observador, objTeto );
 	teto		= PerspProjFaces( objTetoBase, 1, -60 );
-
 	DrawObject( &teto[0], janela, porta, dispositivo, 3 );
 	DrawObject( &teto[1], janela, porta, dispositivo, 5 );
 	DrawObject( &teto[2], janela, porta, dispositivo, 1 );
 	DrawObject( &teto[3], janela, porta, dispositivo, 1 );
+
+	object *  corpo;
+	object3d *objCorpoBase, *objCorpo;
+
+	objCorpo	 = desenharCorpo();
+	objCorpoBase = ConvertObjectBase( Normal, ViewUp, Observador, objCorpo );
+	corpo		 = PerspProjFaces( objCorpoBase, 1, -60 );
+	DrawObject( &corpo[0], janela, porta, dispositivo, 2 );
+	DrawObject( &corpo[1], janela, porta, dispositivo, 4 );
+	DrawObject( &corpo[2], janela, porta, dispositivo, 3 );
 
 	Dump2PIPE( dispositivo, palheta );
 
