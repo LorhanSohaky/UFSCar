@@ -293,6 +293,12 @@ void TransformacaoLinear( matrix3d *W, object3d *objeto ) {
 	}
 }
 
+void TransformacaoLinearFace( matrix3d *W, face *f ) {
+	for( int j = 0; j < f->numbers_of_points; j++ ) {
+		f->points[j] = *LinearTransf3d( W, &( f->points[j] ) );
+	}
+}
+
 point3d *LinearTransf3d( matrix3d *W, point3d *u ) {
 	point3d *p;
 

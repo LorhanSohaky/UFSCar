@@ -48,3 +48,4 @@ matrix3d *gerarMatrizDeProjecaoPerspectiva( const float Zvp, const float Zcp );
 matrix3d *gerarMatrizDeRotacao( const float anguloEmGraus, const EIXO eixoDeRotacao );
 
 void TransformacaoLinear( matrix3d *W, object3d *objeto );
+void TransformacaoLinearFace( matrix3d *W, face *f );
