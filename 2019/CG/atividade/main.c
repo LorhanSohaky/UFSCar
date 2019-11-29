@@ -21,6 +21,49 @@ void criarTriangulo( face *f ) {
 	SetPointFace( -5.1, -5.1, 0.0, 1, f );
 }
 
+object3d *desenharTeto() {
+	face *	f1, *f2, *f3, *f4, *f5;
+	matrix3d *m1, *m2, *m3, *m4, *m5, *m6, *m7;
+
+	m1 = gerarMatrizDeDeslocamento( 0, 0, 100 );
+	m2 = gerarMatrizDeEscala( 20, 1.15, 1 );
+	m3 = gerarMatrizDeRotacao( -22.1, X );
+	m4 = gerarMatrizDeRotacao( 90, Y );
+	m5 = gerarMatrizDeDeslocamento( -0.3, -5.3, 89.5 );
+	m6 = gerarMatrizDeRotacao( 22.1, X );
+	m7 = gerarMatrizDeDeslocamento( -4.65, -5.3, 89.5 );
+
+	f1 = CreateFace( 3 );
+	criarTriangulo( f1 );
+
+	f2 = CreateFace( 3 );
+	criarTriangulo( f2 );
+	TransformacaoLinearFace( m1, f2 );
+
+	f3 = CreateFace( 4 );
+	criarQuadrado( f3 );
+	TransformacaoLinearFace( m2, f3 );
+	TransformacaoLinearFace( m3, f3 );
+	TransformacaoLinearFace( m4, f3 );
+	TransformacaoLinearFace( m5, f3 );
+
+	f4 = CreateFace( 4 );
+	criarQuadrado( f4 );
+	TransformacaoLinearFace( m2, f4 );
+	TransformacaoLinearFace( m6, f4 );
+	TransformacaoLinearFace( m4, f4 );
+	TransformacaoLinearFace( m7, f4 );
+
+	object3d *objTeto;
+	objTeto = CreateObject3D( 4 );
+	SetObject3D( f2, objTeto );
+	SetObject3D( f1, objTeto );
+	SetObject3D( f3, objTeto );
+	SetObject3D( f4, objTeto );
+
+	return objTeto;
+}
+
 int main( void ) {
 	bufferdevice *dispositivo;
 	window *	  janela;
@@ -66,46 +109,9 @@ int main( void ) {
 	// DrawObject( &casa[0], janela, porta, dispositivo, 3 );
 	// DrawObject( &casa[1], janela, porta, dispositivo, 3 );
 
-	face *	f1, *f2, *f3, *f4, *f5;
-	matrix3d *m1, *m2, *m3, *m4, *m5, *m6, *m7;
-
-	m1 = gerarMatrizDeDeslocamento( 0, 0, 100 );
-	m2 = gerarMatrizDeEscala( 20, 1.15, 1 );
-	m3 = gerarMatrizDeRotacao( -22.1, X );
-	m4 = gerarMatrizDeRotacao( 90, Y );
-	m5 = gerarMatrizDeDeslocamento( -0.3, -5.3, 89.5 );
-	m6 = gerarMatrizDeRotacao( 22.1, X );
-	m7 = gerarMatrizDeDeslocamento( -4.65, -5.3, 89.5 );
-
-	object *teto;
-
-	f1 = CreateFace( 3 );
-	criarTriangulo( f1 );
-
-	f2 = CreateFace( 3 );
-	criarTriangulo( f2 );
-	TransformacaoLinearFace( m1, f2 );
-
-	f3 = CreateFace( 4 );
-	criarQuadrado( f3 );
-	TransformacaoLinearFace( m2, f3 );
-	TransformacaoLinearFace( m3, f3 );
-	TransformacaoLinearFace( m4, f3 );
-	TransformacaoLinearFace( m5, f3 );
-
-	f4 = CreateFace( 4 );
-	criarQuadrado( f4 );
-	TransformacaoLinearFace( m2, f4 );
-	TransformacaoLinearFace( m6, f4 );
-	TransformacaoLinearFace( m4, f4 );
-	TransformacaoLinearFace( m7, f4 );
-
-	object3d *objTeto, *objTetoBase;
-	objTeto = CreateObject3D( 4 );
-	SetObject3D( f2, objTeto );
-	SetObject3D( f1, objTeto );
-	SetObject3D( f3, objTeto );
-	SetObject3D( f4, objTeto );
+	object *  teto;
+	object3d *objTetoBase, *objTeto;
+	objTeto = desenharTeto();
 
 	objTetoBase = ConvertObjectBase( Normal, ViewUp, Observador, objTeto );
 	teto		= PerspProjFaces( objTetoBase, 1, -60 );
