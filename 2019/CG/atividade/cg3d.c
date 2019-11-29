@@ -316,7 +316,7 @@ object3d *ConvertObjectBase( point3d *w, point3d *vu, point3d *ov, object3d *ob 
 
 	u = VectorProduct3d( vu, w );
 	u = Versor3d( u );
-	v = VectorProduct3d( u, w );
+	v = VectorProduct3d( w, u );
 
 	H	  = (matrix3d *)malloc( sizeof( matrix3d ) );
 	H->a11 = u->x;
