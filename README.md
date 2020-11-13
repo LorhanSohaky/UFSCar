@@ -116,7 +116,7 @@ Usada a linguagem Python para implementar os algoritmos.
 ## CONSTRUÇÃO DE COMPILADORES 1 (CC1)
 Usada a linguagem Java e a biblioteca ANTLR para criar um compilador para a linguagem LUA.
 
-**Professor:** Daniel Lucredio
+**Professor:** Daniel Lucrédio
 
 - Análise sintática
 - Análise semântica
@@ -163,6 +163,13 @@ Aprendendo sobre o sistema operacional Linux, desde a compilação até os módu
 - Pipe da saída
 - Sockets
 - Substituição de bibliotecas padrões
+
+## PROGRAMAÇÃO ORIENTADA A OBJETOS AVANÇADA
+Aprendendo sobre alguns princípios de orientação a objetos, como Open-Close, Liskov Substitution e Single Responsibility em diferentes linguagens.
+
+**Professor:** Daniel Lucrédio
+
+TODO 
 
 
 ## Consultoria e Aplicações em Tecnologia de Informação (CATI Jr.)
