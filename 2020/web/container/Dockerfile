@@ -1,6 +1,6 @@
 FROM tomcat:7.0.90-jre8
 USER root
-ADD *.war /usr/local/tomcat/webapps/
+# ADD *.war /usr/local/tomcat/webapps/
 
 
 COPY ./tomcat-config/tomcat-users.xml /usr/local/tomcat/conf/
