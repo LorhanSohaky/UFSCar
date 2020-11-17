@@ -1,7 +1,7 @@
 ---
 title: Princípio da Responsabilidade Única
 author: Lorhan Sohaky - 740951
-date: today
+date: 2020-11-17
 ---
 
 # Introdução
