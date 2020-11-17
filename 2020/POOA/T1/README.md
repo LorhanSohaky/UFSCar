@@ -67,32 +67,32 @@ const transitions = {
 
 async function generateVideo() {
   async function handleInput() {
-		const questions = [
-			{
-				type: 'text',
-				name: 'imageFolder',
-				message: 'Which is the image folder path?',
-				initial: 'images'
-			},
-			{
-				type: 'text',
-				name: 'outputFolder',
-				message: 'Which is the output path?',
-				initial: 'output'
-			},
-			{
-				type: 'text',
-				name: 'title',
-				message: 'Which is the title of the video?'
-			},
-			{
-				type: 'confirm',
-				name: 'waitUser',
-				message:
-					'Do you want to wait for your confirmation before generating the video?',
-				initial: false
-			}
-		]
+    const questions = [
+      {
+        type: 'text',
+        name: 'imageFolder',
+        message: 'Which is the image folder path?',
+        initial: 'images'
+      },
+      {
+        type: 'text',
+        name: 'outputFolder',
+        message: 'Which is the output path?',
+        initial: 'output'
+      },
+      {
+        type: 'text',
+        name: 'title',
+        message: 'Which is the title of the video?'
+      },
+      {
+        type: 'confirm',
+        name: 'waitUser',
+        message:
+          'Do you want to wait for your confirmation before generating the video?',
+        initial: false
+      }
+    ]
 
     const response = await prompts(questions)
     return response
@@ -100,7 +100,7 @@ async function generateVideo() {
 
   const response = await handleInput()
 
-	async function preparePhotos(inputDir,outputDir) {
+  async function preparePhotos(inputDir,outputDir) {
     function listFiles (dir) {
       // List files inside the directory
     }
@@ -131,15 +131,15 @@ async function generateVideo() {
     }
 
     return editedFiles
-	}
+  }
 
-	await preparePhotos(response.imageFolder, response.outputFolder)
+  await preparePhotos(response.imageFolder, response.outputFolder)
 
-	response.waitUser &&
+  response.waitUser &&
     (await prompts({ type: 'confirm', message: 'Generate video?' }))
 
-	async function formatPhotos(dir) {
-		const timelineDir = `${dir}/timeline`
+  async function formatPhotos(dir) {
+    const timelineDir = `${dir}/timeline`
 
     const struct = getStructRecursively(timelineDir)
     createDirectories(struct, dir)
