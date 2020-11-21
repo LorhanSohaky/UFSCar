@@ -164,6 +164,17 @@ Aprendendo sobre o sistema operacional Linux, desde a compilação até os módu
 - Sockets
 - Substituição de bibliotecas padrões
 
+## SISTEMAS DISTRIBUÍDOS
+Aprendendo sobre sistemas distribuídos, desde o que são até como lidar com sincronização de eventos
+**Professor:** Hermes Senger
+- Algumas técnicas de sincronização
+- Tipos de transparências
+- Serviços de mensageria
+- RPC
+- Eleição de líder
+- Nomeação
+
+
 ## PROGRAMAÇÃO ORIENTADA A OBJETOS AVANÇADA
 Aprendendo sobre alguns princípios de orientação a objetos, como Open-Close, Liskov Substitution e Single Responsibility em diferentes linguagens.
 
