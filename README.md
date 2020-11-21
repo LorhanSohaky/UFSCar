@@ -180,7 +180,7 @@ Aprendendo sobre alguns princípios de orientação a objetos, como Open-Close, 
 
 **Professor:** Daniel Lucrédio
 
-TODO 
+- Princípio da responsabilidade única
 
 
 ## Consultoria e Aplicações em Tecnologia de Informação (CATI Jr.)
