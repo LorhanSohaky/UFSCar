@@ -9,7 +9,8 @@
         <title><fmt:message key="livrariaVirtual"/></title>
     </head>
     <body>
-        <a href="livros"><fmt:message key="crudLivros"/></a>
+        <a href="livros"><fmt:message key="crudLivros"/></a><br/>
+        <a href="editoras"><fmt:message key="crudEditoras"/></a>
     </body>
     </fmt:bundle>
 </html>
