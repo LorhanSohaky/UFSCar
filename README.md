@@ -195,6 +195,8 @@ Aprendendo sobre como é feito o desenvolvimento para web e suas principais nuan
 - JSP Standard Tag Library
 - Internacionalização
 - Java Database Connectivity
+- AJAX
+- Autenticação de usuário
 
 ## Consultoria e Aplicações em Tecnologia de Informação (CATI Jr.)
 - React JS 
