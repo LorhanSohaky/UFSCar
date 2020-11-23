@@ -1,0 +1,12 @@
+{
+  "name": "worker-email",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "dependencies": {
+    "zeromq": "5"
+  },
+  "scripts": {
+    "start":"node index.js && node sendEmail.js"
+  }
+}
