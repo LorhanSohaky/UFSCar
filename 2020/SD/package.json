@@ -1,0 +1,21 @@
+{
+  "name": "sd",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "Lorhan Sohaky <lorhansohaky@gmail.com>",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "lint":"standard . **/*.js --fix"
+  },
+  "workspaces": [
+    "worker-estoque",
+    "worker-email",
+    "worker-nota-fiscal",
+    "worker-main",
+    "broker"
+  ],
+  "devDependencies": {
+    "standard": "^15.0.0"
+  }
+}

@@ -164,13 +164,39 @@ Aprendendo sobre o sistema operacional Linux, desde a compilação até os módu
 - Sockets
 - Substituição de bibliotecas padrões
 
+## SISTEMAS DISTRIBUÍDOS
+Aprendendo sobre sistemas distribuídos, desde o que são até como lidar com sincronização de eventos.
+**Professor:** Hermes Senger
+- Algumas técnicas de sincronização
+- Tipos de transparências
+- Serviços de mensageria
+- RPC
+- Eleição de líder
+- Nomeação
+
+
 ## PROGRAMAÇÃO ORIENTADA A OBJETOS AVANÇADA
 Aprendendo sobre alguns princípios de orientação a objetos, como Open-Close, Liskov Substitution e Single Responsibility em diferentes linguagens.
 
 **Professor:** Daniel Lucrédio
 
-TODO 
+- Princípio da responsabilidade única
 
+## DESENVOLVIMENTO DE SOFTWARE PARA WEB 1
+Aprendendo sobre como é feito o desenvolvimento para web e suas principais nuances.
+**Professor:** Delano Medeiros Beder
+
+- Arquitetura Cliente-Servidor
+- Funcionamento do protocolo HTTP
+- Redirecionamento, encaminhamento e inclusão
+- Atributos no escopo da requisição, da aplicação e da sessão
+- Java Server Page
+- Expression Language
+- JSP Standard Tag Library
+- Internacionalização
+- Java Database Connectivity
+- AJAX
+- Autenticação de usuário
 
 ## Consultoria e Aplicações em Tecnologia de Informação (CATI Jr.)
 - React JS 
